@@ -1,0 +1,195 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+.container_mod{
+  margin: auto;
+  min-width: 1150px;
+  height: calc(100% - 254px);
+  overflow: auto;
+}
+label{
+  display: inline-flex!important;
+}
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.link{
+  cursor: pointer;
+}
+
+.mt-w {
+  margin-top: 6px;
+}
+
+.radiobnt {
+  font-weight: 700;
+}
+/* sub filtro */
+.sub-filt{
+  width: 100%;
+  font-weight: 600;
+  margin: 0 3rem;
+}
+/* sub filtro */
+
+#sidebar {
+  /* don't forget to add all the previously mentioned styles here too */
+  background: #7386D5;
+  color: #fff;
+  transition: all 0.3s;
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 90vh;
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: #6d7fcc;
+}
+
+#sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+
+#sidebar ul li a:hover {
+  color: #7386D5;
+  background: #fff;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+  color: #fff;
+  background: #6d7fcc;
+}
+
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: #6d7fcc;
+}
+
+form .font-w {
+  text-shadow: 1px 1px 3px black;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+}
+
+.DatosPersonales,
+.InfoAdicional,
+.PerfilCrediticio,
+.RegistroLlamadas {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: auto;
+  padding: 20px;
+}
+
+.DatosPersonales {
+  overflow: hidden;
+}
+
+td,
+li {
+  cursor: pointer;
+}
+.none{
+  display: none;
+}
+
+.contfoot {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.form-group select {
+  background-color: rgba(2, 2, 2, .3);
+  color: white;
+  border: none;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+option {
+  color: black;
+  background-color: rgb(255, 255, 255, .6);
+}
+
+.font-w {
+  text-shadow: 1px 1px 3px black;
+  background-color: rgb(255, 255, 255, .6);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.drod_mod{
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  min-width: 10rem;
+  padding: .5rem 0;
+  margin: .125rem 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+}
+.act{
+  background-color: #007bff!important;
+}
+/*********** modal ***********/
+.bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .4);
+}
+.modal-body{
+  max-height: 60vh;
+  overflow: auto;
+  color: black;
+  font-weight: 600;
+}
+.li_user {
+  list-style-type: none;
+  margin: 5px 0;
+}
+/***********↑ modal ↑***********/
+
+

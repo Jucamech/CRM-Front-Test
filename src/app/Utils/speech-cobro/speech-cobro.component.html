@@ -1,0 +1,94 @@
+<div class="content" style="font-size: 36px;">
+  <div class="{{ intro }}">
+
+      <br> <h1 style="color: green; font-size: 50px;">COBRO</h1>
+      <br>
+      <br>
+      <br><b>Tengo</b> aquí­ una notita
+      <br>del <b>departamento</b> de reclamaciones
+      <br>
+      <br>Tenemos otras <b>reclamaciones</b>
+      <br>completamente <b>listas</b> para enviar.
+      <br>
+      <br><b>Recuerde</b> que este proceso
+      <br>es como una pelea de <b>boxeo</b>.
+      <br>
+      <br>Cada ves que <b>nosotros</b> enviamos
+      <br>reclamaciones, es como enviar un <b>golpe</b>.
+      <br>
+      <br>Si nos quedamos <b>quietos</b> para ver que pasa,
+      <br>nos van a <b>devolver</b> el golpe
+      <br> y nos van a noquear
+      <br>
+      <br>Por eso tenemos que ser <b>contundentes</b>
+      <br>con el envio de <b>reclamaciones</b>,
+      <br>no nos <b>podemos</b> quedar quietos.
+      <br>
+      <br>Ahora bien (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+      <br> Para estas <b>reclamaciones</b>
+      <br>Poder ser <b>enviadas</b>,
+      <br>a los buros de <b>credito</b>,
+      <br><span style="color: blue;">Experian, <b>Equifax</b>, TransUnion</span>
+      <br>es necesesario que <b>usted</b> haga su deposito..
+      <br>
+      <br>Nosotros <b>podemos</b> esperar hasta el dia ____
+      <br>pero si <b>usted</b> hace su pago antes,
+      <br>enviamos sus <b>reclamaciones</b> antes
+      <br>
+      <br>Que <b>prefiere</b> usted,
+      <br>esperar <b>hasta</b> el dia ___
+      <br>o hacer su <b>deposito</b>  el dia de hoy...
+      <br>
+      <br>
+      <br>Que <b>usted</b> prefiere?
+      <br>hacerlo el <b>____</b>
+      <br>o hacerlo hoy?<br><br>
+
+    <button class="b-m-r" type="button" (click)="verBtns('ndeposito')">
+        <b>No quiere adelantar</b>
+    </button>
+
+    <button class="b-m-r" type="button"  (click)="verBtns('sdeposito')">
+      <b>Adelantar Paguito</b>
+    </button><br><br>
+
+      <span style="color: green;">(<b>Depende</b> lo que el diga</span><br>
+
+      <span style="color: green;">si es banco <b>mañana</b>, si es zelle hoy)</span><br>
+
+    <div style="font-size: 36px;"  *ngIf="credi_CB" >
+            <br><b>Perfecto</b>,
+            <br>
+            <br> Yo le voy a pasar la notita
+            <br>a <b>nuestro</b> departamento
+            <br>de <b>contabilidad</b>, de que usted hace
+            <br>su deposito el <b>dia</b> ____
+    </div>
+
+    <div style="font-size: 36px;"  *ngIf="credi_CB2">
+            <br>Ok <b>perfecto</b>
+            <br>
+            <span style="color: blue;">(si es banco)</span>
+            <br>
+            <br>En que <b>tiempo</b> paga usted?
+            <br>en la <b>mañana</b> o en el lunch?
+            <br>como le <b>queda</b> mejor?
+            <br>
+            <span style="color: green;">(Esperar respuesta)</span>
+    </div>
+
+      <br>
+      <br>Cualquier cosa nos <b>llama</b> para atras,
+      <br>y recuerde <b>cualquier</b> documento
+      <br>que <b>reciba</b> de parte de la agencia
+      <br>de cobro <b>coleccion</b> nos tiene que
+      <br>informar <b>inmediatamente</b>.
+      <br>
+      <br>
+      <span style="color: green;">
+        <br> (<b>Objetivo</b> que adelante
+        <br> y que <b>confirme</b> si va a pagar)
+    </span>
+
+  </div>
+</div>

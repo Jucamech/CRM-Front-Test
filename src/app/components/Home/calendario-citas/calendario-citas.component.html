@@ -1,0 +1,111 @@
+
+<div class="bg" *ngIf="modal">
+  <div class="body_p">
+    <div class="modal-header">
+      <h4 class="modal-title m-auto">Calendario Cita - <b>{{ _CitaImport.nombres || 'LLamada' }} {{ _CitaImport.apellidos || 'Perdida' }}</b></h4>
+      <button type="button" class="close ml-0" (click)="cerrarModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="body_calendario m-3">
+      <div class="data_cita ">
+        <p>
+          Asignado por : <b>{{  _CitaImport.id_user | searchAgente2:agentes }}</b>
+        </p>
+        <p>
+          Asignado a : <b>{{  _CitaImport.id_asignado | searchAgente2:agentes }}</b>
+        </p>
+        <p>
+          Hora Actual de la Cita : <b>{{  _CitaImport.fechahora | date:'shortTime' }}</b>
+        </p>
+        <p>
+          Total de Intentos : <b [class.red]="_CitaImport.campos_adicionales.length > 6">{{  _CitaImport.campos_adicionales.length }}</b>
+        </p>
+        <p>
+          Motivo :<b>
+            <span *ngIf="_CitaImport.motivo == '1' ">Lectura de reporte</span>
+            <span *ngIf="_CitaImport.motivo == '2' ">Hablar de caso</span>
+            <span *ngIf="_CitaImport.motivo == '3' ">Documentos pendientes</span>
+            <span *ngIf="_CitaImport.motivo == '4' ">Firmar contrato</span>
+            <span *ngIf="_CitaImport.motivo == '5' ">Cobro</span>
+            <span *ngIf="_CitaImport.motivo == '6' ">Trackings</span>
+            <span *ngIf="_CitaImport.motivo == '7' ">LLamada 800</span>
+            <span *ngIf="_CitaImport.motivo == '8' ">Venta</span>
+            <span *ngIf="_CitaImport.motivo == '9' ">Otra LLamada</span>
+          </b>
+        </p>
+        <p>
+          Nota Actual :<b [class.green]="_CitaImport.notas == nota_ok ">{{  _CitaImport.notas }}</b>
+        </p>
+      </div>
+      <div class="boton d-flex justify-content-center" *ngIf="cuadros.length > 0">
+        <a class="d-flex justify-content-center" [routerLink]="['/llamarcliente/',_CitaImport.id_cliente]">
+          <button type="button" class="btn btn-success" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-forward-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z"/>
+            </svg>
+            Ir a LLamar Cliente</button>
+        </a>
+      </div>
+      <div class="cuadros d-flex justify-content-around">
+        <div class="cuadro" *ngFor="let item of cuadros">
+          <div class="cuar mt-2" [class]="item['resultado']" (click)="verDetalles(item)">
+            <p *ngFor="let r of result_n">
+              <b *ngIf="r[1] == item['resultado']">{{ r[0] }}</b>
+            </p>
+            <p>
+              {{ item.did }}
+            </p>
+            <p>
+              {{ item.asigado | searchAgente2:agentes }}
+            </p>
+            <p>
+              {{ item.hora_asig | date:'shortTime' }}
+            </p>
+            <b *ngIf="item['resultado'] == 'MG' ">Grabadora</b>
+          </div>
+        </div>
+        <div class="cuadro" *ngIf="!cuadros.length">
+          <a class="d-flex justify-content-center" [routerLink]="['/llamarcliente/',_CitaImport.id_cliente]">
+            <button type="button" class="btn btn-success btn-sm" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-forward-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z"/>
+              </svg>
+              Llamar</button>
+          </a>
+          <div class="cuar mt-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg" *ngIf="minmodal" >
+  <div class="body_p2">
+    <div class="modal-header">
+      <button type="button" class="close ml-0" (click)="minmodal = false">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="body_detalles h100-p p-3">
+      <p>
+        Asignado: <b>{{ detallesCita.asigado | searchAgente2:agentes }}</b>
+      </p>
+      <p>
+        Resultado:<span *ngFor="let r of result_n">
+          <b *ngIf="r[1] == detallesCita.resultado ">{{ r[0] }}</b>
+        </span>
+      </p>
+      <p>
+        Hora de cita: <b>{{ detallesCita.hora_asig }}</b>
+      </p>
+      <p>
+        Did: <b>{{ detallesCita.did }}</b>
+      </p>
+      <p><b>Nota:</b></p>
+      <div class="nota_cont">
+        {{ detallesCita.nota }}
+      </div>
+    </div>
+  </div>
+</div>

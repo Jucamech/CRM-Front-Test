@@ -1,0 +1,45 @@
+
+.header{
+  background-color: transparent;
+  width: 100%;
+}
+.citas_body{
+  overflow: auto;
+  min-height: 200px!important;
+}
+.w100{
+  width: 100%;
+}
+.w-f{
+  margin: 0 2px;
+}
+
+/* ***** (((( scroll )))) ***** */
+.citas_body::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.citas_body::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+.citas_body::-webkit-scrollbar-button:increment,
+.citas_body::-webkit-scrollbar-button {
+  display: none;
+}
+
+.citas_body::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.citas_body::-webkit-scrollbar-thumb {
+  background-color: #14c40e;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.citas_body::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* ***** scroll ***** */

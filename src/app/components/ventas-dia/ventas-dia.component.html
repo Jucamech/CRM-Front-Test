@@ -1,0 +1,98 @@
+<div class="row">
+  <div class="col-12">
+    <h5 class="text-center text-light py-3">Ventas del Día - falta!</h5>
+  </div>
+</div>
+
+<form #F_P>
+  <!-- (change)="sendCliente(F_P)" -->
+  <div class="form-row" style="margin-right: 15px; margin-left: 15px">
+    <div class="form-group col-md-3">
+      <label for="cliente" class="text-white font-w">Nombre Cliente</label>
+      <input type="text" name="cliente" class="form-control" [(ngModel)]="ventasDia.cliente" #clienteI="ngModel" />
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="origen_prospecto" class="text-white font-w">Origen prospecto</label
+      >
+      <select
+        id="origen_prospecto"
+        name="origen_prospecto"
+        class="form-control"
+        maxlength="1"
+        [(ngModel)]="ventasDia.origen_prospecto"
+        #origen_prospectoI="ngModel"
+      >
+        <option value="0" name="origen_prospecto">Radio</option>
+        <option value="2" name="origen_prospecto">Anuncios</option>
+        <option value="1" name="origen_prospecto">redes</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="valor_inicial" class="text-white font-w">Valor Inicial</label>
+      <input type="text" name="valor_inicial" class="form-control" [(ngModel)]="ventasDia.valor_inicial" #valorI="ngModel" />
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="valor_mensual" class="text-white font-w">Valor Mensual</label>
+      <input type="text" name="valor_mensual" class="form-control" [(ngModel)]="ventasDia.valor_mensual" #valor_mensualI="ngModel" />
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="plan_pago" class="text-white font-w">Plan de Pago</label>
+      <select id="plan_pago" name="plan_pago" class="form-control" maxlength="1" [(ngModel)]="ventasDia.plan_pago" #plan_pagoI="ngModel">
+        <option value="0" name="plan_pago">Plan A</option>
+        <option value="1" name="plan_pago">Plan B</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="ventasDia.origen_prospecto == '0'">
+      <label for="radio" class="text-white font-w">Radio</label>
+      <select id="radio" name="radio" class="form-control" maxlength="1" [(ngModel)]="ventasDia.radio" #radioI="ngModel">
+        <option value="1" name="radio">Cantico Nuevo (NY)</option>
+        <option value="2" name="radio">Radio Aleluya (TX)</option>
+        <option value="3" name="radio">Radio Éxitos</option>
+        <option value="4" name="radio">La Mega (MA)</option>
+        <option value="5" name="radio">La Mega (CT)</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="ventasDia.origen_prospecto == '0'">
+      <label for="radio_dial" class="text-white font-w">Dial</label>
+      <select id="radio_dial" name="radio_dial" class="form-control" maxlength="1" [(ngModel)]="ventasDia.radio_dial" #radio_dialI="ngModel">
+        <option value="1" name="radio_dial">Cantico Nuevo (NY)</option>
+        <option value="2" name="radio_dial">radio_dial Aleluya (TX)</option>
+        <option value="3" name="radio_dial">radio_dial Éxitos</option>
+        <option value="4" name="radio_dial">La Mega (MA)</option>
+        <option value="5" name="radio_dial">La Mega (CT)</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="cobro" class="text-white font-w">Nueva Venta</label>
+      <button class="btn btn-primary btn-small btn-block" (click)="agregarVenta()">
+        Add...
+      </button>
+    </div>
+  </div>
+</form>
+
+<table class="table table-hover table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Fecha venta</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Plan de Pago</th>
+      <th scope="col">Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of dataVentas; index as i">
+      <td>{{ item.fecha_venta }}</td>
+      <td>{{ item.cliente }}</td>
+      <td>{{ item.plan_pago }}</td>
+      <td>{{ item.valor }}</td>
+    </tr>
+  </tbody>
+</table>

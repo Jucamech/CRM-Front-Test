@@ -1,0 +1,18 @@
+<div class="main_notas ml-4 mr-2" *ngIf="notas">
+  <h4>Historial de Notas</h4>
+  <div class="conten_nota" *ngFor="let item of notas">
+    <p>
+      <span class="tit">Agente : </span> <b>{{item.asignado || 'Dado de Baja'}}</b>
+      <span class="ml-3 tit"> Resultado :</span>
+        <span *ngFor="let r of result_n">
+          <b *ngIf="r[1] == item.resultado ">{{ r[0] }}</b>
+          <b *ngIf="item.resultado == 'N/C' ">No Contesta</b>
+        </span>
+    </p>
+    <p><span class="tit">Llamada : </span><b>{{item.llamada}}</b> <span class="ml-3 tit">DID : </span> <b>{{ item.did }}</b> </p>
+    <p><span class="tit">Fecha : </span> <b>{{ item.fecha_llamada | date:'mediumDate' }}</b> <span class="ml-3 tit">Hora : </span><b>{{ item.fecha_llamada | date:'shortTime' }}</b></p>
+    <p><span class="tit">Nota : </span> </p>
+    <div class="modal-body" [innerHTML]="sanitizer.bypassSecurityTrustHtml(item.nota)"></div>
+  </div>
+</div>
+

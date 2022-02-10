@@ -1,0 +1,406 @@
+<div class="content">
+  <div class="{{ intro }}">
+    <h1>1. <b>Pedir Documentos cliente antiguo</b></h1>
+    <br />
+    <b>Hola</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) <br />
+    ¿<b>Cómo</b> está? <br />
+    <b>Dios</b> le bendiga
+    <br />
+    <br />
+    <span style="color: green">(Esperar reacción)</span>
+    <br />
+    <br />
+    <br />
+    Me alegra <b>mucho</b> que se encuentre bien, <br />
+    lo importante es que <b>ahora</b> estamos hablando, <br />
+    y que le tengo <b>MUY</b> buenas noticias, <br />
+    ya que <b>usted</b> sabe <br />
+    que nosotros <b>llevamos</b> un proceso <br />
+    y una pelea <b>constante</b>, <br />
+    contra los <b>buros</b> de crédito, <br />
+    para lograr que los <b>PROBLEMAS</b> <br />
+    que usted tiene en el <b>crédito</b> <br />
+    con el favor de Dios sean <b>eliminados</b>.
+    <br />
+    <br />
+    <br />
+    (<span *ngIf="cliente">{{ cliente.nombres }}</span>), hay algo <b>IMPORTANTE</b> <br />
+    y es que usted sabe que los buros de <b>crédito</b>, <br />
+    siempre van a la mas minima <b>excusa</b> <br />
+    para <b>dilatar</b> el caso.
+    <br />
+    <br />
+    (<span *ngIf="cliente">{{ cliente.nombres }}</span>), nosotros <b>constantemente</b> <br />
+    hacemos <b>disputas</b> contra cada buro de crédito <br />
+    (experian, <b>equifax</b> y transunion ) <br />
+    con información <b>ACTUALIZADA</b> suya <br />
+    y siempre con <b>estrategias</b> diferentes, <br />
+    <b>enfocándonos</b> en conseguir el resultado final, <br />
+    que es <b>eliminar</b> todo lo negativo <br />
+    e <b>incrementar</b> su puntaje.
+    <br />
+    <br />
+    <br />
+    <br />
+    <b>Ok,</b>(<span *ngIf="cliente">{{ cliente.nombres }}</span>)? <br />
+    (<span *ngIf="cliente">{{ cliente.nombres }}</span>)hay algo <b>más,</b> <br />
+    nosotros tenemos una <b>VENTAJA,</b> <br />
+    es importante <b>establecer</b> que estamos haciendo <br />
+    un trabajo en <b>equipo</b>, <br />
+    por eso le <b>indicamos</b> a los buros de crédito <br />
+    que le envíen <b>directamente</b> a usted <br />
+    <b>TODA </b>la información, <br />
+    y de esta manera <b>ellos</b> <br />
+    <b><u>NO</u></b> van a tener como negarse, <br />
+    porque la <b>idea</b> es que tan<br />
+    <br />
+    pronto usted <b>reciba</b> los resultados nos <br />
+    lo debe enviar <b>inmediatamente</b>
+    <br />
+    <br />
+    <b>¿Okay? (<span *ngIf="cliente">{{ cliente.nombres }}</span>)</b>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="btn-uy mt-4">
+      <button type="button" class="btn_g" (click)="cambiarP('cviejo')">
+        CLIENTE VIEJO
+      </button>
+    </div>
+    <div class="btn-uy mt-4">
+      <button type="button" class="btn_g" (click)="cambiarP('cnuevo')">
+        CLIENTE NUEVO
+      </button>
+    </div>
+  </div>
+  <div class="{{ cviejo }}">
+    <br />Entonces <b>vamos</b> a hacer lo siguiente, <br />como ya llevamos
+    varios meses en el <b>proceso</b> <br />y los <b>resultados</b> hasta el
+    momento <br />han sido <b>buenos,</b> <br />tal y como le habíamos
+    <b>prometido</b>. <br />(<span *ngIf="cliente">{{ cliente.nombres }}</span>) vamos a seguir trabajando constantemente,
+    <br />hasta que obtengamos <b>MÁS</b> resultados positivos <br />los cuales
+    <b>Dios</b> mediante <br /><b>vamos</b> a logralo <br />de una forma
+    <b>metódica</b>, consistente <br />y con mucha <b>estrategia.</b> <br />De
+    cualquiera de los buros de credito <br />Experian, <b>Equifax</b> y
+    TransUnion <br />(<span *ngIf="cliente">{{ cliente.nombres }}</span>) vamos a tomar medidas de <b>PREVENCIÓN</b>
+    <br />para estar un paso <b>delante</b> de ellos, <br />y con eso evitar
+    cualquier<b> excusa</b>, <br />(<span *ngIf="cliente">{{ cliente.nombres }}</span>), En <b>este</b> momento <br />me
+    están <b>solicitando</b>:
+    <br />
+
+    <div class="btn-uy mt-4">
+      <button type="button" class="btn_g" (click)="cambiarP('lioso2')">
+        Licencia o Social
+      </button>
+    </div>
+    <div class="btn-uy mt-4">
+      <button type="button" class="btn_g" (click)="cambiarP('bill2')">
+        Bill actualizado
+      </button>
+    </div>
+  </div>
+
+  <div class="{{ cnuevo }}">
+    <br />
+    Entonces <b>vamos</b> a hacer lo siguiente (<span *ngIf="cliente">{{ cliente.nombres }}</span>). <br />
+    Vamos a <b>actualizar</b> toda la información, <br />
+    para que la tengamos de una vez <b>completa</b> <br />
+    y así tomar medidas de <b>PREVENCIÓN</b> <br />
+    para estar un paso <b>delante</b> de ellos, <br />
+    y con eso evitar cualquier <b>excusa,</b> <br />
+    en este <b>momento</b> me están solicitando: <br /><br />
+
+    <div class="btn-uy mt-4">
+      <button type="button" class="btn_g" (click)="cambiarP('lioso')">
+        Licencia o Social
+      </button>
+    </div>
+    <div class="btn-uy mt-4">
+      <button type="button" class="btn_g" (click)="cambiarP('bill')">
+        Bill actualizado
+      </button>
+    </div>
+  </div>
+
+  <div class="{{ lioso }}">
+    <br />
+    <br /><span style="color: #8c26e8">En la licencia/ el seguro social</span>
+    <br />
+    <br />
+    Para iniciar la <b>fotografí­a</b> del
+    <span style="color: #8c26e8">social/y la licencia</span> <br />
+    <b>TOMELAS</b> de una en una, <br />
+    <b>Colóquelas</b> por favor <br />
+    en una <b>superficie</b> plana.
+    <br />
+    <br />
+    Necesitamos que se le <b>vean</b> <br />
+    las <b>cuatro puntas,</b> <br />
+    la <b>foto</b> debe de tomarse <br />
+    en un lugar <b>iluminado,</b> <br />
+    y como la <b>licencia</b> normalmente <br />
+    tiene unos <b>sellos,</b> <br />
+    tómela <b>sin</b> flash, <br />
+    para que evitemos que el <b>brillo</b> <br />
+    y que pueda ser <b>legible</b> totalmente. <br />
+    A veces los <b>sellos</b> <br />
+    no dejen la fotografÍ­a legible.
+
+    <h2>INFORMACIÓN GENERAL</h2>
+    <span style="color: green">
+      <br />
+      * Si un cliente no tiene licencia: <br />
+      Se le pide el ID, certificado de nacimiento, pasaporte (del país), <br />
+      TAX ID o certificado de matrimonio. <br />
+      * Siempre asegurar dos biles.
+    </span>
+  </div>
+
+  <div class="{{ bill }}">
+    ¿Que <b>bill</b> tiene a su nombre?<br />
+    Necesitamos que <b>todos</b> los meses<br />
+    nos <b>enví­e</b> usted 2 biles.<br /><br />
+
+    (<span *ngIf="cliente">{{ cliente.nombres }}</span>), ya sea El de <b>la luz</b>, gas, teléfono o agua<br />
+    Y que además de eso sea de <b>este</b> mes,<br />
+    lo más <b>actual</b> posible<br /><br />
+
+    ¿Cuales biles tiene a <b>su</b> nombre?<br />
+    ¿Los de la luz, gas, teléfono o <b>agua</b>?<br />
+    ¿Cuales 2 me va <b>a enviar</b> ahora?<br />
+    <br /><br /><br />
+
+    <span style="color: green">
+      (Esperar reacción del cliente)<br />
+      (Se le piden dos biles)<br /><br />
+
+      (Se le pregunta que bill tiene a su nombre, es importante indagar, los
+      biles permitidos, son<br />
+      de la luz, gas, teléfono, agua; si no tiene alguno de los anteriores,
+      preguntarle si tiene statement<br />
+      del banco, contrato de arrendamiento, colillas de del trabajo, etc)
+      <br />
+      <br />
+      <br />
+      (SE ASEGURA LA HORA DEL ENVÍO Y SE LE RECUERDA QUE LLAME PARA ATRÁS APENAS
+      <br />
+      ENVÍE LOS DOCUMENTOS).<br /> </span
+    ><br /><br />
+
+    <h3>INFORMACIÓN GENERAL</h3>
+    <span style="color: green">
+      * Si un cliente no tiene licencia:<br />
+      Se le pide el ID, certificado de nacimiento, pasaporte (del país),<br />
+      TAX ID o certificado de matrimonio.<br />
+      * Siempre asegurar dos biles.<br />
+    </span>
+  </div>
+
+  <div class="{{ lioso2 }}">
+    <br />
+    Aquí me <b>indican </b>que su licencia esta <br /><span
+      style="color: #8c26e8"
+      >( Borrosa, cortada, con reflejos, ilegible),</span
+    >
+    <br />
+    pero usted <b>NO </b>se preocupe (<span *ngIf="cliente">{{ cliente.nombres }}</span>), <br />
+    <b>solamente</b> vuelva enviemela, <br />
+    que eso posiblemente es solo una <b>forma</b> <br />
+    de ellos querer <b>evadirnos,</b> <br />
+    pero como nosotros estamos <b>preparados</b> <br />
+    para cualquier <b>eventualidad</b> <br />
+    que <b>ellos</b> nos quieran dar, <br />
+    <b><u>NO</u></b> les vamos a permitir que logren, <br />
+    <b>Dilatar</b> el caso<br />
+    <br />
+    además, <b>envieme</b> la licencia sin flash que se <br />
+    vean las 4 esquinas y que no se vean <b>borrosas</b> <br />
+    y yo se las <b>recibo</b> ahora mismo.
+    <br />
+    <br />
+    <b>Okay</b>?
+    <br />
+    <br />
+    Pero estoy aquí para decirle la <b>VERDAD</b>, <br />
+    <b><u>NO</u></b> lo que usted quisiera escuchar.
+    <br />
+    <br />
+    Vamos a <b>enviarle</b> los documentos <br />
+    Tal y como <b>ellos</b> los requieren, <br />
+    pues es mejor hacerlo de una vez <b>BIEN</b>, <br />
+    Y <b><u>NO</u> ESPERAR</b> a que busquen excusas <br />
+    Y perdamos <b>valioso</b> tiempo.
+    <br />
+    <br />
+    En <span style="color: #8c26e8">la licencia/ el seguro social</span>
+    <br />
+    <br />
+    <b>Colóquelas</b> por favor <br />
+    en una <b>superficie</b> plana, <br />
+    necesitamos que se le <b>vean</b> <br />
+    las <b>cuatro esquinas.</b> <br />
+    la <b>foto</b> debe de tomarse <br />
+    en un lugar <b>iluminado,</b> <br />
+    y como la <b>licencia</b> normalmente <br />
+    tiene unos <b>sellos,</b> <br />
+    tómela <b>sin</b> flash, <br />
+    para que evitemos que por el <b>brillo</b> <br />
+    <b><u>NO</u></b> sea <b>legible</b> o quede opacada por el flah. <br />
+    a veces los sellos <b><u>NO</u></b> dejan tomar la fotografia <br />
+    y los brillos <b>evitan</b> que las fotos se vea <br />
+    toda la toda la <b>informacion</b> <br />
+    de los <b>buros</b> de credito.
+    <br />
+
+    <div class="btn-uy mt-4">
+      <button type="button" class="btn_g" (click)="cambiarP('AhoraNoPuede')">
+        Ahora No Puede
+      </button>
+    </div>
+
+    <br />
+
+    <h2>INFORMACIÓN GENERAL</h2>
+    <span style="color: green">
+      <br />
+      Si un cliente no tiene licencia: <br />
+      Se le pide el ID, certificado de nacimiento, pasaporte (del país), <br />
+      TAX ID o certificado de matrimonio. <br />
+      Siempre asegurar dos biles.
+    </span>
+  </div>
+
+  <div class="{{ bill2 }}">
+    <br />
+    <b>Todos</b> los meses usted <br />
+    debe de <b>enviarnos</b> 2 biles <br />
+    <b>actualizados</b> de cada mes,
+
+    <span style="color: green">
+      ( Si es un cliente nuevo el ya sabe que billes nos envÃ­a y de igual forma
+      se le recuerda)
+    </span>
+
+    <br />
+    ya que con esto los <b>buros</b> de crédito <br />
+    tienen un <b>comprobante</b> de su dirección, <br />
+    para que asi le <b>lleguen </b>los resultados <br />
+    <b>directamente</b> a usted <br />
+    para que usted <b>sea</b> la persona <br />
+    que esté <b>al tanto</b> <br />
+    y que reciba<b> TODO </b>lo original, <br />
+    para que se dé <b>cuenta</b> <br />
+    del <b>avance</b> del proceso, <br />
+    y asi sepa que estamos <b>haciendo</b> <br />
+    el trabajo <b>correctamente.</b>
+    <span style="color: green">(Esperar reacción del cliente)</span>
+    <br />
+    <br />
+    <b>Entonces</b> por favor <br />
+    Vamos <b>ahora</b> mismo a <br />
+    <b>nuevamente</b> la fotografí­a de __________________, <br />
+    y <b>verifique</b> usted <br />
+    que quede <b>totalmente</b> legible <br />
+    y que se vea <b>completa,</b> <br />
+    <b>no</b> le vaya a cortar ninguna punta.
+    <br />
+    <br />
+    Yo voy a <b>esperar</b> aquí <br />
+    hasta que le <b>saque la foto</b> <br />
+    (<span *ngIf="cliente">{{ cliente.nombres }}</span>), recuerde que <b>no</b> se puede ver <br />
+    sombras o el <b>brillo</b> del flash <br />
+    Me <b>avisa</b> cuando la haya tomado.
+    <br />
+
+    <span style="color: #8c26e8">
+      <br />
+      (<span *ngIf="cliente">{{ cliente.nombres }}</span>), si usted prefiere lo puede hacer <br />
+      desde un lugar de computadoras <br />
+      o ir a un office depot, Officemax o Staples.
+    </span>
+
+    <br />
+    <br />
+    (<span *ngIf="cliente">{{ cliente.nombres }}</span>) ¿Cual le queda más cerca? <br />
+    ¿Office depot, Officemax o Staples?<br /><br /><br />
+
+    <span style="color: green">(Esperar reacción del cliente)</span>
+    <br />
+    <br />
+    OK, perfecto (<span *ngIf="cliente">{{ cliente.nombres }}</span>).
+    <br />
+    <br />
+    <div class="btn-uy mt-4">
+      <button type="button" class="btn_g" (click)="cambiarP('AhoraNoPuede2')">
+        Ahora No Puede
+      </button>
+    </div>
+    <br />
+
+    <h2>INFORMACIÓN GENERAL</h2>
+    <span style="color: green">
+      <br />
+      * Si un cliente no tiene licencia: <br />
+      Se le pide el ID, certificado de nacimiento, pasaporte (del paÃ­s), <br />
+      TAX ID o certificado de matrimonio. <br />
+      * Siempre asegurar dos biles.
+    </span>
+  </div>
+
+  <div class="{{ AhoraNoPuede }}">
+    <span style="color: #8c26e8; font-size: 40px">
+      <br />
+      Recuerde (<span *ngIf="cliente">{{ cliente.nombres }}</span>), que estamos <br />
+      corriendo contra el tiempo.
+      <br />
+      <br />
+      (<span *ngIf="cliente">{{ cliente.nombres }}</span>), es <b>MUY</b> importante <br />
+      que me lo envíe <br />
+      lo <b>MÁS</b> pronto posible, <br />
+      porque el tiempo esta <br />
+      contra los buros y a favor <br />
+      suyo, pero si se dilata mucho <br />
+      esa ventaja se convierta en su contra.
+    </span>
+    <br />
+    <br />
+    (<span *ngIf="cliente">{{ cliente.nombres }}</span>), en <b>cualquier</b> momento los buros <br />
+    pueden solicitarla información <b>nuevamente</b> <br />
+    e incluso pueden hasta <b>negar</b> la reclamación, <br />
+    así que <b><u>NO</u></b> perdamos más tiempo, <br />
+    para que <b>ellos</b> puedan <br />
+    empezar a enviarle <b>RESULTADOS</b> <br />
+    con el favor de <b>Dios,</b> positivos.
+    <br />
+    <br />
+    Entonces en <b>cuanto</b> tiempo me los está enviando. <br />
+    Recuerde que el tiempo <b>apremia</b> <br />
+    ¿Puede hacerlo <b>ahora</b> mismo?
+    <br />
+    <br />
+    <span style="color: #8c26e8">
+      <br />
+      ¿A qué hora me los estarí­a enviando hoy? <br />
+      ¿Me los enví­a en la tarde o mañana temprano?<br />
+    </span>
+
+    <span style="color: green">
+      <br />
+      (Esperar reacción del cliente)
+      <br />
+      <br />
+      (SE ASEGURA LA HORA DEL ENVÍO Y SE LE RECUERDA QUE LLAME PARA ATRÁS APENAS
+      <br />
+      ENVÍE LOS DOCUMENTOS).
+    </span>
+    <br />
+    (<span *ngIf="cliente">{{ cliente.nombres }}</span>), Este es un <b>COMPROMISO</b> <br />
+    que estamos <b>haciendo</b> en este momento <br />
+    y de su <b>RESPONSABILIDAD</b> depende <br />
+    el buen <b>avance</b> del proceso. <br />
+    <b>¿OKAY?</b>
+    <br />
+    <br />
+  </div>
+</div>

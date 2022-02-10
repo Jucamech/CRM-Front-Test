@@ -1,0 +1,65 @@
+<app-header></app-header>
+<!-- <app-nav-bar-mon-super></app-nav-bar-mon-super> -->
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand" >Monitor Supervisor</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse " id="navbarText">
+    <ul class="navbar-nav nav_mod">
+      <li class="nav-item " [class.selected]="opc == 1">
+        <a class="nav-link" (click)="opc = 1">Principal</a>
+      </li>
+      <li class="nav-item" [class.selected]="opc == 2" >
+        <a class="nav-link" (click)="opc = 2">Citas</a>
+      </li>
+      <li class="nav-item" [class.selected]="opc == 3" >
+        <a class="nav-link" (click)="opc = 3" >Llamadas</a>
+      </li>
+      <li class="nav-item" [class.selected]="opc == 4" >
+        <a class="nav-link" (click)="opc = 4" >Agentes</a>
+      </li>
+<!--       <li class="nav-item" [class.selected]="opc == 5" >
+        <a class="nav-link" (click)="opc = 5" >Campañas</a>
+      </li> -->
+      <li class="nav-item" [class.selected]="opc == 7" >
+        <a class="nav-link" (click)="opc = 7" >Campañas V2</a>
+      </li>
+      <li class="nav-item" [class.selected]="opc == 6" >
+        <a class="nav-link" (click)="opc = 6" >Citas Recicladas</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="principal h100" *ngIf="opc == 1">
+  <app-monitor-estado-call></app-monitor-estado-call>
+</div>
+
+<div class="principal h100" *ngIf="opc == 2">
+  <app-super-monitor-citas></app-super-monitor-citas>
+</div>
+
+<div class="principal h100" *ngIf="opc == 3">
+  <app-llamadas-sac [opc]="opc"></app-llamadas-sac>
+</div>
+
+<div class="principal h100" *ngIf="opc == 4">
+  <app-super-monitor-agentes></app-super-monitor-agentes>
+</div>
+
+<div class="principal h100" *ngIf="opc == 5">
+  <app-super-campana></app-super-campana>
+</div>
+
+<div class="principal h100" *ngIf="opc == 6">
+  <app-citas-recicladas></app-citas-recicladas>
+</div>
+
+<div class="principal h100" *ngIf="opc == 7">
+  <app-super-campa-v2></app-super-campa-v2>
+</div>
+
+<app-alertas></app-alertas>

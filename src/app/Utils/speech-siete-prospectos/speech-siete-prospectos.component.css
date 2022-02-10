@@ -1,0 +1,43 @@
+
+.content {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.btn_g{
+  padding: 15px;
+  margin-left: 20px;
+}
+
+.none {
+  display: none;
+}
+
+.intro{
+  line-height: 45px;
+  margin: 4rem auto;
+  font-size: 36px;
+  text-align: center;
+}
+
+.letra{
+  font-size: 28px;
+  }
+.color{
+  background:lightyellow;
+  text-align: center;
+  font-size: 28px;
+
+  }
+.menu{
+  background-color: black;
+  width: 800px;
+  height: 80px;
+  padding: 0%;
+  color: white;
+  margin-top: 2px;
+}
+.card{
+  background-color:lightyellow;
+}

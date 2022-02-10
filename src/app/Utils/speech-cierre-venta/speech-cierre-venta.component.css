@@ -1,0 +1,30 @@
+.content{
+  font-size: 33px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.blue {
+  color:blue;
+}
+.green{
+  color: green;
+}
+.gana_mas{
+  background-color: #00ffff2e;
+}
+.none{
+  display: none;
+}
+/* ---- boton atras ----  */
+.atras {
+  position: absolute;
+  top: 4rem;
+}
+
+.btn-A {
+  background-color: blue;
+  color: white;
+}
+/* ---- boton atras  */
+

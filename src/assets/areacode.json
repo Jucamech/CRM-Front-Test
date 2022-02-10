@@ -1,0 +1,1291 @@
+{
+  "estados_code": [
+    { "code": "201", "estado": "NJ", "ciudad": "N New Jersey" },
+    { "code": "202", "estado": "DC", "ciudad": "Washington" },
+    { "code": "203", "estado": "CT", "ciudad": "Connecticut" },
+    { "code": "204", "estado": "MB", "ciudad": "Canada" },
+    { "code": "205", "estado": "AL", "ciudad": "Central Alabama" },
+    { "code": "206", "estado": "WA", "ciudad": "W Washington state" },
+    { "code": "207", "estado": "ME", "ciudad": "Maine" },
+    { "code": "208", "estado": "ID", "ciudad": "Idaho" },
+    { "code": "209", "estado": "CA", "ciudad": "Cent. California" },
+    { "code": "210", "estado": "TX", "ciudad": "S Texas: San Antonio" },
+    { "code": "211", "estado": "--", "ciudad": "referral services" },
+    { "code": "212", "estado": "NY", "ciudad": "New York City" },
+    { "code": "213", "estado": "CA", "ciudad": "S California: Los Angeles" },
+    { "code": "214", "estado": "TX", "ciudad": "Texas: Dallas Metro" },
+    {
+      "code": "215",
+      "estado": "PA",
+      "ciudad": "SE Pennsylvania: Philadelphia"
+    },
+    { "code": "216", "estado": "OH", "ciudad": "Cleveland" },
+    { "code": "217", "estado": "IL", "ciudad": "Cent. Illinois: Springfield" },
+    { "code": "218", "estado": "MN", "ciudad": "N Minnesota: Duluth" },
+    { "code": "219", "estado": "IN", "ciudad": "NW Indiana Gary" },
+    { "code": "220", "estado": "OH", "ciudad": "SE and Central Ohio" },
+    {
+      "code": "223",
+      "estado": "PA",
+      "cuidad": "E Pennsylvania: Gettysburg, Harrisburg, Lancaster, Lebanan, and York "
+    },
+    {
+      "code": "224",
+      "estado": "IL",
+      "cuidad": "Northern NE Illinois: Evanston, Waukegan, Northbrook"
+    },
+    {
+      "code": "225",
+      "estado": "LA",
+      "cuidad": "Louisiana: Baton Rouge, New Roads, Donaldsonville, Albany, Gonzales, Greensburg, Plaquemine"
+    },
+    { "code": "226", "estado": "ON", "cuidad": "Canada: SW Ontario: Windsor" },
+    { "code": "228", "estado": "MS", "cuidad": "S Mississippi" },
+    { "code": "229", "estado": "GA", "cuidad": "SW Georgia: Albany" },
+    {
+      "code": "231",
+      "estado": "MI",
+      "cuidad": "W Michigan: Northwestern portion of lower Peninsula; Traverse City, Muskegon, Cheboygan, Alanson"
+    },
+    { "code": "234", "estado": "OH", "cuidad": "NE Ohio: Canton, Akron" },
+    { "code": "236", "estado": "BC", "cuidad": "Canada: British Columbia" },
+    { "code": "239", "estado": "FL", "cuidad": "Florida " },
+    {
+      "code": "240",
+      "estado": "MD",
+      "cuidad": "W Maryland: Silver Spring, Frederick, Gaithersburg "
+    },
+    { "code": "242", "estado": "--", "cuidad": "Bahamas" },
+    { "code": "246", "estado": "--", "cuidad": "Barbados" },
+    {
+      "code": "248",
+      "estado": "MI",
+      "cuidad": "Michigan: Oakland County, Pontiac"
+    },
+    {
+      "code": "250",
+      "estado": "BC",
+      "cuidad": "Canada: British Columbia (see 236, 604)"
+    },
+    {
+      "code": "251",
+      "estado": "AL",
+      "cuidad": "S Alabama: Mobile and coastal areas, Jackson, Evergreen, Monroeville"
+    },
+    { "code": "252", "estado": "NC", "cuidad": "E North Carolina " },
+    {
+      "code": "253",
+      "estado": "WA",
+      "cuidad": "Washington: South Tier - Tacoma, Federal Way"
+    },
+    {
+      "code": "254",
+      "estado": "TX",
+      "cuidad": "Central Texas (Waco, Stephenville; split)"
+    },
+    {
+      "code": "256",
+      "estado": "AL",
+      "cuidad": "E and N Alabama (Huntsville, Florence, Gadsden)"
+    },
+    { "code": "260", "estado": "IN", "cuidad": "NE Indiana: Fort Wayne " },
+    {
+      "code": "262",
+      "estado": "WI",
+      "cuidad": "SE Wisconsin: counties of Kenosha, Ozaukee, Racine, Walworth, Washington, Waukesha"
+    },
+    { "code": "264", "estado": "--", "cuidad": "Anguilla " },
+    {
+      "code": "267",
+      "estado": "PA",
+      "cuidad": "SE Pennsylvania: Philadelphia "
+    },
+    { "code": "268", "estado": "--", "cuidad": "Antigua and Barbuda" },
+    {
+      "code": "269",
+      "estado": "MI",
+      "cuidad": "SW Michigan: Kalamazoo, Saugatuck, Hastings, Battle Creek, Sturgis to Lake Michigan "
+    },
+    {
+      "code": "270",
+      "estado": "KY",
+      "cuidad": "W Kentucky: Bowling Green, Paducah"
+    },
+    {
+      "code": "272",
+      "estado": "PA",
+      "cuidad": "NE and N Central Pennsylvania: Wilkes-Barre, Scranton "
+    },
+    {
+      "code": "276",
+      "estado": "VA",
+      "cuidad": "S and SW Virginia: Bristol, Stuart, Martinsville"
+    },
+    { "code": "278", "estado": "MI", "cuidad": "Michigan " },
+    { "code": "281", "estado": "TX", "cuidad": "Texas: Houston Metro " },
+    { "code": "283", "estado": "OH", "cuidad": "SW Ohio: Cincinnati " },
+    { "code": "284", "estado": "--", "cuidad": "British Virgin Islands " },
+    {
+      "code": "289",
+      "estado": "ON",
+      "cuidad": "Canada: S Cent. Ontario: Greater Toronto Area -- Durham, Halton"
+    },
+    {
+      "code": "301",
+      "estado": "MD",
+      "cuidad": "W Maryland: Silver Spring, Frederick, Camp Springs, Prince George's County (see 240)"
+    },
+    { "code": "302", "estado": "DE", "cuidad": "Delaware" },
+    { "code": "303", "estado": "CO", "cuidad": "Central Colorado: Denver" },
+    { "code": "304", "estado": "WV", "cuidad": "West Virginia " },
+    { "code": "305", "estado": "FL", "cuidad": "SE Florida: Miami" },
+    { "code": "306", "estado": "SK", "cuidad": "Canada: Saskatchewan " },
+    { "code": "307", "estado": "WY", "cuidad": "Wyoming" },
+    { "code": "308", "estado": "NE", "cuidad": "W Nebraska: North Platte" },
+    { "code": "309", "estado": "IL", "cuidad": "W Cent. Illinois: Peoria" },
+    {
+      "code": "310",
+      "estado": "CA",
+      "cuidad": "S California: Beverly Hills, West Hollywood, West Los Angeles "
+    },
+    {
+      "code": "311",
+      "estado": "--",
+      "cuidad": "Reserved for special applications"
+    },
+    { "code": "312", "estado": "IL", "cuidad": "Illinois: Chicago " },
+    {
+      "code": "313",
+      "estado": "MI",
+      "cuidad": "Michigan: Detroit and suburbs "
+    },
+    {
+      "code": "314",
+      "estado": "MO",
+      "cuidad": "SE Missouri: St Louis city and parts of the metro area only"
+    },
+    { "code": "315", "estado": "NY", "cuidad": "N Cent. New York: Syracuse" },
+    { "code": "316", "estado": "KS", "cuidad": "S Kansas: Wichita " },
+    { "code": "317", "estado": "IN", "cuidad": "Cent. Indiana: Indianapolis " },
+    {
+      "code": "318",
+      "estado": "LA",
+      "cuidad": "N Louisiana: Shreveport, Ruston, Monroe, Alexandria "
+    },
+    { "code": "319", "estado": "IA", "cuidad": "E Iowa: Cedar Rapids " },
+    {
+      "code": "320",
+      "estado": "MN",
+      "cuidad": "Cent. Minnesota: Saint Cloud (rural Minn, excl St. Paul/Minneapolis)"
+    },
+    {
+      "code": "321",
+      "estado": "FL",
+      "cuidad": "Florida: Brevard County, Cape Canaveral area; Metro Orlando "
+    },
+    {
+      "code": "323",
+      "estado": "CA",
+      "cuidad": "S California: Los Angeles (outside downtown: Hollywood"
+    },
+    {
+      "code": "325",
+      "estado": "TX",
+      "cuidad": "Central Texas: Abilene, Sweetwater, Snyder, San Angelo"
+    },
+    {
+      "code": "330",
+      "estado": "OH",
+      "cuidad": "NE Ohio: Akron, Canton, Youngstown; Mahoning County, parts of Trumbull/Warren counties"
+    },
+    {
+      "code": "331",
+      "estado": "IL",
+      "cuidad": "W NE Illinois, western suburbs of Chicago"
+    },
+    {
+      "code": "332",
+      "estado": "NY",
+      "cuidad": "New York City, New York (Manhattan)"
+    },
+    {
+      "code": "334",
+      "estado": "AL",
+      "cuidad": "S Alabama: Auburn/Opelika, Montgomery and coastal areas "
+    },
+    {
+      "code": "336",
+      "estado": "NC",
+      "cuidad": "Cent. North Carolina: Greensboro, Winston-Salem, High Point"
+    },
+    {
+      "code": "337",
+      "estado": "LA",
+      "cuidad": "SW Louisiana: Lake Charles, Lafayette "
+    },
+    {
+      "code": "339",
+      "estado": "MA",
+      "cuidad": "Massachusetts: Boston suburbs, to the south and west "
+    },
+    { "code": "340", "estado": "VI", "cuidad": "US Virgin Islands" },
+    { "code": "341", "estado": "CA", "cuidad": "(overlay on 510; SUSPENDED)" },
+    { "code": "343", "estado": "ON", "cuidad": "Canada: SE Ontario: Ottawa " },
+    { "code": "345", "estado": "--", "cuidad": "Cayman Islands" },
+    {
+      "code": "346",
+      "estado": "TX",
+      "cuidad": "Mid SE Texas: central Houston"
+    },
+    {
+      "code": "347",
+      "estado": "NY",
+      "cuidad": "New York City, New York (overlay for 718: NYC area, except Manhattan)"
+    },
+    {
+      "code": "351",
+      "estado": "MA",
+      "cuidad": "Massachusetts: north of Boston to NH, 508, and 781 "
+    },
+    {
+      "code": "352",
+      "estado": "FL",
+      "cuidad": "Florida: Gainesville area, Ocala, Crystal River "
+    },
+    {
+      "code": "360",
+      "estado": "WA",
+      "cuidad": "W Washington State: Olympia, Bellingham "
+    },
+    { "code": "361", "estado": "TX", "cuidad": "S Texas: Corpus Christi " },
+    {
+      "code": "365",
+      "estado": "ON",
+      "cuidad": "Canada: S Cent. Ontario: Greater Toronto Area -- Durham, Halton, Hamilton-Wentworth, Niagara, Peel, York, and southern Simcoe County"
+    },
+    { "code": "369", "estado": "CA", "cuidad": "Solano County" },
+    { "code": "380", "estado": "OH", "cuidad": "Ohio: Columbus " },
+    { "code": "385", "estado": "UT", "cuidad": "Utah: Salt Lake City Metro " },
+    { "code": "386", "estado": "FL", "cuidad": "N central Florida: Lake City" },
+    { "code": "401", "estado": "RI", "ciudad": "Rhode Island" },
+    { "code": "402", "estado": "NE", "cuidad": "E Nebraska: Omaha, Lincoln" },
+    { "code": "403", "estado": "AB", "cuidad": "Canada: Southern Alberta " },
+    {
+      "code": "404",
+      "estado": "GA",
+      "cuidad": "N Georgia: Atlanta and suburbs"
+    },
+    { "code": "405", "estado": "OK", "cuidad": "W Oklahoma: Oklahoma City" },
+    { "code": "406", "estado": "MT", "cuidad": "Montana" },
+    {
+      "code": "407",
+      "estado": "FL",
+      "cuidad": "Central Florida: Metro Orlando"
+    },
+    {
+      "code": "408",
+      "estado": "CA",
+      "cuidad": "Cent. Coastal California: San Jose"
+    },
+    {
+      "code": "409",
+      "estado": "TX",
+      "cuidad": "SE Texas: Galveston, Port Arthur, Beaumont "
+    },
+    {
+      "code": "410",
+      "estado": "MD",
+      "cuidad": "E Maryland: Baltimore, Annapolis, Chesapeake Bay area, Ocean City"
+    },
+    {
+      "code": "411",
+      "estado": "--",
+      "cuidad": "Reserved for special applications"
+    },
+    { "code": "412", "estado": "PA", "cuidad": "W Pennsylvania: Pittsburgh " },
+    { "code": "413", "estado": "MA", "cuidad": "W Massachusetts: Springfield" },
+    {
+      "code": "414",
+      "estado": "WI",
+      "cuidad": "SE Wisconsin: Milwaukee County "
+    },
+    {
+      "code": "415",
+      "estado": "CA",
+      "cuidad": "California: San Francisco County and Marin County on the north side of the Golden Gate Bridge, extending north to Sonoma County"
+    },
+    {
+      "code": "416",
+      "estado": "ON",
+      "cuidad": "Canada: S Cent. Ontario: Toronto "
+    },
+    { "code": "417", "estado": "MO", "cuidad": "SW Missouri: Springfield" },
+    { "code": "418", "estado": "QC", "cuidad": "Canada: NE Quebec: Quebec " },
+    { "code": "419", "estado": "OH", "cuidad": "NW Ohio: Toledo" },
+    {
+      "code": "423",
+      "estado": "TN",
+      "cuidad": "E Tennessee, except Knoxville metro area: Chattanooga, Bristol, Johnson City, Kingsport, Greeneville "
+    },
+    { "code": "424", "estado": "CA", "cuidad": "S California: Los Angeles " },
+    {
+      "code": "425",
+      "estado": "WA",
+      "cuidad": "Washington: North Tier - Everett, Bellevue "
+    },
+    { "code": "430", "estado": "TX", "cuidad": "NE Texas: Tyler" },
+    { "code": "431", "estado": "MB", "cuidad": "Canada: Manitoba" },
+    {
+      "code": "432",
+      "estado": "TX",
+      "cuidad": "W Texas: Big Spring, Midland, Odessa "
+    },
+    {
+      "code": "434",
+      "estado": "VA",
+      "cuidad": "E Virginia: Charlottesville, Lynchburg, "
+    },
+    {
+      "code": "435",
+      "estado": "UT",
+      "cuidad": "Rural Utah outside Salt Lake City metro "
+    },
+    {
+      "code": "437",
+      "estado": "ON",
+      "cuidad": "Canada: S Cent. Ontario: Toronto "
+    },
+    {
+      "code": "438",
+      "estado": "QC",
+      "cuidad": "Canada: SW Quebec: Montreal city"
+    },
+    {
+      "code": "440",
+      "estado": "OH",
+      "cuidad": "Ohio: Cleveland metro area, excluding Cleveland"
+    },
+    { "code": "441", "estado": "--", "cuidad": "Bermuda " },
+    {
+      "code": "442",
+      "estado": "CA",
+      "cuidad": "Far north suburbs of San Diego (Oceanside, Escondido)"
+    },
+    {
+      "code": "443",
+      "estado": "MD",
+      "cuidad": "E Maryland: Baltimore, Annapolis, Chesapeake Bay area, Ocean City"
+    },
+    {
+      "code": "450",
+      "estado": "QC",
+      "cuidad": "Canada: Southeastern Quebec; suburbs outside metro Montreal"
+    },
+    { "code": "456", "estado": "--", "cuidad": "Inbound International" },
+    { "code": "458", "estado": "OR", "cuidad": "Oregon: Eugene, Medford" },
+    {
+      "code": "464",
+      "estado": "IL",
+      "cuidad": "Illinois: south suburbs of Chicago"
+    },
+    { "code": "469", "estado": "TX", "cuidad": "Texas: Dallas Metro" },
+    {
+      "code": "470",
+      "estado": "GA",
+      "cuidad": "Georgia: Greater Atlanta Metropolitan Area"
+    },
+    { "code": "473", "estado": "--", "cuidad": "Grenada " },
+    {
+      "code": "475",
+      "estado": "CT",
+      "cuidad": "Connecticut: New Haven, Greenwich, southwestern"
+    },
+    { "code": "478", "estado": "GA", "cuidad": "Central Georgia: Macon" },
+    {
+      "code": "479",
+      "estado": "AR",
+      "cuidad": "NW Arkansas: Fort Smith, Fayetteville, Springdale, Bentonville"
+    },
+    { "code": "480", "estado": "AZ", "cuidad": "Arizona: East Phoenix" },
+    { "code": "481", "estado": "QC", "cuidad": "Canada: NE Quebec: Quebec" },
+    {
+      "code": "484",
+      "estado": "PA",
+      "cuidad": "SE Pennsylvania: Allentown, Bethlehem, Reading, West Chester, Norristown"
+    },
+    {
+      "code": "500",
+      "estado": "--",
+      "cuidad": "Personal Communication Service"
+    },
+    {
+      "code": "501",
+      "estado": "AR",
+      "cuidad": "Central Arkansas: Little Rock, Hot Springs, Conway"
+    },
+    {
+      "code": "502",
+      "estado": "KY",
+      "cuidad": "N Central Kentucky: Louisville"
+    },
+    { "code": "503", "estado": "OR", "cuidad": "Oregon" },
+    {
+      "code": "504",
+      "estado": "LA",
+      "cuidad": "E Louisiana: New Orleans metro area"
+    },
+    {
+      "code": "505",
+      "estado": "NM",
+      "cuidad": "North central and northwestern New Mexico"
+    },
+    { "code": "506", "estado": "NB", "cuidad": "Canada: New Brunswick" },
+    {
+      "code": "507",
+      "estado": "MN",
+      "cuidad": "S Minnesota: Rochester, Mankato, Worthington"
+    },
+    {
+      "code": "508",
+      "estado": "MA",
+      "cuidad": "Cent. Massachusetts: Framingham; Cape Cod "
+    },
+    {
+      "code": "509",
+      "estado": "WA",
+      "cuidad": "E and Central Washington state: Spokane, Yakima, Walla Walla, Ellensburg"
+    },
+    {
+      "code": "510",
+      "estado": "CA",
+      "cuidad": "California: Oakland, East Bay "
+    },
+    {
+      "code": "511",
+      "estado": "--",
+      "cuidad": "Nationwide travel information"
+    },
+    { "code": "512", "estado": "TX", "cuidad": "S Texas: Austin " },
+    { "code": "513", "estado": "OH", "cuidad": "SW Ohio: Cincinnati " },
+    {
+      "code": "514",
+      "estado": "QC",
+      "cuidad": "Canada: SW Quebec: Montreal city "
+    },
+    { "code": "515", "estado": "IA", "cuidad": "Cent. Iowa: Des Moines " },
+    {
+      "code": "516",
+      "estado": "NY",
+      "cuidad": "New York: Nassau County, Long Island; Hempstead "
+    },
+    { "code": "517", "estado": "MI", "cuidad": "Cent. Michigan: Lansing " },
+    { "code": "518", "estado": "NY", "cuidad": "NE New York: Albany" },
+    { "code": "519", "estado": "ON", "cuidad": "Canada: SW Ontario: Windsor " },
+    { "code": "520", "estado": "AZ", "cuidad": "Arizona: Tucson area " },
+    {
+      "code": "530",
+      "estado": "CA",
+      "cuidad": "NE California: Eldorado County area"
+    },
+    { "code": "539", "estado": "OK", "cuidad": "E Oklahoma: Tulsa area" },
+    {
+      "code": "540",
+      "estado": "VA",
+      "cuidad": "Western and Southwest Virginia: Shenandoah and Roanoke valleys: Fredericksburg, Harrisonburg, Roanoke, Salem,"
+    },
+    { "code": "541", "estado": "OR", "cuidad": "Oregon: Eugene, Medford" },
+    {
+      "code": "548",
+      "estado": "ON",
+      "cuidad": "Canada: Southwestern Ontario "
+    },
+    {
+      "code": "551",
+      "estado": "NJ",
+      "cuidad": "N New Jersey: Jersey City, Hackensack "
+    },
+    {
+      "code": "555",
+      "estado": "--",
+      "cuidad": "eserved for directory assistance applications"
+    },
+    {
+      "code": "557",
+      "estado": "MO",
+      "cuidad": "SE Missouri: St Louis metro area only "
+    },
+    { "code": "559", "estado": "CA", "cuidad": "Central California: Fresno " },
+    {
+      "code": "561",
+      "estado": "FL",
+      "cuidad": "S. Central Florida: Palm Beach County "
+    },
+    { "code": "562", "estado": "CA", "cuidad": "California: Long Beach" },
+    { "code": "563", "estado": "IA", "cuidad": "E Iowa: Davenport, Dubuque " },
+    {
+      "code": "564",
+      "estado": "WA",
+      "cuidad": "W Washington State: Olympia, Bellingham "
+    },
+    { "code": "567", "estado": "OH", "cuidad": "NW Ohio: Toledo" },
+    {
+      "code": "570",
+      "estado": "PA",
+      "ciudad": "NE and N Central Pennsylvania: Wilkes-Barre, Scranton"
+    },
+    {
+      "code": "571",
+      "estado": "VA",
+      "ciudad": "Northern Virginia: Arlington, McLean, Tysons Corner"
+    },
+    {
+      "code": "573",
+      "estado": "MO",
+      "ciudad": "SE Missouri: excluding St Louis metro area"
+    },
+    {
+      "code": "574",
+      "estado": "IN",
+      "ciudad": "N Indiana: Elkhart, South Bend"
+    },
+    {
+      "code": "575",
+      "estado": "NM",
+      "ciudad": "New Mexico ,Las Cruces, Alamogordo, Roswel"
+    },
+    {
+      "code": "579",
+      "estado": "QC",
+      "ciudad": "Canada: Southeastern Quebec; suburbs outside metro Montreal"
+    },
+    { "code": "580", "estado": "OK", "ciudad": "W Oklahoma " },
+    { "code": "581", "estado": "QC", "ciudad": "Canada: NE Quebec: Quebec " },
+    { "code": "585", "estado": "NY", "ciudad": "NW New York: Rochester " },
+    { "code": "586", "estado": "MI", "ciudad": "Michigan: Macomb County " },
+    { "code": "587", "estado": "AB", "ciudad": "Canada: Alberta" },
+    { "code": "600", "estado": "--", "ciudad": "Canadian Services" },
+    {
+      "code": "601",
+      "estado": "MS",
+      "ciudad": "Mississippi: Meridian, Jackson area "
+    },
+    { "code": "602", "estado": "AZ", "ciudad": "Arizona: Phoenix " },
+    { "code": "603", "estado": "NH", "ciudad": "New Hampshire" },
+    {
+      "code": "604",
+      "estado": "BC",
+      "ciudad": "Canada: British Columbia: Greater Vancouver "
+    },
+    { "code": "605", "estado": "SD", "ciudad": "South Dakota" },
+    {
+      "code": "606",
+      "estado": "KY",
+      "ciudad": "E Kentucky: area east of Frankfort: Ashland "
+    },
+    {
+      "code": "607",
+      "estado": "NY",
+      "ciudad": "S Cent. New York: Ithaca, Binghamton; Catskills"
+    },
+    { "code": "608", "estado": "WI", "ciudad": "SW Wisconsin: Madison" },
+    { "code": "609", "estado": "NJ", "ciudad": "S New Jersey: Trenton " },
+    {
+      "code": "610",
+      "estado": "PA",
+      "ciudad": "SE Pennsylvania: Allentown, Bethlehem, Reading, West Chester, Norristown"
+    },
+    {
+      "code": "611",
+      "estado": "--",
+      "ciudad": "Reserved for special applications"
+    },
+    {
+      "code": "612",
+      "estado": "MN",
+      "ciudad": "Cent. Minnesota: Minneapolis "
+    },
+    { "code": "613", "estado": "ON", "ciudad": "Canada: SE Ontario: Ottawa" },
+    { "code": "614", "estado": "OH", "ciudad": "SE Ohio: Columbus " },
+    {
+      "code": "615",
+      "estado": "TN",
+      "ciudad": "Northern Middle Tennessee: Nashville metro area "
+    },
+    {
+      "code": "616",
+      "estado": "MI",
+      "ciudad": "W Michigan: Holland, Grand Haven, Greenville, Grand Rapids, Ionia "
+    },
+    {
+      "code": "617",
+      "estado": "MA",
+      "ciudad": "Massachusetts: greater Boston "
+    },
+    { "code": "618", "estado": "IL", "ciudad": "S Illinois: Centralia" },
+    { "code": "619", "estado": "CA", "ciudad": "S California: San Diego " },
+    { "code": "620", "estado": "KS", "ciudad": "S Kansas: Wichita" },
+    { "code": "623", "estado": "AZ", "ciudad": "Arizona: West Phoenix " },
+    { "code": "626", "estado": "CA", "ciudad": "E S California: Pasadena " },
+    {
+      "code": "627",
+      "estado": "CA",
+      "ciudad": "No longer in use [was Napa, Sonoma counties "
+    },
+    {
+      "code": "628",
+      "estado": "CA",
+      "ciudad": "California: San Francisco County and Marin County on the north side of the Golden Gate Bridge, extending north to Sonoma County"
+    },
+    {
+      "code": "629",
+      "estado": "TN",
+      "ciudad": "Northern Middle Tennessee: Nashville metro area"
+    },
+    {
+      "code": "630",
+      "estado": "IL",
+      "ciudad": "W NE Illinois, western suburbs of Chicago"
+    },
+    {
+      "code": "631",
+      "estado": "NY",
+      "ciudad": "New York: Suffolk County, Long Island; Huntington, Riverhead"
+    },
+    {
+      "code": "636",
+      "estado": "MO",
+      "ciudad": "Missouri: W St. Louis metro area of St. Louis county, St. Charles County, Jefferson County area south "
+    },
+    {
+      "code": "639",
+      "estado": "SK",
+      "ciudad": "Canada: Saskatchewan (overlaid on 306)"
+    },
+    {
+      "code": "641",
+      "estado": "IA",
+      "ciudad": "Iowa: Mason City, Marshalltown, Creston, Ottumwa"
+    },
+    { "code": "646", "estado": "NY", "ciudad": "New York , NYC" },
+    {
+      "code": "647",
+      "estado": "ON",
+      "ciudad": "Canada: S Cent. Ontario: Toronto "
+    },
+    { "code": "649", "estado": "--", "ciudad": "Turks & Caicos Islands" },
+    {
+      "code": "650",
+      "estado": "CA",
+      "ciudad": "California: Peninsula south of San Francisco -- San Mateo County, parts of Santa Clara County "
+    },
+    { "code": "651", "estado": "MN", "ciudad": "Cent. Minnesota: St. Paul " },
+    {
+      "code": "657",
+      "estado": "CA",
+      "ciudad": "Northern and western Orange County"
+    },
+    { "code": "660", "estado": "MO", "ciudad": "N Missouri" },
+    {
+      "code": "661",
+      "estado": "CA",
+      "ciudad": "California: N Los Angeles, Mckittrick, Mojave, Newhall, Oildale, Palmdale, Taft, Tehachapi, Bakersfield, Earlimart, Lancaster"
+    },
+    {
+      "code": "662",
+      "estado": "MS",
+      "ciudad": "N Mississippi: Tupelo, Grenada "
+    },
+    { "code": "664", "estado": "--", "ciudad": "Montserrat" },
+    {
+      "code": "667",
+      "estado": "MD",
+      "ciudad": "E Maryland: Baltimore, Annapolis, Chesapeake Bay area, Ocean City"
+    },
+    {
+      "code": "669",
+      "estado": "CA",
+      "ciudad": "Cent. Coastal California: San Jose"
+    },
+    {
+      "code": "670",
+      "estado": "MP",
+      "ciudad": "Commonwealth of the Northern Mariana Islands"
+    },
+    { "code": "671", "estado": "GU", "ciudad": "Guam" },
+    {
+      "code": "678",
+      "estado": "GA",
+      "ciudad": "N Georgia: metropolitan Atlanta"
+    },
+    { "code": "679", "estado": "MI", "ciudad": "Michigan: Dearborn area" },
+    { "code": "681", "estado": "WV", "ciudad": "West Virginia" },
+    { "code": "682", "estado": "TX", "ciudad": "Texas: Fort Worth areas" },
+    { "code": "684", "estado": "--", "ciudad": "American Samoa" },
+    {
+      "code": "689",
+      "estado": "FL",
+      "ciudad": "Central Florida: Metro Orlando"
+    },
+    {
+      "code": "700",
+      "estado": "--",
+      "ciudad": "Interexchange Carrier Services"
+    },
+    { "code": "701", "estado": "ND", "ciudad": "North Dakota" },
+    {
+      "code": "702",
+      "estado": "NV",
+      "ciudad": "S. Nevada: Clark County, incl Las Vegas"
+    },
+    {
+      "code": "703",
+      "estado": "VA",
+      "ciudad": "Northern Virginia: Arlington, McLean, Tysons Corner"
+    },
+    { "code": "704", "estado": "NC", "ciudad": "W North Carolina: Charlotte" },
+    {
+      "code": "705",
+      "estado": "ON",
+      "ciudad": "Canada: NE Ontario: Sault Ste. Marie/N Ontario: N Bay, Sudbury"
+    },
+    { "code": "706", "estado": "GA", "ciudad": "N Georgia: Columbus, Augusta" },
+    {
+      "code": "707",
+      "estado": "CA",
+      "ciudad": "NW California: Santa Rosa, Napa, Vallejo, American Canyon, Fairfield"
+    },
+    {
+      "code": "708",
+      "estado": "IL",
+      "ciudad": "Illinois: southern and western suburbs of Chicago"
+    },
+    {
+      "code": "709",
+      "estado": "NL",
+      "ciudad": "Canada: Newfoundland and Labrador"
+    },
+    { "code": "710", "estado": "--", "ciudad": "S Government" },
+    {
+      "code": "711",
+      "estado": "--",
+      "ciudad": "Telecommunications Relay Services"
+    },
+    { "code": "712", "estado": "IA", "ciudad": "W Iowa: Council Bluffs" },
+    {
+      "code": "713",
+      "estado": "TX",
+      "ciudad": "Mid SE Texas: central Houston"
+    },
+    {
+      "code": "714",
+      "estado": "CA",
+      "ciudad": "Northern and western Orange County"
+    },
+    {
+      "code": "715",
+      "estado": "WI",
+      "ciudad": "N Wisconsin: Eau Claire, Wausau, Superior"
+    },
+    { "code": "716", "estado": "NY", "ciudad": "NW New York: Buffalo " },
+    { "code": "717", "estado": "PA", "ciudad": "E Pennsylvania: Harrisburg " },
+    {
+      "code": "718",
+      "estado": "NY",
+      "ciudad": "New York City, New York (Queens, Staten Island, The Bronx, and Brooklyn; also Marble Hill section of Manhattan)"
+    },
+    {
+      "code": "719",
+      "estado": "CO",
+      "ciudad": "SE Colorado: Pueblo, Colorado Springs"
+    },
+    { "code": "720", "estado": "CO", "ciudad": "Central Colorado: Denver" },
+    { "code": "721", "estado": "--", "ciudad": "Sint Maarten " },
+    { "code": "724", "estado": "PA", "ciudad": "SW Pennsylvania " },
+    {
+      "code": "725",
+      "estado": "NV",
+      "ciudad": "S. Nevada: Clark County, incl Las Vegas"
+    },
+    {
+      "code": "727",
+      "estado": "FL",
+      "ciudad": "Florida Tampa Metro: Saint Petersburg, Clearwater "
+    },
+    {
+      "code": "731",
+      "estado": "TN",
+      "ciudad": "W Tennessee: outside Memphis metro area "
+    },
+    {
+      "code": "732",
+      "estado": "NJ",
+      "ciudad": "Cent. New Jersey: Toms River, New Brunswick, Bound Brook "
+    },
+    {
+      "code": "734",
+      "estado": "MI",
+      "ciudad": "SE Michigan: west and south of Detroit -- Ann Arbor, Monroe "
+    },
+    { "code": "737", "estado": "TX", "ciudad": "S Texas: Austin " },
+    { "code": "740", "estado": "OH", "ciudad": "SE and Central Ohio " },
+    {
+      "code": "743",
+      "estado": "NC",
+      "ciudad": "Cent. North Carolina: Greensboro, Winston-Salem, High Point "
+    },
+    {
+      "code": "747",
+      "estado": "CA",
+      "ciudad": "S California: Los Angeles, Agoura Hills, Calabasas, Hidden Hills, and Westlake Village"
+    },
+    {
+      "code": "754",
+      "estado": "FL",
+      "ciudad": "Florida: Broward County area, incl Ft. Lauderdale (overlaid on 954; perm 8/1/01, mand 9/1/01)"
+    },
+    {
+      "code": "757",
+      "estado": "VA",
+      "ciudad": "E Virginia: Tidewater / Hampton Roads area -- Norfolk, Virginia Beach, Chesapeake, Portsmouth, Hampton, Newport News, Suffolk"
+    },
+    { "code": "758", "estado": "--", "ciudad": "St. Lucia " },
+    {
+      "code": "760",
+      "estado": "CA",
+      "ciudad": "California: San Diego North County to Sierra Nevada "
+    },
+    {
+      "code": "762",
+      "estado": "GA",
+      "ciudad": "N Georgia: Columbus, Augusta "
+    },
+    { "code": "763", "estado": "MN", "ciudad": "Minnesota: Minneapolis NW " },
+    { "code": "764", "estado": "CA", "ciudad": "(overlay on 650; SUSPENDED)" },
+    {
+      "code": "765",
+      "estado": "IN",
+      "ciudad": "Indiana: outside Indianapolis "
+    },
+    { "code": "767", "estado": "--", "ciudad": "Dominica" },
+    {
+      "code": "769",
+      "estado": "MS",
+      "ciudad": "Mississippi: Meridian, Jackson area"
+    },
+    {
+      "code": "770",
+      "estado": "GA",
+      "ciudad": "Georgia: Atlanta suburbs: outside of I-285 ring road"
+    },
+    {
+      "code": "772",
+      "estado": "FL",
+      "ciudad": "S. Central Florida: St. Lucie, Martin, and Indian River counties "
+    },
+    {
+      "code": "773",
+      "estado": "IL",
+      "ciudad": "Illinois: city of Chicago, outside the loop"
+    },
+    {
+      "code": "774",
+      "estado": "MA",
+      "ciudad": "Cent. Massachusetts: Framingham; Cape Cod"
+    },
+    { "code": "775", "estado": "NV", "ciudad": "N. Nevada: Reno " },
+    {
+      "code": "778",
+      "estado": "BC",
+      "ciudad": "Canada: British Columbia: Greater Vancouver"
+    },
+    {
+      "code": "779",
+      "estado": "IL",
+      "ciudad": "NW Illinois: Rockford, Kankakee"
+    },
+    {
+      "code": "780",
+      "estado": "AB",
+      "ciudad": "Canada: Northern Alberta, north of Lacombe "
+    },
+    {
+      "code": "781",
+      "estado": "MA",
+      "ciudad": "Massachusetts: Boston surburbs, to the north and west "
+    },
+    {
+      "code": "782",
+      "estado": "NS",
+      "ciudad": "Nova Scotia & Prince Edward Island "
+    },
+    { "code": "784", "estado": "--", "ciudad": "St. Vincent & Grenadines" },
+    { "code": "785", "estado": "KS", "ciudad": "N & W Kansas: Topeka" },
+    { "code": "786", "estado": "FL", "ciudad": "SE Florida, Monroe County " },
+    { "code": "787", "estado": "PR", "ciudad": "Puerto Rico " },
+    { "code": "800", "estado": "--", "ciudad": "S/Canada toll free " },
+    { "code": "801", "estado": "UT", "ciudad": "Utah: Salt Lake City Metro " },
+    { "code": "802", "estado": "VT", "ciudad": "Vermont" },
+    {
+      "code": "803",
+      "estado": "SC",
+      "ciudad": "South Carolina: Columbia, Aiken, Sumter "
+    },
+    { "code": "804", "estado": "VA", "ciudad": "E Virginia: Richmond " },
+    {
+      "code": "805",
+      "estado": "CA",
+      "ciudad": "S Cent. and Cent. Coastal California: Ventura County, Santa Barbara County: San Luis Obispo, Thousand Oaks, Carpinteria, Santa Barbara, Santa Maria, Lompoc, Santa Ynez Valley / Solvang"
+    },
+    {
+      "code": "806",
+      "estado": "TX",
+      "ciudad": "Panhandle Texas: Amarillo, Lubbock"
+    },
+    {
+      "code": "807",
+      "estado": "ON",
+      "ciudad": "Canada: W Ontario: Thunder Bay region to Manitoba border"
+    },
+    { "code": "808", "estado": "HI", "ciudad": "Hawaii" },
+    { "code": "809", "estado": "--", "ciudad": "Dominican Republic " },
+    { "code": "810", "estado": "MI", "ciudad": "E Michigan: Flint, Pontiac " },
+    {
+      "code": "811",
+      "estado": "--",
+      "ciudad": "Reserved for special applications"
+    },
+    {
+      "code": "812",
+      "estado": "IN",
+      "ciudad": "S Indiana: Evansville, Cincinnati outskirts in IN, Columbus, Bloomington"
+    },
+    { "code": "813", "estado": "FL", "ciudad": "SW Florida: Tampa Metro " },
+    { "code": "814", "estado": "PA", "ciudad": "Cent. Pennsylvania: Erie" },
+    {
+      "code": "815",
+      "estado": "IL",
+      "ciudad": "NW Illinois: Rockford, Kankakee"
+    },
+    {
+      "code": "817",
+      "estado": "TX",
+      "ciudad": "N Cent. Texas: Fort Worth area "
+    },
+    {
+      "code": "818",
+      "estado": "CA",
+      "ciudad": "S California: Los Angeles: San Fernando Valley "
+    },
+    {
+      "code": "819",
+      "estado": "QC",
+      "ciudad": "NW Quebec: Trois Rivieres, Sherbrooke, Outaouais "
+    },
+    { "code": "822", "estado": "--", "ciudad": "S/Canada toll free" },
+    { "code": "825", "estado": "AB", "ciudad": "Alberta " },
+    { "code": "828", "estado": "NC", "ciudad": "W North Carolina: Asheville" },
+    { "code": "829", "estado": "--", "ciudad": "Dominican Republic " },
+    {
+      "code": "830",
+      "estado": "TX",
+      "ciudad": "Texas: region surrounding San Antonio "
+    },
+    {
+      "code": "831",
+      "estado": "CA",
+      "ciudad": "California: central coast area from Santa Cruz through Monterey County"
+    },
+    { "code": "832", "estado": "TX", "ciudad": "Texas: Houston " },
+    { "code": "833", "estado": "--", "ciudad": "S/Canada toll free" },
+    {
+      "code": "835",
+      "estado": "PA",
+      "ciudad": "SE Pennsylvania: Allentown, Bethlehem, Reading, West Chester, Norristown "
+    },
+    {
+      "code": "843",
+      "estado": "SC",
+      "ciudad": "South Carolina, coastal area: Charleston, Beaufort, Myrtle Beach"
+    },
+    {
+      "code": "844",
+      "estado": "--",
+      "ciudad": "S/Canada toll free (proposed, may not be in use yet)"
+    },
+    {
+      "code": "845",
+      "estado": "NY",
+      "ciudad": "New York: Poughkeepsie; Nyack, Nanuet, Valley Cottage, New City, Putnam, Dutchess, Rockland,"
+    },
+    {
+      "code": "847",
+      "estado": "IL",
+      "ciudad": "Northern NE Illinois: northwestern suburbs of chicago "
+    },
+    {
+      "code": "848",
+      "estado": "NJ",
+      "ciudad": "Cent. New Jersey: Toms River, New Brunswick, Bound Brook (see overlay 732)"
+    },
+    {
+      "code": "849",
+      "estado": "--",
+      "ciudad": "Dominican Republic: Santo Domingo"
+    },
+    {
+      "code": "850",
+      "estado": "FL",
+      "ciudad": "Florida panhandle, from east of Tallahassee to Pensacola, western panhandle (Pensacola, Panama City) are UTC-6"
+    },
+    { "code": "855", "estado": "--", "ciudad": "S/Canada toll free" },
+    {
+      "code": "856",
+      "estado": "NJ",
+      "ciudad": "SW New Jersey: greater Camden area, Mt Laurel "
+    },
+    {
+      "code": "857",
+      "estado": "MA",
+      "ciudad": "Massachusetts: greater Boston "
+    },
+    { "code": "858", "estado": "CA", "ciudad": "S California: San Diego " },
+    {
+      "code": "859",
+      "estado": "KY",
+      "ciudad": "N and Central Kentucky: Lexington; suburban KY counties of Cincinnati OH metro area; Covington, Newport, Ft. Thomas, Ft. Wright, Florence "
+    },
+    {
+      "code": "860",
+      "estado": "CT",
+      "ciudad": "Connecticut: areas outside of Fairfield and New Haven Counties"
+    },
+    {
+      "code": "862",
+      "estado": "NJ",
+      "ciudad": "N New Jersey: Newark Paterson Morristown"
+    },
+    {
+      "code": "863",
+      "estado": "FL",
+      "ciudad": "Florida: Lakeland, Polk County"
+    },
+    {
+      "code": "864",
+      "estado": "SC",
+      "ciudad": "South Carolina, upstate area: Greenville, Spartanburg "
+    },
+    {
+      "code": "865",
+      "estado": "TN",
+      "ciudad": "E Tennessee: Knoxville, Knox and adjacent counties "
+    },
+    { "code": "866", "estado": "--", "ciudad": "S/Canada toll free" },
+    {
+      "code": "867",
+      "estado": "YT",
+      "ciudad": "Canada: Yukon, Northwest Territories, Nunavut"
+    },
+    { "code": "868", "estado": "--", "ciudad": "Trinidad and Tobago" },
+    { "code": "869", "estado": "--", "ciudad": "St. Kitts & Nevis" },
+    {
+      "code": "870",
+      "estado": "AR",
+      "ciudad": "Arkansas: areas outside of west/central AR: Jonesboro, etc"
+    },
+    {
+      "code": "872",
+      "estado": "IL",
+      "ciudad": "Illinois: Chicago (downtown only -- in the loop; see 773; overlaid on 312 and 773)"
+    },
+    {
+      "code": "873",
+      "estado": "QC",
+      "ciudad": "NW Quebec: Trois Rivieres, Sherbrooke, Outaouais "
+    },
+    { "code": "876", "estado": "--", "ciudad": "Jamaica (split from 809)" },
+    { "code": "877", "estado": "--", "ciudad": "S/Canada toll free" },
+    { "code": "878", "estado": "PA", "ciudad": "Pittsburgh, New Castle" },
+    { "code": "880", "estado": "--", "ciudad": "Paid Toll-Free Service" },
+    { "code": "881", "estado": "--", "ciudad": "Paid Toll-Free Service" },
+    { "code": "882", "estado": "--", "ciudad": "Paid Toll-Free Service" },
+    { "code": "888", "estado": "--", "ciudad": "US/Canada toll free" },
+    { "code": "898", "estado": "--", "ciudad": "VoIP service" },
+    {
+      "code": "900",
+      "estado": "--",
+      "ciudad": "US toll calls -- prices vary with the number called"
+    },
+    {
+      "code": "901",
+      "estado": "TN",
+      "ciudad": "W Tennessee: Memphis metro area"
+    },
+    {
+      "code": "902",
+      "estado": "NS",
+      "ciudad": "Canada: Nova Scotia, Prince Edward Island"
+    },
+    { "code": "903", "estado": "TX", "ciudad": "NE Texas: Tyler" },
+    { "code": "904", "estado": "FL", "ciudad": "N Florida: Jacksonville " },
+    {
+      "code": "905",
+      "estado": "ON",
+      "ciudad": "Canada: S Cent. Ontario: Greater Toronto Area -- Durham, Halton, Hamilton-Wentworth, Niagara, Peel, York, and southern Simcoe County"
+    },
+    {
+      "code": "906",
+      "estado": "MI",
+      "ciudad": "Upper Peninsula Michigan: Sault Ste. Marie, Escanaba, Marquette "
+    },
+    { "code": "907", "estado": "AK", "ciudad": "Alaska" },
+    {
+      "code": "908",
+      "estado": "NJ",
+      "ciudad": "Cent. New Jersey: Elizabeth, Basking Ridge, Somerville, Bridgewater, Bound Brook"
+    },
+    {
+      "code": "909",
+      "estado": "CA",
+      "ciudad": "California: Inland empire: San Bernardino , Riverside"
+    },
+    {
+      "code": "910",
+      "estado": "NC",
+      "ciudad": "S Cent. North Carolina: Fayetteville, Wilmington (see 336)"
+    },
+    { "code": "911", "estado": "--", "ciudad": "Emergency" },
+    { "code": "912", "estado": "GA", "ciudad": "SE Georgia: Savannah" },
+    { "code": "913", "estado": "KS", "ciudad": "Kansas: Kansas City area " },
+    {
+      "code": "914",
+      "estado": "NY",
+      "ciudad": "S New York: Westchester County "
+    },
+    { "code": "915", "estado": "TX", "ciudad": "W Texas: El Paso" },
+    {
+      "code": "916",
+      "estado": "CA",
+      "ciudad": "NE California: Sacramento, Walnut Grove, Lincoln, Newcastle and El Dorado Hills "
+    },
+    { "code": "917", "estado": "NY", "ciudad": "New York: New York City " },
+    { "code": "918", "estado": "OK", "ciudad": "E Oklahoma: Tulsa (see" },
+    { "code": "919", "estado": "NC", "ciudad": "E North Carolina: Raleigh " },
+    {
+      "code": "920",
+      "estado": "WI",
+      "ciudad": "NE Wisconsin: Appleton, Green Bay, Sheboygan, Fond du Lac (from Beaver Dam NE to Oshkosh, Appleton, and Door County; part of what used to be 414)"
+    },
+    {
+      "code": "925",
+      "estado": "CA",
+      "ciudad": "California: Contra Costa area: Antioch, Concord, Pleasanton, Walnut Creek "
+    },
+    {
+      "code": "927",
+      "estado": "FL",
+      "ciudad": "Florida: Cellular coverage in Orlando area"
+    },
+    {
+      "code": "928",
+      "estado": "AZ",
+      "ciudad": "Central and Northern Arizona: Prescott, Flagstaff, Yuma"
+    },
+    {
+      "code": "929",
+      "estado": "NY",
+      "ciudad": "New York City, New York (Queens, Staten Island, The Bronx, and Brooklyn; also Marble Hill section of Manhattan)"
+    },
+    {
+      "code": "931",
+      "estado": "TN",
+      "ciudad": "Middle Tennessee: semi-circular ring around Nashville "
+    },
+    { "code": "935", "estado": "CA", "ciudad": "S California: San Diego " },
+    {
+      "code": "936",
+      "estado": "TX",
+      "ciudad": "SE Texas: Conroe, Lufkin, Nacogdoches, Crockett"
+    },
+    { "code": "937", "estado": "OH", "ciudad": "SW Ohio: Dayton " },
+    { "code": "939", "estado": "PR", "ciudad": "Puerto Rico " },
+    {
+      "code": "940",
+      "estado": "TX",
+      "ciudad": "N Cent. Texas: Denton, Wichita Falls"
+    },
+    {
+      "code": "941",
+      "estado": "FL",
+      "ciudad": "SW Florida: Sarasota and Manatee counties"
+    },
+    { "code": "947", "estado": "MI", "ciudad": "Michigan: Oakland County" },
+    {
+      "code": "949",
+      "estado": "CA",
+      "ciudad": "California: S Coastal Orange County"
+    },
+    {
+      "code": "951",
+      "estado": "CA",
+      "ciudad": "California: W Riverside County"
+    },
+    {
+      "code": "952",
+      "estado": "MN",
+      "ciudad": "Minnesota: Minneapolis SW, Bloomington"
+    },
+    {
+      "code": "954",
+      "estado": "FL",
+      "ciudad": "Florida: Broward County area, incl Ft. Lauderdale"
+    },
+    {
+      "code": "956",
+      "estado": "TX",
+      "ciudad": "Texas: Valley of Texas area; Harlingen, Laredo "
+    },
+    { "code": "957", "estado": "NM", "ciudad": "New Mexico " },
+    {
+      "code": "959",
+      "estado": "CT",
+      "ciudad": "Connecticut: Hartford, New London "
+    },
+    { "code": "970", "estado": "CO", "ciudad": "N and W Colorado " },
+    {
+      "code": "971",
+      "estado": "OR",
+      "ciudad": "Oregon: Metropolitan Portland, Salem/Keizer area, incl Cricket Wireless "
+    },
+    { "code": "972", "estado": "TX", "ciudad": "Texas: Dallas Metro" },
+    {
+      "code": "973",
+      "estado": "NJ",
+      "ciudad": "N New Jersey: Newark, Paterson, Morristown "
+    },
+    { "code": "975", "estado": "MO", "ciudad": "N Missouri: Kansas City" },
+    { "code": "976", "estado": "--", "ciudad": "Unassigned" },
+    {
+      "code": "978",
+      "estado": "MA",
+      "ciudad": "Massachusetts: north of Boston to NH"
+    },
+    {
+      "code": "979",
+      "estado": "TX",
+      "ciudad": "SE Texas: Bryan, College Station, Bay City "
+    },
+    { "code": "980", "estado": "NC", "ciudad": "North Carolina" },
+    { "code": "984", "estado": "NC", "ciudad": "E North Carolina: Raleigh " },
+    {
+      "code": "985",
+      "estado": "LA",
+      "ciudad": "E Louisiana: SE/N shore of Lake Pontchartrain: Hammond, Slidell, Covington, Amite, Kentwood, area SW of New Orleans, Houma, Thibodaux, Morgan City"
+    },
+    {
+      "code": "989",
+      "estado": "MI",
+      "ciudad": "Upper central Michigan: Mt Pleasant, Saginaw"
+    },
+    { "code": "999", "estado": "--", "ciudad": "Often used by carriers..." }
+  ]
+}

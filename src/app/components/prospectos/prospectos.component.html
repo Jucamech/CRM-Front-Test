@@ -1,0 +1,45 @@
+<div class="filt content">
+  <div class="row">
+
+    <div class="col-md-12 d-flex">
+
+      <select name="filtro" id="filtro" [(ngModel)]="tipoFil" class="form-control text-white font-w col-md-2">
+        <option name="filtro" class="font-w" value="1">Todas</option>
+
+        <option name="filtro" class="font-w" value="2">Hoy</option>
+
+        <option name="filtro" class="font-w" value="3">Este Mes</option>
+
+      </select>
+      <button class="btn btn-outline-secondary form-control col-md-3 text-white" [disabled]="!tipoFil" type="submit"
+        (click)="filtarFecha()">Ver Clinetes Perdidos</button>
+      <label class="form-control filt col-md-3 ml-5"> Total : <span style="color: #dc3545;">{{total_perd}}</span>
+      </label>
+    </div>
+  </div>
+</div>
+
+
+
+<table class="table table-hover table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col"> N°</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Asignado</th>
+      <th scope="col">Fecha Cita</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Nota</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of dataProspectos;index as i">
+      <td>{{i+1}}</td>
+      <td>{{item.nombres}} {{item.apellidos}}</td>
+      <td>{{item.asignado}} </td>
+      <td>{{item.fechahora}}</td>
+      <td>{{item.estado}}</td>
+      <td>{{item.notas}}</td>
+    </tr>
+  </tbody>
+</table>

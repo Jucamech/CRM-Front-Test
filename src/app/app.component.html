@@ -1,0 +1,100 @@
+
+<router-outlet></router-outlet>
+
+<!-- <div class="citasAlert" *ngIf="Token && Token.data.ext.length == 3">
+  <app-alertas [token]="Token"></app-alertas>
+</div> -->
+
+<div class="llamada text-center " *ngIf="toggle && numEntrante">
+  <!-- *ngIf="toggle && numEntrante" -->
+  <div style="margin-top: 1rem">
+    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#28a745"
+      class="bi bi-telephone-inbound-fill icon-call" viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0z" />
+    </svg>
+  </div>
+  <div class="circle-fill">
+    <svg xmlns="http://www.w3.org/2000/svg" (click)="cerrar()" width="30" height="30" fill="red"
+      class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+      <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+    </svg>
+  </div>
+
+  <h2>Llamada entrante de :</h2>
+  <h2 style="color: red">{{ numEntrante | slice:0:7 }}***</h2>
+  <h3 >DID Local: <span class="red">{{ didEntrante }}</span></h3>
+  <div class="speech d-flex justify-content-center row">
+
+    <a style="margin: auto" [routerLink]="['/speechsticket/radio']" target="_blank">
+      <button class="btn btn-dark">Llamada Radio</button>
+    </a>
+    <a style="margin: auto" [routerLink]="['/speechsticket/venta']" target="_blank">
+      <button class="btn btn-dark">Llamada Venta</button>
+    </a>
+    <a style="margin: auto" [routerLink]="['/speechsticket/800']" target="_blank">
+      <button class="btn btn-dark">800 - 914</button>
+    </a>
+
+    <a style="margin: auto" [routerLink]="['/speechsticket/rene']" target="_blank">
+      <button class="btn btn-dark mt-3">Ir a Rana Rene</button>
+    </a>
+  </div>
+  <div class="speech d-flex justify-content-center row mt-3 p-3" *ngIf="!idEntrante">
+    <h2 style="color: red">ID no encontrado!</h2>
+  </div>
+
+  <div class="speech scroll d-flex justify-content-center row mt-3 p-3" *ngIf="cliente">
+    <table class="table table-hover table-striped table-dark" *ngIf="numEntrante && cliente ">
+      <thead>
+        <tr>
+          <th scope="col">Cliente</th>
+          <th scope="col">Abrir Info</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="cliente">
+          <td> {{cliente.nombres}} {{cliente.apellidos}} </td>
+          <td (click)="verCliente(cliente.id)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#198754" class="bi bi-card-heading"
+              viewBox="0 0 16 16">
+              <path
+                d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+              <path
+                d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z" />
+            </svg>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="speech scroll d-flex justify-content-center row mt-3 p-3" *ngIf="listClientes && !idEntrante">
+    <table class="table table-hover table-striped table-dark" *ngIf="numEntrante && listClientes">
+      <thead>
+        <tr>
+          <th scope="col">Coincidencias</th>
+          <th scope="col">Abrir Info</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listClientes;">
+          <td>{{ item.nombres}} {{item.apellidos}}</td>
+          <td (click)="verCliente(item.id)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#198754" class="bi bi-card-heading"
+              viewBox="0 0 16 16">
+              <path
+                d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+              <path
+                d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z" />
+            </svg>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+<!--
+<app-status-agente></app-status-agente> -->

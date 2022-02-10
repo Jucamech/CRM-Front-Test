@@ -1,0 +1,133 @@
+
+<hr>
+<div class="content">
+  <br>
+  <div class="green">
+    <small>
+      <br> Objecion: “Quiero Cancelar”
+      <br> (Siempre investigue porque es que la persona quiere cancelar).
+    </small>
+  </div>
+  <br>
+  <br> Los buros de <b>crédito</b> quieren
+  <br> que usted <b>cancele</b>
+  <br> o sea eso es parte de la <b>táctica</b>
+  <br> es como <b>decir</b>
+  <br>
+  <br> Tanto nadar para <b>morir</b> en la orilla
+  <br> o sea ya nosotros <b>estamos</b> llegando a la orilla
+  <br> entonces <b><u>NO</u></b> se puede rendir,
+  <br> usted tiene que <b>seguir</b>
+  <br> porque <b>precisamente</b> esto es un proceso
+  <br> que es <b>tedioso</b>
+  <br> pero nosotros estamos <b>ganando</b> la batalla
+  <br> <b>estamos</b> ganando la pelea.
+  <br>
+  <br>
+  <div class="m-5">
+    <button type="button" class="btn btn-outline-success btn-lg btn-block" (click)="opc = 1">SI ES POR RESULTADOS</button>
+    <button type="button" class="btn btn-outline-success btn-lg btn-block" (click)="opc = 2">SI ES Q NO TIENE DINERO</button>
+  </div>
+  <br>
+  <div class="opc1" *ngIf="opc == 1 ">
+    <br> <b>Esto</b> es lo que yo voy a <b>hacer</b> con usted:
+   <br>
+   <br> Hasta que usted <b><u>NO</u></b> reciba una contestación positiva
+   <br> yo voy a <b>seguir</b> con su caso
+   <br> y usted <b><u>NO</u></b> me paga
+   <br> hasta que reciba una contestación <b>positiva</b>
+   <br> entonces yo voy a <b>autorizar</b>
+   <br> para que <b><u>NO</u></b> le cobren este tiempo
+   <br> y de ahí en <b>adelante</b> cuando usted
+   <br> ya reciba resultados <b>positivos</b>
+   <br> usted me <b>paga</b>
+   <br>
+   <br> <b>¿OKAY?</b>
+    <hr>
+  </div>
+  <div class="opc2" *ngIf="opc == 2 ">
+    <div class="green">
+      <small>
+        <br> Si la persona quiere <b>cancelar</b> porqué
+        <br> <b>NO</b> tiene dinero entonces ahí le es flexible
+      </small>
+    </div>
+
+    <br> Bueno pues en este <b>caso</b>
+    <br> lo que voy a hacer es un <b>plan</b> de pago
+    <br> de dos <b>cuotas, o sea</b> dos pagos…
+    <br> ¿OKEY?
+    <br>
+    <br> <b>Hágamos</b> un pago ahora
+    <br> y el otro lo puede hacer más <b>adelante.</b>
+    <br>
+    <br> ¿De <b>cuánto</b> es el pago que
+    <br> usted puede hacer ahora?
+    <br>
+    <br> <input type="number" name="" id="">
+    <br>
+    <br> Para que podamos <b>seguir</b>
+    <br> <b>ganando</b> la batalla de su caso
+    <br> para ayudarle a <b>restablecer</b> su crédito
+    <br>
+    <br> ¿Con cuanto le <b>pongo</b> aquí?
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) ¿Más o <b>menos</b>?
+    <br>
+    <br> <input type="number" name="" id="">
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) ¿Para qué fecha
+    <br> le <b>pongo</b> el otro pago?
+    <br>
+    <br> <b>Usualmente</b> es una
+    <br> o dos semanas después
+    <br>
+    <br> <input type="date" name="" id="">
+    <br>
+    <div class="green">
+      <small>
+        <br> ENTONCES AHÍ USTED ESCOJE
+        <br> EL DIA DE PAGO PARA LA SEMANA 1 Y LA SEMANA 2
+        <br> ESO LO HACE CON UN CALENDARIO
+      </small>
+    </div>
+    <br> ¿A usted le <b>conviene</b> que sea
+    <br> viernes, <b>sábado</b> domingo o lunes?
+    <br> <input type="date" name="" id="">
+    <br>
+    <br> <b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) Perfecto</b>
+    <br> El <b>próximo</b>: es el día ______ de ______ del 2021
+    <br>
+    <br> Usted <b>prefiere</b> el día ______ de ______ del 2021
+    <br> o el ______ de ______ del 2021.
+    <div class="green">
+      <small>
+        <br> (Pone una semana después del pago que le está haciendo
+        <br> más otra semana después y que escoja uno de los dos )
+      </small>
+    </div>
+    <br> ¿Cuál de los dos es <b>mejor</b> para usted?
+    <br> Fecha A__________
+    <br> Fecha B__________
+    <br>
+    <br> ¡Okay <b>perfecto (<span *ngIf="cliente">{{ cliente.nombres }}</span>)</b>
+    <br> Entonces así <b>quedamos</b>
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) ¿Tiene <b>alguna</b> pregunta?
+    <br>
+    <br>
+    <br> Su pago es <b>para</b> el dia ____
+    <br> <b>recuerde</b> que cuando haga el pago
+    <br> me devuelve la llamada
+    <br> para <b>acreditarselo</b> a usted.
+    <hr>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+

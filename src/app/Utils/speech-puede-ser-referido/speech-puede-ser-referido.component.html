@@ -1,0 +1,126 @@
+
+<div class="content">
+  <div class="{{intro}}">
+    <div class="ini">
+      <span style=" color:green">¡Referidos!</span>
+
+      <span>Parentesco:</span>
+
+      <select class="mt-2"  [(ngModel)]="parentesco">
+        <option>Respuesta</option>
+        <option value="Mamá">Mamá</option>
+        <option value="Papá">Papá</option>
+        <option value="Amig@">Amigo/a</option>
+        <option value="Prim@">Primo/a</option>
+        <option value="Herman@">Hermano/a</option>
+        <option value="Vecin@">Vecino/a</option>
+        <option value="Abuel@">Abuelo/a</option>
+        <option value="Espos@">Esposo/a</option>
+      </select>
+    </div>
+
+    <br>
+    <br> <span>¿Cuál es el <b>nombre</b> de su ({{parentesco }})? </span>
+    <br> <input type="text" name="namber" id="namb" [(ngModel)]="nombre_referido" placeholder="Escriba aquí su respuesta">
+    <br>
+    <br> <span> ¿Cuál es el <b>telefono</b> de su ({{ parentesco }})?</span>
+    <br> <input type="tel" name="telefono_referido" pattern="^(\d{10})" maxlength="10" minlength="10" id="tel" [(ngModel)]="telefono_referido" #telmovilI="ngModel">
+    <div class="errores" *ngIf="telmovilI.invalid && (telmovilI.dirty || telmovilI.touched)">
+      <div *ngIf="telmovilI.errors.required">
+        <small>Este telefono es Obligatorio</small>
+      </div>
+      <div *ngIf="telmovilI.errors.minlength || telmovilI.errors.maxlength">
+        <small>El telefono requiere de <b>10</b> digitos!</small>
+      </div>
+      <div *ngIf="
+          !telmovilI.errors.minlength &&
+          !telmovilI.errors.maxlength &&
+          telmovilI.errors.pattern
+        ">
+        <small><b>NO</b> se permiten letras ni simbolos!</small>
+      </div>
+    </div>
+    <br>
+    <br> <span class="green">(El primero que hable pierde)</span>
+    <br>
+    <br> Nosotros tenemos un <b>programa</b> en el cual
+    <br> por cada <b>persona</b> que usted nos refiera,
+    <br> que <b>adquiera</b> nuestros sistema usted
+    <br> recibe <b>100</b> dólares descontados de
+    <br> su <b>próximo</b> pago.
+    <br>
+    <br> Nosotros <b><u>NO</u></b> le vamos a llamar
+    <br> hasta que usted nos lo <b>indique</b>
+    <br> que le <b>llamemos</b>.
+    <br>
+    <br> Es muy <b>importante</b> que usted
+    <br> lo <b>inscriba</b> con el número
+    <br> de <b>telífono</b> de su ({{parentesco }})
+    <br> porque <b>debido</b> que tenemos
+    <br> muchos <b>programas</b> de radio.
+    <br>
+    <br> Su ({{parentesco }}) puede <b>escuchar</b>
+    <br> el <b>programa</b> de radio y llamarnos,
+    <br> si <b><u>NO</u></b> está inscrita bajo su nombre
+    <br> usted <b>perdería</b> los 100 dolares.
+    <br>
+    <br> Mas sin <b>embargo</b> herman<span style=" color: blue">o/a</span> (<span *ngIf="cliente">{{ cliente.nombres }}</span>),
+    <br> al <b>inscribir</b> el telífono
+    <br> y como le dije <b>anteriormente</b>
+    <br> <b><u>NO</u></b> lo vamos a llamar
+    <br> hasta que usted nos <b>autorice</b>.
+    <br>
+    <br> Al hacer <b>esto</b> herman<span style=" color: blue">o/a</span> (<span *ngIf="cliente">{{ cliente.nombres }}</span>),
+    <br> aunque esa <b>persona</b> nos llame
+    <br> usted va a <b>recibir</b> los 100 dolares
+    <br> en una <b>tarjeta</b> de díbito.
+    <br>
+    <br> ¿Que <b>tarjeta</b> de regalo
+    <br> con <b>100</b> dolares prefiere recibir?
+    <br>
+    <br> ¿<b>Visa</b> o mastercard?
+    <br>
+    <br>
+    <button class="btn_g" type="button" (click)="verBtns('buvis')">
+        SI LLEGO
+    </button>
+
+    <button class="btn_g" type="button"  (click)="verBtns('bumas')">
+        NO LLEGO
+    </button>
+
+    <div style="font-size: 36px;"  *ngIf="butonvisa">
+        <br> Muy <b>bien</b>,
+        <br> perfecto herman<span style="  color: blue">o/a</span> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+        <br>
+        <br> Dejeme <b>inscribirlo</b>
+        <br> con su <b>telofono</b> para que
+        <br> reciba su <b>tarjeta</b> de regalo Visa.
+        <br>
+        <br> Un <b>momento</b> que le voy a inscribir...
+        <br>
+        <br> ¡<b><u>NO</u></b> me cuelgue!
+        <br>
+        <br> ¡Muy <b>bien</b>!
+        <br>
+        <br> ¡Ya lo <b>inscribí</b>!
+    </div>
+
+    <div style="font-size: 36px;"  *ngIf="butonmaster">
+        <br> ¿Cómo es el <b>nombre</b> de esa persona?
+        <br> <input type="text" name="nombre" id="nom" placeholder="Escriba aquí su respuesta">
+        <br>
+        <br> ¿Cuál es el <b>número</b> de telífono?
+        <br> <input type="text" name="numero" id="num" placeholder="Escriba aquí su respuesta">
+        <br>
+        <br> &#161;Muy <b>bien</b>&#33;
+        <br> &#161;Ya lo <b>inscribí</b>&#33;
+        <br>
+        <br>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>

@@ -1,0 +1,137 @@
+<div class="main">
+  <div class="head_notas">
+
+    <div class="add float-right">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FFFFFF" class="bi bi-file-earmark-plus" viewBox="0 0 16 16" (click)="toogleAdd = true">
+        <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
+        <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+      </svg>
+    </div>
+    <h3 class="text-white">Historial - Notas</h3>
+  </div>
+  <div class="body_notas mt-4">
+    <table class="table table-hover table-striped table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Fecha</th>
+          <th scope="col">Resultado</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Notas</th>
+          <th scope="col">Agente</th>
+          <th scope="col">Más</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of notas; let i = index">
+          <td>{{ item.fecha_llamada | date:'mediumDate' }}</td>
+          <td>
+            <span *ngFor="let r of result_n">
+              <b *ngIf="r[1] == item.resultado ">{{ r[0] }}</b>
+              <b *ngIf="item.resultado == 'N/C' ">No Contesta</b>
+            </span>
+          </td>
+          <td>{{item.llamada}}</td>
+          <td class="cortar_txt" [innerHTML]="item.nota | safeTest:'htmlMod'"></td>
+          <td *ngIf="item.asignado">{{ item.asignado | slice:0:9 }}</td>
+          <td *ngIf="!item.asignado">Dado de Baja</td>
+
+          <td>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16" (click)="verInfo(item)">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="yellow" class="bi bi-pencil-square ml-1" viewBox="0 0 16 16" *ngIf="i == 0 " (click)="editarnota(item)">
+              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" *ngIf="is_admin"
+              class="bi bi-trash-fill ml-1" viewBox="0 0 16 16" (click)="delNota(item)">
+                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+            </svg>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="modal_notas" *ngIf="toogle">
+  <div class="modal-header">
+    <h5 class="modal-title">{{ notaItem.nombres }}</h5>
+
+    <div class="cerar_m float-right">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16" (click)="toogle  = false">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+    </div>
+  </div>
+  <div class="modal-body" [innerHTML]="sanitizer.bypassSecurityTrustHtml(notaItem.nota)">
+  </div>
+  <div class="modal-f">
+    <p>Agente : <b >{{ notaItem.asignado || 'Dado de baja' }}</b></p>
+    <p>
+      Resultado:
+      <span *ngFor="let r of result_n">
+        <b *ngIf="r[1] == notaItem.resultado ">{{ r[0] }}</b>
+        <b *ngIf="notaItem.resultado == 'N/C' ">No Contesta</b>
+      </span>
+    </p>
+    <p>DID : <b>{{ notaItem.did }}</b></p>
+    <p>Llamada: <b>{{ notaItem.llamada }}</b></p>
+    <p>Fecha : <b>{{ notaItem.fecha_llamada }}</b></p>
+  </div>
+</div>
+
+<div class="bg" *ngIf="toogleAdd">
+  <div class="modal_creador">
+    <app-editor-speech (toogleAdd)="toogleAdd=$event"></app-editor-speech>
+  </div>
+</div>
+
+<div class="modal_notas" *ngIf="modalNotaEd">
+  <div class="modal-header">
+    <h5 class="modal-title">{{ nota.nombres }}</h5>
+
+    <div class="cerar_m float-right">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16" (click)="modalNotaEd  = false">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+    </div>
+  </div>
+  <p>Nota Anterior:</p>
+  <div class="modal-body" [innerHTML]="sanitizer.bypassSecurityTrustHtml(nota.nota)">
+  </div>
+  <p>Nueva Nota</p>
+  <div class="newN m-2">
+    <input type="text" name="nuevaNota" class="nuevaN form-control" [(ngModel)]="nuevaNota">
+  </div>
+  <div class="d-flex m-2">
+    <button class="btn btn-primary m-auto " (click)="enviarNotaEdit()">
+      Cambiar Nota
+    </button>
+  </div>
+  <div class="modal-f">
+    <p>Agente : <b >{{ nota.asignado || 'Dado de baja' }}</b></p>
+    <p>
+      Resultado:
+      <span *ngFor="let r of result_n">
+        <b *ngIf="r[1] == nota.resultado ">{{ r[0] }}</b>
+        <b *ngIf="nota.resultado == 'N/C' ">No Contesta</b>
+      </span>
+    </p>
+    <p>DID : <b>{{ nota.did }}</b></p>
+    <p>Llamada: <b>{{ nota.llamada }}</b></p>
+    <p>Fecha : <b>{{ nota.fecha_llamada }}</b></p>
+  </div>
+</div>
+
+<div class="bg" *ngIf="toogleAdd">
+  <div class="modal_creador">
+    <app-editor-speech (toogleAdd)="toogleAdd=$event"></app-editor-speech>
+  </div>
+</div>

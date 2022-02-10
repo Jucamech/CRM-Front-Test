@@ -1,0 +1,215 @@
+<app-header *ngIf="!opc"></app-header>
+
+<div class="wrapper" [class.bg_force]="opc">
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <div class="">
+      <h5 class="text-center mt-3">Ver Cliente</h5>
+    </div>
+    <hr />
+
+   <!--  <div class="capm">
+      <button type="button" class="btn btn-success btn-lg btn-block btn-sm" *ngIf="modocampa" (click)="enviarCampana()">
+        Campaña
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square-fill" viewBox="0 0 16 16">
+          <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM5.904 10.803 10 6.707v2.768a.5.5 0 0 0 1 0V5.5a.5.5 0 0 0-.5-.5H6.525a.5.5 0 1 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 .707.707z"/>
+        </svg>
+
+        <span *ngIf="cliente && cliente.actualizacion && split(cliente.actualizacion)[2] == 'campagne' " [title]="split(cliente.actualizacion)[0] | slice:0:10">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-flag-fill  ml-1" viewBox="0 0 16 16">
+            <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
+          </svg>
+        </span>
+
+      </button>
+    </div> -->
+
+    <div class="capm mt-1" *ngIf="campV2.length > 0">
+      <button type="button" class="btn btn-success btn-lg btn-block btn-sm"  (click)="enviarCampana()">
+        Campaña V2
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square-fill" viewBox="0 0 16 16">
+          <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM5.904 10.803 10 6.707v2.768a.5.5 0 0 0 1 0V5.5a.5.5 0 0 0-.5-.5H6.525a.5.5 0 1 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 .707.707z"/>
+        </svg>
+
+        <span *ngIf="cliente && cliente.campagna " [title]="cliente.campagna">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-flag-fill  ml-1" viewBox="0 0 16 16">
+            <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
+          </svg>
+        </span>
+
+      </button>
+    </div>
+
+    <ul class="list-unstyled components">
+      <li>
+        <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Datos
+          Personales</a>
+        <ul class="collapse list-unstyled show" id="pageSubmenu1">
+          <li [class.selected]="opcionVer == 1">
+            <a (click)="opcionVer = 1">Datos basicos</a>
+          </li>
+          <li [class.selected]="opcionVer == 2">
+            <a (click)="opcionVer = 2">Datos adicionales</a>
+          </li>
+          <li [class.selected]="opcionVer == 9">
+            <a (click)="opcionVer = 9">Hist LLamadas</a>
+          </li>
+          <li [class.selected]="opcionVer == 8">
+            <a (click)="opcionVer = 8">Notas LLamadas</a>
+          </li>
+          <li [class.selected]="opcionVer == 3">
+            <a (click)="opcionVer = 3">Documentación</a>
+          </li>
+          <li [class.selected]="opcionVer == 7">
+            <a (click)="opcionVer = 7">Citas</a>
+          </li>
+          <li [class.selected]="opcionVer == 11">
+            <a (click)="opcionVer = 11">Agenda Cliente</a>
+          </li>
+          <li [class.selected]="opcionVer == 12">
+            <a (click)="opcionVer = 12">Whatsapp</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Perfil
+          Crediticio</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu2">
+          <li [class.selected]="opcionVer == 4">
+            <a (click)="opcionVer = 4">Historial Crediticio</a>
+          </li>
+          <li [class.selected]="opcionVer == 10">
+            <a (click)="opcionVer = 10">Contestaciones</a>
+          </li>
+          <li [class.selected]="opcionVer == 5">
+            <a (click)="opcionVer = 5">Pagos y Cobro</a>
+          </li>
+          <li [class.selected]="opcionVer == 6">
+            <a (click)="opcionVer = 6">Cartas</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div class="form-group">
+      <input type="submit" [disabled]="opcionVer > 2 " value="Guardar" form="NgForm"
+        class="btn btn-primary btn-lg btn-block" (click)="enviarPacth()" />
+    </div>
+  </nav>
+
+  <div class="content xd">
+    <div class="content h100">
+      <div class="DatosPersonales" *ngIf="opcionVer == 1">
+        <app-datos-personales
+          [formuPostClient]="formuPostClient"
+          (enviarForm)="formuPostClient=$event"
+          [no_admin]="no_admin"
+          (dataCliH)="dataCliH=$event">
+        </app-datos-personales>
+      </div>
+
+      <div class="DatosAdicionales" *ngIf="opcionVer == 2">
+        <app-info-adicional
+          [formuPostClient2]="formuPostClient2"
+          [reset]="reset"
+          (emitReset)="reset = false"
+          (enviarForm)="formuPostClient2=$event">
+        </app-info-adicional>
+      </div>
+
+      <div class="Historial_llamdas" *ngIf="opcionVer == 9">
+        <app-historial-llamadas-cliente></app-historial-llamadas-cliente>
+      </div>
+
+      <div class="Documentacion" *ngIf="opcionVer == 3">
+        <app-documentacion></app-documentacion>
+      </div>
+
+      <div class="HistorialCrediticio" *ngIf="opcionVer == 4">
+        <app-historial-crediticio [cliente]="cliente"></app-historial-crediticio>
+      </div>
+
+      <div class="CitasCliente" *ngIf="opcionVer == 7">
+        <app-citas-cli [dataCliH]="dataCliH"></app-citas-cli>
+        <div class="lista">
+          <app-citas-lista [dataCliH]="dataCliH"></app-citas-lista>
+        </div>
+      </div>
+
+      <div class="Pagos" *ngIf="opcionVer == 5">
+        <app-pagos [Cliente]="cliente"></app-pagos>
+      </div>
+
+      <div class="Cartas" *ngIf="opcionVer == 6">
+        <app-cartas></app-cartas>
+      </div>
+
+      <div class="DatosAdicionales" *ngIf="opcionVer == 8">
+        <app-notas-cliente></app-notas-cliente>
+      </div>
+
+      <div class="DatosAdicionales" *ngIf="opcionVer == 10">
+        <app-contestaciones></app-contestaciones>
+      </div>
+
+      <div class="DatosAdicionales " *ngIf="opcionVer == 11">
+        <app-calendario-cliente [cliente]="cliente" ></app-calendario-cliente>
+      </div>
+
+      <div class="DatosAdicionales " *ngIf="opcionVer == 12">
+        <app-whatsapp-cliente></app-whatsapp-cliente>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="bg" *ngIf="modal">
+  <div class="">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Enviar a Campaña</h5>
+          <button type="button" class="close" (click)="cerrarModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body" >
+          <h4 class="text-center mb-3">
+            <span>{{itemCampa.nombres || 'LLamada'}}</span> &nbsp;
+            <span *ngIf="itemCampa.apellidos">{{itemCampa.apellidos }} &nbsp;</span>
+            <span *ngIf="!itemCampa.nombres && !itemCampa.apellidos">Perdida &nbsp;</span>
+            - ID : {{ itemCampa.id }}
+          </h4>
+          <div class="row">
+
+            <div class="col-md-6" *ngIf="modocampa">
+              <label for="r" class="">Campaña : </label>
+              <select name="campana" id="statusSel" class="form-control" [(ngModel)]="nameCamp">
+                <option *ngFor="let s of campanas" [value]="s.data.name" >{{ s.data.name }}</option>
+              </select>
+            </div>
+
+            <div class="col-md-6" *ngIf="campV2">
+              <label for="rob" >Campaña V2: </label>
+              <select name="campanaV2" id="statusSel2" class="form-control" [(ngModel)]="dataCampV2">
+                <option *ngFor="let r of campV2" [value]="r.id" >{{ r.name }}</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Close</button>
+          <button type="button" class="btn btn-primary" *ngIf="modocampa" (click)="enviarCampana2()" >Confirmar</button>
+          <button type="button" class="btn btn-primary" *ngIf="campV2" (click)="enviarCampanaV2()" >Confirmar V2</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-alertas></app-alertas>

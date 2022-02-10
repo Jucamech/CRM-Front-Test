@@ -1,0 +1,149 @@
+
+<div class="calendario ml-3 mt-3 w50">
+  <div class="cal d-flex w100">
+    <div class="citas w100">
+      <div class="header">
+
+          <button class="btn btn-dark w-f" (click)="tabla = 'all' ">
+            All Stack<span class="">{{ totalCitas }}</span>
+          </button>
+          -
+          <button class="btn btn-success w-f" (click)="tabla = 'ventas' ">
+            Stack Ventas<span class="">{{ totalCitas }}</span>
+          </button>
+
+          <button class="btn btn-primary w-f" (click)="tabla = 'sac' ">
+            Stack SAC<span class="">{{ totalCitas }}</span>
+          </button>
+
+          <button class="btn btn-secondary w-f" (click)="tabla = 'cobros' ">
+            Stack Cobros<span class="">{{ totalCitas }}</span>
+          </button>
+          -
+          <button class="btn btn-warning w-f" (click)="tabla = 'agent' ">
+            Asignadas<span class="">{{ totalCitas }}</span>
+          </button>
+
+          <button class="btn btn-warning w-f" (click)="tabla = 'atagent' ">
+            Recibidas<span class="">{{ totalCitas }}</span>
+          </button>
+
+      </div>
+      <div class="citas_body" [style.height.%]="width" >
+
+        <div class="citas_stock" *ngIf="tabla == 'all' ">
+          <ul class="list-group" *ngFor="let item of citasStackAll">
+            <li class="list-group-item list-group-item-dark">
+              {{ item.fechahora | date: "shortTime" }} - <b>{{ item.nombres || 'Llamada' }} {{ item.apellidos || 'Perdida' }}</b>&nbsp;
+              <b class="red">Nota: </b> {{ item.notas }} <span class="float-right ml-3"></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="citas_stock" *ngIf="tabla == 'ventas' ">
+          <ul class="list-group" *ngFor="let item of citasStackV">
+            <li class="list-group-item list-group-item-success">
+              {{ item.fechahora | date: "shortTime" }} - <b>{{ item.nombres || 'Llamada' }} {{ item.apellidos || 'Perdida' }}</b>&nbsp;
+              <b class="red">Nota: </b> {{ item.notas }} <span class="float-right ml-3"><b class="red"> Asignado: </b> {{ item.id_asignado | searchAgente:agentes }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="citas_stock" *ngIf="tabla == 'sac' ">
+          <ul class="list-group" *ngFor="let item of citasStackS">
+            <li class="list-group-item list-group-item-primary">
+              {{ item.fechahora | date: "shortTime" }} - <b>{{ item.nombres || 'Llamada' }} {{ item.apellidos || 'Perdida' }}</b>&nbsp;
+              <b class="red">Nota: </b> {{ item.notas }} <span class="float-right ml-3"><b class="red"> Asignado: </b> {{ item.id_asignado | searchAgente:agentes }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="citas_stock" *ngIf="tabla == 'cobros' ">
+          <ul class="list-group" *ngFor="let item of citasStackC">
+            <li class="list-group-item list-group-item-secondary">
+              {{ item.fechahora | date: "shortTime" }} - <b>{{ item.nombres || 'Llamada' }} {{ item.apellidos || 'Perdida' }}</b>&nbsp;
+              <b class="red">Nota: </b> {{ item.notas }} <span class="float-right ml-3">
+              <b class="red"> Asignado: </b> {{ item.id_asignado | searchAgente:agentes }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="citas_stock" *ngIf="tabla == 'agent' ">
+
+          <ul class="list-group" *ngFor="let item of citasStackAsV ">
+            <li class="list-group-item list-group-item-success">
+              {{ item.fechahora | date: "shortTime" }} - <b>{{ item.nombres || 'Llamada' }} {{ item.apellidos || 'Perdida' }}</b>&nbsp;
+              <b class="red">Nota: </b> {{ item.notas }} <span class="float-right ml-3">
+              <b class="red"> Asignado: </b> {{ item.id_asignado | searchAgente:agentes }}
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-left-square-fill" viewBox="0 0 16 16" title="DEVOLVER AL STACK" (click)="retornarToStack(item)">
+                    <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm8.096-10.803L6 9.293V6.525a.5.5 0 0 0-1 0V10.5a.5.5 0 0 0 .5.5h3.975a.5.5 0 0 0 0-1H6.707l4.096-4.096a.5.5 0 1 0-.707-.707z"/>
+                  </svg>
+                </span>
+              </span>
+            </li>
+          </ul>
+
+          <ul class="list-group" *ngFor="let item of citasStackAsS">
+            <li class="list-group-item list-group-item-primary">
+              {{ item.fechahora | date: "shortTime" }} - <b>{{ item.nombres || 'Llamada' }} {{ item.apellidos || 'Perdida' }}</b>&nbsp;
+              <b class="red">Nota: </b> {{ item.notas }} <span class="float-right ml-3">
+              <b class="red"> Asignado: </b> {{ item.id_asignado | searchAgente:agentes }}
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-left-square-fill" viewBox="0 0 16 16" title="DEVOLVER AL STACK" (click)="retornarToStack(item)">
+                    <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm8.096-10.803L6 9.293V6.525a.5.5 0 0 0-1 0V10.5a.5.5 0 0 0 .5.5h3.975a.5.5 0 0 0 0-1H6.707l4.096-4.096a.5.5 0 1 0-.707-.707z"/>
+                  </svg>
+                </span>
+              </span>
+            </li>
+
+            <ul class="list-group" *ngFor="let item of citasStackAsC">
+              <li class="list-group-item list-group-item-secondary">
+                {{ item.fechahora | date: "shortTime" }} - <b>{{ item.nombres || 'Llamada' }} {{ item.apellidos || 'Perdida' }}</b>&nbsp;
+                <b class="red">Nota: </b> {{ item.notas }} <span class="float-right ml-3">
+                <b class="red"> Asignado: </b> {{ item.id_asignado | searchAgente:agentes }}
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-left-square-fill" viewBox="0 0 16 16" title="DEVOLVER AL STACK" (click)="retornarToStack(item)">
+                      <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm8.096-10.803L6 9.293V6.525a.5.5 0 0 0-1 0V10.5a.5.5 0 0 0 .5.5h3.975a.5.5 0 0 0 0-1H6.707l4.096-4.096a.5.5 0 1 0-.707-.707z"/>
+                    </svg>
+                  </span>
+                </span>
+              </li>
+            </ul>
+
+          </ul>
+        </div>
+
+        <div class="citas_stock" *ngIf="tabla == 'atagent' ">
+
+          <ul class="list-group" *ngFor="let item of citasStackAtV ">
+            <li class="list-group-item list-group-item-success">
+              {{ item.fechahora | date: "shortTime" }} - <b>{{ item.nombres || 'Llamada' }} {{ item.apellidos || 'Perdida' }}</b>&nbsp;
+              <b class="red">Nota: </b> {{ item.notas }} <span class="float-right ml-3"><b class="red"> Asignado: </b> {{ item.id_asignado | searchAgente:agentes }}</span>
+            </li>
+          </ul>
+
+          <ul class="list-group" *ngFor="let item of citasStackAtS">
+            <li class="list-group-item list-group-item-primary">
+              {{ item.fechahora | date: "shortTime" }} - <b>{{ item.nombres || 'Llamada' }} {{ item.apellidos || 'Perdida' }}</b>&nbsp;
+              <b class="red">Nota: </b> {{ item.notas }} <span class="float-right ml-3"><b class="red"> Asignado: </b> {{ item.id_asignado | searchAgente:agentes }}</span>
+            </li>
+          </ul>
+
+          <ul class="list-group" *ngFor="let item of citasStackAtC">
+            <li class="list-group-item list-group-item-secondary">
+              {{ item.fechahora | date: "shortTime" }} - <b>{{ item.nombres || 'Llamada' }} {{ item.apellidos || 'Perdida' }}</b>&nbsp;
+              <b class="red">Nota: </b> {{ item.notas }} <span class="float-right ml-3"><b class="red"> Asignado: </b> {{ item.id_asignado | searchAgente:agentes }}</span>
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+

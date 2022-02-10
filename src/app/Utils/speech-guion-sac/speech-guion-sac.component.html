@@ -1,0 +1,234 @@
+
+<div class="content" #content>
+  <div class="intro">
+    <br> <h2><b>Soluciones:</b></h2>
+    <br>
+    <br> Guión de <b>bienvenida</b>
+    <br> <b>(aplica para todas las llamadas)</b>
+    <br>
+    <br> <b>Bienvenido</b> a crédito mejor
+    <br> donde su <b>crédito</b>
+    <br> es lo <b>más</b> importante
+    <br> habla ({{ agent }}),
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>),
+    <br> dios le <b>bendiga</b>, ¿Cómo está?
+    <br>
+    <br>
+    <h3>Posibles <b>variables</b></h3>
+    <h3>en una <b>llamada</b> de entrada.</h3>
+    <br>
+    <br> <a href="/speechsticket/GuionSAC#dep">1. Acabé de hacer un <b>deposito</b></a>
+    <br>
+    <br> <a href="/speechsticket/GuionSAC#doc">2. Acabé de <b>enviar</b> unos documentos</a>
+    <br>
+    <br> <a href="/speechsticket/GuionSAC#depdoc">3. Hice un <b>depósito</b> y
+      <br> envié unos <b>documentos</b></a>
+    <br>
+    <br> <a href="/speechsticket/GuionSAC#que_son">4. <b>Quiero</b> que me digan
+      <br>qué son esos <b>documentos</b></a>
+    <br>
+    <br> <a href="/speechsticket/GuionSAC#deme20">5. En caso de que <b>alguien</b>
+      <br>quiera saber cómo va el <b>caso</b></a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="depo" id="dep">
+      <br>* 1. Acabé de hacer un deposito:
+      <br> <b>Perfecto</b>, deme un momento
+      <br> me <b>comunico</b> con el área
+      <br> de <b>contabilidad</b> para que
+      <br> nos <b>acredite</b> su pago,
+      <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+      <br> ¿en qué <b>banco</b> hizo su paguito
+      <br> en el <b>chase</b> o en el td bank?
+      <br>
+      <br> ¿A qué <b>horas</b> lo hizo? (...)
+      <br> ¿ <b>Cuándo</b> lo hizo? (...)
+      <br> ¿Qué <b>valor</b> depositó? (...)
+      <br>
+      <br> <span class="green">"esperar reacción del cliente"</span>
+      <br>
+      <br> Muuuy <b>bien</b> deme un momento
+      <br> no vaya a <b>enganchar.</b>
+      <br>
+      <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+      <br> su pago ya fue <b>acreditado</b>
+      <br> <b>gracias</b> por ser una persona
+      <br> formal y cumplida con sus <b>pagos</b>,
+      <br> <b>recuerde</b> que todos sus pagos
+      <br> son el <b>dia</b> ___ de cada mes,
+      <br> también <b>recuerde</b>
+      <br> que cualquier <b>documento</b> que
+      <br> le llegue nos lo <b>envía</b>
+      <br> al <b>correo</b> electrónico
+      <br> <b>inmediatamente</b> y nos llama
+      <br> para atrás para <b>confirmar</b>
+      <br> que si lo hayamos <b>recibido</b>. OK?
+      <br>
+      <br>
+      <h4> DIOS LO BENDIGA.</h4>
+      <hr>
+    </div>
+    <div class="doc" id="doc">
+      <br>* 2. <b>Acabé</b> de enviar unos <b>documentos</b>:
+      <br>
+      <br> <b>Perfecto</b>, deme un momento
+      <br> para <b>confirmar</b> que
+      <br> si nos llegaron estos <b>documentos</b>.
+      <br>
+      <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+      <br> en este <b>momento</b> veo que
+      <br> los <b>documentos</b> ya los tiene
+      <br> el <b>departamento</b> de procesamiento,
+      <br> ellos están <b>analizando</b> la información
+      <br> y de ser <b>necesario</b> próximamente
+      <br> se <b>comunicarán</b> con usted.
+      <hr>
+    </div>
+    <div class="depdoc" id="depdoc">
+      <br>* 3.1. Acabé de hacer un deposito:
+      <br>
+      <br> <b>Perfecto</b>, deme un momento
+      <br> me <b>comunico</b> con el área
+      <br> de <b>contabilidad</b> para que
+      <br> nos <b>acredite</b> su pago,
+      <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+      <br> ¿en qué <b>banco</b> hizo su paguito
+      <br> en el <b>chase</b> o en el td bank?
+      <br>
+      <br> ¿A qué <b>horas</b> lo hizo? (...)
+      <br> ¿ <b>Cuándo</b> lo hizo? (...)
+      <br> ¿Qué <b>valor</b> depositó? (...)
+      <br>
+      <br> <span class="green">"esperar reacción del cliente"</span>
+      <br>
+      <br> Muuuy <b>bien</b> deme un momento
+      <br> no vaya a <b>enganchar.</b>
+      <br>
+      <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+      <br> su pago ya fue <b>acreditado</b>
+      <br> <b>gracias</b> por ser una persona
+      <br> formal y cumplida con sus <b>pagos</b>,
+      <br> <b>recuerde</b> que todos sus pagos
+      <br> son el <b>dia</b> ___ de cada mes,
+      <br> también <b>recuerde</b>
+      <br> que cualquier <b>documento</b> que
+      <br> le llegue nos lo <b>envía</b>
+      <br> al <b>correo</b> electrónico.
+      <br>
+      <br>* 3.2. Documentos
+      <br>
+      <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+      <br> en este <b>momento</b> veo que
+      <br> los <b>documentos</b> ya los tiene
+      <br> el <b>departamento</b> de procesamiento,
+      <br> ellos están <b>analizando</b> la información
+      <br> y de ser <b>necesario</b> próximamente
+      <br> se <b>comunicarán</b> con usted.
+      <br>
+      <br>
+      <h4> DIOS LO BENDIGA.</h4>
+      <br>
+      <hr>
+    </div>
+    <div class="que_son" id="que_son">
+      <br>*4. <b>Quiero</b> que me digan que son esos <b>documentos</b>
+      <br>
+      <br> <b>Primera</b> variable
+      <br> <a href="/speechsticket/GuionSAC#prim_v"><b>(respuestas de los buros):</b></a>
+      <br>
+      <br>
+      <br> <b>Segunda</b> variable
+      <br> <a href="/speechsticket/GuionSAC#seg_v"><b>(billes y cartas de cobro)::</b></a>
+      <br>
+      <br>
+      <br>
+      <hr>
+      <div id="prim_v">
+        <br><b>Primera</b> variable
+        <br>
+        <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+        <br> esas son muy <b>buenas</b> noticias,
+        <br> porque los <b>buros</b> de crédito
+        <br> nos están <b>contestando</b>
+        <br> y eso <b>precisamente</b>
+        <br> es lo que <b>necesitamos</b>,
+        <br> porque usted está <b>siendo</b>
+        <br> reconocido como <b>dueño</b>
+        <br> de este <b>crédito</b>,
+        <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+        <br> eso es de lo más <b>importante</b>
+        <br> porque nada me <b>gano</b> yo
+        <br> con ayudarle a <b>arreglar</b>
+        <br> su <b>crédito</b> y que después
+        <br> lo <b>confundan </b> con alguien
+        <br> o se lo traten de <b>robar</b>.
+        <br>
+        <br> Yo veo acá que <b>usted</b>
+        <br> nos ha <b>enviado</b> respuestas de
+        <br> <b>(buros que hayan contestado)</b>
+        <br> aún faltan las <b>respuestas</b> de
+        <br> <b>(buros que NO hayan contestado).</b>
+        <br>
+        <br> Tan <b>pronto</b> le lleguen
+        <br> le toma una <b>fotografía</b>
+        <br> y me los <b>envía</b> inmediatamente
+        <br> al <b>correo</b> electrónico
+        <br> y me <b>llama</b> para atrás
+        <br> para <b>confirmar</b> que si
+        <br> lo hayamos <b>recibido</b>. OK?
+        <br>
+        <br>
+        <hr>
+      </div>
+      <div id="seg_v">
+        <br> <b>Segunda</b> variable
+        <br>
+        <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+        <br> mire esto es <b>normal</b> en el proceso
+        <br> de su <b>reparación </b> de crédito,
+        <br> pero <b>necesito</b> que todo
+        <br> lo que le <b>llegue</b> le saque
+        <br> una <b>fotografía</b> y nos lo envié
+        <br> inmediatamente a el <b>email</b>
+        <br> porque si le está <b>afectando</b>
+        <br> en su <b>crédito</b> lo vamos a trabajar,
+        <br> también hay <b>cartas</b> que tenemos
+        <br> que <b>contestar</b> de 4 a 5 días
+        <br> porque si no podemos perder el <b>caso.</b>
+        <br>
+        <br> Entonces es <b>muy</b> importante
+        <br> que usted este <b>pendiente</b>
+        <br> de su <b>correo</b> y nos haga llegar
+        <br> toda la <b>documentación</b> que
+        <br> le llegue referente a su <b>crédito</b>.
+        <br>
+        <br>
+        <br>
+        <hr>
+      </div>
+      <br>
+      <br>
+    </div>
+    <div id="deme20">
+      <br> 5. Deme <b>20</b> minuticos,
+      <br> yo <b>estudio</b> su caso,
+      <br> si no lo he <b>llamado</b>
+      <br> en <b>30</b> usted me devuelve
+      <br> la <b>llamada</b> para atrás en 30.
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+    </div>
+
+  </div>
+</div>

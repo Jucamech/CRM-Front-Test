@@ -1,0 +1,102 @@
+
+<div class="content">
+  <div class="{{intro}}">
+      <span style="color: green;">
+          <h4>Respuesta posible del cliente</h4><br><br>
+          <h2> Ah pero ustedes me dijeron a mí que<br>
+          si yo lo hacía  el pago inmediatamente, <br>
+          ustedes iban a mandar las cartas? </h2>
+      </span>
+
+      Nosotros le <b>indicamos</b> que nosotros <br>
+      haríamos las cartas <b>inmediatamente</b> <br>
+      y así lo <b>hicimos</b>.
+      <br>
+
+      <span style="color: blue;"> Pero hasta que nosotros <b><u>NO</u></b> recibamos el </span>
+      <br>
+      <br>
+      <button class="btn_g" type="button" (click)="verBtns('s')">
+      Seguro Social
+      </button>
+
+      <button class="btn_g ml-2" type="button"  (click)="verBtns('sl')">
+      Seguro Social y Licencia
+      </button>
+
+      <button class="btn_g ml-2" type="button"  (click)="verBtns('slb')">
+      Seguro Social, Licencia y Bill
+      </button>
+
+      <div style="font-size: 36px;"  *ngIf="ss">
+              <br>Hasta que <b>nosotros</b>
+              <br><b><u>NO</u></b> hayamos recibido las
+              <br>identificaciones <b>completas</b>, del
+              <br>seguro <b>social</b>
+              <br>
+              <br><b><u>NO</u></b> podemos enviar las cartas
+              <br>ya que la ley nos <b>exige</b> que  tenemos que asegurarnos que
+              <br>usted es <b>realmente</b> la persona
+              <br>que <b>usted</b> dice ser,
+              <br>y que <b><u>NO</u></b> es una persona
+              <br>haciendo <b>robo</b> de identidad,
+              <br>esto es por su <b>propia</b> seguridad.
+              <br><b>¿OKEY?</b>
+              <br>
+              <br>Por eso <b>necesitamos</b> que nos mande
+              <br>de una forma <b>legible</b> que se vean
+              <br>las <b>cuatro</b> esquinas del seguro social
+              <br>
+              <br><b>¿OKEY?</b>
+      </div>
+
+      <div style="font-size: 36px;"  *ngIf="sslic">
+              <br>Hasta que <b>nosotros</b>
+              <br><b><u>NO</u></b> hayamos recibido las
+              <br>identificaciones <b>completas</b>, del
+              <br>seguro <b>social</b> Y la licencia
+              <br>
+              <br>
+              <br><b><u>NO</u></b> podemos enviar las cartas
+              <br>ya que la ley nos <b>exige</b> que  tenemos que asegurarnos que
+              <br> usted es <b>realmente</b> la persona
+              <br>que <b>usted</b> dice ser,
+              <br>y que <b><u>NO</u></b> es una persona
+              <br>haciendo <b>robo</b> de identidad,
+              <br>esto es por su <b>propia</b> seguridad.
+              <br><b>¿OKEY?</b>
+              <br>
+              <br>por eso <b>necesitamos</b> que nos mande
+              <br>de una forma <b>legible</b> que se vean
+              <br>las <b>cuatro</b> esquinas del seguro social
+              <br>y la licencia.
+              <br>
+              <br><b>¿OKEY?</b>
+      </div>
+
+      <div style="font-size: 36px;"  *ngIf="sslicbill">
+          <br>Hasta que <b>nosotros</b>
+          <br><b><u>NO</u></b> hayamos recibido las
+          <br>identificaciones <b>completas</b>, del
+          <br>seguro <b>social</b> la licencia y el
+          <br>bill ya sea de luz, gas o agua.
+          <br>
+          <br><b><u>NO</u></b> podemos enviar las cartas
+          <br>ya que la ley nos <b>exige</b> que  tenemos que asegurarnos que
+          <br> usted es <b>realmente</b> la persona
+          <br>que <b>usted</b> dice ser,
+          <br>y que <b><u>NO</u></b> es una persona
+          <br>haciendo <b>robo</b> de identidad,
+          <br>esto es por su <b>propia</b> seguridad.
+          <br><b>¿OKEY?</b>
+          <br>
+          <br>por eso <b>necesitamos</b> que nos mande
+          <br>de una forma <b>legible</b> que se vean
+          <br>las <b>cuatro</b> esquinas del seguro social
+          <br>y la licencia.
+          <br>
+          <br><b>¿OKEY?</b>
+
+      </div>
+  </div>
+</div>

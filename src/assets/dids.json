@@ -1,0 +1,265 @@
+{
+  "DID": [
+
+      {
+         "did":"020 - V",
+         "telefono":"3392174001",
+         "estado":"massachusetts boston"
+      },
+      {
+         "did":"029 - V",
+         "telefono":"8572908683",
+         "estado":"massachusetts, Cambridge"
+      },
+      {
+         "did":"022 - V",
+         "telefono":"7818190019",
+         "estado":"massachusetts boston"
+      },
+      {
+         "did":"036 - V",
+         "telefono":"3462016089",
+         "estado":"texas houston"
+      },
+      {
+         "did":"001 LINEA PRINCIPAL",
+         "telefono":"9142190014",
+         "estado":"New York"
+      },
+      {
+         "did":"002",
+         "telefono":"9149404282",
+         "estado":"New York"
+      },
+      {
+         "did":"003",
+         "telefono":"9179343498",
+         "estado":"New York"
+      },
+      {
+         "did":"004",
+         "telefono":"3472867405",
+         "estado":"New York"
+      },
+      {
+         "did":"005",
+         "telefono":"3477637281",
+         "estado":"New York"
+      },
+      {
+         "did":"006",
+         "telefono":"6314907517",
+         "estado":"New York"
+      },
+      {
+         "did":"007",
+         "telefono":"6467794511",
+         "estado":"New York"
+      },
+      {
+         "did":"008",
+         "telefono":"7185045961",
+         "estado":"New York"
+      },
+      {
+         "did":"009",
+         "telefono":"5167349969",
+         "estado":"New York"
+      },
+      {
+         "did":"010",
+         "telefono":"2013544068",
+         "estado":"Jersey City NJ"
+      },
+      {
+         "did":"011",
+         "telefono":"9737862132",
+         "estado":"Jersey City NJ"
+      },
+      {
+         "did":"012",
+         "telefono":"8605160519",
+         "estado":"Hartford CT"
+      },
+      {
+         "did":"013",
+         "telefono":"8609730384",
+         "estado":"Hartford CT"
+      },
+      {
+         "did":"014",
+         "telefono":"9594568117",
+         "estado":"Hartford CT"
+      },
+      {
+         "did":"015",
+         "telefono":"9594568143",
+         "estado":"Hartford CT"
+      },
+      {
+         "did":"016",
+         "telefono":"8608450266",
+         "estado":"Hartford CT"
+      },
+      {
+         "did":"017",
+         "telefono":"8608451661",
+         "estado":"Hartford CT"
+      },
+      {
+         "did":"018",
+         "telefono":"2038713743",
+         "estado":"Hartford CT"
+      },
+      {
+         "did":"021",
+         "telefono":"6172092747",
+         "estado":"massachusetts boston"
+      },
+      {
+         "did":"020 LINEA PRINCIPAL",
+         "telefono":"3392174001",
+         "estado":"Boston MA"
+      },
+      {
+         "did":"021",
+         "telefono":"6172092747",
+         "estado":"Boston MA"
+      },
+      {
+         "did":"022",
+         "telefono":"9782342045",
+         "estado":"Lowell MA"
+      },
+      {
+         "did":"023",
+         "telefono":"3513008333",
+         "estado":"Lawrence MA"
+      },
+      {
+         "did":"024",
+         "telefono":"9788817189",
+         "estado":"Lawrence MA"
+      },
+      {
+         "did":"025",
+         "telefono":"5088127262",
+         "estado":"Worcester MA"
+      },
+      {
+         "did":"026",
+         "telefono":"7748555690",
+         "estado":"Worcester MA"
+      },
+      {
+         "did":"027",
+         "telefono":"8572901181",
+         "estado":"Cambridge MA"
+      },
+      {
+         "did":"028 -N",
+         "telefono":"8572908683",
+         "estado":"Cambridge MA"
+      },
+      {
+         "did":"029",
+         "telefono":"8572908683",
+         "estado":"Lowell MA"
+      },
+      {
+         "did":"030",
+         "telefono":"9787066582",
+         "estado":"Lowell MA"
+      },
+      {
+         "did":"031",
+         "telefono":"9787751640",
+         "estado":"Lowell MA"
+      },
+      {
+         "did":"040 LINEA PRINCIPAL",
+         "telefono":"4696945299",
+         "estado":"Dallas TX"
+      },
+      {
+         "did":"041",
+         "telefono":"4697759224",
+         "estado":"Dallas TX"
+      },
+      {
+         "did":"042",
+         "telefono":"4696388963",
+         "estado":"Dallas TX"
+      },
+      {
+         "did":"043",
+         "telefono":"4697759032",
+         "estado":"Dallas TX"
+      },
+      {
+         "did":"044",
+         "telefono":"3463260853",
+         "estado":"Houston TX"
+      },
+      {
+         "did":"045",
+         "telefono":"3463539581",
+         "estado":"Houston TX"
+      },
+      {
+         "did":"046",
+         "telefono":"3462016089",
+         "estado":"Houston TX"
+      },
+      {
+         "did":"047",
+         "telefono":"2817176245",
+         "estado":"Houston TX"
+      },
+      {
+         "did":"048",
+         "telefono":"3463955067",
+         "estado":"Houston TX"
+      },
+      {
+         "did":"049",
+         "telefono":"3465005922",
+         "estado":"Houston TX"
+      },
+      {
+         "did":"050",
+         "telefono":"7873305429",
+         "estado":"San Juan PR"
+      },
+      {
+         "did":"051",
+         "telefono":"7874895131",
+         "estado":"San Juan PR"
+      },
+      {
+         "did":"060",
+         "telefono":"7862458861",
+         "estado":"Miami FL"
+      },
+      {
+         "did":"061",
+         "telefono":"3055085940",
+         "estado":"Miami FL"
+      },
+      {
+         "did":"072",
+         "telefono":"8007851555",
+         "estado":"800.00"
+      },
+      {
+         "did":"073",
+         "telefono":"8004658180",
+         "estado":"800.00"
+      },
+      {
+         "did":"074",
+         "telefono":"8007766513",
+         "estado":"800.00"
+      }
+  ]
+}

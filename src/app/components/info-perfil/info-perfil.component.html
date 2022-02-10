@@ -1,0 +1,30 @@
+<div class="min_main mt-5" *ngIf="toggle && buton">
+
+  <h3>Cambiar Contraseña</h3>
+  <label>Contraseña Anterior</label>
+  <input style="border-radius: 6px;" type="password" name="old_passwd" [(ngModel)]="old_passwd">
+  <label>Nueva Contraseña</label>
+  <input style="border-radius: 6px;" type="password" name="new_passwd" minlength="8" #new_p="ngModel"
+    [(ngModel)]="new_passwd">
+  <label>Confirmar Contraseña</label>
+  <input style="border-radius: 6px;" type="password" name="conf_passwd" minlength="8" #conf_p="ngModel"
+    [(ngModel)]="conf_passwd">
+  <div class="err" *ngIf="new_p.invalid && (new_p.dirty || new_p.touched)">
+    <div class="err" *ngIf="new_p.errors.minlength">
+      <small>Requiere de mínimo<b>8</b> caracteres!</small>
+    </div>
+
+  </div>
+  <div class="err" *ngIf="error">
+    <b>No Coinciden!</b>
+  </div>
+
+  <div class="bton d-flex justify-content-center mt-2">
+    <button type="button" class="btn btn-primary btn-sm" (click)="cambiarPass()">Confirmar Contraseña</button>
+  </div>
+
+  <div class="bton d-flex justify-content-center mt-2">
+    <button type="button" class="btn btn-danger btn-sm" (click)="toggle()">Cancelar</button>
+  </div>
+
+</div>

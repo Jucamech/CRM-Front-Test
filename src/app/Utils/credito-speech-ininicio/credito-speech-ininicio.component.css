@@ -1,0 +1,278 @@
+.content{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.radio{
+  height: 100%;
+  overflow: auto;
+}
+.priv{
+  font-size: 36px;
+}
+
+.btn {
+  font-size: 25px;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.h100 {
+  height: 100%;
+}
+.red{
+  color: red;
+}
+.main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.tr-td {
+  border: 2px solid black;
+}
+
+.boton_home {
+  position: absolute;
+  left: 7rem;
+}
+
+.second {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.barra_arriba {
+  width: 100%;
+  height: 86px;
+  position: relative;
+}
+
+.barra_izq {
+  height: 100%;
+  width: 7rem;
+  position: absolute;
+  left: 0;
+  z-index: 50;
+}
+
+.barra_der {
+  background-color: black;
+  height: 100%;
+  width: 7rem;
+  position: absolute;
+  right: 0;
+  z-index: 49;
+}
+
+.link {
+  width: 100%;
+}
+
+.img_top {
+  height: 86px;
+}
+
+.ul_top {
+  display: flex;
+  width: 100%;
+  list-style-type: none;
+}
+
+.td_top {
+  width: 5.5%;
+  border: 2px solid black;
+}
+
+.im {
+  height: 6.8%;
+  border: 2px solid black;
+}
+
+.im a img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.td_top a img {
+  width: 100%;
+  height: 86px;
+  cursor: pointer;
+}
+
+.td_izq a img {
+  width: 88px;
+  height: 5vh;
+}
+
+.contenido {
+  background-color: lightyellow;
+  width: 76%;
+  margin: auto;
+  height: calc(100% - 86px);
+  position: fixed;
+  left: 12%;
+  right: 12%;
+  z-index: 50;
+}
+
+.title h1,
+.contenido {
+  font-weight: 400;
+}
+
+
+/* ------------------------------------------------- */
+
+.sac,
+.ventas,
+.procesa {
+  width: 33%;
+}
+
+.img_cuadro {
+  width: 100%;
+}
+
+
+/* ---------------------- */
+select{
+  font-size: 28px;
+}
+
+/* -------------------------------- */
+
+.llamadaventa2 .title {
+  text-transform: uppercase;
+  color: rgb(0, 128, 0);
+}
+
+.llamadaventa2 .content {
+  font-size: 36px;
+}
+
+.llamadaventa2 .button {
+  margin-top: 1.5rem;
+}
+
+.llamadaventa2 .button .btn {
+  border: 2px solid black;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: pointer;
+  font: 20px Arial;
+  padding: 6px 6px;
+}
+
+.selectBtn .btn {
+  border: 2px solid black;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: pointer;
+  width: 190px;
+  height: 80px;
+  font-size: 29px;
+  margin-left: 7px;
+}
+
+.selectBtnComTax .btn,
+.btnx {
+  border: 2px solid black;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: pointer;
+  font-size: 29px;
+  margin-left: 7px;
+}
+
+.btnx {
+  z-index: 100;
+  position: absolute;
+  width: 10rem;
+}
+/* -------------------------------- */
+.row {
+  margin: 1rem;
+}
+
+.mt-w {
+  margin-top: 6px;
+}
+
+.radiobnt {
+  font-weight: 700;
+}
+/* ------atras--------- */
+.atras {
+  position: absolute;
+  top: 4rem;
+}
+
+.btn-A {
+  font-size: 36px;
+  background-color: blue;
+  color: white;
+}
+/* --------------- */
+/* drop menu */
+.dropdown-menu{
+  background-color: transparent;
+  max-height: 228px;
+  overflow: auto;
+  padding: 0;
+}
+
+.table-dark{
+  margin-bottom: 0;
+}
+/* drop menu */
+.llamando{
+  color: white;
+  background-color: teal;
+  font-size: 22px;
+}
+.btn-sm{
+  font-size: inherit!important;
+}
+/* modal */
+.bg_modal{
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
+  background-color: rgba(0,0,0,.7);
+  top: 0;
+  left: 0;
+  display: flex;
+}
+.dids_modal{
+  margin: auto;
+  width: 700px;
+  height: 600px;
+  background-color: white;
+  border-radius: 7px;
+}
+.modal-body{
+  height: 526px;
+  overflow: auto;
+  background-color: #28a7451a;
+}
+
+.list-inline-item:hover {
+  background-color: whitesmoke;
+  transform: translateY(-2px);
+  box-shadow: 2px 3px 4px 1px #0000008c;
+}
+
+/* modal */

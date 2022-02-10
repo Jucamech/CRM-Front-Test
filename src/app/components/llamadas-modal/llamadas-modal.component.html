@@ -1,0 +1,434 @@
+<app-header></app-header>
+
+<div class="content d-flex" *ngIf="entradaLegal">
+  <div class="slider">
+
+    <div class="title w100">
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="green" class="bi bi-arrow-right-square-fill float-left mt-2" viewBox="0 0 16 16" *ngIf="!getData" (click)="getData = !getData">
+        <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-arrow-left-square-fill float-left mt-2" viewBox="0 0 16 16" *ngIf="getData" (click)="getData = !getData">
+        <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list-stars float-right mt-2 mr-2" viewBox="0 0 16 16" (click)="mostrar()">
+        <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z"/>
+        <path d="M2.242 2.194a.27.27 0 0 1 .516 0l.162.53c.035.115.14.194.258.194h.551c.259 0 .37.333.164.493l-.468.363a.277.277 0 0 0-.094.3l.173.569c.078.256-.213.462-.423.3l-.417-.324a.267.267 0 0 0-.328 0l-.417.323c-.21.163-.5-.043-.423-.299l.173-.57a.277.277 0 0 0-.094-.299l-.468-.363c-.206-.16-.095-.493.164-.493h.55a.271.271 0 0 0 .259-.194l.162-.53zm0 4a.27.27 0 0 1 .516 0l.162.53c.035.115.14.194.258.194h.551c.259 0 .37.333.164.493l-.468.363a.277.277 0 0 0-.094.3l.173.569c.078.255-.213.462-.423.3l-.417-.324a.267.267 0 0 0-.328 0l-.417.323c-.21.163-.5-.043-.423-.299l.173-.57a.277.277 0 0 0-.094-.299l-.468-.363c-.206-.16-.095-.493.164-.493h.55a.271.271 0 0 0 .259-.194l.162-.53zm0 4a.27.27 0 0 1 .516 0l.162.53c.035.115.14.194.258.194h.551c.259 0 .37.333.164.493l-.468.363a.277.277 0 0 0-.094.3l.173.569c.078.255-.213.462-.423.3l-.417-.324a.267.267 0 0 0-.328 0l-.417.323c-.21.163-.5-.043-.423-.299l.173-.57a.277.277 0 0 0-.094-.299l-.468-.363c-.206-.16-.095-.493.164-.493h.55a.271.271 0 0 0 .259-.194l.162-.53z"/>
+      </svg>
+      <h2 *ngIf="dataCliente && dataCliente.nombres == null " id="ver">Llamada Perdida</h2>
+      <h2 *ngIf="dataCliente" id="ver">{{ dataCliente.nombres }} {{ dataCliente.apellidos }}</h2>
+    </div>
+
+    <div class="{{opc2}}">
+      <app-notas-clientelista-min></app-notas-clientelista-min>
+    </div>
+
+    <div class="cont_body">
+      <div class="body" *ngIf="dataCliente">
+
+        <div class="min-sec my-2">
+          <h5>Nota plan Pago Inscripción</h5>
+          <textarea class="w100 boxtext mb-2 mt-3" [(ngModel)]="dataCliente.campos_adicionales.nota_plan_inscripcion"
+            readonly></textarea>
+        </div>
+
+        <div class="min-sec my-2" style="background-color: #ffc107;border-radius: 7px;padding: 0 5px;">
+          <h5>Mejor Hora para Llamar</h5>
+          <label *ngIf="dataCliente.campos_adicionales.mejor_hora_llamar">
+            {{ dataCliente.campos_adicionales.mejor_hora_llamar | hora24 }}
+          </label>
+          <label *ngIf="!dataCliente.campos_adicionales.mejor_hora_llamar">No Existe Dato</label>
+        </div>
+
+        <div class="min-sec my-2" style="background-color: green;border-radius: 7px;padding: 0 5px;">
+          <h5>Horarios Trabajo</h5>
+          <label>{{ dataCliente.horariotrabajo || "No Existe Dato" }}</label>
+        </div>
+        <div class="min-sec my-2" style="background-color: red;border-radius: 7px;padding: 0 5px;">
+          <h5>Hora de Dormir</h5>
+          <label>{{ dataCliente.horaduerme || "No Existe Dato" }}</label>
+        </div>
+        <div class="min-sec my-2" style="background-color: #1bf14c;border-radius: 7px;padding: 0 5px;">
+          <h5>Acepta LLamadas al Trabajar</h5>
+          <label>
+            <span *ngIf="dataCliente.campos_adicionales.call_trabajo == '0' ">No se puede</span>
+            <span *ngIf="dataCliente.campos_adicionales.call_trabajo == '1' ">Si se puede</span>
+            <span *ngIf="!dataCliente.campos_adicionales.call_trabajo ">No Hay Dato</span>
+
+          </label>
+        </div>
+        <div class="min-sec my-2">
+          <h5>Ocupación</h5>
+          <label>{{
+            dataCliente.ocupacion || "No Existe Dato"
+            }}</label>
+        </div>
+        <div class="min-sec my-2">
+          <h5>Otra Actividad</h5>
+          <label>{{ dataCliente.otraactividad || "No Existe Dato" }}</label>
+        </div>
+
+
+        <div class="min-sec my-2" *ngIf="dataCliente.campos_adicionales">
+          <h5>Propiedades</h5>
+          <label *ngIf="dataCliente.campos_adicionales.casa == 2">Casa Propia</label>
+          <label *ngIf="dataCliente.campos_adicionales.carro == 2">Carro Propio</label>
+        </div>
+        <div class="min-sec my-2" *ngIf="dataCliente.campos_adicionales.casa == 0">
+          <h5>Pago renta Casa</h5>
+          <label>{{ dataCliente.campos_adicionales.pago_renta }}</label>
+        </div>
+
+        <div class="min-sec my-2">
+          <h5>Día Libre</h5>
+          <label>{{ dataCliente.dialibre || "No Existe Dato" }}</label>
+        </div>
+        <div class="min-sec my-2">
+          <h5>Mejor Hora llamar</h5>
+          <label>{{ dataCliente.campos_adicionales.mejor_hora_llamar || "No Existe Dato" }}</label>
+        </div>
+        <div class="min-sec my-2">
+          <h5>Día para Llamarle</h5>
+          <label>{{
+            dataCliente.campos_adicionales.dia_llamar || "No Existe Dato"
+            }}</label>
+        </div>
+      </div>
+
+      <div class="body" *ngIf="dataCliente">
+
+        <div class="min-sec mb-3">
+          <input type="submit" value="Crear Nota LLamada" form="NgForm" class="btn btn-primary btn-block" (click)="toogleAdd = true" />
+        </div>
+
+        <div class="min-sec my-2">
+          <h5>Telefonos</h5>
+
+          <div class="tel">
+            <label>Movil: {{ dataCliente.telmovil }}</label>
+          </div>
+          <div class="tel" *ngIf="dataCliente.teltrabajo">
+            <label>Trabajo: {{ dataCliente.teltrabajo }}</label>
+          </div>
+          <div class="tel" *ngIf="dataCliente.telcasa">
+            <label>Casa: {{ dataCliente.telcasa }}</label>
+          </div>
+          <div class="tel" *ngIf="dataCliente.telotro">
+            <label>Otro: {{ dataCliente.telotro }}</label>
+          </div>
+
+
+        </div>
+
+        <div class="min-sec my-2">
+          <h5>Estado</h5>
+          <label>{{ dataCliente.estado || "No Existe Dato" }}</label>
+        </div>
+
+        <div class="min-sec my-2">
+          <h5>Ahorro Mensual</h5>
+          <label>{{ dataCliente.campos_adicionales.capacidad_ahorro || "No Existe Dato" }}</label>
+        </div>
+
+        <div class="min-sec my-2">
+          <h5>Valor Inscripción</h5>
+          <label>$ {{ dataCliente.valor_inscripcion || "No Existe Dato" }}</label>
+        </div>
+
+        <div class="min-sec my-2">
+          <h5>Valor Mensualidad</h5>
+          <label>$ {{ dataCliente.valor_mensualidad || "No Existe Dato" }}</label>
+        </div>
+
+        <div class="min-sec my-2">
+          <h5>Plan Mensual</h5>
+          <label>Meses: {{ dataCliente.plan_mes || "No Existe Dato" }}</label>
+        </div>
+
+        <div class="min-sec my-2">
+          <h5>Sueldo</h5>
+          <label>$ {{ dataCliente.salario || "No Existe Dato" }} </label>
+
+          <label *ngIf="dataCliente.campos_adicionales.sueldoS_Q">
+            <b>Tipo :</b>
+            <span [ngSwitch]="dataCliente.campos_adicionales.sueldoS_Q">
+              <span *ngSwitchCase="'1'">Semanal</span>
+              <span *ngSwitchCase="'2'">Quincenal</span>
+              <span *ngSwitchDefault>No Existe Dato</span>
+            </span>
+          </label>
+        </div>
+        <div class="min-sec my-2">
+          <h5>Días de pago Sueldo</h5><!-- ***************************************** -->
+          <label *ngIf="dataCliente.campos_adicionales.dia_pago">{{dataCliente.campos_adicionales.dia_pago | diaSemanal }}</label>
+          <label *ngIf="dataCliente.campos_adicionales.dia_pago2">{{dataCliente.campos_adicionales.dia_pago2 | diaSemanal }}</label>
+          <label *ngIf="dataCliente.campos_adicionales.dia_pagoS">{{dataCliente.campos_adicionales.dia_pagoS | diaSemanal }}</label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="main" *ngIf="dataCliente">
+    <div class="cita">
+      <span *ngIf="citaHome">Las cita se vincula con las notas y llamadas</span>
+      <span style="background-color: red;color: white;width: 100%;" *ngIf="!citaHome">
+        No hay Citas Relacionadas. Si exite la cita, activala dandole Click desde Home</span>
+    </div>
+    <div class="header mb-3 d-flex">
+      <div class="cont-btn">
+        <button type="button" class="btn btn-outline-success" (click)="abrirDids()" style="max-height: 60px"
+          *ngIf="!llamando">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+            class="bi bi-telephone-forward-fill mb-3" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z" />
+          </svg>
+          <span style="font-size: 30px; font-weight: bold">
+            {{ dataCliente.nombres | slice:0:10 }}<!--  -->
+          </span>
+        </button>
+
+        <button type="button" class="btn btn-outline-danger" (click)="cerrarLlamada()" style="max-height: 60px"
+          *ngIf="llamando">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+            class="bi bi-telephone-x-fill mb-3" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm9.261 1.135a.5.5 0 0 1 .708 0L13 2.793l1.146-1.147a.5.5 0 0 1 .708.708L13.707 3.5l1.147 1.146a.5.5 0 0 1-.708.708L13 4.207l-1.146 1.147a.5.5 0 0 1-.708-.708L12.293 3.5l-1.147-1.146a.5.5 0 0 1 0-.708z" />
+          </svg>
+          <span style="font-size: 30px; font-weight: bold">
+            {{ dataCliente.nombres }} {{ dataCliente.apellidos }}
+          </span>
+        </button>
+
+        <div class="alerta" *ngIf="verAlerta">
+          <h3>Selecciona el tipo de <b>TELEFONO</b></h3>
+          <p>y vuelve a llamar</p>
+        </div>
+      </div>
+      <!-- ***************** LLAMADAS ********************* -->
+      <div class="cont ml-3" style="border: solid 1px black" *ngIf="modal">
+        <li class="list-group-item active py-1" aria-current="true" style="border-radius: 0">
+          <button class="btn cancelar" (click)="cerrarModal()">
+            CANCELAR LLAMADA...
+          </button>
+        </li>
+        <div class="popup">
+          <div class="llamar_select">
+            Llamar a telefono :
+            <select id="selet_tipo" [(ngModel)]="tipoT">
+              <option value="telmovil">Movil</option>
+              <option value="telcasa">Casa</option>
+              <option value="teltrabajo">Trabajo</option>
+              <option value="telotro">Otro</option>
+            </select>
+          </div>
+          <div class="did mt-2">
+            <ul class="list-inline">
+              <li class="list-inline-item" *ngFor="let item of list">
+                <h5 style="margin: 0; padding: 3px 8px; color: black">
+                  DID :
+                  <button type="button" class="btn btn-outline-success mr-2" (click)="manageCall(item)">
+                    {{ item.estado }}
+                  </button>
+                </h5>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="llamando" style="height: 60px; width: 445px; color: black" *ngIf="llamando">
+        <h1>Llamada en curso...</h1>
+      </div>
+    </div>
+
+    <div class="nota_superv w100" *ngIf="dataCliente.campos_adicionales.nota_supervisor">
+      <div class="min-sec mb-3 d-flex w100">
+        <h5>Nota Supervisor</h5>
+        <textarea class="w100" readonly>{{
+          dataCliente.campos_adicionales.nota_supervisor
+        }}</textarea>
+      </div>
+    </div>
+    <div class="advertencia" *ngIf="llamando">
+      <h5>
+        "Solicitar Reporte" genera una Notificación al <b>supervisor</b> y solo estará disponible por {{minCierre}} min
+      </h5>
+    </div>
+    <div class="main_body mt-3" *ngIf="llamando">
+      <button type="button" class="btn btn-danger" (click)="dataReporteAct()">
+        Solicitar datos de Reporte Crédito
+      </button>
+    </div>
+    <div class="datos_reporte" *ngIf="verDR">
+      <div class="permiso_negado">
+
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="id" class="text-white font-w">Nombre Completo (SSN)</label>
+          <input type="text" name="id" class="form-control" [(ngModel)]="dataCliente.nombres" readonly />
+        </div>
+        <div class="form-group col-md-3">
+          <label for="id" class="text-white font-w">Apellido Completo (SSN)</label>
+          <input type="text" name="id" class="form-control" [(ngModel)]="dataCliente.apellidos" readonly />
+        </div>
+        <div class="form-group col-md-3">
+          <label for="id" class="text-white font-w">Email</label>
+          <input type="text" name="id" class="form-control" [(ngModel)]="dataCliente.email" readonly />
+        </div>
+        <div class="form-group col-md-3">
+          <label for="id" class="text-white font-w">Dirección +6 Meses</label>
+          <input type="text" name="id" class="form-control" [(ngModel)]="dataCliente.direccion" readonly />
+        </div>
+        <div class="form-group col-md-3">
+          <label for="id" class="text-white font-w">Fecha de Nacimiento</label>
+          <input type="text" name="id" class="form-control" [(ngModel)]="dataCliente.nacimiento" readonly />
+        </div>
+        <div class="form-group col-md-3">
+          <label for="id" class="text-white font-w">SSN - ITIN</label>
+          <input type="text" name="id" class="form-control" [(ngModel)]="dataCliente.numero_id" readonly />
+        </div>
+        <div class="form-group col-md-3">
+          <label for="id" class="text-white font-w">Licencia</label>
+          <input type="text" name="id" class="form-control" [(ngModel)]="dataCliente.licencia" readonly />
+        </div>
+        <div class="form-group col-md-3">
+          <label for="id" class="text-white font-w">Tarjeta Crédito</label>
+          <input type="text" name="id" class="form-control" [(ngModel)]="dataCliente.campos_adicionales.id_tarjeta"
+            readonly />
+        </div>
+        <div class="form-group col-md-3">
+          <label for="id" class="text-white font-w">CVC</label>
+          <input type="text" name="id" class="form-control" [(ngModel)]="dataCliente.campos_adicionales.cv" readonly />
+        </div>
+        <div class="form-group col-md-3">
+          <label for="id" class="text-white font-w">Expiración</label>
+          <input type="text" name="id" class="form-control" [(ngModel)]="dataCliente.campos_adicionales.exp" readonly />
+        </div>
+      </div>
+    </div>
+
+    <div class="dids_usados" *ngIf="didsUsados.length > 0 ">
+      <p [class.alerta]="didsUsados.length > 7" [class.green]="didsUsados.length <= 7">DIDS USADOS</p>
+      <b *ngFor="let d of didsUsados ; let i = index ">
+        <span
+          [class.alerta]="didsUsados.length > 7"
+          [class.green]="didsUsados.length <= 7"
+          >*{{ i +1 }}
+        </span>  {{ d }} <br> </b>
+
+      <b class="alerta" *ngIf="didsUsados.length > 7">Ya se ha LLamado más de 7 Veces!!!!</b>
+    </div>
+
+  </div>
+</div>
+
+<div class="dataCli" [class.get_data]="getData" *ngIf="entradaLegal">
+  <app-ver-cliente [opc]="opcH"></app-ver-cliente>
+</div>
+
+<div class="bg" *ngIf="toogleAdd && entradaLegal" >
+  <div class="modal_creador">
+    <app-editor-speech
+      (toogleAdd)="toogleAdd=$event"
+      [did]="diDX"
+      [cliente]="cliente"
+      [dids]="list"
+      [citaHome]="citaHome"
+      >
+    </app-editor-speech>
+  </div>
+</div>
+
+<div class="validar_entrada" *ngIf="!entradaLegal">
+  <div class="bg center_cont">
+    <div class="modal_validator">
+      <div class="hea modal-header">
+        <h3>
+          <b *ngIf="dataCliente && dataCliente.nombres">Valida la Entrada para LLamar a {{dataCliente.nombres}}</b>
+          <b *ngIf="!dataCliente">Valida la Entrada a la LLamada</b>
+        </h3>
+      </div>
+      <div class="modal_body px-5">
+        <div class="pagos" *ngIf="dataPagos && dataPagos[0]">
+          <b><h5>Ultimo Pago :</h5></b>
+          <p>
+            <b style="color:green">Fecha :</b>
+            <span>{{dataPagos[0].fecha_pago || 'No Hay Dato'}}</span>
+            <b style="color:green" class="ml-5">Valor :</b>
+            <span>$ {{dataPagos[0].valor || 'No Hay Dato'}}</span>
+          </p>
+        </div>
+        <div class="pagos" *ngIf="llamadas && llamadas[0]">
+          <b><h5>Ultima LLamada :</h5></b>
+          <p>
+            <b style="color:green">Fecha :</b>
+            <span>{{llamadas[0].fecha }}</span>
+            <b style="color:green" class="ml-5">Ext - Agente :</b>
+            <span *ngIf="llamadas[0].origen.length == 3 ">$ {{ llamadas[0].origen }}</span>
+            <span *ngIf="llamadas[0].destino.length == 3 ">$ {{ llamadas[0].destino }}</span>
+          </p>
+        </div>
+        <h5 class="mt-3"><b>Selecciona las casillas para continuar:</b></h5>
+        <div class="info ml-3 mt-3" *ngIf="dataCliente.campos_adicionales">
+          <label for="mejor_hora_llamar"><b style="color: green;">Mejor Hora para LLamar :</b></label>
+          <br>
+          <input type="checkbox" name="mejor_hora_llamar" id="mejor_hora_llamar" [(ngModel)]="check1">&nbsp;
+          <label for="mejor_hora_llamar" *ngIf="dataCliente.campos_adicionales">
+            <span *ngIf="dataCliente.campos_adicionales.mejor_hora_llamar">{{ dataCliente.campos_adicionales.mejor_hora_llamar | hora24 }}</span>
+            <span *ngIf="!dataCliente.campos_adicionales.mejor_hora_llamar">No hay Dato</span>
+          </label>
+          <hr>
+        </div>
+        <div class="info ml-3 mt-3">
+          <label for="hora_duerme"><b style="color: red;">Hora Duerme :</b></label>
+          <br>
+          <input type="checkbox" name="hora_duerme" id="hora_duerme" [(ngModel)]="check2" >&nbsp;
+          <label for="hora_duerme">
+            <span *ngIf="dataCliente.horaduerme">{{ dataCliente.horaduerme | hora24}}</span>
+            <span *ngIf="!dataCliente.horaduerme">No hay Dato</span>
+          </label>
+          <hr>
+        </div>
+        <div class="info ml-3 ">
+          <label for="horariotrabajo"><b style="color:#ffc107">Horario Trabajo :</b></label>
+          <br>
+          <input type="checkbox" name="horariotrabajo" id="horariotrabajo" [(ngModel)]="check3">&nbsp;
+          <label for="horariotrabajo">
+            {{ dataCliente.horariotrabajo || 'No hay Dato' }}
+          </label>
+          <hr>
+        </div>
+        <div class="info ml-3 " *ngIf="dataCliente.campos_adicionales">
+          <label for="call_trabajo"><b style="color: #1bf14c;">Acepta LLamadas al Trabajar :</b></label>
+          <br>
+          <input type="checkbox" name="call_trabajo" id="call_trabajo" [(ngModel)]="check4">&nbsp;
+          <label for="call_trabajo">
+            <span *ngIf="dataCliente.campos_adicionales.call_trabajo">
+              <span *ngIf="dataCliente.campos_adicionales.call_trabajo == '0' ">No se puede</span>
+              <span *ngIf="dataCliente.campos_adicionales.call_trabajo == '1' ">Si se puede</span>
+            </span>
+            <span *ngIf="!dataCliente.campos_adicionales.call_trabajo"> No hay Dato</span>
+          </label>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="verNota()" >Ver Nota</button>
+          <button type="button" class="btn btn-success" (click)="entrarLLamarCliente()" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-telephone-forward-fill mb-1" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z" />
+            </svg>
+            LLamar
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

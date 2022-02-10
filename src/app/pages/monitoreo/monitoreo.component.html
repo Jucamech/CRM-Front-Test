@@ -1,0 +1,97 @@
+<app-header></app-header>
+
+<div class="content d-flex">
+
+  <nav id="sidebar">
+    <ul class="list-unstyled components">
+
+      <li [class.selected]="opcionVer == 1">
+        <a (click)="filtrar('Todas')" class="">Todas</a>
+      </li>
+      <li [class.selected]="opcionVer == 2">
+        <a (click)="filtrar('Entrantes')" class="">Entrantes</a>
+      </li>
+      <li [class.selected]="opcionVer == 3">
+        <a (click)="filtrar('Salientes')" class="">Salientes</a>
+      </li>
+
+    </ul>
+  </nav>
+
+  <div class="cont_body w100">
+    <div class="barra d-flex mx-3 my-2">
+      <div class="agentes">
+        <label for="agente "><h3>Ver Llamas de: </h3></label>
+        <select name="agente" class="ml-2" [(ngModel)]="agente">
+          <option *ngFor="let i of agentes" [value]="i.ext">{{ i.ext }} - {{ i.nombre }} {{ i.apellido }}</option>
+        </select>
+      </div>
+
+      <button type="button" class="btn btn-success btn-sm ml-3" (click)="filtrarLlamadas()" [disabled]="!agente">Filtrar</button>
+
+      <div class="tempo ml-5" *ngIf="tiempo">
+        <h4> <b>Total de Llamadas: </b>{{ tiempo | secToMin }}s</h4>
+      </div>
+    </div>
+
+
+    <div class="cont_tablas mx-3" >
+
+      <table class="table">
+        <thead class="thead-dark min">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Origen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Destino</th>
+            <th scope="col">Nombre-Des</th>
+            <th scope="col">Duración</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Tipo</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let item of llamadasAgente; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ item.fecha | date:'mediumTime' }}</td>
+            <td>{{ item.origen }}</td>
+            <td>
+
+              <span *ngIf="item.origen.length == 3">
+                {{ item.asignado }}
+              </span>
+              <span *ngIf="item.origen.length == 5 ">
+                <b> {{ item.origen | searchCli:clientes }} </b>
+              </span>
+
+            </td>
+            <td>{{ item.destino }}</td>
+            <td>
+
+              <span *ngIf="item.destino.length == 3 ">
+                {{ item.asignado2 }}
+              </span>
+              <span *ngIf="item.destino.length == 5 ">
+                <b> {{ item.destino | searchCli:clientes }} </b>
+              </span>
+
+            </td>
+            <td> <b>{{ item.duracion | secToMin }}</b> S.</td>
+            <td>{{ item.estado }}</td>
+            <td>{{ item.tipo }}</td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+  </div>
+</div>
+
+<app-alertas></app-alertas>
+

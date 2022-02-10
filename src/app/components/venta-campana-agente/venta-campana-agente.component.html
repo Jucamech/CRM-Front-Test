@@ -1,0 +1,461 @@
+
+<div class="llamando" *ngIf="fCall">
+  <div class="llF" *ngIf="!CallOK">
+    <h3> {{ txt }} <span *ngIf="t > 0">{{t}}</span></h3>
+  </div>
+</div>
+
+<div class="llamando2" *ngIf="datCampV2">
+  <div class="llF" *ngIf="!CallOK && nameCampCall">
+    <h3> {{nameCampCall}} - {{ txt }} <span *ngIf="t > 0">{{t}}</span></h3>
+  </div>
+</div>
+
+<div class="contentt m-3">
+  <!--   <div class="campaaa" *ngIf="ind && campanas[ind].data.activo == true">
+      <h2 class="">
+        {{campanas[ind].data.name}}
+        <button type="button" class="btn btn-primary ml-5" (click)="llamarCampa(ind)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-forward-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z"/>
+          </svg>
+          Llamar Campaña
+        </button>
+
+        <button type="button" class="btn btn-success ml-5" *ngIf="retry[ind] && !fCall" (click)="llamarCampa2(ind)" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-forward-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z"/>
+          </svg>
+          Reanudar Campaña
+        </button>
+
+      </h2>
+      <table class="table table-hover table-striped table-dark" >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID/Cliente</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Status Cli</th>
+            <th scope="col">Stt Campaña</th>
+            <th scope="col">Hora LLamada</th>
+            <th scope="col">Telefonos</th>
+            <th scope="col">Más</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of dataCampanasW[ind]; let i = index" [class.green]="x.data.llamando">
+            <td scope="row">{{ i+1 }}</td>
+            <td scope="row">{{x.data.id}} - {{x.data.nombre | slice:0:40}}</td>
+            <td scope="row">
+              <span *ngFor="let e of estados">
+                <span *ngIf="e[0] == x.data.estado">{{ e[1] }}</span>
+              </span>
+              <span *ngIf="x.data.estado.length > 3">{{x.data.estado}}</span>
+              <span *ngIf="x.data.estado.length == 0">No Existe</span>
+            </td>
+            <td>
+              <span *ngFor="let s of statusC">
+                <span *ngIf="s[1] == x.data.status">{{ s[0] }}</span>
+              </span>
+              <span *ngIf="x.data.status.length > 2">{{x.data.status}}</span>
+            </td>
+            <td> {{ x.data.status_camp }} </td>
+            <td> <span *ngIf="x.data.ultima_llamada > 10000">{{x.data.ultima_llamada | date:'medium' }}</span>  </td>
+            <td>
+              <span title="Telefono Registro">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-phone-fill" viewBox="0 0 16 16">
+                  <path d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+                </svg>
+              </span>
+              <span *ngFor="let t of x.data.telefonos">
+                <span title="Telefono Casa">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill"  viewBox="0 0 16 16" *ngIf=" t == 'telcasa'">
+                    <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                    <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                  </svg>
+                </span>
+                <span title="Telefono Trabajo">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-workspace"  viewBox="0 0 16 16" *ngIf=" t == 'teltrabajo'">
+                    <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+                    <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z"/>
+                  </svg>
+                </span>
+                <span title="Telefono Otro">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill"  viewBox="0 0 16 16" *ngIf=" t == 'telotro'">
+                    <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                  </svg>
+                </span>
+                &nbsp;
+              </span>
+            </td>
+            <td>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16" (click)="verItem(x.data)">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+              </svg>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+      <hr>
+    </div> -->
+
+    <div class="campaaa" *ngIf="datCampV2 && ind == null">
+      <h2 class="">
+        {{selcampV2.name}} - Did: {{selcampV2.name_did}}
+        <button type="button" class="btn btn-primary ml-5" (click)="llamarCampaV2()" *ngIf="!nameCampCall">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-forward-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z"/>
+          </svg>
+          Llamar Campaña V2
+        </button>
+
+        <button type="button" class="btn btn-success ml-5" *ngIf="retry2 && !fCall && !nameCampCall" (click)="llamarCampaV2(true)" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-forward-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z"/>
+          </svg>
+          Reanudar Campaña V2
+        </button>
+      </h2>
+
+      <table class="table table-hover table-striped table-dark" >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID/Cliente</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Status Cli</th>
+            <th scope="col">Stt Campaña</th>
+            <th scope="col">Hora LLamada</th>
+            <th scope="col">Telefonos</th>
+            <th scope="col">Más</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of datCampV2; let i = index" [class.green]="x.llamando == '1' ">
+            <td scope="row">{{ i+1 }}</td>
+            <td scope="row">{{ x.id_cliente }} - {{x.nombres | slice:0:40}}</td>
+            <td scope="row" *ngIf="x.estado">
+              <span *ngFor="let e of estados">
+                <span *ngIf="e[0] == x.estado">{{ e[1] }}</span>
+              </span>
+              <span *ngIf="x.estado.length > 3">{{x.estado}}</span>
+
+            </td>
+            <td scope="row" *ngIf="!x.estado">
+              <span >No Existe</span>
+            </td>
+
+            <td *ngIf="x.status">
+              <span *ngFor="let s of statusC">
+                <span *ngIf="s[1] == x.status">{{ s[0] }}</span>
+              </span>
+              <span *ngIf="x.status.length > 2">{{x.status}}</span>
+            </td>
+
+            <td *ngIf="!x.status"></td>
+
+            <td> {{ x.status_camp }} </td>
+
+            <td>
+              <span *ngIf="x.ultima_llamada ">
+                <span *ngIf="x.ultima_llamada.slice(0,10) != hoy"> {{x.ultima_llamada | date:'mediumDate' }}</span>
+                <span *ngIf="x.ultima_llamada.slice(0,10) == hoy"> Hoy</span>
+                {{x.ultima_llamada | date:'mediumTime' }}
+              </span>
+            </td>
+            <td>
+              <span title="Telefono Registro">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-phone-fill" viewBox="0 0 16 16">
+                  <path d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+                </svg>
+              </span>
+            </td>
+            <td>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16" (click)="verItemV2(x)">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+              </svg>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+      <hr>
+    </div>
+
+</div>
+
+<div class="contentt m-3" *ngIf="dataCampanasW.length == 0 && !datCampV2">
+  <h1 style="color:red;">No hay Campañas Activas</h1>
+</div>
+
+
+<br>
+<br>
+
+<!-- <div class="modal_i" *ngIf="modal">
+  <div class="modal-header">
+    <h5 class="modal-title"> <b>{{ itemModal.nombre }} - {{itemModal.id}}</b></h5>
+
+    <div class="cerar_m float-right">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16" (click)="cerrarModal()">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+    </div>
+  </div>
+  <div class="body_m">
+    Estado:
+    <b *ngFor="let e of estados">
+      <span *ngIf="e[0] == itemModal.estado">{{ e[1] }}</span>
+    </b>
+    <b *ngIf="itemModal.estado.length > 3">{{itemModal.estado}}</b>
+    <b *ngIf="itemModal.estado.length == 0">No Existe</b>
+    <br>
+    <br> Estatus Cliente:
+    <b>
+      <span *ngFor="let s of statusC">
+        <span *ngIf="s[1] == itemModal.status">{{ s[0] }}</span>
+      </span>
+      <span *ngIf="itemModal.status.length > 2">{{itemModal.status}}</span>
+      <span *ngIf="itemModal.status.length == 0 ">No Existe</span>
+    </b>
+    <br>
+    <br> Estatus en la Campaña:
+    <b> {{itemModal.status_camp}} </b>
+    <br>
+    <br> Ultima LLamada:
+    <b> <span *ngIf="itemModal.ultima_llamada > 10000"> {{ itemModal.ultima_llamada | date:'medium' }} </span>  </b>
+    <br>
+    <br> Resultado :
+    <b *ngIf="itemModal.resultado.length > 3">{{ itemModal.resultado }} </b>
+    <b *ngIf="itemModal.resultado.length == 0 ">No Existe</b>
+    <br>
+    <br> Agente:
+    <b> {{ itemModal.agente }} </b>
+    <br>
+    <br> Asignador:
+    <b> {{ itemModal.user | split:'-':1 }} </b>
+    <br>
+    <br> Cuadros:
+    <div class="cuadros d-flex justify-content-around">
+      <div *ngFor="let cua of itemModal.cuadros; let j = index" class="cua d-flex" (click)="verCuadro(cua, j)" >
+        <div class="color cp"  [class]="cua.resultado"></div>
+      </div>
+    </div>
+    <hr>
+    <div class="dta_cua" *ngIf="indexCua">
+      <b class="mx-2" [class]="dataCua.resultado" >&nbsp; Info Cuadro #{{indexCua}} : &nbsp;</b>
+      <br>
+      <br> Fecha: <b>{{ dataCua.inicio | date:'mediumDate'}}</b>
+      <br> Inicio LLamada : <b>{{ dataCua.inicio | date:'mediumTime'}}</b>
+      <br> Fin Llamada: <b>{{ dataCua.fin | date:'mediumTime' }}</b>
+      <br> Resultado:
+        <b *ngFor="let x of resultados">
+          <span *ngIf="dataCua.resultado == x[1]" >{{ x[0] }}</span>
+        </b>
+      <br> Nota: <b>{{ dataCua.nota }}</b>
+      <br> Agente: <b>{{ dataCua.agente }}</b>
+    </div>
+    <br>
+
+  </div>
+</div> -->
+
+<div class="modal_i" *ngIf="modalV2">
+  <div class="modal-header">
+    <h5 class="modal-title"> <b>{{ itemModalV2.nombres }} - {{ itemModalV2.id_cliente }}</b></h5>
+
+    <div class="cerar_m float-right">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16" (click)="cerrarModal()">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+    </div>
+  </div>
+  <div class="body_m">
+    Estado:
+    <span *ngIf="!itemModalV2.estado"><b >No Existe</b></span>
+    <span *ngIf="itemModalV2.estado">
+      <b *ngFor="let e of estados">
+        <span *ngIf="e[0] == itemModalV2.estado">{{ e[1] }}</span>
+      </b>
+      <b *ngIf="itemModalV2.estado.length > 3">{{itemModalV2.estado}}</b>
+    </span>
+    <br>
+    <br> Estatus Cliente:
+    <b *ngIf="itemModalV2.status">
+      <span *ngFor="let s of statusC">
+        <span *ngIf="s[1] == itemModalV2.status">{{ s[0] }}</span>
+      </span>
+      <span *ngIf="itemModalV2.status.length > 2">{{itemModalV2.status}}</span>
+      <span *ngIf="itemModalV2.status.length == 0 ">No Existe</span>
+    </b>
+    <br>
+    <br> Estatus en la Campaña:
+    <b> {{itemModalV2.status_camp}} </b>
+    <br>
+    <br> Ultima LLamada:
+    <b> <span *ngIf="itemModalV2.ultima_llamada"> {{ itemModalV2.ultima_llamada | date:'medium' }} </span>  </b>
+    <br>
+    <br> Resultado :
+    <b *ngIf="!itemModalV2.resultado">No Existe</b>
+
+    <span *ngIf="itemModalV2.resultado">
+      <span *ngFor="let x of resultados">
+        <b *ngIf="itemModalV2.resultado == x[1]" >{{ x[0] }}</b>
+      </span>
+    </span>
+    <br>
+    <br> Agente:
+    <b> {{ itemModalV2.id_agente | searchAgente2:agentes }} </b>
+    <br>
+    <br> Asignador:
+    <b> {{ itemModalV2.id_user | searchAgente2:agentes  }} </b>
+    <br>
+    <br> Nota:
+    <b> {{ itemModalV2.nota }} </b>
+    <br>
+    <br> Cuadros:
+    <div class="cuadros d-flex justify-content-around">
+      <div *ngFor="let cua of itemModalV2.cuadros; let j = index" class="cua d-flex" (click)="verCuadroV2(cua, j)" >
+        <div class="color cp"  [class]="cua.resultado"></div>
+      </div>
+    </div>
+    <hr>
+    <div class="dta_cua" *ngIf="indexCua">
+      <b class="mx-2" [class]="dataCuaV2.resultado"  >&nbsp; Info Cuadro #{{indexCua}} : &nbsp;</b>
+      <br>
+      <br> Fecha: <b>{{ dataCuaV2.inicio | date:'mediumDate' }}</b>
+      <br> Inicio LLamada : <b>{{ dataCuaV2.inicio | date:'mediumTime' }}</b>
+      <br> Fin Llamada: <b>{{ dataCuaV2.fin | date:'mediumTime' }}</b>
+      <br> Resultado:
+        <b *ngFor="let x of resultados">
+          <span *ngIf="dataCuaV2.resultado == x[1]" >{{ x[0] }}</span>
+        </b>
+      <br> Nota: <b>{{ dataCuaV2.nota }}</b>
+      <br> Agente: <b>{{ dataCuaV2.agente | searchAgente2:agentes }}</b>
+    </div>
+    <br>
+
+  </div>
+</div>
+<!--
+<div class="contenedor_">
+  <div class="ocul_pop"  [class.left0]="inCall" *ngIf="inCall">
+    <div class="modal-header">
+      <h5 class="modal-title">
+        <a  target="_blank" [routerLink]="['/vercliente/', inCall.id ]" >
+          <button type="button" class="btn btn-sm"[class.btn-danger]="!inCall.act"  [class.btn-success]="inCall.act == true" style="max-width: 240px;" >
+            {{inCall.id}} - <b>{{ inCall.nombre | slice:0:12 }}</b>
+          </button>
+        </a>
+
+        <button type="button" class="btn btn-sm btn-warning ml-3" *ngIf="inCall.llamando == true "
+          [disabled]="inCall.act == false" (click)="colgar = true" >
+          Colgar!
+        </button>
+
+      </h5>
+
+      <div class="cerar_m float-right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16"
+           *ngIf="inCall.act == true && colgar == true" (click)="inCall = null">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="p-3" [class.green]="inCall.act == true" >
+      <div class=" d-flex text-center" >
+        Status Cli: &nbsp;
+        <b>
+          <span *ngFor="let s of statusC">
+            <span *ngIf="s[1] == inCall.status">{{ s[0] }}</span>
+          </span>
+          <span *ngIf="inCall.status.length > 2">{{inCall.status}}</span>
+          <span *ngIf="inCall.status.length == 0 ">No Existe</span>
+        </b>
+      </div>
+      <div class=" d-flex text-center mb-1">
+        Resultado: &nbsp;
+        <select name="resultado" [(ngModel)]="inCall.resultado">
+          <option *ngFor="let x of resultados" [value]="x[1]" >{{ x[0] }}</option>
+        </select>
+      </div>
+      <div class="d-flex">
+        Nota: &nbsp;
+        <input type="text" name="nota" [(ngModel)]="inCall.nota" placeholder="No es Obligatoria" maxlength="2000">
+        &nbsp;
+        <span title="Guardar Nota">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-check-circle-fill mt-1 cp"
+            viewBox="0 0 16 16" (click)="agenteActDatos(inCall)" *ngIf="inCall.act == false">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+          </svg>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</div> -->
+
+<div class="contenedor_">
+  <div class="ocul_pop"  [class.left0]="inCall2" *ngIf="inCall2">
+    <div class="modal-header">
+      <h5 class="modal-title">
+        <a  target="_blank" [routerLink]="['/vercliente/', inCall2.id_cliente ]" >
+          <button type="button" class="btn btn-sm"[class.btn-danger]="inCall2.act == '0' "  [class.btn-success]="inCall2.act == '1' " style="max-width: 240px;" >
+            {{inCall2.id_cliente}} - <b>{{ inCall2.nombres }}</b>
+          </button>
+        </a>
+
+        <button type="button" class="btn btn-sm btn-warning ml-3" *ngIf="inCall2.act == '1'  "
+          (click)="colgar = true" >
+          Colgar!
+        </button>
+
+      </h5>
+
+      <div class="cerar_m float-right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16"
+           *ngIf="inCall2.resultado && colgar == true" (click)="inCall2 = null">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="p-3" [class.green]="inCall2.act == '1' " >
+      <div class=" d-flex text-center" >
+        Status Cli: &nbsp;
+        <b *ngIf="inCall2.status">
+          <span *ngFor="let s of statusC">
+            <span *ngIf="s[1] == inCall2.status">{{ s[0] }}</span>
+          </span>
+          <span *ngIf="inCall2.status.length > 2">{{inCall2.status}}</span>
+        </b>
+        <b *ngIf="!inCall2.status">No Existe</b>
+      </div>
+      <div class=" d-flex text-center mb-1">
+        Resultado: &nbsp;
+        <select name="resultado" [(ngModel)]="inCall2.resultado">
+          <option *ngFor="let x of resultados" [value]="x[1]" >{{ x[0] }}</option>
+        </select>
+      </div>
+      <div class="d-flex">
+        Nota: &nbsp;
+        <input type="text" name="nota" [(ngModel)]="inCall2.nota" placeholder="No es Obligatoria" maxlength="2000">
+        &nbsp;
+        <span title="Guardar Nota" *ngIf="inCall2.act == '0' ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-check-circle-fill mt-1 cp"
+            viewBox="0 0 16 16" (click)="guardarMensaje(inCall2)">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+          </svg>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</div>

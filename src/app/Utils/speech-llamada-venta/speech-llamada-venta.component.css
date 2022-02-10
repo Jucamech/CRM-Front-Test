@@ -1,0 +1,180 @@
+.content {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.btn-uy .btn {
+  border: 2px solid black;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: pointer;
+  font-size: 29px;
+  margin-left: 7px;
+}
+.blue{
+  color: blue;
+}
+.green {
+  color: green;
+}
+.red {
+  color: red;
+}
+
+.segreglita,
+.diarrea,
+.intro,
+.ustedsies,
+.cuentaimpor,
+.preguntita,
+.nofunciona {
+  line-height: 45px;
+  margin: 4rem auto;
+  font-size: 36px;
+  text-align: center;
+}
+
+.separar {
+  border-radius: 7px;
+  max-width: 500px;
+}
+
+.esperar {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 4rem auto;
+  color: #008000;
+  font-style: oblique;
+}
+
+.rojito {
+  font-size: 52px;
+  font-weight: bold;
+  margin: 4rem auto;
+  color: #940500;
+  font-style: oblique;
+}
+
+.rojo {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 4rem auto;
+  color: #940500;
+}
+
+.azul {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 4rem auto;
+  color: #1d04ff;
+}
+
+.verde {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 4rem auto;
+  color: #1a7009;
+}
+
+.fin {
+  margin-bottom: 6rem;
+}
+
+.sub_r {
+  text-decoration: underline;
+}
+
+.reacciono {
+  border-radius: 20px;
+  height: 40px;
+  width: 380px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.none {
+  display: none;
+}
+
+.bg {
+  font-size: 25px;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.errores {
+  border: 1px solid;
+  font-weight: 600;
+  margin-top: 2px;
+  padding: 0 9px;
+  border-radius: 6px;
+  color: #f12337;
+  max-width: 30rem;
+  margin: auto;
+}
+
+.obli {
+  color: red;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"]
+{
+  height: 35px;
+  width: 15rem;
+}
+select
+{
+  max-width: 15rem;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.ml--4 {
+  margin-left: -4rem;
+}
+.ml--8 {
+  margin-left: -8rem;
+}
+
+#tipopago{
+  font-size: 24px;
+}
+
+/* --- boton atras--- */
+.atras {
+  position: absolute;
+  top: 4rem;
+}
+
+.btn-A {
+  background-color: blue;
+  color: white;
+}
+/* bancos */
+.style_b {
+  padding: 1rem;
+  background-color: aquamarine;
+  margin: 1rem;
+  font-size: smaller;
+}
+.tt_b{
+  background-color: darkcyan;
+}
+.bancos{
+  background-color: darkturquoise;
+  width: 70%;
+  margin: auto;
+}
+.bancos h3{
+  background-color: darkred;
+  color: white;
+}

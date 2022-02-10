@@ -1,0 +1,46 @@
+.content {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.none {
+  display: none;
+}
+
+.intro,
+.marshal,
+.marshall{
+  line-height: 45px;
+  margin: 4rem auto;
+  font-size: 36px;
+  text-align: center;
+}
+
+.division{
+  border: solid gray 1px;
+}
+.btna{
+font-size: 25px;
+}
+.btng{
+  width: 1200px;
+  color: #000;
+  font-size: 30px;
+  background-color: lightyellow;
+  border: solid 0;
+  cursor: -webkit-grabbing;
+}
+.btng:hover{
+  background-color: rgb(189, 189, 156);
+}
+/* boton atras */
+.atras {
+  position: absolute;
+  top: 4rem;
+}
+
+.btn-A {
+  background-color: blue;
+  color: white;
+}

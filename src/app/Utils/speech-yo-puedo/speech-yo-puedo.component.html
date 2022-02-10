@@ -1,0 +1,381 @@
+
+<div class="content">
+  <div class="{{ intro }}">
+      <b>Yo</b> puedo esperar
+      <br>Quien <b><u>NO</u></b> debe de esperar es <b>usted</b>
+      <br>
+      <br>
+      <label for="nombre">Nombres</label>
+      <input type="text" name="nombre" class="largo" [(ngModel)]="nombre">
+      <button type="button" class="peque" (click)="enviarData()" >Guardar</button>
+      <br>
+      <br>
+      <label for="apellido">Apellidos</label>
+      <input type="text" name="apellido" class="largo" [(ngModel)]="apellido">
+      <button type="button" class="peque" (click)="enviarData()" >Guardar</button>
+      <br>
+      <br>
+      <hr>
+
+        <h3><b>Reporte de Crédito</b></h3>
+
+      <label for="cuenta_id">Número de Cuenta</label>
+      <input  type="text" name="cuenta_id" class="largo" [(ngModel)]="cuenta_id">
+      <br>
+      <br>
+      <label for="tipo_deuda">Acredor Original</label>
+      <input type="text" class="largo" [(ngModel)]="acreedor_origin">
+      <br>
+      <br>
+      <label for="tipo_deuda">Razón</label>
+      <input type="text" class="largo" [(ngModel)]="razon">
+      <br>
+      <br>
+          <label for="buro">Búro</label>
+          <select name="buro" class="" [(ngModel)]="buro" class="largo">
+            <option value="1" name="buro">Equifax</option>
+            <option value="2" name="buro">Experian</option>
+            <option value="3" name="buro">TransUnion</option>
+          </select>
+      <br>
+      <br>
+
+      <label for="estado">Estatus de la Cuenta</label>
+        <select name="estado" [(ngModel)]="estado" class="largo">
+          <option name="estado" value="1">Open</option>
+          <option name="estado" value="2">close</option>
+          <option name="estado" value="3">Negative</option>
+          <option name="estado" value="4">Discharged</option>
+          <option name="estado" value="5">Revolving</option>
+          <option name="estado" value="6">Current/Paid</option>
+          <option name="estado" value="7">Not Reported</option>
+        </select>
+      <br>
+      <br>
+      <label for="tipo_cuenta">Tipo de Cuenta</label>
+          <select name="tipo_cuenta" [(ngModel)]="tipo_cuenta" class="largo">
+            <option name="tipo_cuenta" value="2" >4+ Late Payment</option>
+            <option name="tipo_cuenta" value="3" >Mortgage Default</option>
+            <option name="tipo_cuenta" value="4" >Collection</option>
+            <option name="tipo_cuenta" value="5" >Collection Medic.</option>
+            <option name="tipo_cuenta" value="6" >Col or ChargeOff</option>
+            <option name="tipo_cuenta" value="7" >ChargeOff</option>
+            <option name="tipo_cuenta" value="8" >Repossesion</option>
+            <option name="tipo_cuenta" value="9" >Foreclosure</option>
+            <option name="tipo_cuenta" value="10" >Bankruptcy</option>
+            <option name="tipo_cuenta" value="11" >Student Loan</option>
+            <option name="tipo_cuenta" value="12" >Tax Lien</option>
+            <option name="tipo_cuenta" value="13" >Judgement</option>
+            <option name="tipo_cuenta" value="14" >Late Student Loan</option>
+            <option name="tipo_cuenta" value="15" >Inquiry</option>
+            <option name="tipo_cuenta" value="16" >Positive</option>
+            <option name="tipo_cuenta" value="17" >High Balance</option>
+            <option name="tipo_cuenta" value="18" >In Bankruptcy</option>
+            <option name="tipo_cuenta" value="19" >Collector Att.</option>
+            <option name="tipo_cuenta" value="20" >Child Support</option>
+            <option name="tipo_cuenta" value="21" >Personal Info</option>
+            <option name="tipo_cuenta" value="22" >Falta historial</option>
+          </select>
+      <br>
+      <br>
+      <label for="number">Balance de Cuenta</label>
+      <input  type="number" name="balance_cuenta" [(ngModel)]="balance_cuenta" class="largo" placeholder="$valor de la deuda">
+      <br>
+      <br>
+      <label for="limite_cuenta">Limite</label>
+      <input  type="number" name="limite_cuenta" [(ngModel)]="limite_cuenta" class="largo" placeholder="Limite">
+      <br>
+      <br>
+      <label for="fecha_cuenta">Fecha</label>
+      <input  type="date" name="fecha_cuenta" [(ngModel)]="fecha_cuenta" class="largo">
+      <br>
+      <br>
+      <button style="font-size: 22px;" (click)="enviarReporte()">Guardar Reporte</button>
+<hr>
+      <br>
+      <br>Y el <b>problema</b> es que ellos pueden
+      <br>someterlo a <b>corte</b>
+      <br>y recibir un judgement
+      <br>que le otorgue un <b>embargo</b> a su salario
+      <br>y que le incluyan varios <b>miles</b>
+      <br>de dólares adicionales
+      <br>por <b>gastos</b> de abogados,
+      <br>y los <b>abogados</b> usualmente cobran
+      <br>$200 a $300 dólares la <b>hora</b>
+      <br>y facturan un mínimo de <b>10 horas</b>
+      <br>o sea que puede aumentar en <b>tres</b> mil dólares mas
+      <br><b>$500</b> dolares en gastos
+      <br>de corte mas lo <b>intereses</b>
+      <br>que usualmente estan en un 25% al <b>año</b>
+      <br>
+      <br> Esta deuda tiene  tantos años
+      <br>o sea que en 4 <b>años</b> se duplica la deuda
+      <br>ademas de su <b>deuda</b> actual
+      <br> que es <b>de</b> ({{balance_cuenta | currency }})
+      <br>
+      <br>
+      <br>Menos mal que <b>usted</b> esta hablando conmigo
+      <br>por que las cosas se le pueden <b>complicar</b>
+      <br>
+      <br>y por eso <b>tenemos</b>
+      <br>que <b>actuar</b>  rapidamente.
+
+      <br><br> Usted <b>Trabaja</b>?
+      <br><br>
+<div>
+  <button type="button" class="btng" (click)="cambiarP('trabaja')">
+    Trabaja
+  </button>
+</div>
+<br>
+<div>
+  <button type="button" class="btng" (click)="cambiarP('notrabaja')">
+   No Trabaja
+  </button>
+</div>
+
+  </div>
+
+  <div class="{{trabaja}}">
+
+    <div class="atras" id="1atras" (click)="atrasP('trabaja')">
+      <button class="btn-A">Atras</button>
+    </div>
+
+    <div class="dictamen" *ngIf="!dictamen">
+      <br> Que bueno es tener un <b>trabajo</b>
+      <br> hay mucha gente que <b>no</b> tiene trabajo
+      <br> usted ha sido <b>bendeci@</b> con un trabajo
+      <br> ¿verdad que <b>si</b> ?
+      <br> ¿Cuanto gana usted semanal?
+        <br> O es quincenal?
+        <br> <label for="sueldoS_Q" class="">Sueldo Sem/Quinc/Mens :</label>
+          <select name="sueldoS_Q" id="sueldoS_Q" [(ngModel)]="sueldoS_Q">
+            <option value=1 name="sueldoS_Q">Semanal</option>
+            <option value=2 name="sueldoS_Q">Quincenal</option>
+            <option value=3 name="sueldoS_Q">Mensual</option>
+          </select>
+          <br>
+        <label for="sueldo">Sueldo:</label>
+        <input type="number" class="min" [(ngModel)]="sueldo">
+        <br>
+        <br>
+      <button type="button" class="btng" (click)="cambiarP('siguiente')">
+        Siguiente
+       </button>
+    </div>
+    <div class="dictamen2" *ngIf="dictamen">
+      <br>Con este dictamen de corte
+      <br>Ellos tienen el derecho
+      <br>De secuestrarle hasta por
+      <br> veinte años el 25% de su salario
+      <br>o sea que usted gana $ {{sueldo}} actualmente.
+      <br>Ellos pueden secuestrarle, quitarle hasta
+      <br>$({{ sueldo | deducir }}) mensuales de su sueldo.
+      <br>
+      <br>Pueden enviar un Marshall
+      <br>A su trabajo y hablar con su jefe
+      <br>Y el problema es que ellos usualmente no hablan bajito,
+      <br>Es más, ellos imparten órdenes a su jefe.
+      <br>A veces en tono de voces muy groseros...
+      <br>
+      <br>Y aunque su jefe no lo puede despedir por esta acción,
+      <br>créame, que hay jefes que NO perdonan,
+      <br>esa transgresión de un policía,
+      <br>y buscan la forma de despedirle.
+      <br>
+      <br>El Policía o Marshall, usualmente
+      <br> no lo piden bonito No le dicen a su jefe...
+      <br>Mire por favorcito, cuando usted pueda,
+      <br>Necesito pedirle de favor que le deduzca ${{ sueldo | deducir }} a {{nombre}}
+      <br>Y nos lo envió a la corte, por favor..
+      <br><b>Jajaja</b>
+      <br>
+      <br>Ellos usualmente <b>Ejercen</b> su autoridad
+      <br>Y lo <b>ordenan</b> a veces de la  siguiente forma;
+      <br>usted <b>tiene</b> que quitarle $ {{ sueldo | deducir }}
+      <br>todos los meses de su <b>sueldo</b> a ({{nombre}})
+      <br>y enviarlo <b>inmediatamente</b> a la corte.
+      <br>y si usted <b><u>no</u></b> lo hace
+      <br>usted estaria en <b>desacato</b> de corte
+      <br>y podemos <b>cerrarle</b> su negocio
+      <br>y meterlo <b>preso </b>a usted por <b>desacato..</b>
+      <br>usted <b>entiende</b> bien claro lo que le he dicho, correcto?
+      <br><b>mireme </b>a los ojos y digame
+      <br><b>si señor.</b>
+      <br>
+      <br>Entonces <b>que es</b> <b>mejor?</b>
+      <br>Qué le deduzcan ${{ sueldo | deducir }} hasta <b>por 20 años? O </b>
+      <br>pagarnos<b> solamente</b> $275 al mes?
+      <br>qué es mejor para usted?
+      <br> ${{ sueldo | deducir }} hasta <b>por 20 años? O</b>
+      <br><b>solamente</b> los $275 mensual?
+      <br>y ayudarse a <b>resolver</b> su problema de crédito.
+      <br>
+      <br><span style="color: green;">ESPERAR REACCIÓN DEL CLIENTE</span><br>
+      <br>
+      <br><b>Obviamente</b> que los $275
+      <br>
+      <br>Qué es mejor para usted?
+      <br>${{ sueldo | deducir }} hasta <b>por 20 años? O</b>
+      <br>
+      <br><b>Solamente</b> los $275 mensual?
+      <br> y ayudarse a <b>resolver</b> su problema de crédito.
+      <br>
+      <br><span style="color: green;">ESPERAR REACCIÓN DEL CLIENTE</span>
+      <br>
+      <br><b>Obviamente</b> que los $275
+      <br>
+      <br>Entonces usted <b><u>no</u></b> quiere quedar mal conmigo
+      <br>Que soy el <b>único</b> que le puede ayudar en este momento.
+      <br>
+      <br>Nosotros tenemos unas cartas <b>listas</b> para ayudarle en su caso
+      <br>{{nombre}}, Pero hasta que usted <b><u>no</u></b> haga su próximo <b>pago </b>
+      <br><b><u>no</u></b> puedo dar la orden de enviarlas.
+      <br>Incluso este proceso lo podemos hacer <b>más</b> rápido,
+      <br>Ya que cada vez que usted <b>haga</b> un pago
+      <br>Vamos a <b>sacar</b> cartas
+      <br>SI paga <b>Una</b> vez al mes
+      <br>Sacamos <b>cartas</b> Dios mediante <b>Todos</b> los meses
+      <br>Y si hace pagos completos <b>cada 15 días</b>
+      <br><b>Cada 15 días</b>,
+      <br>Dios mediante <b>sacamos</b> cartas.
+      <br>
+      <br>Muy bien ({{nombre}}), Su próximo <b>pago</b> es el día({{ proximo_pago }})
+      <br><input type="date" class="min" name="proximo_pago" [min]="Hoy" id="" [(ngModel)]="proximo_pago">
+      <br><label for="">Valor</label> <input type="number" class="min" name="valor" [(ngModel)]="valor">
+      <br><label for="">Nota</label> <input class="largo" type="text" name="comentario" [(ngModel)]="comentario" >
+      <br>
+      <button (click)="addCobro()">Generar Cobro</button>
+      <br>
+      <br>({{nombre}})Usted va a <b>hacerlo </b>el día de hoy
+      <br><b>y</b> aprovechar que estamos en el teléfono
+      <br>y lo hacemos <b>ahora </b>por quickpay?
+      <br>
+      <br>
+      <br>Qué es mejor, para sacar las <b>cartas más rápido?</b>
+      <br>({{nombre}}),  hacerlo el día ({{ proximo_pago }})? o
+      <br>
+      <br>Prefiere <b>aprovechar</b> que estamos en el teléfono
+      <br>y lo hacemos <b>ahora</b> por quickpay?
+      <br>para sacar sus cartas Dios mediante,  <b>ahora  </b>mismo..
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <div class="{{notrabaja}}">
+
+    <div class="atras" id="1atras" (click)="atrasP('notrabaja')">
+      <button class="btn-A">Atras</button>
+    </div>
+
+      <br>¿Tiene algún automóvil bajo su nombre?
+      <br>bueno mire ({{nombre}}), con este <b>dictamen </b>de corte
+      <br>ellos <b>tienen</b> el derecho
+      <br>de <b>quitarle</b> hasta por veinte años
+      <br>cualquier automóvil o propiedad que tenga
+      <br>y si no tiene
+      <br>le pueden hasta embargar o
+      <br> quitar los muebles de su casa
+      <br>incluso hasta los televisores,
+      <br>aires acondicionados
+      <br>y cualquier cosa de valor.
+      <br>
+      <br>({{nombre}}), Pueden enviar un<b> marshall</b>
+      <br>y el problema es que ellos usualmente
+      <br><b><u>no</u></b>hablan bajito,
+      <br>es más, ellos imparten <b>órdenes</b> a usted.
+      <br>a veces en tono de voces muy <b>groseros…</b>
+      <br>
+      <br>Y créame, <b><u>no</u></b> fácil olvidar
+      <br>esa <b>transgresión </b>de un policía.
+      <br>
+      <br>El policía o<b> marshall</b>, usualmente
+      <br> <b><u>no</u></b> lo piden bonito
+      <br><b><u>no</u></b> le dicen a <b>usted…</b>
+      <br>mire por favorcito, cuando usted <b>pueda</b>,
+      <br>necesito pedirle <b>de favor</b>
+      <br> que le deduzca $____ a
+      <br>y nos lo envié a la <b>corte</b>, por favor..
+      <br><b>jajaja</b>
+      <br>
+      <br>
+      <br>Ellos usualmente <b>ejercen</b> su autoridad
+      <br>y lo <b>ordenan</b> a veces de la  siguiente forma;
+      <br>
+      <br>Usted <b>tiene</b> por orden de corte
+      <br><b>darme</b> todas sus pertenencias o muebles,
+      <br>televisores, etcétera, ya que tenemos
+      <br>orden de embargarselos.
+      <br>
+      <br>Y si usted <b><u>no</u></b> lo hace
+      <br>usted estaria en<b> desacato</b> de corte
+      <br>y podemos  meterlo<b> a la carcel</b> a
+      <br> usted por <b><u>desacato..</u></b>.
+      <br>
+      <br>¿Usted <b><u>entiende</u></b> bien
+      <br> claro lo que le he dicho, correcto?
+      <br><b><u>mireme</u></b> a los ojos y digame
+      <br><b>si señor.</b>
+      <br>
+      <br>¿Entonces<b> que es</b> mejor?
+      <br>¿qué le quiten su auto,  los muebles
+      <br>y todo lo que pueda tener  hasta <b>por 20 años? o</b>
+      <br>¿pagarnos solamente $299,50 al mes?
+      <br>¿qué es <b>mejor</b> para usted?
+      <br>¿estar mirando en detrás de su espalda
+      <br> hasta <b>por 20 años? o</b>
+      <br>¿<b>solamente </b>los $299,50 mensual?
+      <br>y ayudarse a<b> resolver</b> su problema de crédito.
+      <br><span style="color: green;"> esperar reaccion del cliente</span>
+      <br><b>obviamente</b> que los $299,50
+      <br>
+      <br>Entonces usted <b><u>no</u></b> quiere
+      <br>quedar mal conmigo que soy el <b>único</b>
+      <br> que le puede ayudar en este momento.
+      <br>
+      <br>Nosotros tenemos unas cartas <b>listas</b>
+      <br> para ayudarle en su caso
+      <br>({{nombre}}), pero hasta que usted NO
+      <br> haga su próximo <b>pago</b>
+      <br><b><u>no</u></b> puedo dar la orden de enviarlas.
+      <br>incluso este proceso lo podemos
+      <br> hacer <b>más</b> rápido, ya que
+      <br>cada vez que usted <b>haga</b> un pago
+      <br>vamos a <b>sacar</b> cartas
+      <br>si paga <b>una</b> vez al mes
+      <br>sacamos cartas Dios mediante
+      <br><b><u>todos</u></b> los meses…
+      <br>y si hace pagos completos <b>cada 15 días</b>
+      <br><b>cada 15 días</b>,
+      <br>Dios mediante sacamos cartas.
+      <br>
+      <br>Muy bien ({{nombre}}), su próximo <b>pago</b> es el día({{ proximo_pago }})
+      <br><input type="date" class="min" name="proximo_pago" [min]="Hoy" id="" [(ngModel)]="proximo_pago">
+      <br><label for="">Valor</label> <input type="number" name="valor" class="min" [(ngModel)]="valor">
+      <br><label for="">Nota</label> <input class="largo" type="text" name="comentario" [(ngModel)]="comentario" >
+      <br>
+      <button (click)="addCobro()">Generar Cobro</button>
+      <br>
+      <br>usted va a <b>hacerlo</b> el día de hoy
+      <br>y aprovechar que estamos en el teléfono
+      <br>y lo hacemos <b>ahora</b> por quickpay?
+      <br>
+      <br>¿Qué es mejor, para sacar las
+      <br><b>cartas más rápido?</b>
+      <br>¿({{nombre}}),  hacerlo el día  {{ proximo_pago }}? o
+      <br>
+      <br>¿Prefiere <b>aprovechar</b> que
+      <br> estamos en el teléfono?
+      <br>y lo hacemos <b>ahora</b> por quickpay?
+      <br>para sacar sus cartas dios mediante,
+      <br> <b>ahora</b> mismo…
+      <br>
+      <br>
+      <br>
+
+
+  </div>
+</div>

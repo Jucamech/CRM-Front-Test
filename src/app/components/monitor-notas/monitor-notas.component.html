@@ -1,0 +1,121 @@
+<table class="table table-hover table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Notas</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Motivos</th>
+      <th scope="col">Hora de cita</th>
+      <th scope="col">Asignado</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Opc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of citasHoy; index as i">
+      <td (click)="verNota(item)">{{ i + 1 }}</td>
+      <td style="font-weight: 600; text-shadow: 0px 0px 20px #09ff41" (click)="verNota(item)">
+        {{ item.notas | slice: 0:25 }}
+      </td>
+      <td (click)="verNota(item)">
+        {{ item.nombres }} {{ item.apellidos | slice: 0:15 }}
+      </td>
+      <td (click)="verNota(item)">
+        <div [ngSwitch]="item.motivo">
+          <span *ngSwitchCase="1">Lectura de Reporte</span>
+          <span *ngSwitchCase="2">Hablar del Caso</span>
+          <span *ngSwitchCase="3">Documentos Pendientes</span>
+          <span *ngSwitchCase="4">Firmar Contrato</span>
+          <span *ngSwitchCase="5">Cobro</span>
+          <span *ngSwitchCase="6">Trackings</span>
+          <span *ngSwitchCase="17">Llamada Inmediata</span>
+        </div>
+      </td>
+      <td (click)="verNota(item)">{{ item.fechahora | date: "shortTime" }}</td>
+
+      <td (click)="verNota(item)">{{ item.asignado }}</td>
+      <td (click)="verNota(item)">
+        <div [ngSwitch]="item.estado">
+          <span *ngSwitchCase="1">En Agenda</span>
+          <span *ngSwitchCase="2">Postpuesta</span>
+          <span *ngSwitchCase="3">No Contestada</span>
+          <span *ngSwitchCase="4">Cliente Ocupado</span>
+          <span *ngSwitchCase="10">Cita Atendida</span>
+          <span *ngSwitchCase="11">Solicitud a Reasignar</span>
+        </div>
+      </td>
+      <td>
+        <button type="button" class="btn btn-warning" (click)="editarNota(item)">
+          Reasignar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="notas" style="position: fixed; top: 20%; right: 3rem" *ngIf="toogle">
+  <div class="card" style="width: 18rem">
+    <div class="card-body">
+      <button type="button" class="btn btn-outline-danger d-flex float-right" (click)="cerrartoogle()">
+        X
+      </button>
+      <h5 class="card-title d-flex">{{ dataNotaCita.cliente }}</h5>
+      <p class="card-text">{{ dataNotaCita.nota }}</p>
+    </div>
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <b>Motivo: </b> <span>En Espera a Postponer</span>
+      </li>
+      <li class="list-group-item">
+        <b>Fecha Cita:</b> {{ dataNotaCita.fecha | date: "shortTime" }}
+      </li>
+      <li class="list-group-item">
+        <b>Asignado:</b> {{ dataNotaCita.asignado }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="reasignar_cita" *ngIf="toogle2">
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="nombre" class="text-white font-w">Nombre </label>
+      <input readonly type="text" name="nombre" class="form-control" maxlength="50" pattern="([a-zA-Z0-9¡¿!.,: ;\?]{1,50})" [(ngModel)]="dataNotaCita.cliente" #nombreI="ngModel" />
+      <div class="errores" *ngIf="nombreI.invalid && nombreI.dirty">
+        <div *ngIf="nombreI.errors.pattern">
+          <small>Use solo <b>caracteres</b> comunes</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="nota_cita" class="text-white font-w">Nota-Comentario </label>
+      <input required type="text" name="nota_cita" class="form-control" maxlength="500" pattern="([a-zA-Z0-9¡¿!.,: ;\?]{1,500})" [(ngModel)]="dataNotaCita.nota" #nota_citaI="ngModel" />
+      <div class="errores" *ngIf="nota_citaI.invalid && nota_citaI.dirty">
+        <div *ngIf="nota_citaI.errors.pattern">
+          <small>Use solo <b>caracteres</b> comunes</small>
+        </div>
+        <div *ngIf="nota_citaI.errors.required">
+          <small>Campo es Obligatorio</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-4" *ngIf="usuariosList2">
+      <label for="nombre" class="text-white font-w">Asignar a:</label>
+      <select name="motivo_cita" id="motivo_citaSel" class="form-control" #selectAgent>
+        <option *ngFor="let item of usuariosList2" value="{{ item.id }}">
+          {{ item.nombre }} {{ item.apellido }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="cobro" class="text-white font-w">Agendar Cita</label>
+      <button class="btn btn-primary btn-small btn-block" (click)="editarCita()">
+        Add...
+      </button>
+    </div>
+  </div>
+</div>

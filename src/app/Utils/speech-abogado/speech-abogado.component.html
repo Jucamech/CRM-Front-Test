@@ -1,0 +1,141 @@
+
+<div class="content" [scrollTop]="scrll" #content>
+  <div class="{{intro}}">
+
+
+
+<button class=" btn btn-secondary dropdown-toggle btng" type="button" (click)="verBtns('cobra')">
+  <u>Un abogado normalmente <b>cobra</b></u>
+</button>
+
+<div style="font-size: 36px;"  *ngIf="honorarios">
+  <br><br>Un abogado normalmente <b>cobra</b><br>
+de 200 a 300 dolares la <b>hora</b>.<br>
+
+(<span *ngIf="cliente">{{ cliente.nombres }}</span>) Este tipo de <b>caso</b> usualmente<br>
+<b>facturan</b> unas 10 horas <br>
+que serian <b>3000</b> dolares<br>
+<b>MAS</b> 500 dolares <br>
+de los gastos <b>de corte</b> <br>
+son <b>3500</b> dolares<br>
+<br>
+<b>Mas</b>  unos 500 de intereses <br>
+son <b>4000</b> dolares<br>
+
+<b>Mas</b> la cantidad que usted debe,<br>
+en total por esta <b>deuda</b><br>
+le pueden <b>embargar</b>...<br><br>
+</div>
+
+
+<br><br>
+<span style="color: green;">(Decir el monto y sumar los 3500 dolares)</span>
+
+  <br>
+  <br>Los acreedores <b>pueden</b>
+  <br>
+  ir a donde un <b>juez</b><br>
+  Y requerir un <b>(judgement)</b>, <b>dictamen</b> de corte<br>
+  Y el juez se lo puede dar a un <b>Marshall</b> <br>
+  para que este <b>Vaya</b> a donde su jefe, <br>
+  y le indique que tiene un dictamen de <b>corte</b> <br>
+  que le autoriza a <b>quitar</b> hasta el 25% de su salario <br>
+  por los proximos <b>20 años</b> <br>
+  <br>
+
+  es posible que a usted lo <b>demanden</b>,<br>
+  si no es que ya lo han <b>demandado</b>,<br>
+  y cuando vaya a su <b>trabajo</b><br>
+  puede <b>encontrarse</b> con una demanda<br><br>
+
+  <div class="btn-uy mt-4">
+      <button type="button" (click)="cambiarP('marshall')">
+        Marshall
+      </button>
+    </div>
+
+  </div>
+
+  <div class="{{marshall}}"  >
+    <div class="atras">
+      <button class="btn-A" (click)="atrasP('marshall')">Atras</button>
+    </div>
+
+      <div class="division">
+          <b><u>No</u></b> llene sus <b>taxes</b>,<br>
+          Porque el <b>problema</b> es <br>
+          que le pueden <b>quitar</b> los taxes,<br>
+          menos <b>mal</b> que usted me llamo <br><br>
+
+          Estamos corriendo <b>contra</b> el tiempo <br>
+          <b>NO</b> llene los taxes hasta que yo le diga <br>
+          Usted <b>llenó</b> los taxes? <br>
+          Si no los ha llenado, <b><u>NO</u></b> lo haga.
+      </div>
+<div class="division">
+  <br>
+  ¿A usted le <b>devuelven</b> de su planilla de impuestos o tiene que pagar?<br>
+<br>
+  <button class="btna" (click)="verBtns('sile')">Si le devuelven</button>
+  <button class="btna ml-2">Si tiene que pagar</button>
+  <button class="btna ml-2">No accesible</button>
+  <br><br>
+  <br><span style="color: green;">
+  <b>ESPERAR Y PROPICIAR REACCION DEL PROSPECTO Y DEPENDIENDO LA CONTESTACION PREGUNTARLE LO QUE APLIQUE</b>
+  </span><br><br>
+</div>
+
+
+<div style="font-size: 36px;" class="division" *ngIf="siledevuelven">
+      <br><br>
+      Ya <b>lleno</b> su re-integro de impuestos?<br>
+
+      <select>
+          <option></option>
+          <option>No</option>
+          <option>Si</option>
+          <option>No Accesible</option>
+      </select><br><br>
+
+      <span style="color: green;"><b>ESPERAR Y PROPICIAR REACCION DEL PROSPECTO Y DEPENDIENDO LA CONTESTACION PREGUNTARLE LO QUE APLIQUE</b></span><br><br>
+
+      Si no los ha llenado, no lo haga hasta que yo le diga, ya que le pueden embargar todo o una parte...<br>
+      Cuanto usted <b>recibio</b> el año pasado de su re-integro?
+
+      <br><br><span style="color: green;">ESPERAR Y PROPICIAR REACCION DEL PROSPECTO Y DEPENDIENDO LA CONTESTACION PREGUNTARLE LO QUE APLIQUE</span><br><br>
+
+
+      ¿<b>Ya</b> los recibio?
+      <select>
+          <option></option>
+          <option value="no">No</option>
+          <option value="si">Si</option>
+          <option vallue="no accesible">No Accesible</option>
+      </select><br><br>
+
+      <br><span style="color: green;">ESPERAR Y PROPICIAR REACCION DEL PROSPECTO Y DEPENDIENDO LA CONTESTACION PREGUNTARLE LO QUE APLIQUE</span>
+
+      <br>
+      Uuuy.... Tenemos que trabajar <b>rapido,</b>
+      por que le pueden quitar bastante de su re-integro.
+
+      <div class="division">
+          <br><br>
+          Menos mal que <b>me llamo...</b><br>
+          <br><span style="color: green;">ESPERAR Y PROPICIAR REACCION DEL PROSPECTO Y DEPENDIENDO LA CONTESTACION PREGUNTARLE LO QUE APLIQUE</span>
+
+      </div>
+</div>
+
+
+
+<div class="division">
+  <br><br>
+  tenemos que <b>trabajar</b> rapido,<br>
+  yo le voy a <b>ayudar</b>.<br>
+  que otras <b>cuentas</b> tiene usted pendiente?	<br><br>	<br>
+</div>
+
+
+  </div>
+</div>

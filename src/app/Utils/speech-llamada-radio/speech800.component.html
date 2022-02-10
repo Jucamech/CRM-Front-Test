@@ -1,0 +1,2251 @@
+<div class="content" #content >
+
+  <!--  ******  consulta credito  btn xxx  *******   -->
+  <div class="notas" *ngIf="idClientePost">
+    <a [routerLink]=[verCli] target="_blank">
+      <button>Abrir Ingresar Cliente</button>
+    </a>
+  </div>
+  <br>
+  <br>
+  <div class="{{ consulta_credito }}">
+
+
+    <div class="atras" id="1atras" (click)="regresarP('radio')">
+      <button class="btn-A">Atras</button>
+    </div>
+
+    <h3 style="font-size: 30px">
+      <br />
+      ¿Cuénteme como <b>esta</b> su crédito <br />
+      esta <b>bueno</b> o esta ______?
+      <br />
+    </h3>
+    <div class="selectBtn mt-3">
+      <button class="btn" (click)="credi_BM = 'bueno'">Bueno</button>
+      <button class="btn ml-4" type="button" (click)="credi_BM = 'malo'">
+        Malo
+      </button>
+    </div>
+    <br />
+    <div class="cred_bueno" *ngIf="credi_BM == 'bueno'">
+      <p style="font-size: 30px">
+        <br />¿En cuánto <b>tiene</b> su puntaje?
+        <br />
+        <br />
+        <br />
+      </p>
+
+      <!-- *********  PUNTAJES DE BUROS *********** -->
+      <div style="width: 100%" class="mr-4">
+        <div style="width: 100%; display: flex; font-size: 25px">
+          <div style="width: 50%; text-align: end; margin-left: 1rem">
+            <b>EXPERIAN</b>
+          </div>
+          <div style="width: 50%; display: flex; margin-left: 1rem">
+            <input type="text" name="puntaje_experian" [(ngModel)]="puntaje_experian" />
+          </div>
+        </div>
+        <br />
+        <div style="width: 100%; display: flex">
+          <div style="
+              width: 50%;
+              text-align: end;
+              margin-left: 1rem;
+              font-size: 25px;
+            ">
+            <b>EQUIFAX</b>
+          </div>
+          <div style="width: 50%; display: flex; margin-left: 1rem">
+            <input type="text" name="puntaje_equifax" [(ngModel)]="puntaje_equifax"/>
+          </div>
+        </div>
+        <br />
+        <div style="width: 100%; display: flex">
+          <div style="
+              width: 50%;
+              text-align: end;
+              margin-left: 1rem;
+              font-size: 25px;
+            ">
+            <b>TRANSUNION</b>
+          </div>
+          <div style="width: 50%; display: flex; margin-left: 1rem">
+            <input type="text" name="puntaje_trans_u" [(ngModel)]="puntaje_trans_u"/>
+          </div>
+        </div>
+
+        <br /><br /><br />
+        <p class="resp fs-5" style="color: green; font-size: 2rem">
+          ESPERAR REACIÓN...
+        </p>
+        <br />
+      </div>
+       <!--   PUNTAJES DE BUROS  -->
+
+      <h2 style="color: blue">
+        Usted me dice <b>un!</b>
+        <br />
+        solo buró y los otros dos?
+      </h2>
+      <br /><br />
+
+      <p style="font-size: 36px">
+        <br />El credito se <b>reporta</b> en los 3 buros
+        <br />
+        <br />Dejeme <b>indicarle</b> que la <b>diferencia</b>
+        <br />de una   persona que <b>tiene</b> 50
+        <br />puntos <b>más</b>,
+        <br /><b>tiene</b> casa, y carro.
+        <br> Es que se puede <b>Ahorrar</b>
+        <br> al año <b>hasta 5mil Dolares</b>
+        <br> en intereses.
+        <br />
+        <br />Usted esta <b>hablando</b> <br />que en 30 años
+        <b>usted </b>economiza <br />casi
+        <br><b>$150 mil</b> dolares.
+        <br />
+        <br /><b>Wow</b> eso si es dinero <br />menos <b>mal</b> que usted
+        <br />
+        esta hablando <b>conmigo</b>
+        <br />
+        <br />Un puntaje <b>bueno</b> es 740 mínimo
+        <br />
+        <br />¿Cuándo <b>fue</b> la última vez <br />que usted <b>chequeo</b> su
+        crédito?
+        <br />
+      </p>
+      <h4 class="mt-3 req" style="font-size: 36px">
+        <br />
+        UUUUYYYYYYY <br />
+        ESO ES <b>MUUUUUY</b> PELIGROSO, <br />
+      </h4>
+      <br />
+
+      <p class="resp fs-5" style="color: green; font-size: 2rem">
+        ESPERAR REACIÓN...
+      </p>
+      <br />
+      <br />
+      <p style="font-size: 36px">
+        <br />¡Ya es hora de <b>chequear</b> su credito!
+        <br />
+        <br />Para <b>hacer</b> esto todo lo que <br />necesitamos es
+        <b>chequear</b> <br />su <b>reporte</b> de credito.
+        <br />
+        <br>Vamos a ver si <b>ud</b>
+        <br> esta <b>demandado</b>
+        <br> o esta en <b>proceso de corte</b>
+        <br>
+        <br />Un reporte de <b>credito</b> estos días <br />cuestan
+        <b>alrededor</b> de 40 dolares. <br />Pero con la app que
+        <b>nosotros </b> <br /><b>anunciamos</b> en la radio <b>solamente</b> un
+        $1 con 10 centavos
+        <br />
+        <br /><b><u>NO</u></b> le afecta <br />
+        su credito, ni su puntaje
+        <br />
+        <br />Para esto lo <b>unico</b> que necesito <br />saber <b>cual</b> es
+        nombre suyo legal <br />tal y como <b>aparece</b>
+      </p>
+      <br>
+      <p class="resp fs-5" style="color: green; font-size: 2rem">
+        ESPERAR REACIÓN...
+      </p>
+      <br>
+      <br>
+      <div class="btncol-che-cre">
+        <button type="button" class="btn" style="margin-left: 1rem" (click)="credito_check = '1'">
+          No ha chequeado
+        </button>
+        <button type="button" class="btn" style="margin-left: 1rem" (click)="credito_check = '2'">
+          Si tiene colecciones
+        </button>
+        <button type="button" class="btn" style="margin-left: 1rem" (click)="credito_check = '1'">
+          No tiene credito
+        </button>
+
+      </div>
+      <br />
+      <div class="no_check" *ngIf="credito_check == '1'">
+        <h2 class="invest">UYYY eso es muy peligroso</h2>
+        <br>
+        <p class="fs-5">
+          Las personas que nunca han <b>chequeado</b> su crédito, <br />son las
+          más propensas a sufrir robo de identidad, <br />
+          en estados unidos cada hora <b>ROBAN</b> la identidad, cada minuto
+          <b>ROBAN</b> la <b>identidad</b>. <br />
+          <br />
+          Mas de 15 millones de personas aquí en estados unidos sufren de robo
+          de identidad. <br />
+          Menos mal esta hablando conmigo. <br />
+          Puede que hayan comprado <b>casa, carros, joyas</b>. Estas las venden
+          y es a <b>Ud!</b> <br />
+          el que le toca pagarlas. <br />
+          Aun así, siendo <b>inocente</b> puede ir preso
+          <br />
+          y gastar miles de dólares para que lo defiendan
+          <br>
+          <br> <b>Menos mal que ud esta hablando conmigo</b>
+          <br>
+          <br> Tenemos que mirar <b>rápidamente</b>
+          <br> su reporte de credito
+          <br> y fijarnos si no le han <b>demandado</b> ya.
+          <br>
+          <br> El problema al <b>tener</b>
+          <br> <b>cuentas</b> que ud <b>NO</b> reconoce
+          <br> y no estar <b>pagas</b>,
+          <br> es que ....
+          <br>
+          <br>
+        </p>
+        <div class="btn-uy mt-3">
+          <button type="button" id="secondBtnBueno" class="btn" (click)="cambiarP('consulta_credito2')">
+            El problema es que le pueden demandar
+          </button>
+        </div>
+
+        <br>
+        <br>
+      </div>
+
+
+      <div class="tiene_colecciones" *ngIf="credito_check == '2'">
+        <h2 class="invest">UYYY eso es muy peligroso</h2>
+        <br>
+        <p class="fs-5">
+          Usualmente esa gente demanda,
+          <br><b>SI NO ES QUE A UD PROBLABLEMENTE
+          <br> YA LE DEMANDARON !</b>.
+          <br> Ud ha recibido cartas de corte ?
+          <br /> En las agencias de colección
+          <br> los dueños normalmente son <b>abogados</b>,
+          <br>
+          <br />Y el trabajo de ellos es demandar,
+          <br> <b> menos mal está hablando conmigo.</b>
+          <br /> Por dictamen de un <b>juez</b>
+          <br> puede llevarle a corte y <b>dictaminar</b> hasta
+          <br> 3.500 <b>dólares</b>, en gastos de abogado,
+          <br> corte, más <b>intereses.</b>
+        </p>
+
+        <div class="btnx">
+          <br />
+          <br />
+          <button type="button" class="btn btn-danger" (click)="open = !open">
+            Estoy pagando a una agencia de colección
+          </button>
+          <br />
+          <br />
+          <div *ngIf="open" style="font-size: 36px">
+            <p>
+              <b>
+                No les pague. <br />
+                ¡Si! <br />
+                ¡¡NO LES PAGUE !!! <br />
+                TAL Y COMO ME ESCUCHO !
+              </b>
+            </p>
+            <br>
+            <p>
+              Eso es un <b>error...</b>
+              <br> porque ellos le quitan el dinero
+              <br> y le dejan el crédito dañado
+              <br> hasta por 7 años
+              <br />
+              <br> Ya que no tienen el incentivo
+              <br> para quitarlo de su reporte.
+              <br />
+              <br> Hasta que nosotros convalidemos la deuda
+              <br><b>y en caso de convalidarse. </b>
+              <br />
+              <br><b>Ofreceríamos una tercera o cuarta</b> parte de la deuda
+              <br> con un plan de pago,
+              <br /> siempre y cuando quiten la señal negativa
+              <br> de su reporte de crédito.
+              <br />
+              <b> ¿Estamos claros?
+               <br> ¿Okay?!! </b>
+              <br>
+              <br>
+
+            </p>
+          </div>
+        </div>
+
+        <div class="btn-uy mt-3">
+          <button type="button" id="secondBtnBueno" class="btn" (click)="cambiarP('consulta_credito2')">
+            UYYY eso es muy peligroso
+          </button>
+        </div>
+
+      </div>
+
+
+      <div class="sin_credito" *ngIf="credito_check == '3'">
+        <h2 class="invest">UYYY eso es muy peligroso</h2>
+        <br>
+        <p class="fs-5">
+          Las personas que nunca han chequeado su <b>crédito</b>, son las más
+          propensas a sufrir robo de identidad, <br />
+          en estados unidos cada hora <b>ROBAN</b> la identidad, cada minuto
+          <b>ROBAN</b> la identidad. <br />
+          Mas de 15 millones de personas aquí en estados unidos sufren de robo
+          de identidad. <br />
+          <b> Menos mal está hablando conmigo </b> Puede que ya hayan comprado
+          <b> casa, carro, joyas.</b> Estas las venden y es a Ud. el que le toca
+          pagarlas. <br />
+          Aun así, siendo inocente puede ir preso y gastar miles de dólares para
+          que lo defiendan.
+        </p>
+      </div>
+      <br>
+        <br>
+        <br>
+
+        <div class="btn-uy mt-3">
+          <button type="button" id="secondBtnBueno" class="btn" (click)="cambiarP('consulta_credito2Emplazado')">
+            Pero usted NO me a dicho a mi que lo han emplazado
+          </button>
+        </div>
+
+      <br>
+    </div>
+
+    <div class="cred_bueno" *ngIf="credi_BM == 'malo'">
+      <div style="font-size: 36px">
+        <p class="fs-4">¿Porque dice que su crédito esta malo?</p>
+        <br>
+         <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+        <p class="ml-2" style="font-size: 1rem; font-weight: bold">
+          <input type="text" name="credito" />
+        </p>
+      </div>
+      <br>
+      <br>
+
+      <div class="btncol-che-cre">
+        <button type="button" class="btn" style="margin-left: 1rem" (click)="credito_check = '1'">
+          No ha chequeado
+        </button>
+        <button type="button" class="btn" style="margin-left: 1rem" (click)="credito_check = '2'">
+          Si tiene colecciones
+        </button>
+        <button type="button" class="btn" style="margin-left: 1rem" (click)="credito_check = '1'">
+          No tiene credito
+        </button>
+      </div>
+      <br />
+
+       <div class="no_check" *ngIf="credito_check == '1'">
+        <h2 class="invest">UYYY eso es muy peligroso</h2>
+        <br>
+        <p class="fs-5">
+          Las personas que nunca han <b>chequeado</b> su crédito, <br />son las
+          más propensas a sufrir robo de identidad, <br />
+          en estados unidos cada hora <b>ROBAN</b> la identidad, cada minuto
+          <b>ROBAN</b> la <b>identidad</b>. <br />
+          <br />
+          Mas de 15 millones de personas aquí en estados unidos sufren de robo
+          de identidad. <br />
+          Menos mal esta hablando conmigo. <br />
+          Puede que hayan comprado <b>casa, carros, joyas</b>. Estas las venden
+          y es a <b>Ud!</b> <br />
+          el que le toca pagarlas. <br />
+          Aun así, siendo <b>inocente</b> puede ir preso
+          <br />
+          y gastar miles de dólares para que lo defiendan
+          <br>
+          <br> <b>Menos mal que ud esta hablando conmigo</b>
+          <br>
+          <br> Tenemos que mirar <b>rápidamente</b>
+          <br> su reporte de credito
+          <br> y fijarnos si no l<span class="blue">@</span> han <b>demandado</b> ya.
+          <br>
+          <br> El problema al <b>tener</b>
+          <br> <b>cuentas</b> que ud <b>NO</b> reconoce
+          <br> y no estar <b>pagas</b>,
+          <br> es que ....
+          <br>
+          <br>
+        </p>
+        <div class="btn-uy mt-3">
+          <button type="button" id="secondBtnBueno" class="btn" (click)="cambiarP('consulta_credito2')">
+            El problema es que le pueden demandar
+          </button>
+        </div>
+
+        <br>
+        <br>
+      </div>
+
+
+      <div class="tiene_colecciones" *ngIf="credito_check == '2'">
+        <h2 class="invest">UYYY eso es muy peligroso</h2>
+        <br>
+        <p class="fs-5">
+          Usualmente esa gente demanda,
+          <br><b>SI NO ES QUE A UD PROBLABLEMENTE
+          <br> YA LE DEMANDARON !</b>.
+          <br> Ud ha recibido cartas de corte ?
+          <br /> En las agencias de colección
+          <br> los dueños normalmente son <b>abogados</b>,
+          <br>
+          <br />Y el trabajo de ellos es demandar,
+          <br> <b> menos mal está hablando conmigo.</b>
+          <br /> Por dictamen de un <b>juez</b>
+          <br> puede llevarle a corte y <b>dictaminar</b> hasta
+          <br> 3.500 <b>dólares</b>, en gastos de abogado,
+          <br> corte, más <b>intereses.</b>
+        </p>
+
+        <div class="btnx">
+          <br />
+          <br />
+          <button type="button" class="btn btn-danger" (click)="open = !open">
+            Estoy pagando a una agencia de colección
+          </button>
+          <br />
+          <br />
+          <div *ngIf="open" style="font-size: 36px">
+            <p>
+              <b>
+                No les pague. <br />
+                ¡Si! <br />
+                ¡¡NO LES PAGUE !!! <br />
+                TAL Y COMO ME ESCUCHO !
+              </b>
+            </p>
+            <br>
+            <p>
+              Eso es un <b>error...</b>
+              <br> porque ellos le quitan el dinero
+              <br> y le dejan el crédito dañado
+              <br> hasta por 7 años
+              <br />
+              <br> Ya que no tienen el incentivo
+              <br> para quitarlo de su reporte.
+              <br />
+              <br> Hasta que nosotros convalidemos la deuda
+              <br><b>y en caso de convalidarse. </b>
+              <br />
+              <br><b>Ofreceríamos una tercera o cuarta</b> parte de la deuda
+              <br> con un plan de pago,
+              <br /> siempre y cuando quiten la señal negativa
+              <br> de su reporte de crédito.
+              <br />
+              <b> ¿Estamos claros?
+               <br> ¿Okay?!! </b>
+              <br>
+              <br>
+
+            </p>
+          </div>
+        </div>
+
+        <div class="btn-uy mt-3">
+          <button type="button" id="secondBtnBueno" class="btn" (click)="cambiarP('consulta_credito2')">
+            UYYY eso es muy peligroso
+          </button>
+        </div>
+
+      </div>
+
+      <div class="sin_credito" *ngIf="credito_check == '3'">
+        <h2 class="invest">UYYY eso es muy peligroso</h2>
+        <br>
+        <p class="fs-5">
+          Las personas que nunca han chequeado su <b>crédito</b>, son las más
+          propensas a sufrir robo de identidad, <br />
+          en estados unidos cada hora <b>ROBAN</b> la identidad, cada minuto
+          <b>ROBAN</b> la identidad. <br />
+          Mas de 15 millones de personas aquí en estados unidos sufren de robo
+          de identidad. <br />
+          <b> Menos mal está hablando conmigo </b> Puede que ya hayan comprado
+          <b> casa, carro, joyas.</b> Estas las venden y es a Ud. el que le toca
+          pagarlas. <br />
+          Aun así, siendo inocente puede ir preso y gastar miles de dólares para
+          que lo defiendan.
+        </p>
+      </div>
+      <br>
+      <br>
+
+      <div class="btn-uy mt-3">
+        <button type="button" id="secondBtnBueno" class="btn" (click)="cambiarP('consulta_credito2Emplazado')">
+          Pero usted NO me a dicho a mi que lo han emplazado
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="{{ radio }}">
+    <br>
+    <br>
+
+    <div class="peligroso" *ngIf="!peligroso">
+
+      <div class="atras" id="1atras" (click)="regresarP('radio')">
+        <button class="btn-A">Atras</button>
+      </div>
+
+      <!-- Uy eso es <b>muy</b> peligroso.
+      <br />
+      <br />
+      El problema es que  -->
+      Le pueden <b>demandar</b> <br />
+      y <b>quitarle</b> hasta $3500 dolares
+      <br> En gastos de <b>abogados</b> y corte <br />
+      sino es que lo han demandado <br />
+      ya que es muy <b>probable</b> <br />
+      que a usted le hayan <b>demandado</b> <br />
+      debido a que <b>anteriormente</b> <br />
+      a vivido en otras <b>direcciones</b> <br />
+      y es <b>problable</b> que hayan enviado <br />
+      en <b>ausencia</b> de corte <br />
+      una citación de <b>corte</b> <br />
+      y por <b>eso</b> es que es <br />
+      probable que le hayan <b>ganado</b> <br />
+      el <b>caso</b> en ausencia.
+      <br />
+      <br />
+      <div class="btn-uy ">
+        <button type="button" id="secondBtnBueno" class="btn" (click)="peligroso = true; scrollToBottom()">
+          Pero usted NO me a dicho a mi que lo han emplazado
+        </button>
+      </div>
+    </div>
+    <div class="peligroso2" *ngIf="peligroso">
+
+      <div class="atras">
+        <button class="btn-A" (click)="peligroso = false">Atras</button>
+      </div>
+
+      <p style="font-size: 36px">
+        Pero usted <b><u>NO</u></b> me a dicho a mi <br />
+        que lo han <b>emplazado</b>, <br />
+        ¿Verdad que <b><u>NO</u></b>?
+        <br />
+        <br />
+        Muy bien (<span *ngIf="dataC">{{ dataC.nombres }}</span>) en <b>ese</b> caso tenemos <br />
+        que trabajar <b>rapidamente</b> <br />
+        con nuestros <b>abogados</b> <br />
+        para ayudarle a realizar una <b>mociones</b> <br />
+        en <b>derecho</b> propio <br />
+        para <b>Dios</b> mediante <br />ayudarle a <b>desestimar</b> el
+        <b>caso</b>.
+        <br />
+        <br />
+        <br />EL <b>problema</b> (<span *ngIf="dataC">{{ dataC.nombres }}</span>) es que ellos <br />
+        pueden <b>quitarle</b> hasta <br />
+        el <b>25%</b> de sus <b>ingresos</b> mensuales
+        <br />
+        <br />
+        sino es que <br />
+        se lo han <b>quitado</b> ya, <br />
+        incluso es <b>muy</b> problable <br />
+        que usted <b>vaya</b> a trabajar <br />
+        el <b>proximo</b> dia <br />
+        y se <b>encuentre</b> <br />
+        con una <b>orden</b> del corte <br />
+        y el <b>jefe</b> suyo preocupado <br />
+        y <b>alarmado</b> <br />
+        podra pensar <b>mal</b> de usted <br />
+        pensando que <b>clase</b> de persona <br />
+        esta <b>trabajando</b> conmigo <br />
+        que le estan <b>demandando</b> <br />
+        aunque ellos <b><u>NO</u></b> <br />
+        pueden <b>despedirlo</b>
+        <br />
+        <br />
+        Existen <b>probabilidades</b> <br />
+        de que su <b>jefe</b> <br />se la tenga <b>guardadita</b> <br />
+        y luego le <b>despida</b> <br />
+        por <b>cualquier</b> otra razon, <br />
+        ahora <b>bien</b>, <br />
+        habiendo <b>dicho</b> esto... <br />
+        <br /> Vamos a ver si a <b>ud</b>
+        <br> lo han <b>demandado</b> o no!
+        <br>
+      </p>
+      <br>
+      <div class="btn-uy">
+        <button target="_blank" type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('radio')">
+          Trabaja por cuenta propia o por nomina
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="{{ lamadaventa6 }}">
+
+    <div class="atras" id="2atras" (click)="regresarP('lamadaventa6')">
+      <button class="btn-A">Atras</button>
+    </div>
+
+    <div style="font-size: 36px">
+      <br /><br />({{ nombres }})
+      <!-- taxxxxxxxx -->
+
+      <br />¿Usted <b>trabaja</b> por cuenta propia o por <b>nomina</b>?
+      <br />
+      <br />
+    </div>
+    <span class="f17">
+      Seleccionar
+      <select [(ngModel)]="tipo_ingreso" name="tipo_ingreso">
+        <option value="1">Nomina</option>
+        <option value="2">Cuenta propia</option>
+        <option value="3">Cheque del gobierno</option>
+        <option value="4">Tax ID</option>
+      </select>
+    </span>
+    <br /><br />
+
+    <div *ngIf="tipo_ingreso == '1'" style="font-size: 36px">
+      <div class="red">
+        UUUUYY, eso es muy peligroso!
+      </div>
+      <br />
+
+      Al trabajar por <b>nomina</b> pueden <br />
+      quitarle <b>hasta</b> el 25% de sus <br />
+      <b>ingresos</b> mensuales.
+      <br />
+      <br />
+      Hasta <b>por</b> 20 años o que termine <br />
+      de pagar en su <b>totalidad</b> la deuda <br />
+      Por <b>dictamen</b> de un juez puede <br />
+      llevarle a <b>corte</b> y gastar hasta <br />
+      3.500 <b>dólares</b>, en gastos de <br />
+      abogado, <b>corte</b>, más intereses.
+
+      <div class="btn-uy mt-4">
+        <button taget="_blank" type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('ganaSml')">
+          cuanto gana usted semanal
+        </button>
+      </div>
+    </div>
+    <div *ngIf="tipo_ingreso == '2'" style="font-size: 36px">
+      <div class="red">
+        UUUUYY, eso es muy peligroso!
+      </div>
+      <br />
+      El <!-- <b>problema</b> es que si usted <br />
+      deja el --> <b>dinero</b> en su cuenta <br />
+      personal este se lo <b>quitan</b>, <br />
+      si usted <b>fuera</b> mi hermano <br />
+      yo le <b>aconsejaría</b> que ese <br />
+      dinero lo <b>guarde</b> bajo su <br />
+      <b>almohada</b>. <br />
+      mejor <b>aún</b> una caja de <br />
+      <b>seguridad</b> en el banco
+      <br />
+      <br />
+      Por <b>dictamen</b> de un juez puede <br />
+      llevarle a <b>corte</b>
+      <br> y dictaminar en su contra hasta <br />
+      3.500 dólares, en <b>gastos</b> de <br />
+      abogado, <b>corte</b>, más intereses.
+      <br />
+      <br />
+
+      <!-- auto -->
+
+
+
+      <div class="btn-uy mt-4">
+        <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('autoPago')">
+          Tiene auto pago
+        </button>
+      </div>
+    </div>
+    <div *ngIf="tipo_ingreso == '3'" style="font-size: 36px">
+      <div class="red">
+        UUUUYY, eso es muy peligroso!
+      </div>
+      <br />
+      Como usted <b>sabe</b> al tener ingresos <br />
+      del gobierno estos <b><u>NO</u></b> se los pueden <br />
+      quitar si <b><u>NO</u></b> únicamente el mismo gobierno.
+      <br />
+      <br />
+      El <b>problema</b> es que si usted deja <br />
+      su dinero en su <b>cuenta</b> este se <br />
+      lo quitan los <b>acreedores</b> sacan <br />
+      el dinero ya que <b><u>NO</u></b> saben de qué <br />
+      es usted <b>coloca</b> una reclamación <br />
+      y se lo <b>devuelven</b>, pero en 1, 2, <br />
+      o 3 <b>meses</b>. <br />
+      si <b>usted</b> fuera mi hermano <br />
+      yo le <b>aconsejaría</b> que ese dinero <br />
+      lo guarde <b>bajo</b> su almohada, <br />
+      mejor aún <b>abra</b> una caja de <br />
+      <b>seguridad</b> en el banco por <br />
+      <b>dictamen</b> de un juez puede <br />
+      llevarle a <b>corte</b> y gastar <br />
+      hasta 3.500 <b>dólares</b>, <br />
+      en <b>gastos</b> de abogado, <br />
+      corte, <b>más</b> intereses.
+      <br />
+      <br />
+      <div class="btn-uy mt-4">
+        <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('autoPago')">
+          Tiene auto pago
+        </button>
+      </div>
+    </div>
+    <div *ngIf="tipo_ingreso == '4'" style="font-size: 36px">
+      <div class="red">
+        UUUUYY, eso es muy peligroso!
+      </div>
+      <br />
+      Ha habido casos de personas <br />
+      con <span style="color: blue">tax id / itin</span> que le han <br />
+      robado la identidad <br />
+      ese puede ser el problema suyo
+
+      <br />
+      <br />
+      <span style="color: green">
+        <a target="_blank" [routerLink]="['/speechsticket/tax']">
+          Redireccionar venta Tax ID
+        </a>
+      </span>
+
+      <div class="btn-uy mt-4">
+        <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('papeles')">
+          Que tipo de papeles tiene
+        </button>
+      </div>
+    </div>
+      <!-- taxxxxxxxx -->
+
+  </div>
+
+  <div class="{{ ganaSml }}">
+
+    <div class="atras" id="2atras" (click)="regresarP('ganaSml')">
+      <button class="btn-A">Atras</button>
+    </div>
+
+    <div style="font-size: 36px">
+      <br />¿Cuánto <b>usted</b> gana semanal? <br />¿O es quincenal?
+      <br />
+    </div>
+    <div>
+      <br />
+      <p class="resp fs-5" style="color: green; font-size: 2rem">
+        ESPERAR REACIÓN...
+      </p>
+    </div>
+
+    <p for="sueldoS_Q" class="fs-4 d-flex text-center justify-content-center">
+      Semanal o Quincenal:
+      <select style="height: 30px; font-size: 15px;" class="ml-3 mt-3" name="sueldoS_Q" [(ngModel)]="sueldoS_Q">
+        <option value="1" name="sueldoS_Q">Semanal</option>
+        <option value="2" name="sueldoS_Q">Quincenal</option>
+        <option value="3" name="sueldoS_Q">Mensual</option>
+      </select>
+    </p>
+
+    <br>
+    <p class="fs-4 d-flex text-center justify-content-center">
+      salario
+      <span>
+        <input type="number" name="salario" class="form-control ml-2 mt-2" maxlength="10" [(ngModel)]="salario"
+        #salarioI="ngModel" />
+      <div class="errores" *ngIf="salarioI.invalid && salarioI.dirty">
+        <div *ngIf="salarioI.errors.maxlength">
+          <small>Máximo <b>10</b> dígitos</small>
+        </div>
+      </div>
+      </span>
+    </p>
+    <br>
+
+    <div class="selectBtn_contestan mt-3">
+      <button class="btn" (click)="sicontes = 'si-contesta'">Contestan</button>
+      <button class="btn" type="button" (click)="sicontes = 'no-contesta'">
+        <b>No</b> contestan
+      </button>
+    </div>
+
+    <div *ngIf="sicontes == 'si-contesta'" style="font-size: 36px">
+
+      <p class="mt-3" *ngIf="sueldoS_Q == '1'">
+        Bueno, en ese caso le pueden quitar los  $<b> {{salario }} </b>
+        <br>por <b>dictamen</b> de un juez, <br />
+        <b>menos mal esta hablando conmigo !</b>,
+        <br> tenemos que evitar... que le
+        quiten de su sueldo
+      </p>
+      <p class="mt-3" *ngIf="sueldoS_Q == '2'">
+        Bueno, en ese caso le pueden quitar hasta  $<b> {{salario / 2}} </b>
+        <br>por <b>dictamen</b> de un juez, <br />
+        <b>menos mal esta hablando conmigo !</b>,
+        <br> tenemos que evitar... que le
+        quiten de su sueldo
+      </p>
+      <p class="mt-3" *ngIf="sueldoS_Q == '3'">
+        Bueno, en ese caso le pueden quitar hasta  $<b> {{salario / 4}} </b>
+        <br>por <b>dictamen</b> de un juez, <br />
+        <b>menos mal esta hablando conmigo !</b>,
+        <br> tenemos que evitar... que le
+        quiten de su sueldo
+      </p>
+
+
+    </div>
+
+
+    <div *ngIf="sicontes == 'no-contesta'" style="font-size: 36px">
+      <span class="mt-3">
+        Es para decirle cuanto le pueden quitar a Ud! de su salario.
+        <br />
+        <b>Cuánto gana? !</b>
+      </span>
+    </div>
+    <br>
+    ***info recien pedida***
+    <p>
+      <br> Cuando fue al ultima vez
+      <br> ud trabajó?
+      <br>
+      <input type="text" [(ngModel)]="last_trabajo" >
+    </p>
+
+    <div class="btn-uy mt-4">
+      <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('autoPago')">
+        Tiene auto pago
+      </button>
+    </div>
+  </div>
+
+  <div class="{{ papeles }}">
+
+    <div class="atras" id="2atras" (click)="regresarP('papeles')">
+      <button class="btn-A">Atras</button>
+    </div>
+
+    <!-- taxxxxxxxxx -->
+    <div style="font-size: 36px">
+      <h1>¿Que tipo de papeles tiene?</h1>
+      <br />
+      <br />
+    </div>
+    <span class="fs-3">
+      Seleccionar
+      <select [(ngModel)]="tipo_papeles" name="tipo_tarjeta">
+        <option value="1">Permiso de trabajo</option>
+        <option value="2">Tps</option>
+        <option value="3">Otra opción</option>
+      </select>
+    </span>
+    <br /><br />
+    <div *ngIf="tipo_papeles == 1" style="font-size: 36px">
+      <div style="font-size: 36px">
+        La idea es que <b>nosotros</b> podamos <br />
+        <b>ayudarle</b> a hacer crédito <br />
+        para que <b>luego</b> usted pueda <br />
+        sacar sus <b>papeles</b>.
+        <br />
+        <br />
+        Porque con una <b>vida</b> <br />
+        <b>crediticia</b> es más fácil.
+        <br />
+        <br />
+        Porque <b>demuestra</b> <br />
+        que tiene <b>raíces.</b>
+        <br />
+        <span>
+          <br />
+          Usted ha sacado <b>algún</b> crédito <br />
+          con ese <b> tax id</b> o con ese itin
+        </span>
+      </div>
+    </div>
+
+    <div *ngIf="tipo_papeles == 2" style="font-size: 36px">
+      <div style="font-size: 36px">
+        La idea es que <b>nosotros</b> podamos <br />
+        <b>ayudarle</b> a hacer crédito <br />
+        para que <b>luego</b> usted pueda <br />
+        sacar sus <b>papeles</b>.
+        <br />
+        <br />
+        Porque con una <b>vida</b> <br />
+        <b>crediticia</b> es más fácil.
+        <br />
+        <br />
+        Porque <b>demuestra</b> <br />
+        que tiene <b>raíces.</b>
+        <br />
+        <span>
+          <br />
+          Usted ha sacado <b>algún</b> crédito <br />
+          con ese <b> tax id</b> o con ese itin
+        </span>
+      </div>
+
+      <br />
+      <br />
+    </div>
+
+    <div *ngIf="tipo_papeles == 3">
+      <br /><br /><br /><br />
+      <div style="font-size: 20px">
+        <span>Otra opción <input type="text" /></span>
+      </div>
+
+      <div style="font-size: 36px">
+        La idea es que <b>nosotros</b> podamos <br />
+        <b>ayudarle</b> a hacer crédito <br />
+        para que <b>luego</b> usted pueda <br />
+        sacar sus <b>papeles</b>.
+        <br />
+        <br />
+        Porque con una <b>vida</b> <br />
+        <b>crediticia</b> es más fácil.
+        <br />
+        <br />
+        Porque <b>demuestra</b> <br />
+        que tiene <b>raíces.</b>
+        <br />
+        <span>
+          <br />
+          Usted ha sacado <b>algún</b> crédito <br />
+          con ese <b> tax id</b> o con ese itin
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size: 36px">
+        La idea es que <b>nosotros</b> podamos <br />
+        <b>ayudarle</b> a hacer crédito <br />
+        para que <b>luego</b> usted pueda <br />
+        sacar sus <b>papeles</b>.
+        <br />
+        <br />
+        Porque con una <b>vida</b> <br />
+        <b>crediticia</b> es más fácil.
+        <br />
+        <br />
+        Porque <b>demuestra</b> <br />
+        que tiene <b>raíces.</b>
+        <br />
+        <span>
+          <br />
+          Usted ha sacado <b>algún</b> crédito <br />
+          con ese <b> tax id</b> o con ese itin
+        </span>
+      </div>
+
+      <br />
+      <br />
+
+      <br />
+      <span class="fs-3">
+        Seleccionar
+        <select [(ngModel)]="tipo_papeles" placeholder="Seleccionar" name="tipo_tarjeta">
+          <option>Seleccionar</option>
+          <option value="1">Casa</option>
+          <option value="2">Tarjeta</option>
+          <option value="3">Automovil</option>
+          <option value="4">Otra opción</option>
+        </select>
+      </span>
+      <div *ngIf="tipo_papeles == 1" style="font-size: 36px">
+        <div style="font-size: 36px">
+          <br />El problema es que <b>hay</b> gente que abusa <br />de los
+          <b>inmigrantes</b>, <br />
+          por que al <b><u>NO</u></b> tener <br />crédito le <b>cobran</b>,
+          mucho dinero, <br />a veces hasta el <b>doble</b>.
+          <br />
+          <br />
+          Menos <b>mal</b> que usted <br />está <b>hablando</b> conmigo <br />
+          porque <b>nosotros</b> cuando le <br />ayudemos a <b>arreglar</b> su
+          crédito es <br />muy <b>probable</b> que usted pague menos.
+        </div>
+      </div>
+
+      <div *ngIf="tipo_papeles == 2" style="font-size: 36px">
+        <div style="font-size: 36px">
+          <br />El problema es que <b>hay</b> gente que abusa <br />de los
+          <b>inmigrantes</b>, <br />
+          por que al <b><u>NO</u></b> tener <br />crédito le <b>cobran</b>,
+          mucho dinero, <br />a veces hasta el <b>doble</b>.
+          <br />
+          <br />
+          Menos <b>mal</b> que usted <br />está <b>hablando</b> conmigo <br />
+          porque <b>nosotros</b> cuando le <br />ayudemos a <b>arreglar</b> su
+          crédito es <br />muy <b>probable</b> que usted pague menos.
+        </div>
+      </div>
+      <div *ngIf="tipo_papeles == 3" style="font-size: 36px">
+        <div style="font-size: 36px">
+          <br />
+          <label> ¿Cuanto usted <b>paga</b> de automóvil?</label>
+          <br />
+          <br /><span style="color: green">Esperar reación del prospecto</span>
+          <br />
+          <br />
+          Ese automóvil es un <b>Mercedes</b> Benz, <br />
+          por que <b>usted</b> paga mucho <br />
+          de <b>qué</b> año es
+        </div>
+      </div>
+    </div>
+    <div *ngIf="tipo_papeles == 4" style="font-size: 36px">
+      <div style="font-size: 36px">
+        <br />El problema es que <b>hay</b> gente que abusa <br />de los
+        <b>inmigrantes</b>, <br />
+        por que al <b><u>NO</u></b> tener <br />crédito le <b>cobran</b>, mucho
+        dinero, <br />a veces hasta el <b>doble</b>.
+        <br />
+        <br />
+        Menos <b>mal</b> que usted <br />está <b>hablando</b> conmigo <br />
+        porque <b>nosotros</b> cuando le <br />ayudemos a <b>arreglar</b> su
+        crédito es <br />muy <b>probable</b> que usted pague menos.
+      </div>
+    </div>
+    <div style="font-size: 36px">
+      <br />El problema es que <b>hay</b> gente que abusa <br />de los
+      <b>inmigrantes</b>, <br />
+      por que al <b><u>NO</u></b> tener <br />crédito le <b>cobran</b>, mucho
+      dinero, <br />a veces hasta el <b>doble</b>.
+      <br />
+      <br />
+      Menos <b>mal</b> que usted <br />está <b>hablando</b> conmigo <br />
+      porque <b>nosotros</b> cuando le <br />ayudemos a <b>arreglar</b> su
+      crédito es <br />muy <b>probable</b> que usted pague menos.
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="btn-uy mt-4">
+      <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('autoPagoX')">
+        ¿Tiene casa propia?
+      </button>
+    </div>
+  </div>
+
+  <div class="{{ autoPago }}">
+    <div class="atras" id="2atras" (click)="regresarP('autoPago')">
+      <button class="btn-A">Atras</button>
+    </div>
+
+    <!--  ******  propiedades carro  *******   -->
+    <div>
+
+      <br>
+      <br>
+      <h2>¿Tiene auto pago a su nombre,</h2>
+      <h2>que ya esté pago ?</h2>
+      <h2>o se lo debe al Banco ?</h2>
+      <br>
+      <div class="mt-2 d-flex align-items-center justify-content-center">
+        <button class="btn mt-2" type="button" (click)="carro = 1">
+          No lo debe
+        </button>
+        <button class="btn ml-2 mt-2" type="button" (click)="carro = 2">
+          No
+        </button>
+        <button class="btn ml-2 mt-2" type="button" (click)="carro = 3">
+          Debe a Banco
+        </button>
+      </div>
+      <div style="font-size: 36px" *ngIf="carro == 1">
+        <a>
+          <br>
+          ¿Si lo fuera a vender hoy en cuanto lo vendería?
+          <br />
+          <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+          <br>
+          <span>R/</span> El problema es que el auto
+          <br> se lo llevan en una grúa
+          <br><b>y lo venden hasta por el 25%</b>.
+          <br>
+          <br> <b>El problema</b>
+          <br> <b><u>no</u></b> es que vendan el auto.
+          <br />
+          <br /> El problema es que USTED!
+          <br />se queda <b>a pie</b>.
+          <br>
+          <br> Y sabemos lo que significa andar aquí
+          <br> en estados unidos <b>sin auto</b>.
+        </a>
+      </div>
+
+      <div style="font-size: 36px" *ngIf="carro == 2">
+        <a> <b>OK</b>, Hay que ayudarle a conseguir su auto <b>propio</b>,
+          <br> con el favor de Dios. </a>
+      </div>
+
+      <div style="font-size: 36px" *ngIf="carro == 3">
+        <br> La <b>idea</b> es que de <b>aqui</b>
+        <br> a un año,
+        <br> podamos <b>refinanciar</b> el automovil
+        <br> para que pague <b>menos</b> intereses,
+        <br> incluso <b>hasta</b> menos por el seguro.
+      </div>
+    </div>
+    <br>
+    <!--  ******  propiedades casa  *******   -->
+    <div>
+      <br />
+      <br />
+      <h3 class="fs-4">¿Tiene casa propia?</h3>
+
+      <div class="mt-2 d-flex align-items-center justify-content-center">
+        <button class="btn mt-2" type="button" (click)="casa = 1">
+          SI
+        </button>
+        <button class="btn ml-2 mt-2" type="button" (click)="casa = 2">
+          No
+        </button>
+      </div>
+      <br>
+      <div style="font-size: 36px" *ngIf="casa == 1">
+        <a>
+          Tenemos que evitar que le impongan
+          <br> un gravamen o <b>le obliguen a vender</b>
+          <br> la casa para pagar la deuda.
+        </a>
+        <br>
+        <br>
+        <div class="btn-uy mt-4">
+          <!-- ****************** -->
+          <!-- <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('tieneCasa')">
+            Seguro Social
+          </button> -->
+          <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('pagRenta')">
+            Okay nosotros vamos a ver cuales son los problemas
+          </button>
+        </div>
+
+      </div>
+
+      <div style="font-size: 36px" *ngIf="casa == 2">
+        <p> <b>OK</b>, Hay que ayudarle a conseguir
+          <br> su casa propia
+          <br> con el favor de Dios.
+        </p>
+        <br>
+
+        <h1>¿Cuanto <b> paga </b> de renta?</h1>
+        <p class="fs-4 d-flex text-center justify-content-center">
+          <br />
+          <span>
+            <input required type="number" id="pago_renta" name="pago_renta" maxlength="10" class="ml-3"
+              pattern="(\d{1,3}(?:.\d{3})*(?:\.\d+)?)" [(ngModel)]="pago_renta" #pago_rentaI="ngModel" />
+            <div class="errores" *ngIf="pago_rentaI.invalid && pago_rentaI.dirty">
+              <div *ngIf="pago_rentaI.errors.pattern">
+                <small><b>Solo</b> números </small>
+              </div>
+              <div *ngIf="pago_rentaI.errors.maxlength">
+                <small>Máximo <b>10</b> dígitos </small>
+              </div>
+            </div>
+          </span>
+        </p>
+        <br>
+
+        <div style="font-size: 36px">
+          <br> La idea es que <b>usted</b>
+          <br> consigue <b>$300 o $400</b> dolares, más al mes
+          <br> y compre una <b>casa</b> de dos pisos.
+          <br> <b>Alquila</b> el piso de abajo
+          <br> y practicamente vive de <b>gratis</b>
+          <br> en la parte de arriba
+          <br>
+          <br> OKAY?
+        </div>
+        <div class="resp">
+          ESPERAR REACCIÓN
+          <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+        </div>
+
+        <!-- vamos aqui voy************************** -->
+
+        <br />
+        <br />
+        <br />
+        <div>
+          <br />
+          <p class="resp fs-5" style="color: green; font-size: 2rem">
+            ESPERAR REACIÓN...
+          </p>
+        </div>
+
+        <div class="btn-uy mt-4">
+          <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('pagRenta')">
+            Okay nosotros vamos a ver cuales son los problemas
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="{{ tieneCasa }}">
+
+    <div class="atras" id="2atras" (click)="regresarP('tieneCasa')">
+      <button class="btn-A">Atras</button>
+    </div>
+
+    <div>
+      <br />
+
+
+    <div>
+      <br />
+      <p class="resp fs-5" style="color: green; font-size: 2rem">
+        ESPERAR REACIÓN...
+      </p>
+    </div>
+
+    <div class="selectBtn_contestan mt-3">
+      <button class="btn" (click)="interesClient = 'dejarVer'">
+        Para que quiere saber esto
+      </button>
+    </div>
+
+    <div *ngIf="interesClient == 'dejarVer'">
+      <div style="font-size: 36px" class="blue">
+        <br />
+        (<b>{{ nombres }} {{ apellidos }}</b>), estos son unos datos que nos <br />
+        solicitan los buro de credito, <br />
+        para identificarlo a usted ademas. <br />En estos
+        <b>momentos</b> usted <br />
+        puede <b>publicar</b> <br />
+        el numero de <b>seguro social</b> <br />
+        en el <b>timesquare</b><br />
+        y le aseguro que <b>nadie</b><br />
+        lo va a <b>tomar</b> porque <br />
+        su credito esta <b>malo</b>. Claro <b>esta</b> <br />
+        que cuando <b>nosotros</b><br />
+        le ayudemos a <b>reparar</b> su credito<br />
+        en ese <b>momento</b> <br />
+        <b><u>no</u></b> se lo de a nadie. <br />
+        Porque si lo <b>ven</b><br />
+        ahora como <b>esta</b><br />
+        se <b>rien</b> <br />
+        y se <b>burlan</b> de su credito. <br /><br />
+        Asi que <u><b>no</b></u> se preocupe <br />
+        esta en <b>buenas</b> manos Recuerde que <b>fue</b> usted <br />
+        el que nos <b>llamo</b> <br />
+        y <u><b>no</b></u> nostros a usted. <br /><br />
+<!--
+        <div style="font-size: 36px">
+          <br />
+          ¿Cuál es su <b>número</b> de seguro social? <br /><br />
+
+
+          <div class="xd">
+            <label for="apellidos" class="">Numero SS - </label>
+            <input type="text" name="numero_id" class="form-control mx-auto" placeholder="111-22-3333"
+            pattern="^(\d{3})-(\d{2})-(\d{4})" [(ngModel)]="numero_id" #numero_idI="ngModel"  maxlength="11"/>
+            <div class="errores" *ngIf="numero_idI.invalid && numero_idI.dirty">
+              <div *ngIf="numero_idI.errors.pattern">
+                <small><b>Solo</b> numeros y - <br />
+                  ( 123-12-1234 )</small>
+              </div>
+            </div>
+        </div>
+
+
+
+
+        </div> -->
+
+
+      </div>
+    </div>
+
+    <p style="font-size: 36px">
+      <br />
+      <br />Debe de <b>haber</b> unos cuantos (<b>{{ nombres }} {{ apellidos }}</b>)
+      <br />en Estados <b>Unidos</b>, <br />vamos a <b>distinguirle</b> a usted.
+      <br />
+      <br />¿Cuál es su <b>fecha</b> de nacimiento?
+      <br />
+
+    </p>
+    <br /><input [(ngModel)]="nacimiento" type="date" />
+    <br>
+    <br>
+
+    <p class="resp fs-5" style="color: green; font-size: 2rem">
+      ESPERAR REACIÓN...
+    </p>
+  </div>
+
+  <p style="font-size: 36px">
+    <br> Cual es el <b>nombre</b> suyo
+    <br> <b>tal</b> y como aparece
+    <br> en su <b>seguro social</b>.
+    <br>
+    <br> Entre el <b>nombre</b> y el <b>apellido</b>
+    <br> hay <b>alguna</b> inicial?
+  </p>
+  <div class="xd">
+    <br>
+    <label for="apellidos" class="">Apellidos Completos - </label>
+    <input type="text" id="apellidos" name="apellidos" pattern="^^[a-zA-ZÑñ '.]*$" minlength="4" maxlength="100"
+      [(ngModel)]="apellidos" #apellidosI="ngModel" />
+    <div class="errores" *ngIf="apellidosI.invalid && apellidosI.dirty">
+      <div *ngIf="apellidosI.errors.pattern">
+        <b>Solo</b> letras y simbolos ( ' . )
+      </div>
+    </div>
+  </div>
+  <p style="font-size: 36px">
+    <br>
+    <br> Despues de su <b>primer</b> apellido
+    <br> ud utliza el <b>segundo</b> apellido
+    <br> en su <b>seguro social</b> ?
+  </p>
+
+  <p style="font-size: 36px">
+    <br />
+    <br />Busque su <b>seguro</b> social y
+    <br />léame si <b>tiene</b> su segundo
+    <br /><b>apellido</b> en el seguro social
+    <br />
+  </p>
+
+  <div class="xd">
+    <br>
+    <label for="apellidos" class="">Apellidos Completos - </label>
+    <input type="text" id="apellidos" name="apellidos" pattern="^^[a-zA-ZÑñ '.]*$" minlength="4" maxlength="100"
+      [(ngModel)]="apellidos" #apellidosI="ngModel" />
+    <div class="errores" *ngIf="apellidosI.invalid && apellidosI.dirty">
+      <div *ngIf="apellidosI.errors.pattern">
+        <b>Solo</b> letras y simbolos ( ' . )
+      </div>
+    </div>
+  </div>
+
+
+
+    <br />
+    <p style="font-size: 36px">
+      <br />
+      <br />¿Cuál es su <b>seguro</b> social?
+      <br />
+    </p>
+
+    <div class="xd">
+      <input type="text" name="numero_id"  placeholder="333-22-4444" pattern="^(\d{3})-(\d{2})-(\d{4})" minlength="10" maxlength="11"
+        [(ngModel)]="numero_id" #numero_idI="ngModel" />
+      <div class="errores" *ngIf="numero_idI.invalid && numero_idI.dirty">
+        <div *ngIf="numero_idI.errors.pattern">
+          <small><b>Solo</b> numeros y - ( 123-12-1234 )</small>
+        </div>
+      </div>
+    </div>
+    <br>
+    <p class="fs-4">
+      <b>Repítamelo de nuevo</b>,
+      <br> porque si lo tome <b>mal</b>
+      <br> lo pueden <b>bloquear</b>,
+      <br> cada numero que <b>Usted</b> me diga
+      <br> yo se lo repito <b>para atrás</b>.
+    </p>
+
+    <h3 style="color: blue;" class="resp"># {{ numero_id }}</h3>
+
+    <br />
+    <br />
+
+    <div>
+      <br />
+      <p class="resp fs-5" style="color: green; font-size: 2rem">
+        ESPERAR REACIÓN...
+      </p>
+    </div>
+
+
+
+
+    <div style="font-size: 36px" class="blue">
+      <br /> Cual es su nombre <b>tal cual</b>
+      <br /> aparece en su <b>seguro social</b> ?
+      <br /><br />
+      <div class="xd">
+        <label for="nombres" class="">Nombres - </label>
+        <input type="text" name="nombres" pattern="^^[a-zA-ZÑñ '.]*$" minlength="2" maxlength="50"
+          [(ngModel)]="nombres" #nombresI="ngModel">
+      </div>
+      <div class="errores" *ngIf="nombresI.invalid && nombresI.dirty">
+        <div style="display: flex" *ngIf="nombresI.errors.pattern">
+          <b>Solo</b> letras y simbolos( ' . )
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <br />
+      <p class="resp fs-5" style="color: green; font-size: 2rem">
+        ESPERAR REACIÓN...
+      </p>
+    </div>
+
+    <input class="input" type="text" placeholder="respuesta prospecto" />
+
+
+    <div class="btn-uy mt-4">
+      <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('resolucion3')">
+        Preguntar dirección
+      </button>
+    </div>
+  </div>
+
+  <div class="{{ pagRenta }}">
+
+    <div style="font-size: 36px" *ngIf="!problema">
+
+      <div class="atras" id="2atras" (click)="regresarP('pagRenta')">
+        <button class="btn-A">Atras</button>
+      </div>
+
+      <br> Okay <b>nosotros</b> vamos a ver cuales
+      <br> son los <b>problemas</b> que existen en
+      <br> su reporte de <b>crédito</b> y como podemos
+      <br> ayudarle a <b>resolverlos</b>.
+      <br>
+      <br> Vamos a averiguar si <b>usted</b>
+      <br> está en proceso de <b>demanda</b>,
+      <br> <b>ya</b> lo han <b>demandado</b>,
+      <br> o esta en <b>peligro</b>
+      <br> <b>de que lo demanden</b>.
+      <br>
+      <br> <b>Tal</b> y como dijimos
+      <br /> en la <b>radio</b>,
+      <br> sacar <b>un reporte</b>
+      <br> de crédito cuesta <b>alrededor</b> de 40 dólares;
+      <br> <b>pero</b> con la aplicación que tenemos,
+      <br> solamente un 1 <b>dólar</b> con 10 centavos
+      <br> en el <b>día</b> de hoy.
+      <br>
+      <br>
+      <div class="btn-uy mt-4">
+        <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="problema = true; scrollToBottom() ">
+          NO le afecta su puntaje
+        </button>
+
+      </div>
+
+    </div>
+    <div style="font-size: 36px" *ngIf="problema">
+
+      <div class="atras">
+        <button class="btn-A" (click)="problema = false">Atras</button>
+      </div>
+
+      <p>
+        <br />
+
+        <b><u>NO</u></b> le afecta su puntaje
+        <br> y tampoco!,
+        <br /><b><u>NO</u></b> le afecta su crédito.
+        <br />
+        <br />
+        <br />
+        Para esto <b>necesitamos</b> saber, <br />
+        ¿Cuál es el <b>nombre</b> suyo legal tal <br />
+        y como aparece en su <b>seguro</b> social?
+        <br />
+      </p>
+      <div>
+        Nombres - <input type="text" [(ngModel)]="nombres"/> <br>
+        Apellidos - <input type="text" [(ngModel)]="apellidos"/>
+      </div>
+
+      <p class="blue">
+        <br />
+        <br /> ¿Mi <b>nombre</b> es {{ agente }}
+        <br /> ¿Cual es el suyo ?
+        <br />así tal cual <b>aparece</b> en su seguro social
+        <br />¿ Entre su primer nombre y <b>apellido</b>
+        <br />hay alguna <b>inicial</b>?
+        <br />¿Osea un <b>segundo</b> nombre?
+        <br />
+      </p>
+      <br>
+      <!--  -->
+
+      <!--  -->
+      <div class="btn-uy mt-4">
+
+        <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('tieneCasa')">
+          Seguro Social
+        </button>
+
+        <!-- <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('resolucion3')">
+          ¿Cuál es su dirección
+           que haya vivido más de un año?
+        </button> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="{{ resolucion3 }}">
+
+    <div class="cirecii"  *ngIf="!dire_toggle">
+      <div class="atras">
+        <button style="margin-left: -4rem; margin-top: -2rem;" (click)="regresarP('resolucion3')" class="btn-A atras minbt">Atras a pago renta</button>
+        <br><br>
+        <button style="margin-left: -3rem;" (click)="regresarP('tieneCasa2')" class="btn-A atras minbt mt-4">Atras a tiene casa</button>
+      </div>
+
+      <p class="fs-4">¿Cuál es su dirección que haya
+        <br>vivido más de un año?</p>
+      <br>
+      <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+      <div class="direcciones fs-3 mt-3">
+        <label for="direccion" class="d-flex mr-5 f17">Calle:
+          <input type="text" name="direccion" class="form-control d-flex ml-5" [(ngModel)]="direccion" />
+        </label>
+        <br>
+        <label for="apartemento" class="d-flex mr-5 f17">Número Apartamento:
+          <input type="text" name="apartemento" class="form-control d-flex ml-5"  [(ngModel)]="apartamento" />
+        </label>
+        <br>
+        <label for="ciudad" class="d-flex mr-5 f17 ">Ciudad:
+          <input type="text" name="ciudad" class="form-control d-flex ml-5"  [(ngModel)]="ciudad" />
+        </label>
+        <br>
+        <label for="estado" class="d-flex mr-5 f17">Estado:
+          <input type="text" name="estado" class="form-control d-flex ml-5"[(ngModel)]="estado" />
+        </label>
+        <br>
+        <label for="zipcode" class="d-flex mr-5 f17 ">Zipcode:
+          <input type="text" name="zipcode" class="form-control d-flex ml-5" [(ngModel)]="zipcode" />
+        </label>
+        <br>
+        <br>
+
+        <p class="fs-4" class="blue">
+          Dirección donde ha vivido menos de un año
+        </p>
+
+        <div class="btn-group d-flex ml-3 mt-2">
+          <button  type="button" class="btn btn-danger dropdown-toggle f17" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" (click)="dire_rec = !dire_rec">
+            Direccion Reciente
+          </button>
+          <div class=" px-5" *ngIf="dire_rec">
+            <label for="calle2" class="d-flex">Calle R :
+              <input type="text" class="calle2 ml-3" name="calle2" id="direccion_reciente"
+                [(ngModel)]="direccion_reciente" />
+            </label>
+            <br>
+            <label for="calle2" class="d-flex">Apartamento R :
+              <input type="text" class="calle2 ml-3" name="apartamento_reciente" id="apartamento_reciente"
+                [(ngModel)]="apartamento_reciente" />
+            </label>
+            <br>
+            <label for="calle2" class="d-flex">Ciudad R :
+              <input type="text" class="calle2 ml-3" name="ciudad_reciente" id="ciudad_reciente"
+                [(ngModel)]="ciudad_reciente" />
+            </label>
+            <br>
+            <label for="calle2" class="d-flex">Estado R :
+              <input type="text" class="calle2 ml-3" name="estado_reciente" id="estado_reciente"
+                [(ngModel)]="estado_reciente" />
+            </label>
+            <br>
+            <label for="calle2" class="d-flex">Zipcode R :
+              <input type="text" class="calle2 ml-3" name="zipcode_reciente" id="zipcode_reciente"
+                [(ngModel)]="zipcode_reciente" />
+            </label>
+            <br>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <div class="btn-uy mt-4">
+        <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="dire_toggle = true; scrollToBottom()">
+          Ahora vamos a entrar a la aplicación USPS.COM
+        </button>
+      </div>
+
+    </div>
+
+    <div class="direeec2" *ngIf="dire_toggle"  >
+
+        <div class="atras">
+          <button class="btn-A atras minbt" (click)="dire_toggle = false">Atras</button>
+        </div>
+
+
+        <br><br>
+
+        <p class="fs-4">
+
+          <b>Ahora vamos a entrar a la aplicación USPS.COM </b>
+          <br> para ver que la dirección que escuche
+          <br /> y anote
+          <br>es la <b>dirección correcta</b>.
+          <br>
+          <br> No vaya a ser que la haya escuchado errada
+          <br> y entonces nos nieguen el
+          <br><b>reporte de crédito</b>,
+          <br> no queremos que eso suceda
+          <br><b>¿correcto?!</b>
+          <br>
+        </p>
+          <br>
+        <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+        <br>
+        <br>
+        <br>
+        <p class="fs-4"><b>¿Cuál es su email por favor?</b></p>
+        <!--   <p class="resp fs-5">ESPERAR RESPUESTA...</p> -->
+        <p class="fs-4 mt-3 d-flex text-center justify-content-center">
+          Email :
+          <span>
+            <input size="20" name="email" autocomplete="on" class="form-control form_mod ml-3 mt-2" type="email" id="email"
+              pattern="^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$" [(ngModel)]="email"
+              #emailI="ngModel" />
+            <div class="errores" *ngIf="emailI.invalid && emailI.dirty">
+              <div *ngIf="emailI.errors.pattern">
+                <small>No es <b>Email</b> Válido</small>
+              </div>
+            </div>
+          </span>
+        </p>
+        <br>
+        <br>
+        <br>
+        <div class="btn-uy mt-4">
+          <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('resolucion4')">
+            Perfecto ya tenemos todo lo que necesitamos
+          </button>
+        </div>
+    </div>
+  </div>
+
+  <!--  ******  terjeta *******   -->
+  <div class="{{ resolucion4 }}">
+
+    <div class="atras" id="2atras" (click)="regresarP('resolucion4')">
+      <button class="btn-A">Atras</button>
+    </div>
+
+    <div class="fs-4">
+      <b>Perfecto</b>
+      <br> ya tenemos todo lo que necesitamos
+      <br> para sacar su reporte de crédito.
+      <br>
+      <br> Lo único que necesitamos
+      <br><b>tal y como decimos en la radio</b>
+      <br> es una tarjeta de crédito o debito
+      <br> con un balance de <b>1 dólar 10 centavos</b>,
+      <br /> pero la misma solamente la <b>aceptamos</b>
+      <br> si comienza por el <b>primer</b> numero 4
+      <br> o el <b>primer</b> número 5.
+      <br />
+      <br />
+      <b>¿Con que numero comienza la suya 4 o 5?</b>
+      <br /> Porque solamente con el primer numero 4 ó
+      <br> el primer número 5,
+      <br> nos lo <b>permiten</b>.
+      <br>
+      <br>
+
+      <div class="datos_tarj mt-4" >
+        <div class="datos_basicos">
+          <span>N° Tarjeta:
+            <input type="text" name="id_tarjeta" placeholder="1234-1234-1234"
+            pattern="^(\d{4})-(\d{4})-(\d{4})" id="id_tarjeta" [(ngModel)]="id_tarjeta" #id_tarjetaI="ngModel" />
+            <div class="errores" *ngIf="id_tarjetaI.invalid && id_tarjetaI.dirty">
+              <div *ngIf="id_tarjetaI.errors.pattern">
+                <b>Debe</b> tener ( - ) cada 4 digitos
+              </div>
+            </div>
+            <!-- wwwwwwwwwwwwwwwwww -->
+          </span>
+        </div>
+
+        <h3 style="color:blue;" class="resp"># {{ id_tarjeta }}</h3>
+      </div>
+
+      <br>
+      <span class="resp">
+        REPETIR ULTIMO PARRAFO HASTA DAR LA TARJETA
+      </span>
+      <br>
+      <br>
+      <br /><b>Si no,
+       <br> lamentablemente
+      <br> <u>no</u> le podemos ayudar.</b>
+      <br>
+
+    </div>
+    <p class="blue fs-4">
+      <br> ya tenemos todo lo que necesitamos
+      <br> para sacar su reporte de crédito.
+      <br>
+      <br> Lo único que necesitamos
+      <br><b>tal y como decimos en la radio</b>
+      <br> es una tarjeta de crédito o debito
+      <br> con un balance de <b>1 dólar 10 centavos</b>,
+      <br /> pero la misma solamente la <b>aceptamos</b>
+      <br> si comienza por el <b>primer</b> numero 4
+      <br> o el <b>primer</b> número 5.
+      <br />
+      <br />
+      <b>¿Con que numero comienza la suya 4 o 5?</b>
+      <br /> Porque solamente con el primer numero 4 ó
+      <br> el primer número 5,
+      <br> nos lo <b>permiten</b>.
+      <br>
+    </p>
+    <br>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <br>
+    <br>
+    <!-- <p class="resp fs-5">REPETIR ULTIMO PARRAFO <br> HASTA QUE DIGA EL NUMERO DE LA TARJETA</p> -->
+    <br>
+    <div class="datos_tarj">
+      <div class="datos_basicos">
+        <span class="fs-3">N° Tarjeta:
+          <input type="text" name="id_tarjeta" placeholder="1234-1234-1234"
+          pattern="^(\d{4})-(\d{4})-(\d{4})" id="id_tarjeta" [(ngModel)]="id_tarjeta" #id_tarjetaI="ngModel" />
+          <div class="errores" *ngIf="id_tarjetaI.invalid && id_tarjetaI.dirty">
+            <div *ngIf="id_tarjetaI.errors.pattern">
+              <b>Debe</b> tener ( - ) cada 4 digitos
+            </div>
+          </div>
+          <!-- wwwwwwwwwwwwwwwwww -->
+        </span>
+      </div>
+
+      <h3 style="color:blue;" class="resp"># {{ id_tarjeta }}</h3>
+    </div>
+
+    <div class="btn-uy mt-4">
+      <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('resolucion5')">
+        Confirmar tarjeta
+      </button>
+    </div>
+  </div>
+
+  <!--  ------------------------- confirmar tarjeta ---------------------------------------- -->
+  <div class="{{ resolucion5 }}">
+
+    <div class="atras" id="2atras" (click)="regresarP('resolucion5')">
+      <button class="btn-A">Atras</button>
+    </div>
+
+    <br><br>
+    <h3 style="color:blue;">
+      Tarjeta # <span class="resp">{{ id_tarjeta }}</span>
+    </h3>
+    <p class="fs-5">
+      OK esa si la aceptamos,
+      <br>
+      <br>
+      <b>Díctemela de 2 en 2 para no equivocarme
+        <br> ¿40 y qué?
+        <br> ¿50 y qué?</b>
+      <br>
+      <br>
+    </p>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <br>
+    <br>
+    <br>
+    <p class="fs-4"><b>¿Cuál es la fecha de expiración por favor?</b></p>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <span class="f17">Exp :
+     <!--  <input type="text" name="exp" id="exp" [(ngModel)]="exp" /> -->
+     <select class="min_select" name="exp_m" [(ngModel)]="exp_m">
+       <option value="01">01</option>
+       <option value="02">02</option>
+       <option value="03">03</option>
+       <option value="04">04</option>
+       <option value="05">05</option>
+       <option value="06">06</option>
+       <option value="07">07</option>
+       <option value="08">08</option>
+       <option value="09">09</option>
+       <option value="10">10</option>
+       <option value="11">11</option>
+       <option value="12">12</option>
+     </select>
+     /
+     <select class="min_select" name="exp_y" [(ngModel)]="exp_y">
+       <option value="21">21</option>
+       <option value="22">22</option>
+       <option value="23">23</option>
+       <option value="24">24</option>
+       <option value="25">25</option>
+       <option value="26">26</option>
+       <option value="27">27</option>
+       <option value="28">28</option>
+       <option value="29">29</option>
+       <option value="30">30</option>
+       <option value="31">31</option>
+       <option value="32">32</option>
+     </select>
+    </span>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p class="fs-5">
+      <b>Ok perfecto</b>,
+      <br> no guarde la tarjeta
+      <br> porque se la voy a solicitar de nuevo
+      <br> para <b>corroborar</b> los números.
+      <br>
+      <br> A veces las tarjetas tienen un nombre diferente
+      <br> o le quitan una inicial o un apellido.
+      <br>
+      <br>
+      <br>
+      <b>Leame exactamente el nombre
+      <br> que aparece en su tarjeta!</b>
+    </p>
+    <br>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <br>
+    <br>
+    <p class="fs-4 d-flex text-center justify-content-center">
+      Nombres en Tarjeta :
+      <span><input required type="text" name="nombres_tarjeta" placeholder="Nombre en tarjeta"
+          class="form-control form_mod ml-3 mt-3" pattern="^^[a-zA-Z '.]*$" minlength="2" maxlength="50"
+          [(ngModel)]="nombres_tarjeta" #nombres_tarjetaI="ngModel" />
+        <div class="errores" *ngIf="nombres_tarjetaI.invalid && nombres_tarjetaI.dirty">
+          <div class="d-f" *ngIf="nombres_tarjetaI.errors.pattern">
+            <small><b>Solo</b> letras y simbolos ( ' . )</small>
+          </div>
+        </div>
+      </span>
+    </p>
+    <br>
+    <br>
+
+    <div class="btn-uy mt-4">
+      <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('resolucion6')">
+        Credito o debito
+      </button>
+    </div>
+  </div>
+
+  <!-- ********* credito o debito  ************** -->
+  <div class="{{ resolucion6 }}">
+
+
+    <div class="atras" id="2atras" (click)="regresarP('resolucion6')">
+      <button class="btn-A">Atras</button>
+    </div>
+
+    <p class="fs-4"><b>¿Crédito o débito?</b></p>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <span class="ml-4">Tipo:
+      <select [(ngModel)]="tipo_tarjeta" name="tipo_tarjeta">
+        <option value="1" name="tipo_tarjeta">Debito</option>
+        <option value="2" name="tipo_tarjeta">Credito</option>
+      </select>
+    </span>
+    <br>
+    <br>
+    <p class="fs-4"><b>¿De qué banco por favor?</b></p>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <span>Banco de la Tarjeta :
+      <input type="text" name="banco" id="bancoid" [(ngModel)]="banco" />
+    </span>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p class="fs-4">
+      <b>Ahora repítame la tarjeta de nuevo
+      <br> porque si la tome mal se la pueden bloquear.</b>
+      <br>
+      <br> Díctemela de 2 en 2
+      <br> y yo se la repito para atrás
+    </p>
+    <p>
+      Tarjeta #: <span class="resp">{{ id_tarjeta }}</span>
+    </p>
+    <br>
+    <br>
+    <div class="btn-uy mt-4">
+      <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('resolucion7')">
+        En la parte de atrás hay unos numeritos
+      </button>
+    </div>
+  </div>
+
+  <!-- ******** tarjeta VC whastapp ************* -->
+  <div class="{{ resolucion7 }}">
+
+    <div class="atras" id="2atras" (click)="regresarP('resolucion7')">
+      <button class="btn-A">Atras</button>
+    </div>
+
+
+    <p class="fs-4">
+      <br> En la parte de atrás hay
+      <br> unos numeritos debajo de donde Ud firma, <br />
+      <br>
+      <b>¿cuáles son esos numeritos?</b>
+    </p>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <span class="ml-4">Cv :
+      <input type="text" name="cv" id="cv" [(ngModel)]="cv" />
+    </span>
+    <br>
+    <br>
+    <!-- Anexo -->
+    <p class="fs-4">
+      <b>¿En que Banco tiene su cuenta de cheque?</b>
+      <br>
+      <span class="ml-4 fs-3">Banco Cheque :
+        <input type="text" name="banco_cheque" [(ngModel)]="banco_cheque" />
+      </span>
+      <br>
+      <br>
+
+    </p>
+
+    <!-- Anexo -->
+
+    <p class="fs-4 mt-3">
+      Yo tengo aquí que el teléfono suyo
+      <br> comienza con los siguientes números: <b>{{ num$ | slice:0:7}}
+      <br> correcto?</b>
+    </p>
+    <br>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p class="fs-4">
+      <b>¿ok me imagino que este teléfono tiene WhatsApp?</b>
+    </p>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <br>
+      <button type="button" class="btn btn-success" (click)="tel_wh_ok = 'si' ">Si</button>
+      <button type="button" class="btn btn-danger ml-4" (click)="tel_wh_ok = 'no' ">No</button>
+    <br>
+    <br>
+
+    <div class="con_what" *ngIf="!wht_ok">
+      <div class="no_tiene_w" *ngIf="tel_wh_ok == 'no'">
+        <span class="ml-4">Tel Whatsapp :
+          <input required type="tel" name="telmovil" class="ml-3" pattern="^(\d{10})" maxlength="10" minlength="10"
+            [(ngModel)]="telmovil" #telmovilI="ngModel"/>
+          <div class="errores" *ngIf="telmovilI.invalid && (telmovilI.dirty || telmovilI.touched)">
+            <div *ngIf="telmovilI.errors.required">
+              <small>Este telefono es Obligatorio</small>
+            </div>
+            <div *ngIf="telmovilI.errors.minlength || telmovilI.errors.maxlength">
+              <small>El telefono requiere de <b>10</b> digitos!</small>
+            </div>
+            <div *ngIf="
+                  !telmovilI.errors.minlength &&
+                  !telmovilI.errors.maxlength &&
+                  telmovilI.errors.pattern
+                ">
+              <small><b>NO</b> se permiten letras ni simbolos!</small>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="btn-uy mt-4">
+      <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('resolucion8')">
+        ¿De qué compañía es?
+      </button>
+    </div>
+  </div>
+
+  <!-- ******** TEL OTRO HORA DUERME ************* -->
+  <div class="{{ resolucion8 }}">
+
+    <div class="atras" id="2atras" (click)="regresarP('resolucion8')">
+      <button class="btn-A">Atras</button>
+    </div>
+
+    <p class="fs-4">
+      ¿De qué compañía es
+      <br><b>T Mobile, sprint, metro pcs, AT&T, Verizon</b> ?
+    </p>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+
+    <div class="mt-3">
+      Compañia Movil :
+      <select [(ngModel)]="compania_movil" name="compania_movil" id="">
+        <option value="Verizon">Verizon</option>
+        <option value="AT&T">AT&T</option>
+        <option value="Sprint">Sprint</option>
+        <option value="T-Movil">T-Movil</option>
+        <option value="U.S. Cellular">U.S. Cellular</option>
+        <option value="MetroPCS">MetroPCS</option>
+        <option value="Vox movil">Vox movil</option>
+      </select>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p class="fs-4">
+      <b>Necesito un segundo número de teléfono</b>,
+      <br> puede ser de la casa o del trabajo.
+      <br><b>¿Cuál sería?</b>
+    </p>
+    <br>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <span class="ml-4">Tel Otro :
+      <input type="tel" name="telotro" pattern="^(\d{10})" maxlength="10" minlength="10" [(ngModel)]="telotro"
+        #telotroI="ngModel" />
+      <div class="errores" *ngIf="telotroI.invalid && telotroI.dirty">
+        <div *ngIf="telotroI.errors.minlength || telotroI.errors.maxlength">
+          <small>El telefono requiere de <b>10</b> digitos!</small>
+        </div>
+        <div *ngIf="
+              !telotroI.errors.minlength &&
+              !telotroI.errors.maxlength &&
+              telotroI.errors.pattern
+            ">
+          <small><b>NO</b> se permiten letras ni simbolos!</small>
+        </div>
+      </div>
+    </span>
+    <br>
+    <br>
+    <span class="ml-4">Tel Casa :
+      <input type="tel" name="telcasa" pattern="^(\d{10})" maxlength="10" minlength="10" [(ngModel)]="telcasa"
+        #telcasaI="ngModel" />
+      <div class="errores" *ngIf="telcasaI.invalid && telcasaI.dirty">
+        <div *ngIf="telcasaI.errors.minlength || telcasaI.errors.maxlength">
+          <small>El telefono requiere de <b>10</b> digitos!</small>
+        </div>
+        <div *ngIf="
+              !telcasaI.errors.minlength &&
+              !telcasaI.errors.maxlength &&
+              telcasaI.errors.pattern
+            ">
+          <small><b>NO</b> se permiten letras ni simbolos!</small>
+        </div>
+      </div>
+    </span>
+    <br>
+    <br>
+    <span class="ml-4">Tel trabajo :
+      <input type="tel" name="teltrabajo" pattern="^(\d{10})" maxlength="10" minlength="10" [(ngModel)]="teltrabajo"
+        #teltrabajoI="ngModel" />
+      <div class="errores" *ngIf="teltrabajoI.invalid && teltrabajoI.dirty">
+        <div *ngIf="teltrabajoI.errors.minlength || teltrabajoI.errors.maxlength">
+          <small>El telefono requiere de <b>10</b> digitos!</small>
+        </div>
+        <div *ngIf="
+              !teltrabajoI.errors.minlength &&
+              !teltrabajoI.errors.maxlength &&
+              teltrabajoI.errors.pattern
+            ">
+          <small><b>NO</b> se permiten letras ni simbolos!</small>
+        </div>
+      </div>
+    </span>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <p class="fs-4"><b>¿De qué horas a qué horas trabaja?</b></p>
+    <br>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <br>
+    <span class="ml-4">Horarios :
+      <input type="time" class="mid_input" name="h_entra" [(ngModel)]="h_entra"> a <input type="time" class="mid_input" name="h_sale" [(ngModel)]="h_sale">
+    </span>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p class="fs-4"><b>¿Le permiten contestar llamadas?</b></p>
+    <br>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <br>
+    <span class="ml-4">LLamar al trabajo :
+      <select name="llamar_trabajo" class="larg_input" [(ngModel)]="call_trabajo" >
+        <option value="0">No se Puede</option>
+        <option value="1">Si es Permitido</option>
+      </select>
+    </span>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p class="fs-4"><b>¿Cual es la mejor hora para comunicarse con ud?</b></p>
+    <br>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <br>
+    <span class="ml-4">Tiempo u Hora :
+      <input type="text" [(ngModel)]="mejor_hora_llamar">
+    </span>
+    <br>
+    <br>
+
+    <div class="btn-uy mt-4">
+      <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('resolucion9')">
+        ¿Qué le motivo a llamarnos?
+      </button>
+    </div>
+  </div>
+
+  <!-- ******** motivacion ************* -->
+  <div class="{{ resolucion9 }}">
+
+    <div class="atras" id="2atras" (click)="regresarP('resolucion9')">
+      <button class="btn-A">Atras</button>
+    </div>
+<!--
+    <p class="fs-4"><b>¿Le permiten contestar llamadas?</b></p>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <span>
+      <input type="radio" name="call_trabajo" value="1" id="idcall_trabajo" [(ngModel)]="call_trabajo" />
+      Si
+    </span>
+    <span class="ml-3">
+      <input type="radio" name="call_trabajo" value="0" id="idcall_trabajo" [(ngModel)]="call_trabajo" />
+      No
+    </span>
+    <br>
+    <br> -->
+    <br>
+    <p class="fs-4">
+      <b>¿Qué le motivo a llamarnos?
+        <br>
+        <br> ¿Quiere tarjetas de crédito, un auto o
+        <br> una casa?</b>
+    </p>
+    <br>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <span class="ml-4 rem_1_5"><b>Motivos:</b>
+      <label for="motivacion1" class="fs-3 ml-3">
+        <input type="checkbox" name="motivacion1" id="motivacion1"><span class="rem_1_5">Tarjeta Credito</span>
+      </label>
+      <label for="motivacion2" class="fs-3 ml-3">
+        <input type="checkbox" name="motivacion2" id="motivacion2"><span class="rem_1_5">Auto</span>
+      </label>
+      <label for="motivacion3" class="fs-3 ml-3">
+        <input type="checkbox" name="motivacion3" id="motivacion3"><span class="rem_1_5">Casa</span>
+      </label>
+      <label for="motivacion4" class="fs-3 ml-3">
+        <input type="checkbox" name="motivacion4" id="motivacion4"><span class="rem_1_5">Reparar mi Crédito</span>
+      </label>
+    </span>
+    <br>
+    <br>
+    <br>
+    <p class="fs-4">
+      Si yo le digo a <b>usted</b> (<b>{{ nombres }} {{ apellidos }}</b>)
+      <br> que podemos <b>ayudarle</b> a conseguir
+      <br> de aquí a <b>un</b> año
+      <br>  el préstamo para <b>su casa</b>,
+      <br /> ¿cuánto puede usted <b>ahorrar</b> todos los meses?
+      <br><span class="blue">Aproximadamente</span>
+      <br>
+    </p>
+    <div class="ahorro">
+      <label for="">Ahorro Mensual</label>
+      <input type="text" [(ngModel)]="capacidad_ahorro">
+    </div>
+    <br>
+    <p class="fs-4">
+      <br> Para que <b>usted</b>
+      <br /> Viva en ella o la <b>alquile</b>
+      <br> y le sirva como un <b>segundo negocio</b>
+    </p>
+    <br>
+    <div class="btn-uy mt-4">
+      <button type="button" id="secondBtnBueno" class="btn btn-danger" (click)="cambiarP('resolucion10')">
+        Esto es lo que va a pasar ahora
+      </button>
+    </div>
+  </div>
+
+  <!-- ******** final ************* -->
+  <div class="{{ resolucion10 }}">
+
+    <div class="atras" id="2atras" (click)="regresarP('resolucion10')">
+      <button class="btn-A">Atras</button>
+    </div>
+
+
+    <p class="fs-4">
+      <br><br><br>
+      <b>Esto es lo que va a pasar ahora.</b>
+      <br> Dios mediante nosotros vamos a
+      <br> sacar el reporte de crédito,
+      <br> le haremos unas preguntas que solo <b>Usted</b> sabe,
+      <br> y luego que las <b>conteste correctamente</b>
+      <br> con el favor de <b>Dios</b>
+      <br>
+      <br> <b>obtendremos el reporte de crédito OKAY? </b>
+      <br>
+    </p>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <br>
+    <br>
+    <p class="fs-4">
+      Una vez optengamos su <b>reporte</b> de crédito,
+      <br> A nosotros nos <b>gustaría</b> que esto fuera
+      <br> una conversación de <b>5 minutos</b>,
+      <br> pero la realidad es que <b>puede</b> ser una llamada de
+      <br> unos 20 a 25 min,
+      <br> ya que <b>usted</b>,
+      <br> va a tener muchas <b>preguntas</b>,
+      <br> y nosotros se las vamos a contestar <b>todas</b>.
+      <br>
+      <br>Ya que estamos hablado de su <b>credito</b>
+      <br> y la forma de ayudarle a <b>arreglar</b>.
+      <br>
+      <br> Hacemos una <b>cita</b> para hablar luego ?
+      <br> Le hago una cita con unos de mis ayudantes para hablar luego?
+      <br> O usted <b>prefiere</b> que sea ahora y <b>aprovechamos</b> el tiempo.
+      <br>
+      <br>
+    </p>
+    <p class="resp fs-5">ESPERAR RESPUESTA...</p>
+    <br>
+    <p class="fs-4">
+      <br> Muy bien...
+      <br> Vamos a sacar su <b>reporte de credito</b>
+      <br> si en los <b>próximos</b>
+      <br> 20 o <b>30</b> minutos,
+      <br> no le <b>llamamos</b>,
+      <br> <b>Usted</b> nos llama!
+      <br>
+      <br>
+    </p>
+    <p style="background-color: red; color: white;">
+      Fin!
+    </p>
+    <br>
+    <br>
+  </div>
+
+</div>

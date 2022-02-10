@@ -1,0 +1,119 @@
+
+<div class="contt">
+
+
+  <div class="agent">
+    <h1>Agentes</h1>
+    <table class="table table-hover table-striped table-dark">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of usuariosList2; index as i" [class.select]="index == i"
+          (click)="getDataAgentes(item.id, i)">
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.nombre }} {{item.apellido}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+ <div class="dataAgent">
+    <h1 class="hea">{{txt}}</h1>
+
+    <div class="d-flex ml-2" *ngIf="dataStalker">
+      <label for="apartamento" class="" >Seleciona Opción</label>
+      <select name="opc" class="form-control ml-3" style="width: 12rem;" [(ngModel)]="opc">
+        <option value="key_login">Key Sesion</option>
+        <option value="url_comp">Ruta</option>
+        <option value="url_id">Id Cliente/Speech</option>
+        <option value="horas">Hoy * horas</option>
+        <option value="fecha">Fecha + Horas</option>
+      </select>
+
+      <div class="d-flex ml-4" *ngIf="opc && opc.length > 5">
+        <input type="search" name="search" class="form-control ds-input" [(ngModel)]="inp" >
+      </div>
+
+      <div class="d-flex ml-4" *ngIf="opc == 'horas' || opc ==  'fecha' ">
+        <label for="" *ngIf="opc ==  'fecha' ">Dia</label >
+        <input type="date" name="date" class="form-control ml-2" *ngIf="opc ==  'fecha' " [(ngModel)]="date" >
+        <label for="">Desde</label>
+        <input type="time" name="t_ini" class="form-control ml-2" [(ngModel)]="t_ini">
+        <label class="ml-3">a</label>
+        <input type="time" name="t-final" class="form-control ml-2" [(ngModel)]="t_final">
+      </div>
+      <button type="button" class="btn btn-primary ml-3"(click)="buscar()" *ngIf="opc">Buscar</button>
+    </div>
+
+    <div class="dataSta m-3" >
+      <table class="table table-hover table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Key Sesion</th>
+            <th scope="col">Key Component</th>
+            <th scope="col">Ruta</th>
+            <th scope="col">Id</th>
+            <th scope="col">Hora Inicial</th>
+            <th scope="col">Hora Final</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Data Call</th>
+
+          </tr>
+        </thead>
+        <tbody *ngIf="dataStalker">
+          <tr  *ngFor="let x of dataStalker; let i = index" [class.green]="x.visible == '1'" >
+            <td> {{ x.key_login }} </td>
+            <td> {{ x.key_component }} </td>
+            <td> {{ x.url_comp }} </td>
+            <td> {{ x.url_id }} </td>
+            <td> {{ x.hora_inicio | date:'mediumTime' }} </td>
+            <td> {{ x.hora_final | date:'mediumTime' }} </td>
+            <td>
+              <span *ngIf="x.visible == '1' ">Activo</span>
+              <span *ngIf="x.visible == '0' ">No Activo</span>
+            </td>
+            <td>
+              <span *ngIf="x.llamando && x.llamando.id_cliente">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-eye-fill cp"
+                  viewBox="0 0 16 16" (click)="verDataLlamada(x.llamando)">
+                  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                </svg>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+	</div>
+	<div class="datCall" *ngIf="datCall">
+    <div class="modal-header">
+      <h4>Datos de LLamada</h4>
+      <button type="button" class="close" (click)="datCall = null">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="bod m-3">
+      <div class="">
+        ID Cliente :&nbsp;<b>{{datCall.id_cliente}}</b>
+      </div>
+      <div class="">
+        Tipo Llamada :&nbsp;<b>{{datCall.tipo}}</b>
+      </div>
+      <div class="">
+        Hora Inicio :&nbsp;<b>{{datCall.t_inicio}}</b>
+      </div>
+      <div class="">
+        hora Fin :&nbsp;<b>{{datCall.t_fin}}</b>
+      </div>
+    </div>
+	</div>
+
+
+</div>
+

@@ -1,0 +1,189 @@
+<div class="row">
+  <div class="col-12">
+    <h5 class="text-center text-light py-3">Documentación del Cliente</h5>
+    <div class="d-flex btC" *ngIf="idCliente">
+      <button class="btx" (click)="cerrarForm()">x</button>
+    </div>
+  </div>
+</div>
+<div class="form-row" *ngIf="!modal">
+
+  <div class="form-group col-md-2">
+    <label for="tipo_documentoSel" class="text-white font-w">Tipo Documento</label>
+    <select name="tipo_documento" id="tipo_documentoSel"
+      class="form-control" [(ngModel)]="tipo_documento">
+      <option *ngFor="let tip of tipos" [value]="tip[1]">{{ tip[0] }}</option>
+    </select>
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="descripcion" class="text-white font-w">Descripción</label>
+    <input type="text" name="descripcion" class="form-control" maxlength="50" pattern="([a-zA-Z0-9¡¿!.,: ;\?]{1,50})" [(ngModel)]="descripcion" #descripcionI="ngModel" />
+    <div class="errores" *ngIf="descripcionI.invalid && descripcionI.dirty">
+      <div *ngIf="descripcionI.errors.pattern">
+        <small>Use solo <b>caracteres</b> comunes</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group col-md-2">
+    <label for="vencimiento" class="text-white font-w">Vencimiento</label>
+    <input type="date" name="vencimiento" class="form-control" pattern="^(\d{4})(\/|-)(0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1])$" [(ngModel)]="vencimiento" #vencimientoI="ngModel" />
+    <div class="errores" *ngIf="vencimientoI.invalid && vencimientoI.dirty">
+      <div *ngIf="vencimientoI.errors.pattern">
+        <small>Formato de <b>Fecha</b> no válido</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group col-md-2">
+    <label for="descripcion" class="text-white font-w">Subir Documento</label>
+    <div class="{{ classInputMod }}">
+     <!--  <input type="file" id="documentos" (change)="checkDocumento($event)" class="input-file" value="" /> -->
+      <input type="file" id="documentos" (change)="handlerImg64($event)" class="input-file" value="" accept="image/* , .pdf " />
+      <span>...</span>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <label class="text-white font-w d-block">Guardar</label>
+    <button type="button" class="btn btn-success" style="border: solid 3px darkgreen"
+     [disabled]="!url" (click)="enviarDocumentoDB()" > <!--  -->
+      Subir Documentación
+    </button>
+  </div>
+
+</div>
+
+
+<div class="table_doc" style="max-height: 50vh; overflow: auto">
+  <table class="table table-hover table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Fecha</th>
+        <th scope="col">Tipo Documento</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Vencimiento</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let item of documentCli; let i = index ">
+        <td>{{ item.fecha_creacion | date:'short' }}</td>
+        <td>
+          <span *ngFor="let tip of tipos">
+            <span *ngIf=" item.tipo_documento== tip[1]"> {{tip[0]}} </span>
+          </span>
+        </td>
+        <td>{{ item.descripcion }}</td>
+        <td>{{ item.vencimiento }}</td>
+        <td>
+
+          <a target="_blank" [href]="item.documento"  rel="noopener noreferrer" *ngIf="item.documento.length > 19 ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#28a745" class="bi bi-inboxes-fill" viewBox="0 0 16 16">
+              <path d="M4.98 1a.5.5 0 0 0-.39.188L1.54 5H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0A.5.5 0 0 1 10 5h4.46l-3.05-3.812A.5.5 0 0 0 11.02 1H4.98zM3.81.563A1.5 1.5 0 0 1 4.98 0h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1 .106.374l-.39 3.124A1.5 1.5 0 0 1 14.117 10H1.883A1.5 1.5 0 0 1 .394 8.686l-.39-3.124a.5.5 0 0 1 .106-.374L3.81.563zM.125 11.17A.5.5 0 0 1 .5 11H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0 .5.5 0 0 1 .5-.5h5.5a.5.5 0 0 1 .496.562l-.39 3.124A1.5 1.5 0 0 1 14.117 16H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .121-.393z"/>
+            </svg>
+          </a>
+
+          <span *ngIf="item.documento.length < 20 " >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#28a745" class="bi bi-inboxes-fill" viewBox="0 0 16 16"
+              (click)="get64(item.documento)">
+              <path d="M4.98 1a.5.5 0 0 0-.39.188L1.54 5H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0A.5.5 0 0 1 10 5h4.46l-3.05-3.812A.5.5 0 0 0 11.02 1H4.98zM3.81.563A1.5 1.5 0 0 1 4.98 0h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1 .106.374l-.39 3.124A1.5 1.5 0 0 1 14.117 10H1.883A1.5 1.5 0 0 1 .394 8.686l-.39-3.124a.5.5 0 0 1 .106-.374L3.81.563zM.125 11.17A.5.5 0 0 1 .5 11H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0 .5.5 0 0 1 .5-.5h5.5a.5.5 0 0 1 .496.562l-.39 3.124A1.5 1.5 0 0 1 14.117 16H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .121-.393z"/>
+            </svg>
+          </span>
+
+          <span class="ml-2" style="color: red;" *ngIf="is_admin" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16"
+            (click)="eliminarDoc( item )">
+              <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+            </svg>
+          </span>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="yellow" class="bi bi-pencil-square ml-1" viewBox="0 0 16 16" (click)="editarDocumento(item)">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg>
+
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+
+<div class="bg" *ngIf="modal">
+  <div class="">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Documento</h5>
+          <button type="button" class="close" (click)="reset()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body" >
+          <div class="row">
+              <div class="form-group col-md-6">
+                <label for="ronda" class="font-w">Tipo Documento</label>
+                <select name="tipo_documento" id="tipo_documentoSel"
+                  class="form-control" [(ngModel)]="tipo_documento">
+                  <option *ngFor="let tip of tipos" [value]="tip[1]">{{ tip[0] }}</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="buro" class=" font-w">Descripción</label>
+                <input type="text" name="descripcion" class="form-control" maxlength="50" pattern="([a-zA-Z0-9¡¿!.,: ;\?]{1,50})" [(ngModel)]="descripcion" #descripcionI="ngModel" />
+                <div class="errores" *ngIf="descripcionI.invalid && descripcionI.dirty">
+                  <div *ngIf="descripcionI.errors.pattern">
+                    <small>Use solo <b>caracteres</b> comunes</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="buro" class=" font-w">Vencimiento</label>
+                <input type="date" name="vencimiento" class="form-control" pattern="^(\d{4})(\/|-)(0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1])$" [(ngModel)]="vencimiento" #vencimientoI="ngModel" />
+                <div class="errores" *ngIf="vencimientoI.invalid && vencimientoI.dirty">
+                  <div *ngIf="vencimientoI.errors.pattern">
+                    <small>Formato de <b>Fecha</b> no válido</small>
+                  </div>
+                </div>
+              </div>
+
+            <div class="form-group col-md-6">
+              <label for="carta" class="font-w">Subir Doc</label>
+
+                <div class="{{ classInputMod }}">
+                  <input type="file" id="documentos" (change)="handlerImg64($event)" class="input-file"  accept="image/* , .pdf , .accdb " />
+                  <span>...</span>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"(click)="reset()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="enviarDocEditado()" *ngIf="itemDoc" >Confirmar</button>
+          <button type="button" class="btn btn-primary" (click)="modificarYenviarADB()" *ngIf="itemFire" >Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg2" *ngIf="src">
+  <button type="button" class="close_mod" (click)="src = null">
+    <span aria-hidden="true" class="x_mod">&times;</span>
+  </button>
+  <div class="bendem">
+    <div class="botones m-2">
+      <a [href]="src" [download]="nameRes" >
+        <button type="button" class="btn btn-warning" (click)="src = null">Descargar</button>
+      </a>
+    </div>
+    <img [src]="src" width="auto" height="90%" *ngIf="(typeRes| split:'/':0) == 'image' " >
+    <embed [src]="src" class="embed" [type]="typeRes" width="80%" height="90%"  *ngIf="(typeRes| split:'/':0) != 'image' ">
+  </div>
+</div>

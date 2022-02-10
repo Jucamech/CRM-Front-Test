@@ -1,0 +1,849 @@
+<div class="content text-center" #content >
+  <div class="notas" *ngIf="idClientePost">
+    <a routerLink="{{verCli}}" target="_blank">
+      <button>Abrir Ingresar Cliente</button>
+    </a>
+  </div>
+
+  <div class="{{intro}}">
+
+    <div class="btn-uy mt-4">
+      <button type="button" class="btn-danger" (click)="cambiarP('introT')">
+        Cuénteme a quién usted le ha cogido crédito
+      </button>
+    </div>
+    <br> <b>Dios</b> le bendiga (<span *ngIf="cliente$">{{cliente$.nombres }}</span>)
+    <br>
+    <br>
+    <br> Estamos en <b>victoria</b> y espero
+    <br> que usted también
+    <br>
+    <br>
+    <div class="esperar">
+      ESPERAR REACCIÓN
+      <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+    </div>
+
+    <br> Yo soy <b>{{agente}}</b>, la persona
+    <br> que habla con <b>Mackenzie</b>
+    <br> en la radio
+    <br>
+    <br> Y <b>aunque</b> a mí me gustaría
+    <br> contestarle la llamada a <b>todos</b>
+    <br> los que llaman, es humanamente imposible
+    <br> poder hacerlo, porque son
+    <br> <b>cientos</b> las llamadas,
+    <br> por eso tenemos a <b>más</b>
+    <br> de 70 agentes, que, nos ayudan,
+    <br> con <b>todas</b> las personas.
+    <br>
+    <br>
+    <div class="esperar">
+      ESPERAR REACCIÓN
+      <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+    </div>
+
+    <br> En el caso <b>suyo</b>, su llamada
+    <br> fue <b>seleccionada</b> para yo
+    <br> <b>personalmente</b> poder atenderla.
+    <br>
+    <br> Las consultas mías <b>anteriormente</b>
+    <br> en el "<span class="blue"><b>WORLD</b> TRADE CENTER</span>"
+    <br> costaban <b>$300.00</b> dólares
+    <br> cada <b>una</b>.
+    <br>
+    <br> <b>Pero</b> debido al distanciamiento
+    <br> social ya <b><u>NO</u></b> damos
+    <br> <b>consultas</b> en persona,
+    <br> la damos por <b>teléfono</b>,
+    <br> por eso son <b>gratis</b>.
+
+
+    <div class="btn-uy mt-4">
+      <button type="button" class="btn btn-danger" (click)="cambiarP('introT')">
+        Cuénteme a quién usted le ha cogido crédito
+      </button>
+    </div>
+    <br>
+    <br>
+  </div>
+
+  <div class="{{ introT }}">
+    <div class="atras">
+      <button class="btn-A" (click)="regresarP('introT')">Atras</button>
+    </div>
+    <br>
+    <br>
+    <h1>Venta Tax ID</h1>
+
+    <p class="mt-5">
+      Cuénteme a <b>quién</b> usted le ha cogido crédito <input type="text" name="creditos" pattern="^^[a-zA-Z '.]*$"
+        minlength="2" maxlength="50" [(ngModel)]="creditos" #creditosI="ngModel" />
+    </p>
+    <p *ngIf="creditos">
+      Otro <b>crédito</b> <input rtype="text" name="creditos" pattern="^^[a-zA-Z '.]*$" minlength="2" maxlength="50"
+        [(ngModel)]="creditos2" #creditosI="ngModel" />
+    </p>
+
+    <p>
+      Hay alguien que <b>usted</b> le deba <b>dinero</b>
+      <span><input required type="text" name="acredores" pattern="^^[a-zA-Z '.]*$" minlength="2" maxlength="50"
+          [(ngModel)]="acredores" #acredoresI="ngModel" />
+      </span>
+    </p>
+    <p *ngIf="acredores">
+      Otro <b>acredor</b>
+      <span><input required type="text" name="acredores" pattern="^^[a-zA-Z '.]*$" minlength="2" maxlength="50"
+          [(ngModel)]="acredores2" #acredores2I="ngModel" />
+      </span>
+    </p>
+
+    <p>
+      Alguien que <b>usted</b> haya <b>dejado</b> de pagar?
+      <span><input required type="text" name="deudas_pendientes" pattern="^^[a-zA-Z '.]*$" minlength="2" maxlength="50"
+          [(ngModel)]="deudas_pendientes" #deudas_pendientesI="ngModel" />
+      </span>
+    </p>
+    <p *ngIf="deudas_pendientes">
+      Otra <b>Dueda</b>
+      <span><input required type="text" name="deudas_pendientes" pattern="^^[a-zA-Z '.]*$" minlength="2" maxlength="50"
+          [(ngModel)]="deudas_pendientes2" #deudas_pendientes2I="ngModel" />
+      </span>
+    </p>
+
+    <br>
+    <br>
+    <p class="m-5">
+      Usted <b>tiene</b> auto propio?
+    </p>
+
+    <p class="">
+      <br> Cuando digo <b>propio</b> me refiero
+      <br> a que sea un <b>automóvil</b> que usted
+      <br> no lo debe, que esta pago,
+      <br> que esta saldo.
+    </p>
+    <br>
+    <div class="esperar">
+      ESPERAR REACCIÓN
+    </div>
+    <br>
+    <span>
+      <p for="carro" class="mt-5 mb-4">
+        <b>Automovil:</b>
+        <select name="carro" id="carro" [(ngModel)]="carro">
+
+          <option value="0" name="carro">Aun lo esta pagando</option>
+          <option value="1" name="carro">No</option>
+          <option value="2" name="carro">Si</option>
+        </select>
+      </p>
+    </span>
+
+
+    <div class="propio" *ngIf="carro == '2'">
+      <h4 class="req">UUUUYYYYYYY ESO ES MUY PELIGROSO!!!.</h4>
+
+      <br>
+      <br>
+      <p class="">
+        <br> Mire, <b>el problema es</b>,
+        <br> yo le voy a <b>decir algo</b>,
+        <br> lo que yo <b>le voy a decir a usted</b>,
+        <br> usted va querer escucharlo.
+      </p>
+
+      <br>
+      <br>
+      <p class="">
+        <br> Es más, hasta se supone
+        <br> que <b>yo NO se lo diga</b>,
+        <br> pero si <b>hasta</b> fuera
+        <br> mi hermano/a (Menor/mayor).
+        <br>
+        <br>
+        <br> Esto es lo que <b>yo</b>
+        <br> le <b>diría</b> a mi hermano/a (Menor/mayor)
+        <br>
+        <br>
+        <br> El automóvil, <b>guárdalo</b>
+        <br> a dos <b>cuadras</b> de distancia.
+        <br>
+        <br>
+        <br> <b>Cuidado!</b> vaya ser que se lo lleven
+        <br> con una <b>grúa</b>.
+        <br>
+        <br>
+        <br> y el <b>problema</b> no es
+        <br> que se lo <b>lleven</b>
+        <br> con una <b>grúa</b>
+        <br> y que lo <b>vendan</b> por mil
+        <br> o tres mil <b>dólares</b>,
+        <br> o <b>nada</b>.
+        <br>
+        <br>
+        <br> Sino que se <b>queda</b> a pie,
+        <br> y ya usted sabe que <b>aquí</b>
+        <br> en _________ <b>NO</b> se puede
+        <br> estar a pie
+        <br> porque es muy <b>difícil</b>
+        <br>
+        <br>
+        <br> Esta convensación a sido
+        <br> grabada desde el principio
+        <br> y yo le tengo que decir a usted
+        <br> todo lo que le puede suceder
+        <br> porque sino usted
+        <br> nos puede demandar a nosotros
+        <br> si usted me hace caso o no
+        <br> que guarda el carro o no
+        <br> o lo esconde a dos cuadras
+        <br> de distancia
+        <br>
+        <br>
+        <br> Ya es cuestión suya
+        <br> yo por lo menos,
+        <br> ya se lo dije
+        <br> y usted NO me puede demandar,
+        <br> porque le dije lo que
+        <br> le puede suceder,
+        <br> ya es cuestión suya.
+        <br>
+        <br>
+      </p>
+      <p class="">El que oye concejos... llega a viejo! </p>
+      <p class="fs-2">
+        <b>Okay <span *ngIf="cliente$">{{cliente$.nombres || '(____)'}}</span>!</b>
+      </p>
+
+
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton " (click)="cambiarP('tax2')">
+          Siguiente....
+        </button>
+      </div>
+    </div>
+
+    <div class="esta_pagando" *ngIf="carro == '0'">
+      <p class="">
+        Cuánto usted paga al mes ?
+        <span><input required type="text" name="pago_carro" minlength="2" maxlength="10" [(ngModel)]="carro_pagando"
+            #pago_carroI="ngModel" />
+        </span>
+      </p>
+
+      <p class="">
+        <br> Le están <b>cobrando mucho
+          <br> dinero</b> por el automóvil!
+      </p>
+
+      <p class="">
+        <br> Uy pero que es ese
+        <br> <b>¿Es una mercedes?!</b>
+      </p>
+
+      <p class="">
+        <br> <b>NO, NO, NO,</b> eso es mucho dinero,
+        <br> <b>definitivamente</b>
+      </p>
+
+      <br>
+      <br>
+      <br>
+
+
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton " (click)="cambiarP('tax1_1')">
+          Siguiente....
+        </button>
+      </div>
+    </div>
+
+    <div class="no" *ngIf="carro == '1'">
+      <p>
+        <br> Cuando <b>nosotros</b> terminemos
+        <br> de arreglarle el <b>crédito</b>
+        <br>
+        <br> Usted con el <b>favor</b> de Dios
+        <br> va a tener un <b>automóvil</b> que
+        <br> va pagar <b>muchísimo...</b> menos
+        <br> de lo que <b>usted</b> estaria pagando
+        <br> <b>actualmente</b>
+        <br>
+        <br>
+        <br> Okay <span *ngIf="cliente$">{{cliente$.nombres || '(____)'}}</span>!
+        <br>
+        <br>
+      </p>
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton " (click)="cambiarP('tax2')">
+          Siguiente....
+        </button>
+      </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+
+  </div>
+  <!-- ********************* esta pagando carro ***************************** -->
+  <div class="{{ tax1_1 }}">
+
+    <div class="conses" *ngIf="!conces">
+
+      <div class="atras">
+        <button class="btn-A" (click)="regresarP('tax1_1')">Atras</button>
+      </div>
+
+      <p class="p ">
+        <br> <b>Ese es el problema</b>,
+        <br> que hay veces y que
+        <br> hay <b>miles de concesionarios</b>
+        <br> Que abusan de las personas,
+        <br> <b>que no tienen crédito</b>
+
+        <br>
+        <br>
+
+        <br> Y termina <b>pagando el automóvil</b>
+        <br> como si tuviera un <b>mercedes Benz.</b>
+
+      </p>
+
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton " (click)="conces = true">
+          Siguiente....
+        </button>
+      </div>
+
+    </div>
+
+
+    <div class="conses2" *ngIf="conces">
+      <div class="atras">
+        <button class="btn-A" (click)="conces = false">Atras</button>
+      </div>
+
+      <p class="p  invest">
+        <br> !Menos mal <b>usted</b>
+        <br> está <b>hablando</b> conmigo¡
+      </p>
+      <br>
+      <p class="">
+        <br> Cuando <b>nosotros</b> terminemos
+        <br> de <b>arreglarle</b> el crédito .
+
+        <br>
+
+        <br> Usted con el <b>favor de Dios</b>
+        <br> va a tener un automóvil que
+        <br> va pagar <b>muchísimo... </b>menos
+        <br> de lo que <b>usted</b> esta pagando
+        <br> <b>actualmente</b>.
+      </p>
+
+      <br>
+      <br>
+      <p class="fs-3">
+        <b>Okay <span *ngIf="cliente$">{{cliente$.nombres || '(____)'}}</span>!</b>
+      </p>
+      <br>
+      <br>
+      <br>
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton " (click)="cambiarP('tax2')">
+          Siguiente....
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- ************************* tax 2 *************************** -->
+  <!-- ---------------------- aparentemente---------------------- -->
+  <div class="{{ tax2 }}">
+
+    <div class="aparen" *ngIf="!aparen">
+
+      <div class="atras">
+        <button class="btn-A" (click)="regresarP('tax2')">Atras</button>
+      </div>
+
+      <br> Aparentemente usted tiene
+      <br> problemas de <b>robo de identidad</b>,
+      <br> fíjese que hemos tratado
+      <br> de sacar <b>su reporte</b> de crédito
+      <br> por varios buró
+      <br> y lo están negando
+      <br> y <b>eso es <b>MUY</b> peligroso</b>.
+      <br>
+      <br>
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton " (click)="aparen = true">
+          Siguiente....
+        </button>
+      </div>
+    </div>
+
+
+    <div class="aparen2" *ngIf="aparen">
+
+      <div class="atras">
+        <button class="btn-A" (click)="aparen = false">Atras</button>
+      </div>
+
+
+      <p class=" pt-4">
+        <br> Porque el problema
+        <br> es que pueden <b>comprar</b>
+        <br> un <b>automóvil</b>,
+        <br> una <b>casa</b>,
+        <br> <b>joyas</b>,
+        <br> <b>venderlo y después</b>
+        <br> quién tiene que <b>responder</b> o caer <b>preso.</b>
+        <br>
+        <br> <b>ES USTED!</b>
+      </p>
+      <br>
+      <br>
+      <p class=" invest">
+        <b>¡Menos mal que usted está hablado conmigo!</b>
+      </p>
+      <br>
+      <br>
+      <p class="">
+        <br> <b>Hoy mismo tenemos que sacar una carta
+          <br> suya</b>, para ayudar a <b>evitar</b>
+        <br> que se busque <b>MÁS problemas</b>,
+        <br> porque el <b>problema</b> es que puede ir
+        <br> un <b>marshall de la corte</b> a su casa.
+      </p>
+      <br>
+      <br>
+      <p class="">
+        Y le pregunto <span *ngIf="cliente$">{{cliente$.nombres || '(____)'}}</span>! Usted <b>¿Es residente o ciudadano?</b>
+      </p>
+      <p for="carro" class="">
+        <b>Tipo de Estadia:</b>
+        <select class="" name="tipo_estadia" [(ngModel)]="tipo_estadia">
+          <option value="1" name="tipo_estadia">Ciudadado</option>
+          <option value="2" name="tipo_estadia">Residente</option>
+        </select>
+      </p>
+      <p class="">
+        <b>s¿Tiene DACA, TPS o permiso de trabajo?</b>
+      </p>
+      <p for="carro" class="">
+        <b>Tipo de Permiso:</b>
+        <select class="" name="tipo_permiso" [(ngModel)]="tipo_permiso">
+          <option value="1" name="tipo_permiso">DACA</option>
+          <option value="2" name="tipo_permiso">TPS</option>
+          <option value="3" name="tipo_permiso">Permiso Laboral</option>
+        </select>
+      </p>
+
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton" (click)="cambiarP('tax2_1')">
+          Siguiente....
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="{{ tax2_1 }}">
+
+    <div class="problem" *ngIf="!problem">
+
+      <div class="atras">
+        <button class="btn-A" (click)="regresarP('tax2_1')">Atras</button>
+      </div>
+
+      <p class=" pt-3">
+        <br> Ahí es que viene el <b>problema</b>,
+        <br> el detalle es que usted es que al usted no tener papeles <b>legales</b>,
+        <br> se puede encontrar con <b>un policia </b> que puede ser
+        <br> un red neck y aunque él no lo puede <b>deportar</b>,
+        <br> él si puede <b>llamar</b> a un oficial ice de migración
+        <br> le pide los papeles y al usted no tenerlos
+        <br> lo pueden deportar. Ese es el problema.
+        <br>
+        <br> Por consiguiente <span *ngIf="cliente$">{{cliente$.nombres || '(____)'}}</span>!,
+        <br> mi consejo es <b>que usted NO</b> abra su puerta.
+      </p>
+
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton " (click)="problem = true">
+          Siguiente....
+        </button>
+      </div>
+
+    </div>
+
+    <div class="esposa" *ngIf="problem">
+      <div class="atras">
+        <button class="btn-A" (click)="problem = false">Atras</button>
+      </div>
+
+      <p class="">
+        <br> La esposa / El esposo suy@,
+        <br> <b>su pareja</b> ¿tiene papeles?
+      </p>
+      <p for="carro" class="">
+        <b>Papeles pareja:</b>
+        <select class="" name="papeles_pareja" [(ngModel)]="papeles_pareja">
+          <option value="1" name="papeles_pareja">Si</option>
+          <option value="0" name="papeles_pareja">No</option>
+        </select>
+      </p>
+
+      <p class="">
+        Sus hijos
+        <br> <b>¿tienen papeles?</b>
+      </p>
+      <p for="carro" class="">
+        <b>Papeles hijos:</b>
+        <select class="" name="papeles_hijos" [(ngModel)]="papeles_hijos">
+          <option value="1" name="papeles_hijos">Si</option>
+          <option value="0" name="papeles_hijos">No</option>
+        </select>
+      </p>
+      <hr>
+      <p class="">
+        Sus hijos ¿<b>nacieron</b> acá en estados unidos?
+      </p>
+      <p for="carro" class="">
+        <b>Nacieron en EEUU:</b>
+        <select class="" name="hijos_estado_u" [(ngModel)]="hijos_estado_u">
+          <option value="1" name="hijos_estado_u">Si</option>
+          <option value="0" name="hijos_estado_u">No</option>
+        </select>
+      </p>
+
+
+      <br>
+      <br>
+      <br>
+
+
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton " (click)="cambiarP('tax2_2')">
+          Siguiente....
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="{{ tax2_2 }}">
+
+    <div class="abrirP" *ngIf="!abrirP">
+
+      <div class="atras">
+        <button class="btn-A" (click)="regresarP('tax2_2')">Atras</button>
+      </div>
+
+      <p class=" mt-3">
+        <br> Entonces si la esposa <b>tiene papeles</b>
+        <br> puede <b>abrir</b> la puerta pero si no, <b>no! Okay</b> ?
+      </p>
+
+      <br>
+      <p class="">
+        ¿Qué edad tiene el hijo mayor?
+        <span><input required type="text" name="edad_hijo" maxlength="2" [(ngModel)]="edad_hijo"
+            #edad_hijoI="ngModel" />
+        </span>
+      </p>
+      <p class="">
+        <br> Okay, entonces abra la puerta...
+        <br> <b>Pero usted NO puede abrirla</b>,
+        <br> porque el <b>problema</b> es que cuando le pidan
+        <br> la identificación suya lo <b>pueden deportar</b>
+        <br> y <b>oígame</b> cruzar de nuevo a <b>estados unidos
+          <br> está fuerte</b>.
+      </p>
+      <br>
+      <br>
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton" (click)="abrirP = true">
+          Siguiente....
+        </button>
+      </div>
+    </div>
+
+    <div class="abrirP2" *ngIf="abrirP">
+
+      <div class="atras">
+        <button class="btn-A" (click)="abrirP = false">Atras</button>
+      </div>
+
+      <br>
+      <p class="">
+        Me imagino que <b>usted</b>
+        <br> ¿tiene con quien <b>dejar a los niños verdad</b> ?
+      </p>
+      <hr>
+      <p class=" mb-0">
+        ¿Tiene algún <b>pariente, un familiar</b> o algo?
+      </p>
+      <p class="">
+        <span><input type="radio" name="pariente" [(ngModel)]="pariente" id="" value="1">Si</span>
+        <span class="ml-3"><input type="radio" name="pariente" [(ngModel)]="pariente" id="" value="0">No</span>
+      </p>
+      <hr>
+      <p class="">
+        <span *ngIf="pariente == '1'">
+          <br> Ah bueno, le da la <b>custodia</b> a ellos,
+          <br> pero <b>esa no es la idea</b>.
+        </span>
+        <br> La idea es que <b>NO</b> los tenga
+        <br> que criar <b>otra persona</b> sino que
+        <br> los crie usted <b>¿Correcto?</b>!
+      </p>
+      <br>
+      <br>
+
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton" (click)="cambiarP('tax3')">
+          Siguiente....
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="{{ tax3 }}">
+
+    <div class="menosmal" *ngIf="!menosmal">
+
+      <div class="atras">
+        <button class="btn-A" (click)="regresarP('tax3')">Atras</button>
+      </div>
+
+
+      <p class="fs-3 invest pt-3">
+        Menos mal que usted está <b>hablando conmigo</b>!
+      </p>
+
+      <p class="">
+        <br> <b>Tenemos que trabajar inmediatamente</b>,
+        <br> hay que sacar unas cartas hoy mismo
+        <br> para <b>ayudar a evitar</b> con el favor de Dios,
+        <br> que un <b>oficial de inmigración</b> trate
+        <br> de identificarlo y <b>deportarlo a usted, OK?</b>
+      </p>
+      <br>
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton" (click)="menosmal = true">
+          Siguiente....
+        </button>
+      </div>
+    </div>
+
+    <div class="menosmal2" *ngIf="menosmal">
+
+      <div class="atras">
+        <button class="btn-A" (click)="menosmal = false">Atras</button>
+      </div>
+
+      <p class="">
+        <br> Pero usted <b>NO</b> me ha dicho a mí que a usted
+        <br> lo han <b>emplazado en corte</b> ¿Correcto?
+      </p>
+
+      <br>
+      <br>
+
+      <p class="">
+        <br> Ah bueno, en ese caso, <b>es posible</b> que ya a usted
+        <br> le hayan ganado el caso fuera de corte <b>y si es así,</b>
+        <br> en ese caso, <b>nuestros abogados</b> le ayudan haciendo una <b>moción</b>
+        <br> en derecho propio para ayudarle a desestimar el caso.
+      </p>
+
+      <br>
+
+      <p>falta una parte</p>
+
+      <br>
+
+      <p class="">
+        <br> Ahora bien, que se <b>desestime</b> el caso
+        <br> no quiere decir que usted <b>NO</b> deba el dinero,
+        <br> sino que solamente estamos ayudando a <b>evitar</b>
+        <br> que le quiten a usted hasta el <b>25% de su salario</b>.
+      </p>
+      <br>
+
+      <p class="">
+        <br> <b>Pero aun así debe el dinero</b>.
+        <br> por eso nosotros lo que hacemos es que
+        <br> nuestro <b>departamento de reclamaciones </b>
+        <br> prepara unos <b>documento de validación</b>,
+        <br> estos documentos de validación
+        <br> tienen que <b>validar la deuda</b>.
+      </p>
+
+      <br>
+      <br>
+      <br>
+
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton " (click)="cambiarP('tax3_1')">
+          Siguiente....
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="{{ tax3_1 }}">
+
+    <div class="proceso" *ngIf="!proceso">
+
+
+      <div class="atras">
+        <button class="btn-A" (click)="regresarP('tax3_1')">Atras</button>
+      </div>
+
+
+      <p class="fs-3 invest pt-3">
+        <br> Esto es un proceso que se puede <b>tardar
+          <br> (5,6,7,8)</b> meses pero ellos tienen que <b>mostrar</b>
+        <br> todo <b>pagaré, contrato, grabaciones</b> y <b>transcripción</b>
+        <br> que tengan suya, para demostrar la <b>legitimidad</b>
+        <br> de la deuda y que usted <b>la debe</b>.
+      </p>
+      <br>
+      <br>
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton " (click)="proceso = true">
+          Siguiente....
+        </button>
+      </div>
+    </div>
+
+
+    <div class="proceso2" *ngIf="proceso">
+
+      <div class="atras">
+        <button class="btn-A" (click)="proceso = false">Atras</button>
+      </div>
+
+      <p class="">
+        <br> Si resulta que usted <b>debe el dinero</b>
+        <br> entonces en ese caso <b>se economiza</b> usted
+        <br> mucho dinero porque en vez de pagar <b>la deuda</b>
+        <br> más <b>3500 dólares</b>, el gasto de abogado y corte,
+        <br> negociamos la deuda por una <b>fracción</b> de lo que se debe.
+      </p>
+      <br>
+      <p class="">
+        <br> Lo que usted <b>NO sabe</b>
+        <br> o mucha <b>gente</b> no sabe es que
+        <br> estas deudas <b>son compradas
+          <br> por la agencia de colecciones</b>,
+        <br> la agencia de colecciones
+        <br> la compra <b>por 5 o 10 centavos de dólar</b>,
+        <br> o sea que una deuda de <b>1000 dólares</b>
+        <br> la compra por <b>50 o 100 dólares</b>.
+      </p>
+      <br>
+      <p class="">
+        <br> <b>Nosotros lo que hacemos</b> es que le <b>ofrecemos</b>
+        <br> la tercera o la cuarta parte, vamos a decir
+        <br> que sea de 1000 dólares, <b>le ofrecemos 300 o 400 dólares</b>
+        <br> en un plan de pago que <b>pagué 30 o 40 dólares al mes</b>
+        <br> y siempre y cuando, cuando usted <b>termine de pagarlo</b>,
+        <br> ellos lo <b>borren de su reporte de crédito</b>.
+      </p>
+      <br>
+      <br>
+      <br>
+
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton" (click)="cambiarP('tax3_2')">
+          Siguiente....
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="{{ tax3_2 }}">
+
+    <div class="document" *ngIf="!document">
+
+      <div class="atras">
+        <button class="btn-A" (click)="regresarP('tax3_2')">Atras</button>
+      </div>
+
+      <p class="fs-3 invest pt-3">
+        <br> Claro, esto <b>NO</b> es fácil hacerlo
+        <br> porque hay que hacer documentos <b>legales,
+          <br> contrato </b> y todo eso, pero nuestro
+        <br> <b>departamento legal</b> se encarga de eso.
+      </p>
+      <br>
+      <br>
+
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton" (click)="document = true">
+          Siguiente....
+        </button>
+      </div>
+    </div>
+
+    <div class="document2" *ngIf="document">
+
+      <div class="atras">
+        <button class="btn-A" (click)="document = false">Atras</button>
+      </div>
+
+      <p class="">
+        <br> Por eso, no sólo tenemos que <b>sacar inmediatamente</b>
+        <br> una carta para ver si lo han demandado
+        <br> o lo van a <b>demandar</b>, porque si lo <b>han demandado</b>,
+        <br> tiene que <b>demostrar</b> la demanda,
+        <br> y ahí es donde nosotros sacamos <b>otras cartas</b>,
+        <br> para ayudar a frenar esa demanda o <b>revertir</b> la corte.
+      </p>
+      <br>
+      <p class="">
+        Ahora bien, <b>hacer una carta</b>
+        tarda más o menos como <b>media hora a dos horas</b>,
+        el <b>correo</b> a esta hora cerró <b>o esta por cerrar</b>,
+        dependiendo la hora que sea,
+        pero el correo <b>general cierra</b> a las 10 de la noche.
+      </p>
+      <br>
+      <p class="">
+        <br> Así que esta va ser mi <b>última llamada</b>,
+        <br> yo me voy a <b>encargar de eso personalmente</b>.
+      </p>
+      <br>
+      <p class="fs-3">
+        <b> Okay? </b>
+      </p>
+
+      <br>
+      <br>
+      <br>
+      <div class="btn">
+        <button type="button" id="primer_btn" class="bton">
+          Fin!!!
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

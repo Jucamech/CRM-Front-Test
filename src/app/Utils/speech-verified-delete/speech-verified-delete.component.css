@@ -1,0 +1,28 @@
+
+.content {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  font-size: 36px;
+}
+.intro,
+.objectivo,
+.momentos {
+  line-height: 45px;
+  margin: 2rem auto;
+  font-size: 36px;
+  text-align: center;
+}
+
+.btn_g {
+  border: 2px solid black;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.none {
+  display: none;
+}

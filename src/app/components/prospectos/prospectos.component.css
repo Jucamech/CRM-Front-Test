@@ -1,0 +1,17 @@
+
+option {
+  color: black;
+  background-color: rgb(255, 255, 255, .6);
+}
+
+
+.font-w {
+  text-shadow: 1px 1px 3px black;
+  background-color: rgb(255, 255, 255, .6);
+}
+
+.filt {
+  background-color: unset;
+  color: white;
+  font-weight: 700;
+}

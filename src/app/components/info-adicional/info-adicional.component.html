@@ -1,0 +1,855 @@
+<div class="row">
+  <div class="col-12">
+    <h5 class="text-center text-light py-3">Datos Adicionales
+      <button class="btn btn-success ml-3"
+       *ngIf="idSuper == '134' || idSuper == '45' " (click)="editor()">
+        Modo Editor
+      </button>
+    </h5>
+    <div class="d-flex btC" *ngIf="dataCliente">
+      <button class="btx" (click)="cerrarForm()">x</button>
+    </div>
+  </div>
+</div>
+
+
+<form #F_I_A="ngForm" (change)="sendCliente()">
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="tipo_id" class="text-white font-w" [class.flash]="!tipo_id" >Tipo Identificación </label>
+      <span class="form-control span_fc" *ngIf="copia && copia.tipo_id && copia.tipo_id != 0 ">
+        <span *ngFor="let t of tipos_id">
+          <span *ngIf="tipo_id == t[0] ">{{ t[1] }}</span>
+        </span>
+      </span>
+
+      <div class="input" *ngIf="!copia || !copia.tipo_id || copia.tipo_id == 0 ">
+        <select name="tipo_id" id="tipo_idsele" [(ngModel)]="tipo_id" >
+          <option [value]="t[0]" *ngFor="let t of tipos_id">{{ t[1] }}</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="form-group col-md-3">
+      <label for="numero_id" class="text-white font-w" [class.flash]="!numero_id" >Número de Id</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.numero_id && copia.numero_id.length > 1 ">{{numero_id}}</span>
+
+      <div class="input" *ngIf="!copia || copia.numero_id == '' ">
+        <input type="text" name="numero_id" class="form-control" placeholder="333-22-4444"
+          pattern="^(\d{3})-(\d{2})-(\d{4})" [(ngModel)]="numero_id" #numero_idI="ngModel" />
+        <div class="errores" *ngIf="numero_idI.invalid && numero_idI.dirty">
+          <div *ngIf="numero_idI.errors.pattern">
+            <small><b>Solo</b> numeros y - <br />
+              ( 123-12-1234 )</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="tel_wh_ok" class="text-white font-w" [class.flash]="!tel_wh_ok" >Telefono Registro con WTAPP</label>
+      <select name="tel_wh_ok" id="tel_wh_ok" [(ngModel)]="tel_wh_ok" >
+        <option value="no" name="tel_wh_ok">No</option>
+        <option value="si" name="tel_wh_ok">Si</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="compania_movil" class="text-white font-w" [class.flash]="!compania_movil" >Compañia movil</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.compania_movil">{{ compania_movil }}</span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.compania_movil ">
+        <select [(ngModel)]="compania_movil" name="compania_movil"  >
+          <option value="Verizon">Verizon</option>
+          <option value="AT&T">AT&T</option>
+          <option value="Sprint">Sprint</option>
+          <option value="T-Movil">T-Movil</option>
+          <option value="U.S. Cellular">U.S. Cellular</option>
+          <option value="MetroPCS">MetroPCS</option>
+          <option value="Vox movil">Vox movil</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="otraactividad" class="text-white font-w" [class.flash]="!otraactividad">Otra Actividad</label>
+      <input type="text" name="otraactividad" class="form-control" maxlength="30" [(ngModel)]="otraactividad"
+        #otraactividadI="ngModel" />
+     <!--  <span class="form-control span_fc" *ngIf="copia && copia.otraactividad ">{{ otraactividad }}</span> -->
+
+      <div class="input">
+        <div class="errores" *ngIf="otraactividadI.invalid && otraactividadI.dirty">
+          <div *ngIf="otraactividadI.errors.maxlength">
+            <small>Máximo <b>30</b> caracteres</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="direccion_reciente" class="text-white font-w" [class.flash]="!direccion_reciente" >Dirección reciente</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.direccion_reciente ">{{ direccion_reciente }}</span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.direccion_reciente">
+        <input type="text" name="direccion_reciente" class="form-control" maxlength="50" [(ngModel)]="direccion_reciente" />
+      </div>
+
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="carro" class="text-white font-w" [class.flash]="!carro" >Carro</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.carro ">
+        <span *ngIf="carro == 1 " >No</span>
+        <span *ngIf="carro == 2 " >Si</span>
+      </span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.carro ">
+        <select name="carro" id="carro" [(ngModel)]="carro" >
+          <option value="1" name="carro">No</option>
+          <option value="2" name="carro">Si</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="casa" class="text-white font-w" [class.flash]="!casa" >Casa</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.casa">
+        <span *ngIf="casa == 1 ">No</span>
+        <span *ngIf="casa == 2 ">Si</span>
+      </span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.casa ">
+        <select name="casa" id="casa" [(ngModel)]="casa" >
+          <option value="1" name="casa">No</option>
+          <option value="2" name="casa">Si</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="robo_identidad" class="text-white font-w" [class.flash]="!robo_identidad" >Robo de Identidad</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.robo_identidad != 0  ">
+        <span *ngIf="robo_identidad == 1 ">Si</span>
+      </span>
+
+      <div class="input" *ngIf="!copia || copia.robo_identidad == 0 ">
+        <select name="robo_identidad" id="robo_identidadSel" class="form-control" [(ngModel)]="robo_identidad" >
+          <option value="0" name="robo_identidad">No</option>
+          <option value="1" name="robo_identidad">Si</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="contratoenviado" class="text-white font-w" [class.flash]="!contrato_enviado" >Contrato Enviado</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.contrato_enviado != 0 ">
+        <span *ngIf="robo_identidad == 1 ">Si</span>
+      </span>
+
+      <div class="input" *ngIf="!copia || copia.contrato_enviado == 0 ">
+        <select name="contrato_enviado" id="contrato_enviado" [(ngModel)]="contrato_enviado" >
+          <option value="0" name="contratoenviado">No</option>
+          <option value="1" name="contratoenviado">Si</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="contratofirmado" class="text-white font-w" [class.flash]="!contrato_firmado" >Contrato Firmado</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.contrato_firmado != 0 ">
+        <span *ngIf="contrato_firmado == 1 ">Si</span>
+      </span>
+
+      <div class="input" *ngIf="!copia || copia.contrato_firmado == 0 ">
+        <select name="contrato_firmado" id="contrato_firmado" [(ngModel)]="contrato_firmado" >
+          <option value="0" name="contratofirmado">No</option>
+          <option value="1" name="contratofirmado">Si</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="licencia" class="text-white font-w" [class.flash]="!licencia">Licencia</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.licencia != 0 ">
+        <span *ngIf="licencia == 1 ">Si</span>
+      </span>
+
+      <div class="input" *ngIf="!copia || copia.licencia == 0 ">
+        <select name="licencia" id="licencia" class="form-control" [(ngModel)]="licencia" >
+          <option value="0" name="licencia">No</option>
+          <option value="1" name="licencia">Si</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="reportex3" class="text-white font-w" [class.flash]="!reportex3">Reporte X 3</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.reportex3 != 0 ">
+        <span *ngIf="reportex3 == 1 ">Si</span>
+      </span>
+
+      <div class="input" *ngIf="!copia || copia.reportex3 == 0">
+        <select name="reportex3" id="reportex3" class="form-control" [(ngModel)]="reportex3" >
+          <option value="0" name="reportex3">No</option>
+          <option value="1" name="reportex3">Si</option>
+        </select>
+      </div>
+
+    </div>
+    <!-- ok -->
+    <div class="form-group col-md-3">
+      <label for="empleador" class="text-white font-w" [class.flash]="!empleador" >Empleador</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.empleador ">{{empleador}}</span>
+
+      <div class="input" *ngIf="!copia || !copia.empleador">
+        <input type="text" name="empleador" class="form-control" maxlength="30" pattern="^^[a-zA-Z '.]*$"
+          [(ngModel)]="empleador" #empleadorI="ngModel" />
+        <div class="errores" *ngIf="empleadorI.invalid && empleadorI.dirty">
+          <div *ngIf="empleadorI.errors.pattern">
+            <small><b>Solo</b> letras y simbolos <br />
+              ( ' . )</small>
+          </div>
+          <div *ngIf="empleadorI.errors.maxlength">
+            <small>Máximo <b>20</b> caracteres</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="!emisora && !is_ref">
+      <label for="redes" class="text-white font-w" [class.flash]="!redes" >Redes e Internet</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.redes ">
+        <span *ngFor="let r of redesE">
+          <span *ngIf="redes == r[0]">{{ r[0] }} </span>
+        </span>
+      </span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.redes">
+        <select name="redes" id="redes" [(ngModel)]="redes" >
+          <option name="redes" *ngFor="let e of redesE" [value]="e[0]">{{e[0]}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="!redes && !is_ref">
+      <label for="emisora" class="text-white font-w" [class.flash]="!emisora" >Emisora</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.emisora" >{{ emisora }}</span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.emisora">
+        <select name="emisora" id="emisora" [(ngModel)]="emisora" >
+          <option name="emisora" *ngFor="let e of emisoras" [value]="e[0]">{{e[0]}}</option>
+          <option name="emisora" [value]="emisora">{{emisora}}</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="emisora == 'La Mega'">
+      <label for="dial" class="text-white font-w" [class.flash]="!dial" >Dial</label>
+      <select name="dial" id="dial" [(ngModel)]="dial" >
+        <option name="dial" *ngFor="let e of l_m" [value]="e[0]">{{e[0]}}</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="emisora == 'Latina FM'">
+      <label for="dial" class="text-white font-w" [class.flash]="!dial" >Dial</label>
+      <select name="dial" id="dial" [(ngModel)]="dial" >
+        <option name="dial" *ngFor="let e of ltn" [value]="e[0]">{{e[0]}}</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="emisora == 'Radio Poder'">
+      <label for="dial" class="text-white font-w" [class.flash]="!dial" >Dial</label>
+      <select name="dial" id="dial" [(ngModel)]="dial" >
+        <option name="dial" *ngFor="let e of pod" [value]="e[0]">{{e[0]}}</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="emisora == 'Radio Aleluya'">
+      <label for="dial" class="text-white font-w" [class.flash]="!dial" >Dial</label>
+      <select name="dial" id="dial" [(ngModel)]="dial" >
+        <option name="dial" *ngFor="let e of aly" [value]="e[0]">{{e[0]}}</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="emisora == 'Radio Cantico NY'">
+      <label for="dial" class="text-white font-w" [class.flash]="!dial" >Dial</label>
+      <select name="dial" id="dial" [(ngModel)]="dial" >
+        <option name="dial" *ngFor="let e of ca_n" [value]="e[0]">{{e[0]}}</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="!emisora && !redes && mostrar_btn_ref">
+      <label for="dial" class="text-white font-w" [class.flash]="!is_ref" >Es Referido</label>
+      <button class="btn-ref" (click)="is_ref = !is_ref">Cambiar</button>
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="is_ref && !referido">
+      <label for="id_ref" class="text-white font-w" [class.flash]="!id_ref" >Id de Referido</label>
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.referido">
+        <input type="number" name="id_ref" class="form-control" maxlength="8" [(ngModel)]="id_ref" />
+      </div>
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="is_ref && !referido">
+      <label for="nombre_ref" class="text-white font-w" [class.flash]="!id_ref" >Nombre de Referido</label>
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.referido">
+        <input type="text" name="nombre_ref" class="form-control" maxlength="30" [(ngModel)]="nombre_ref" />
+      </div>
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="!mostrar_btn_ref">
+      <label for="direccion_reciente" class="text-white font-w" >Datos de Referido</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.referido ">{{ referido }}</span>
+    </div>
+
+
+
+<!--
+    <div class="form-group col-md-12">
+      <h5 class="text-center text-light py-3">Nuevos Campos</h5>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="inicio" class="text-white font-w d-block" [class.flash]="!inicio" >Fecha de Inicio</label>
+      <input type="date" name="inicio" class="form-control" [(ngModel)]="inicio" >
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="inicio" class="text-white font-w d-block" [class.flash]="!inicio" >Rating</label>
+      <input type="number" name="rating" class="form-control" [(ngModel)]="rating" >
+    </div> -->
+
+    <div class="form-group col-md-12 mt-5">
+      <h5 class="text-center text-light py-3">Direccion Reciente</h5>
+    </div>
+
+    <div class="form-group col-md-3" >
+      <label for="direccion" class="text-white font-w" [class.flash]="!direccion_reciente" >Dirección</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.direccion_reciente">{{direccion_reciente}}</span>
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.direccion_reciente" >
+        <input type="text" name="direccion" class="form-control" [(ngModel)]="direccion_reciente" #direccion_recienteI="ngModel" />
+      </div>
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="apartamento" class="text-white font-w" [class.flash]="!apartamento_reciente" >Apartamento ?</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.apartamento_reciente">{{apartamento_reciente}}</span>
+      <div class="input" *ngIf=" !copia || !copia.campos_adicionales.apartamento_reciente" >
+        <input type="text" name="apartamento" class="form-control"
+        [(ngModel)]="apartamento_reciente" #apartamento_recienteI="ngModel" />
+      </div>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="ciudad" class="text-white font-w" [class.flash]="!ciudad_reciente">Ciudad</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.ciudad_reciente">{{ciudad_reciente}}</span>
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.ciudad_reciente" >
+        <input type="text" name="ciudad" class="form-control"
+        [(ngModel)]="ciudad_reciente" #ciudad_recienteI="ngModel" />
+      </div>
+    </div>
+
+
+    <div class="form-group col-md-2">
+      <label for="zipcode" class="text-white font-w" [class.flash]="zipcode_reciente == '' || !zipcode_reciente" >Zip Code</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.zipcode_reciente != '' ">{{zipcode_reciente}}</span>
+
+      <div class="input"
+        *ngIf="!copia || copia.campos_adicionales.zipcode_reciente == '' || copia.campos_adicionales.zipcode_reciente == null " >
+        <input type="text" name="zipcode" class="form-control" pattern="^(\d{1,10})" [(ngModel)]="zipcode_reciente"
+          #zipcode_recienteI="ngModel"  />
+        <div class="errores" *ngIf="zipcode_recienteI.invalid && zipcode_recienteI.dirty">
+          <div *ngIf="zipcode_recienteI.errors.pattern">
+            <small>Solo <b>números</b> 4 a 8 dígitos</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-2 ">
+      <label for="roboidentidad" class="text-white font-w " [class.flash]="!estado_reciente" >Estado</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.estado_reciente">
+        <span *ngFor="let e of estados">
+          <span *ngIf="copia.campos_adicionales.estado_reciente == e[0] ">{{ e[1] }}</span>
+        </span>
+        <span *ngIf="copia.campos_adicionales.estado_reciente.length > 2">{{ copia.campos_adicionales.estado_reciente }}</span>
+      </span>
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.estado_reciente" >
+        <select name="estado" id="estadoSel" class="form-control" [(ngModel)]="estado_reciente">
+          <option value="TX" name="estado">Texas</option>
+          <option value="MS" name="estado">Massachusetts</option>
+          <option value="NY" name="estado">New York</option>
+          <option value="CT" name="estado">Connecticut</option>
+          <option value="NJ" name="estado">New Jersy</option>
+          <option value="CO" name="estado">Colorado</option>
+          <option value="RI" name="estado">Rhode Island</option>
+          <option value="MN" name="estado">Minnesota</option>
+          <option value="KY" name="estado">Kentucky</option>
+          <option value="PR" name="estado">Puerto Rico</option>
+          <option value="PA" name="estado">Pennsylvania</option>
+          <option value="UT" name="estado">Utah</option>
+          <option value="VA" name="estado">Virginia</option>
+          <option [value]="estado_reciente" name="estado_reciente">{{estado_reciente}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group col-md-12 mt-4">
+      <h5 class="text-center text-light py-3">Horarios</h5>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="dia_llamar" class="text-white font-w d-block" [class.flash]="!dia_llamar" >Dia disponible para llamar</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.dia_llamar " >{{ dia_llamar }}</span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.dia_llamar ">
+        <select name="dia_llamar" id="dia_llamar" [(ngModel)]="dia_llamar" >
+          <option value="Domingo" name="dia_llamar">Domingo</option>
+          <option value="Lunes" name="dia_llamar">Lunes</option>
+          <option value="Martes" name="dia_llamar">Martes</option>
+          <option value="Miercoles" name="dia_llamar">Miércoles</option>
+          <option value="Jueves" name="dia_llamar">Jueves</option>
+          <option value="Viernes" name="dia_llamar">Viernes</option>
+          <option value="Sabado" name="dia_llamar">Sábado</option>
+          <option value="Fines_semana" name="dia_llamar">Fin de semana</option>
+        </select>
+      </div>
+    </div>
+
+    <!--  -->
+    <div class="form-group col-md-3">
+      <label for="mejor_hora_llamar" class="text-white font-w" [class.flash]="!mejor_hora_llamar">Mejor Hora para llamar</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.mejor_hora_llamar " >{{ mejor_hora_llamar | hora24 }}</span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.mejor_hora_llamar ">
+        <input type="time" name="mejor_hora_llamar" maxlength="10" class="form-control" [(ngModel)]="mejor_hora_llamar"
+          #mejor_hora_llamarI="ngModel" />
+        <div class="errores" *ngIf="mejor_hora_llamarI.invalid && mejor_hora_llamarI.dirty">
+          <div *ngIf="mejor_hora_llamarI.errors.maxlength">
+            <small>Máximo <b>20</b> caracteres</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="call_trabajo" class="text-white font-w" [class.flash]="!call_trabajo" >Llamar a trabajo</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.call_trabajo " >
+        <span *ngIf="call_trabajo == '0' ">No se Puede</span>
+        <span *ngIf="call_trabajo == '1' ">Si se Puede</span>
+      </span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.call_trabajo ">
+        <select name="call_trabajo" class="form-control" [(ngModel)]="call_trabajo"
+          #call_trabajoI="ngModel" >
+          <option value="0">No se Puede</option>
+          <option value="1">Si es Permitido</option>
+        </select>
+      </div>
+
+    </div>
+
+
+    <div class="form-group col-md-3">
+      <label for="horariotrabajo" class="text-white font-w" [class.flash]="!horariotrabajo">Horario de trabajo</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.horariotrabajo " >{{ horariotrabajo }}</span>
+
+      <div class="input" *ngIf="!copia || !copia.horariotrabajo ">
+        <input type="text" class="form-control" name="horariotrabajo" maxlength="25" [(ngModel)]="horariotrabajo"
+          #horariotrabajoI="ngModel" />
+        <div class="errores" *ngIf="horariotrabajoI.invalid && horariotrabajoI.dirty">
+          <div *ngIf="horariotrabajoI.errors.maxlength">
+            <small>Máximo <b>10</b> caracteres</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="dialibre" class="text-white font-w d-block" [class.flash]="!dialibre" >Dia Libre</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.dialibre " >{{ dialibre }}</span>
+
+      <div class="input" *ngIf="!copia || !copia.dialibre ">
+        <select name="dialibre" id="dialibreSele" [(ngModel)]="dialibre" >
+          <option value="Domingo" name="dialibre">Domingo</option>
+          <option value="Lunes" name="dialibre">Lunes</option>
+          <option value="Martes" name="dialibre">Martes</option>
+          <option value="Miercoles" name="dialibre">Miércoles</option>
+          <option value="Jueves" name="dialibre">Jueves</option>
+          <option value="Viernes" name="dialibre">Viernes</option>
+          <option value="Sabado" name="dialibre">Sábado</option>
+          <option value="Fin de semana" name="dialibre">Fin de semana</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="form-group col-md-3">
+      <label for="horaduerme" class="text-white font-w" [class.flash]="!horaduerme">Hora que se Duerme</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.horaduerme " >{{ horaduerme | hora24 }}</span>
+
+      <div class="input" *ngIf="!copia || !copia.horaduerme ">
+        <input type="time" name="horaduerme" maxlength="20" class="form-control" [(ngModel)]="horaduerme"
+          #horaduermeI="ngModel" />
+        <div class="errores" *ngIf="horaduermeI.invalid && horaduermeI.dirty">
+          <div *ngIf="horaduermeI.errors.maxlength">
+            <small>Máximo <b>20</b> caracteres</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="horalevanta" class="text-white font-w" [class.flash]="!horalevanta">Hora que se Levanta</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.horalevanta " >{{ horalevanta | hora24 }}</span>
+
+      <div class="input" *ngIf="!copia || !copia.horalevanta ">
+        <input type="time" name="horalevanta" maxlength="20" class="form-control" [(ngModel)]="horalevanta"
+          #horalevantaI="ngModel"/>
+        <div class="errores" *ngIf="horalevantaI.invalid && horalevantaI.dirty">
+          <div *ngIf="horalevantaI.errors.maxlength">
+            <small>Máximo <b>10</b> caracteres</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="form-group col-md-12">
+      <h5 class="text-center text-light py-3">Información Ingresos/Egresos</h5>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="salario" class="text-white font-w"  [class.flash]="!salario" > Salario </label>
+      <span class="form-control span_fc" *ngIf="copia && copia.salario > 1 " >$ {{ salario }}</span>
+
+      <div class="input" *ngIf="!copia || copia.salario == 0 || !copia.salario " >
+        <input type="text" name="salario" class="form-control" pattern="^(\d{1,10})" maxlength="10" [(ngModel)]="salario" #salarioI="ngModel" />
+        <div class="errores" *ngIf="salarioI.invalid && salarioI.dirty">
+          <div *ngIf="salarioI.errors.pattern">
+            <small><b>Solo</b> números ( 200000 )</small>
+          </div>
+          <div *ngIf="salarioI.errors.maxlength">
+            <small>Máximo <b>10</b> dígitos</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="tipo_ingreso" class="text-white font-w"  [class.flash]="!tipo_ingreso">Tipo de ingreso</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.tipo_ingreso ">
+        <span *ngFor="let t of tipo_ing" >
+          <span *ngIf="tipo_ingreso == t[0] ">{{ t[1] }}</span>
+        </span>
+      </span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.tipo_ingreso " >
+        <select name="tipo_ingreso" id="tipo_ingreso" [(ngModel)]="tipo_ingreso" >
+          <option *ngFor="let t of tipo_ing" [value]="t[0]">{{ t[1] }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="id" class="text-white font-w" [class.flash]="!banco_cheque">Banco Cheque</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.banco_cheque ">{{ banco_cheque }}</span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.banco_cheque " >
+        <input type="text" name="id" class="form-control" [(ngModel)]="banco_cheque" />
+      </div>
+
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="capacidad_ahorro" class="text-white font-w" [class.flash]="!capacidad_ahorro" >Capacidad de ahorro</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.capacidad_ahorro > 1 " >$ {{ capacidad_ahorro }}</span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.capacidad_ahorro " >
+        <input type="text" name="capacidad_ahorro" class="form-control" pattern="^(\d{1,10})" maxlength="10"
+          [(ngModel)]="capacidad_ahorro" #capacidad_ahorroI="ngModel"  />
+        <div class="errores" *ngIf="capacidad_ahorroI.invalid && capacidad_ahorroI.dirty">
+          <div *ngIf="capacidad_ahorroI.errors.pattern">
+            <small><b>Solo</b> números( 200.000 )</small>
+          </div>
+          <div *ngIf="capacidad_ahorroI.errors.maxlength">
+            <small>Máximo <b>10</b> dígitos </small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group col-md-3">
+      <label for="pago_renta" class="text-white font-w" [class.flash]="!pago_renta" > Pago renta </label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.pago_renta" >$ {{ pago_renta }}</span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.pago_renta" >
+        <input type="text" name="pago_renta" class="form-control" pattern="^(\d{1,10})" maxlength="10"
+          [(ngModel)]="pago_renta" #pago_rentaI="ngModel" />
+        <div class="errores" *ngIf="pago_rentaI.invalid && pago_rentaI.dirty">
+          <div *ngIf="pago_rentaI.errors.pattern">
+            <small><b>Solo</b> números( 200000 )</small>
+          </div>
+          <div *ngIf="pago_rentaI.errors.maxlength">
+            <small>Máximo <b>10</b> dígitos</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group col-md-3">
+      <label for="sueldoS_Q" class="text-white font-w" [class.flash]="!sueldoS_Q" >Sueldo Sem/Quinc/Mens</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.sueldoS_Q" >
+        <span *ngFor="let s of suelSQ">
+          <span *ngIf="sueldoS_Q == s[0]">{{ s[1]}}</span>
+        </span>
+      </span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.sueldoS_Q" >
+        <select name="sueldoS_Q" id="sueldoS_Q" [(ngModel)]="sueldoS_Q" >
+          <option *ngFor="let s of suelSQ" [value]="s[0]">{{ s[1] }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="sueldoS_Q == 1" >
+      <label for="dia_pago" class="text-white font-w d-block" [class.flash]="!dia_pagoS" >Día Pago</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.dia_pagoS" >
+        <span *ngFor="let d of dias_p">
+          <span *ngIf="dia_pagoS == d[0]">{{ d[1]}}</span>
+        </span>
+      </span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.dia_pagoS" >
+        <select name="dia_pagoS" id="dia_pago" [(ngModel)]="dia_pagoS">
+          <option *ngFor="let d of dias_p" [value]="d[0]">{{ d[1] }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="sueldoS_Q == 3 ">
+      <label for="dia_pago" class="text-white font-w d-block" [class.flash]="!dia_pago" >Día Pago</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.dia_pago " >Dia #{{ dia_pago }}</span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.dia_pago" >
+        <input type="text" min="1" max="31" name="dia_pagoS" pattern="\b([1-9]|[12][0-9]|3[01])\b"
+          [(ngModel)]="dia_pago" #dia_pagoSI="ngModel">
+        <div class="errores" *ngIf="dia_pagoSI.invalid && dia_pagoSI.dirty">
+          <div *ngIf="dia_pagoSI.errors.pattern">
+            <small> Solo <b>Números</b> 1 al 31</small>
+          </div>
+          <div *ngIf="dia_pagoSI.errors.maxlength">
+            <small>Máximo <b>31</b> </small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="form-group col-md-3" *ngIf="sueldoS_Q == 2 ">
+      <label for="dia_pago" class="text-white font-w d-block" [class.flash]="!dia_pago" >Día Primer Pago</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.dia_pago " >Dia #{{ dia_pago }}</span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.dia_pago" >
+        <input type="text" name="dia_pago" id="dia_pago" pattern="\b([1-9]|[12][0-9]|3[01])\b" [(ngModel)]="dia_pago"
+          #dia_pagoI="ngModel">
+        <div class="errores" *ngIf="dia_pagoI.invalid && dia_pagoI.dirty">
+          <div *ngIf="dia_pagoI.errors.pattern">
+            <small> Solo <b>Números</b> 1 al 31</small>
+          </div>
+          <div *ngIf="dia_pagoI.errors.maxlength">
+            <small>Máximo <b>31</b> </small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group col-md-3" *ngIf="sueldoS_Q == 2 ">
+      <label for="dia_pago" class="text-white font-w d-block" [class.flash]="!dia_pago2">Día Segundo Pago</label>
+      <span class="form-control span_fc" *ngIf="copia && copia.campos_adicionales.dia_pago2 " >Dia #{{ dia_pago2 }}</span>
+
+      <div class="input" *ngIf="!copia || !copia.campos_adicionales.dia_pago2" >
+        <input type="text" name="dia_pagoS" id="dia_pago" pattern="\b([1-9]|[12][0-9]|3[01])\b" [(ngModel)]="dia_pago2"
+          #dia_pago2I="ngModel">
+        <div class="errores" *ngIf="dia_pago2I.invalid && dia_pago2I.dirty">
+          <div *ngIf="dia_pago2I.errors.pattern">
+            <small> Solo <b>Números</b> 1 al 31</small>
+          </div>
+          <div *ngIf="dia_pago2I.errors.maxlength">
+            <small>Máximo <b>31</b> </small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group col-md-12">
+      <h5 class="text-center text-light py-3">Tarjeta Credito</h5>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="id" class="text-white font-w" [class.flash]="!id_tarjetaE">Número Tarjeta
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#28a745" class="bi bi-check-circle-fill" viewBox="0 0 16 16" *ngIf="id_tarjetaE">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+      </label>
+      <input type="text" name="id" class="form-control" pattern="^(\d{4})-(\d{4})-(\d{4})-(\d{4})"
+      placeholder="1111-2222-3333-4444" maxlength="19" [(ngModel)]="id_tarjeta" #id_tarjetaI="ngModel"/>
+      <div class="errores" *ngIf="id_tarjetaI.invalid && id_tarjetaI.dirty">
+        <div *ngIf="id_tarjetaI.errors.pattern">
+          <small><b>Solo</b> numeros y - <br />
+            ( 1234-1223-1234-1234 )</small>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="id" class="text-white font-w" [class.flash]="!cvE">CVC
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#28a745" class="bi bi-check-circle-fill" viewBox="0 0 16 16" *ngIf="cvE">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+      </label>
+      <input type="text" name="id" class="form-control" [(ngModel)]="cv" />
+    </div>
+    <div class="form-group col-md-3">
+      <label for="id" class="text-white font-w" [class.flash]="!expE" >Expiración
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#28a745" class="bi bi-check-circle-fill" viewBox="0 0 16 16" *ngIf="expE">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+      </label>
+      <input type="text" name="id" class="form-control" [(ngModel)]="exp" />
+    </div>
+    <div class="form-group col-md-3">
+      <label for="id" class="text-white font-w" [class.flash]="!nombres_tarjetaE">Nombre en Tarjeta
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#28a745" class="bi bi-check-circle-fill" viewBox="0 0 16 16" *ngIf="nombres_tarjetaE">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+      </label>
+      <input type="text" name="id" class="form-control" [(ngModel)]="nombres_tarjeta" />
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="id" class="text-white font-w" [class.flash]="!tipo_tarjetaE">Tipo Tarjeta
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#28a745" class="bi bi-check-circle-fill" viewBox="0 0 16 16" *ngIf="tipo_tarjetaE">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+      </label>
+      <select [(ngModel)]="tipo_tarjeta" name="tipo_tarjeta">
+        <option value="1" name="tipo_tarjeta">Debito</option>
+        <option value="2" name="tipo_tarjeta">Credito</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="id" class="text-white font-w" [class.flash]="!bancoE">Banco
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#28a745" class="bi bi-check-circle-fill" viewBox="0 0 16 16" *ngIf="bancoE">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+      </label>
+      <input type="text" name="id" class="form-control" [(ngModel)]="banco" />
+    </div>
+
+
+<!-- ************************************************** -->
+  </div>
+
+  <h5 class="text-center text-light py-3">Datos Creditos y Reporte</h5>
+
+  <div class="form-row mt-3">
+
+    <div class="form-group col-md-3">
+      <label for="puntaje_equifax" class="text-white font-w" [class.flash]="!puntaje_equifax">Puntaje Equifax</label>
+      <input type="text" name="puntaje_equifax" class="form-control" pattern="^(\d{1,3})" maxlength="10"
+        [(ngModel)]="puntaje_equifax" #puntaje_equifaxI="ngModel" />
+      <div class="errores" *ngIf="puntaje_equifaxI.invalid && puntaje_equifaxI.dirty">
+        <div *ngIf="puntaje_equifaxI.errors.pattern">
+          <small><b>Solo</b> números</small>
+        </div>
+        <div *ngIf="puntaje_equifaxI.errors.maxlength">
+          <small>Máximo <b>3</b> dígitos</small>
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="puntaje_experian" class="text-white font-w" [class.flash]="!puntaje_experian">Puntaje Experian</label>
+      <input type="text" name="puntaje_experian" class="form-control" pattern="^(\d{1,3})" maxlength="10"
+      [(ngModel)]="puntaje_experian" #puntaje_experianI="ngModel" />
+      <div class="errores" *ngIf="puntaje_experianI.invalid && puntaje_experianI.dirty">
+        <div *ngIf="puntaje_experianI.errors.pattern">
+          <small><b>Solo</b> números</small>
+        </div>
+        <div *ngIf="puntaje_experianI.errors.maxlength">
+          <small>Máximo <b>3</b> dígitos</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="puntaje_trans_u" class="text-white font-w" [class.flash]="!puntaje_trans_u">Puntaje Trans-Union</label>
+      <input type="text" name="puntaje_trans_u" class="form-control" pattern="^(\d{1,3})" maxlength="10"
+        [(ngModel)]="puntaje_trans_u" #puntaje_trans_uI="ngModel" />
+      <div class="errores" *ngIf="puntaje_trans_uI.invalid && puntaje_trans_uI.dirty">
+        <div *ngIf="puntaje_trans_uI.errors.pattern">
+          <small><b>Solo</b> números</small>
+        </div>
+        <div *ngIf="puntaje_trans_uI.errors.maxlength">
+          <small>Máximo <b>3</b> dígitos</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-3"></div>
+
+    <div class="form-group col-md-4">
+      <label for="puntaje_trans_u" class="text-white font-w" [class.flash]="!acredores" >Acreedores</label>
+      <input type="text" name="acredores" class="form-control" maxlength="200"
+      [(ngModel)]="acredores"  >
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="creditos" class="text-white font-w" [class.flash]="!creditos" >Creditos</label>
+      <input type="text" name="creditos" class="form-control" maxlength="200"
+        [(ngModel)]="creditos" >
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="deudas_pendientes" class="text-white font-w" [class.flash]="!deudas_pendientes" >Deudas pendientes</label>
+      <input type="text" name="deudas_pendientes" class="form-control" maxlength="200"
+      [(ngModel)]="deudas_pendientes">
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="puntaje_trans_u" class="text-white font-w" [class.flash]="!acredores2">Otro Acreedor</label>
+      <input type="text" name="acredores2" class="form-control" maxlength="200"
+      [(ngModel)]="acredores2" >
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="creditos2" class="text-white font-w" [class.flash]="!creditos2" >Otro Credito</label>
+      <input type="text" name="creditos2" class="form-control" maxlength="200"
+      [(ngModel)]="creditos2" >
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="deudas_pendientes2" class="text-white font-w" [class.flash]="!deudas_pendientes2" >Otra Deuda</label>
+      <input type="text" name="deudas_pendientes2" class="form-control" maxlength="200"
+        [(ngModel)]="deudas_pendientes2" >
+    </div>
+
+  </div>
+</form>

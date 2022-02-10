@@ -1,0 +1,276 @@
+<div class="row">
+  <div class="col-12">
+    <h5 class="text-center text-light py-3">Documentacion - Historial</h5>
+    <div class="d-flex btC" *ngIf="idCliente">
+      <button class="btx" (click)="cerrarForm()">x</button>
+    </div>
+  </div>
+</div>
+
+<form #F_H_C *ngIf="!edit">
+
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="fecha_cliente" class="text-white font-w">Fecha Apertura</label>
+      <input type="date" name="fecha" class="form-control" [(ngModel)]="fecha" #fechaI="ngModel" />
+    </div>
+    <div class="form-group col-md-2">
+      <label for="acredor" class="text-white font-w">Creditor/Purnisher</label>
+      <input type="text" name="acredor" class="form-control" [(ngModel)]="acreedor" maxlength="200" #acredorI="ngModel" />
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="buro" class="text-white font-w">Buró de Credito</label>
+      <select id="buro" name="buro" class="form-control" maxlength="1" [(ngModel)]="buro" #buroI="ngModel">
+        <option value="1" name="buro">Equifax</option>
+        <option value="2" name="buro">Experian</option>
+        <option value="3" name="buro">TransUnion</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="numero_cuenta" class="text-white font-w">N° Cuenta</label>
+      <input type="text" name="numero_cuenta" class="form-control" [(ngModel)]="numero_cuenta" #numero_cuentaI="ngModel" />
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="tipo_cuenta" class="text-white font-w">Tipo Cuenta</label>
+      <input type="text" name="razon" class="form-control" [(ngModel)]="tipo_cuenta" #razonI="ngModel" />
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="estado" class="text-white font-w">Estado</label>
+      <select id="estado" name="estado" class="form-control" maxlength="1" [(ngModel)]="estado" #estadoI="ngModel">
+        <option value="0" name="estado">Negative</option>
+        <option value="1" name="estado">Positive</option>
+        <option value="2" name="estado">Deleted</option>
+        <option value="3" name="estado">Repaired</option>
+        <option value="4" name="estado">In Dispute</option>
+        <option value="5" name="estado">Verified</option>
+        <option value="6" name="estado">Updated</option>
+        <option value="7" name="estado">Unspecifed</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="razon" class="text-white font-w">Limite</label>
+      <input type="number" name="limite" class="form-control" [(ngModel)]="limite" #limiteI="ngModel" />
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="razon" class="text-white font-w">Balance</label>
+      <input type="number" name="balance" class="form-control" [(ngModel)]="balance" #balanceI="ngModel" />
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="razon" class="text-white font-w">Status</label>
+      <select name="cierre" class="form-control" [(ngModel)]="cierre">
+        <option value="0">Cerrado</option>
+        <option value="1">Abierto</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="razon" class="text-white font-w">Razón</label>
+      <select id="estado" name="estado" class="form-control" maxlength="2" [(ngModel)]="comentarios" #comentariosI="ngModel" >
+        <option value="1" name="estado">The folllowing inquiry is more than 2 years old and I would like it removed</option>
+        <option value="2" name="estado">The inquiry was not authorized</option>
+        <option value="3" name="estado">I do not recall this account as being mine</option>
+        <option value="4" name="estado">Identity Thenft</option>
+        <option value="5" name="estado">The account is missing payment history. Update on-time payment</option>
+        <option value="6" name="estado">The following account was a Bankruptcy/Charge-off. Balance should be $0</option>
+
+      </select>
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="cobro" class="text-white font-w">Reporte Credito</label>
+      <button class="btn btn-primary btn-small btn-block" (click)="agregarReporte()">
+        Add...
+      </button>
+    </div>
+  </div>
+</form>
+
+<div class="table_histo" style="max-height: 39vh; overflow: auto">
+  <table class="table table-hover table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Fecha Apertura</th>
+        <th scope="col">Creditor/Purnisher</th>
+        <th scope="col">Razón</th>
+        <th scope="col">Buró de Crédito</th>
+        <th scope="col">N° Cuenta</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Status</th>
+        <th scope="col">Opc</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of dataHistorial; index as i">
+        <td>{{ item.fecha }}</td>
+        <td>{{ item.acreedor }}</td>
+        <td>
+          <span *ngIf="item.comentarios == '1' ">The folllowing inquiry is more than 2 years old</span>
+          <span *ngIf="item.comentarios == '2' ">The inquiry was not authorized</span>
+          <span *ngIf="item.comentarios == '3' ">I do not recall this account as being mine</span>
+          <span *ngIf="item.comentarios == '4' ">Identity Thenft</span>
+          <span *ngIf="item.comentarios == '5' ">The account is missing payment history. Update on-time payment</span>
+          <span *ngIf="item.comentarios == '6' ">The following account was a Bankruptcy/Charge-off. Balance should be $0</span>
+        </td>
+        <td [ngSwitch]="item.buro">
+          <span *ngSwitchCase="1">Equifax</span>
+          <span *ngSwitchCase="2">Experian</span>
+          <span *ngSwitchCase="3">TransUnion</span>
+        </td>
+        <td>{{ item.cuenta }}</td>
+   <!--      <td>{{ item.tipo_cuenta }}</td> -->
+        <td>
+          <span *ngIf="item.estado == 0 ">Negative</span>
+          <span *ngIf="item.estado == 1 ">Positive</span>
+          <span *ngIf="item.estado == 2 ">Deleted</span>
+          <span *ngIf="item.estado == 3 ">Repaired</span>
+          <span *ngIf="item.estado == 4 ">In Dispute</span>
+          <span *ngIf="item.estado == 5 ">Verified</span>
+          <span *ngIf="item.estado == 6 ">Updated</span>
+          <span *ngIf="item.estado == 7 ">Unspecifed</span>
+        </td>
+<!--         <td>{{ item.limite }}</td>
+        <td>{{ item.balance }}</td> -->
+        <td>
+          <span *ngIf="item.cierre == 0 ">Cerrado</span>
+          <span *ngIf="item.cierre == 1 ">Abierto</span>
+        </td>
+        <td>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16" (click)="verReporte(item)">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="yellow" class="bi bi-pencil-square ml-1" viewBox="0 0 16 16" (click)="editR(item)">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-trash-fill ml-1" viewBox="0 0 16 16"
+            (click)="eliminarDoc(item.id)" *ngIf="is_Admin">
+            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+          </svg>
+
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+
+<div class="modal_notas" *ngIf="verhist || edit">
+  <div class="modal-header">
+    <h5 class="modal-title">
+      {{ cliente.nombres }} {{ cliente.apellidos }}
+    </h5>
+
+    <div class="cerar_m float-right">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16" (click)="cerrarM()">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="img" >
+      <img src="../../../assets/logos/equifax.png" alt="equifax logo" *ngIf="reporte.buro == 1 ">
+      <img src="../../../assets/logos/Experian_logo.jpg" alt="experian logo" *ngIf="reporte.buro == 2 ">
+      <img src="../../../assets/logos/transunion.png" alt="transunion logo" *ngIf="reporte.buro == 3 ">
+    </div>
+    <br>
+    <br>
+    <div class="img">
+      <p>Creditor/Purnisher: <b>{{ reporte.acreedor }}</b></p>
+    </div>
+    <div class="img">
+      <p>
+        <b>
+          <span *ngIf="reporte.comentarios == '1' ">The folllowing inquiry is more than 2 years old
+            and I would like it removed</span>
+        <span *ngIf="reporte.comentarios == '2' ">The inquiry was not authorized</span>
+        <span *ngIf="reporte.comentarios == '3' ">I do not recall this account as being mine</span>
+        <span *ngIf="reporte.comentarios == '4' ">Identity Thenft</span>
+        <span *ngIf="reporte.comentarios == '5' ">The account is missing payment history. Update on-time payment</span>
+        <span *ngIf="reporte.comentarios == '6' ">The following account was a Bankruptcy/Charge-off. Balance should be $0</span>
+        </b>
+      </p>
+    </div>
+  </div>
+  <div class="modal-f" *ngIf="verhist">
+    <p>Fecha Apertura: <b>{{ reporte.fecha }}</b></p>
+    <p>Número Cuenta: <b>{{ reporte.cuenta }}</b></p>
+    <p>Status: <b>
+      <span *ngIf="reporte.cierre == 0 ">Cerrado</span>
+      <span *ngIf="reporte.cierre == 1 ">Abierto</span>
+    </b></p>
+    <p>Tipo de Cuenta : <b>
+      {{ reporte. tipo_cuenta }}
+    </b></p>
+    <p>Limite : <b>$ {{ reporte.limite }}</b></p>
+    <p>Balance : <b>$ {{ reporte.balance }}</b></p>
+    <p>Estado : <b>
+      <span *ngIf="reporte.estado == 0 ">Negative</span>
+      <span *ngIf="reporte.estado == 1 ">Positive</span>
+      <span *ngIf="reporte.estado == 2 ">Deleted</span>
+      <span *ngIf="reporte.estado == 3 ">Repaired</span>
+      <span *ngIf="reporte.estado == 4 ">In Dispute</span>
+      <span *ngIf="reporte.estado == 5 ">Verified</span>
+      <span *ngIf="reporte.estado == 6 ">Updated</span>
+      <span *ngIf="reporte.estado == 7 ">Unspecifed</span>
+    </b></p>
+  </div>
+  <div class="modal-f" *ngIf="edit">
+    <p>Buró:
+      <select id="buro" name="buro" maxlength="1" [(ngModel)]="reporte.buro" >
+        <option value="1" name="buro">Equifax</option>
+        <option value="2" name="buro">Experian</option>
+        <option value="3" name="buro">TransUnion</option>
+      </select>
+    </p>
+    <p>Creditor/Purnisher: <input type="text" name="acredor" [(ngModel)]="reporte.acreedor" maxlength="200"/></p>
+    <p>Razón:
+      <select id="estado" name="estado" maxlength="2" [(ngModel)]="reporte.comentarios">
+        <option value="1" name="estado">The folllowing inquiry is more than 2 years old and I would like it removed</option>
+        <option value="2" name="estado">The inquiry was not authorized</option>
+        <option value="3" name="estado">I do not recall this account as being mine</option>
+        <option value="4" name="estado">Identity Thenft</option>
+        <option value="5" name="estado">The account is missing payment history. Update on-time payment</option>
+        <option value="6" name="estado">The following account was a Bankruptcy/Charge-off. Balance should be $0</option>
+      </select>
+    </p>
+    <p>Fecha Apertura: <input type="date" name="fecha" [(ngModel)]="reporte.fecha"></p>
+    <p>Número Cuenta: <input type="text" name="numero_cuenta" [(ngModel)]="reporte.cuenta"/></p>
+    <p>Status:
+      <select name="cierre" [(ngModel)]="reporte.cierre">
+        <option value="0">Cerrado</option>
+        <option value="1">Abierto</option>
+      </select>
+    </p>
+    <p>Tipo de Cuenta :
+      <input type="text" name="razon" [(ngModel)]="reporte.tipo_cuenta" />
+    </p>
+    <p>Limite :<input type="number" name="limite"  [(ngModel)]="reporte.limite" /> </p>
+    <p>Balance : <input type="number" name="balance" [(ngModel)]="reporte.balance" /></p>
+    <p>Estado:
+      <select id="estado" name="estado" maxlength="1" [(ngModel)]="reporte.estado">
+        <option value="0" name="estado">Negative</option>
+        <option value="1" name="estado">Positive</option>
+        <option value="2" name="estado">Deleted</option>
+        <option value="3" name="estado">Repaired</option>
+        <option value="4" name="estado">In Dispute</option>
+        <option value="5" name="estado">Verified</option>
+        <option value="6" name="estado">Updated</option>
+        <option value="7" name="estado">Unspecifed</option>
+      </select>
+    </p>
+    <button type="button" class="btn btn-primary float-right" (click)="editarHistorial()">Enviar</button>
+
+  </div>
+
+</div>

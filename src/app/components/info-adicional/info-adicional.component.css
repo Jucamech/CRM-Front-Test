@@ -1,0 +1,141 @@
+
+.font-w {
+  font-weight: 600;
+  text-shadow: 1px 1px 3px black;
+}
+
+.form-group select,
+.form-group input[type=text],
+.form-group input[type=number],
+.form-group input[type=time],
+.form-group input[type=date] {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: default;
+  border-bottom: 1px solid rgb(255, 255, 255);
+
+}
+.form-group select{
+width: 100%;
+padding: 7px;
+}
+
+option {
+  color: black;
+  font-weight: 600;
+}
+.btC {
+position: absolute;
+top: -15px;
+right: 29px;
+}
+.btx{
+background: none;
+border: none;
+border-radius: 50%;
+color: #fff;
+font-size: 300%;
+font-family: monospace;
+}
+.span_fc{
+  background-color: #636a71;
+  color: white;
+}
+
+
+
+.inputfile {
+width: 0.1px;
+height: 0.1px;
+opacity: 0;
+overflow: hidden;
+position: absolute;
+z-index: -1;
+}
+
+.inputfile + label {
+max-width: 95%;
+max-width: 95%;
+font-size: 1.25rem;
+font-weight: 800;
+text-overflow: ellipsis;
+white-space: nowrap;
+cursor: pointer;
+display: inline-block;
+overflow: hidden;
+padding: 0.25rem 5rem;
+border-radius: 10px;
+}
+
+.iborrainputfile {
+font-size:16px;
+font-weight:normal;
+}
+
+
+.inputfile-1 + label {
+color: #fff;
+background-color: #007bff;
+}
+
+.inputfile-1:focus + label,
+.inputfile-1.has-focus + label,
+.inputfile-1 + label:hover {
+background-color: blue;
+}
+.btn-ref{
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  padding: 5px;
+  border-color: white;
+}
+
+.errores{
+border: 1px solid;
+font-weight: 600;
+margin-top: 2px;
+padding: 0 9px;
+border-radius: 6px;
+color: #f12337;
+}
+
+::placeholder {
+color:darkgrey;
+
+}
+
+/* parpadeo */
+
+@-webkit-keyframes flash {
+0%, 50%, 100% {
+opacity: 1;
+}
+25%, 75% {
+opacity: 0;
+}
+}
+@keyframes flash {
+0%, 50%, 100% {
+opacity: 1;
+}
+25%, 75% {
+opacity: 0;
+}
+}
+.flash {
+  color: yellow!important;
+  /* text-shadow: white 1px 1px 3px; */
+  animation: flash 3s linear infinite alternate;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+

@@ -1,0 +1,11 @@
+.reasignar_cita {
+  background-color: #000000;
+  width: 78vw;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.lista {
+  max-height: 47vh;
+  overflow: auto;
+}

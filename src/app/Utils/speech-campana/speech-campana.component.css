@@ -1,0 +1,24 @@
+.content {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.none {
+    display: none;
+}
+
+.intro{
+    line-height: 45px;
+    margin: 4rem auto;
+    font-size: 36px;
+    text-align: center;
+}
+input{
+    border-radius:20px; 
+    height:30px;
+    width:350px;
+    text-align: center;
+    font-size:20px;
+    color: rgb(44, 124, 75);
+    }

@@ -1,0 +1,24 @@
+.w100 {
+  width: 100%;
+}
+
+.contenido {
+  position: absolute;
+  bottom: 7rem;
+}
+
+.title h1,
+h2,
+h3 {
+  color: red;
+}
+
+.radio,
+.venta,
+.tax {
+  width: 33%;
+}
+
+.img_cuadro {
+  width: 100%;
+}

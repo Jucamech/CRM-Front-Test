@@ -1,0 +1,111 @@
+.llamando, .llamando2 {
+  margin-top: -1px;
+  text-align: center;
+  color: white;
+}
+.llOK, .SAC{
+  background-color: green;
+}
+.llF{
+  background-color: red;
+}
+/* modal de informacion explicita */
+.modal_i{
+  width: 400px;
+  border-radius: 16px;
+  position: fixed;
+  right: 2rem;
+  top: 7rem;
+  height: auto;
+  background-color: white;
+  max-height: 580px;
+}
+.body_m {
+  max-height: 345px;
+  padding: 1rem;
+  overflow: auto;
+}
+
+/* cuadros */
+.color{
+  border: 1px solid;
+  width: 100%;
+  height: 100%;
+}
+.cua {
+  width: 15px;
+  height: 15px;
+}
+.VEN, .LL8OK, .PP, .SAC {
+  width: 100%;
+  height: 100%;
+  background-color: green;
+  color: white;
+}
+.AC {
+  width: 100%;
+  height: 100%;
+  background-color: yellow;
+  color: black;
+}
+.PN {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+}
+.B, .NC, .LLC, .G, .D{
+  width: 100%;
+  color: white;
+  height: 100%;
+  background-color: red;
+}
+
+/* ******** pop up ********** */
+.contenedor_{
+  position: absolute;
+  left: -10px;
+  top: 6rem;
+  width: 324px;
+  height: auto;
+  max-height: 85vh;
+  overflow: auto;
+  direction: rtl;
+  overflow-x: hidden;
+}
+
+.ocul_pop{
+  margin-top: 1rem;
+  height: auto;
+  background: white;
+  width: 320px;
+  z-index: 100;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  left: -300px;
+  position: relative;
+  transition: all 2s ease;
+  direction: ltr
+}
+
+.left0 {
+  transition-delay: 2s;
+  left: 0!important;
+}
+
+.cp{
+  cursor: pointer;
+}
+
+.green {
+  color: green;
+}
+/* *************************** */
+.dataL{
+  border-left: solid 1px gray;
+}
+.bot {
+  flex-wrap: wrap;
+  display: flex;
+}
+

@@ -1,0 +1,101 @@
+<app-header></app-header>
+
+<div class="cont  h100">
+  <div class="w100 d-flex justify-content-between h50">
+    <!--************************ calendario ************************-->
+    <div class="calendario w50">
+      <div class="cal d-flex">
+        <div class="dia btn-success">
+          <div class="d d-flex">
+            <p>{{ dia }}</p>
+            <span class="mes">{{ mes }}</span>
+          </div>
+          <div class="h">{{ hora | date:'shortTime' }}</div>
+        </div>
+        <div class="citas">
+          <button class="boton_citas" (click)="toCitasUrl()">
+            <h5 class="btn btn-primary w-f">
+              Citas Hoy<span class="badge bg-warning text-dark fs-5">{{ totalCitas }}</span>
+            </h5>
+          </button>
+          <div class="citas_body">
+            <ul class="list-group" *ngFor="let item of dataClienteCitasD">
+              <li class="list-group-item "
+                [class.list-group-item-success]="item.fechahora.slice(0,10) == hoy"
+                [class.list-group-item-danger]="item.fechahora.slice(0,10) == ayer"
+                (click)="verCita(item.id_cliente, item )">
+                <b *ngIf="item.fechahora.slice(0,10) == ayer">AYER</b> {{ item.fechahora | date: "shortTime" }}<span >
+                  <b class="red"> /</b> ID- {{item.id_cliente}}</span> - <b>{{ item.nombres }} {{ item.apellidos }}</b>&nbsp;
+                <b class="red">Nota: </b> {{ item.notas }}
+                <div class="d-flex aling-center">
+                  <span *ngFor="let c of item.campos_adicionales">
+                    <span class="microCu d-flex {{ c.resultado }} " >
+                    </span>
+                  </span>
+                  <span *ngIf="item.campos_adicionales.length > 0 ">
+                    <b>{{ item.campos_adicionales.length }}</b>
+                  </span>
+                </div>
+                <span class="float-right ml-3"><b class="red"> Asignado: </b> {{ item.id_asignado | searchAgente2:agentes }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+      <!-- fin calendario -->
+      <!--************************* llamadas *************************-->
+    <div class="llamadas_perdidas h100 w50">
+      <div class="con" *ngIf="nivel > 2 || is_kim">
+
+        <div class="llamadas_no_realixadas mt-1" *ngIf="dataCitaRetornada  && dataCitaRetornada.length > 0">
+          <h3 class="ll_title">Llamadas retornadas</h3>
+          <div class="citas_body">
+            <ul class="list-group" *ngFor="let item of dataCitaRetornada">
+              <li class="list-group-item list-group-item-warning">
+                <b class="green">{{ item.nombres }} {{ item.apellidos }}</b>&nbsp;
+                <b >Motivo: </b> {{ item.notas }}
+                <span class="float-right ml-3">
+                  <span class=" ml-5">
+                  <b class="red mr-2"> Asignado: </b> {{ item.id_asignado | searchAgente2:agentes }}</span> &nbsp;
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#blac" class="bi bi-arrow-up-left-square-fill "
+                  viewBox="0 0 16 16" (click)="adminItem(item)">
+                  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm8.096 10.803L6 6.707v2.768a.5.5 0 0 1-1 0V5.5a.5.5 0 0 1 .5-.5h3.975a.5.5 0 1 1 0 1H6.707l4.096 4.096a.5.5 0 1 1-.707.707z"/>
+                </svg>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="w100 h50">
+    <app-lista-status [agentes]="agentes"></app-lista-status>
+  </div>
+
+</div>
+
+
+<app-calendario-citas
+  (cerrarM)="modalCita = false"
+  [modal]="modalCita"
+  [agentes]="agentes"
+  [CitaImport]="citaExport">
+</app-calendario-citas>
+
+<div class="modal_lista">
+  <app-modal-lista-agentes
+    [modal]="modal"
+    (enviarModal)="modal = false"
+    [id_cli]="id_cli" >
+  </app-modal-lista-agentes>
+</div>
+
+
+<app-alertas></app-alertas>
+

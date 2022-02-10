@@ -1,0 +1,77 @@
+<div class="cont" *ngIf="toogle2">
+  <div class="cliente d-flex justify-content-center">
+    <div class="close">
+      <svg (click)="cerrar()" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="red"
+        class="bi bi-x-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+        <path
+          d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+      </svg>
+    </div>
+    <h3>{{ dataItem.nombres }}</h3>
+    <div class="save">
+
+    </div>
+  </div>
+
+  <div class="body_p row">
+
+    <div class="form-group col-md-6">
+      <label for="fecha_cita" class="text-white">Fecha de la Cita</label>
+      <input type="date" name="fecha_cita" class="form-control"
+        pattern="^(\d{4})(\/|-)(0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1])$" [min]="Hoy" [(ngModel)]="fecha_cita"
+        #fecha_citaI="ngModel" />
+      <div class="errores" *ngIf="fecha_citaI.invalid && fecha_citaI.dirty">
+        <div *ngIf="fecha_citaI.errors.pattern">
+          <small>Formato de <b>Fecha</b> no válido</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="hora_cita" class="text-white">Hora de la Cita</label>
+      <input type="time" name="hora_cita" class="form-control" [(ngModel)]="hora_cita" #hora_citaI="ngModel" />
+      <div class="errores" *ngIf="hora_citaI.invalid && hora_citaI.dirty">
+        <div *ngIf="hora_citaI.errors.pattern">
+          <small>Formato de <b>hora</b> no válido</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="nota_cita" class="text-white">Nota-Comentario <span class="obli">*</span>
+      </label>
+      <input required type="text" name="nota_cita" class="form-control" maxlength="500"
+        pattern="([a-zA-Z0-9¡¿!.,: ;\?]{1,500})" [(ngModel)]="nota_cita" #nota_citaI="ngModel" />
+      <div class="errores" *ngIf="nota_citaI.invalid && nota_citaI.dirty">
+        <div *ngIf="nota_citaI.errors.pattern">
+          <small>Use solo <b>caracteres</b> comunes</small>
+        </div>
+        <div *ngIf="nota_citaI.errors.required">
+          <small>Campo es Obligatorio</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-6" >
+      <label for="nombre" class="text-white">Asignar a: <span class="obli">*</span></label>
+      <select name="motivo_cita" id="motivo_citaSel" class="form-control" #selectAgent
+        (change)="log2(selectAgent.value)">
+        <option *ngFor="let item of usuariosList" value="{{ item.id }}">
+          {{ item.nombre }} {{ item.apellido }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-12">
+      <div class="row2">
+        <label for="cobro" class="text-white">Agendar Cita</label>
+        <button class="btn btn-primary btn-small btn-block" (click)="agregarCita()">
+          Add...
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

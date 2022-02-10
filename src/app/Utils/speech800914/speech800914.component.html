@@ -1,0 +1,590 @@
+<div class="content" *ngIf="!toogle800" #escrito3>
+
+  <div class="notas" *ngIf="idClientePost">
+    <a routerLink="{{verCli}}" target="_blank">
+      <button>Abrir Ingresar Cliente</button>
+    </a>
+  </div>
+
+  <div class="intro">
+    <div class="escrito1">
+      <h1>
+        Bienvenido a <b class="sub_r">creditomejor</b> donde su credito <br>
+        es lo <b class="sub_r">más</b> importante!
+      </h1>
+
+      <div class="mt-5">
+        Mi <b class="sub_r">Nombre</b> es: ¿Cual es el suyo? :
+        <div class="flex ">
+          <input type="text" name="nombres" [(ngModel)]="nombres" class="form-control mx-auto" pattern="^^[a-zA-ZÑñ '.]*$"
+          minlength="2" maxlength="50" [(ngModel)]="nombres" #nombresI="ngModel">
+          <div class="errores" *ngIf="nombresI.invalid && nombresI.dirty">
+            <div style="display: flex" *ngIf="nombresI.errors.pattern">
+              <small><b>Solo</b> letras y simbolos( ' . )</small>
+            </div>
+          </div>
+        </div>
+
+        <br>
+
+      <div class="">
+        Mi <b class="sub_r">Apellido</b> es: ¿Cual es el suyo? :
+        <div class="flex ">
+          <input type="text" id="apellidos" name="apellidos" class="form-control mx-auto" pattern="^^[a-zA-ZÑñ '.]*$" minlength="4" maxlength="100" [(ngModel)]="apellidos" #apellidosI="ngModel" />
+          <div class="errores" *ngIf="apellidosI.invalid && apellidosI.dirty">
+            <div *ngIf="apellidosI.errors.pattern">
+              <small><b>Solo</b> letras y simbolos ( ' . )</small>
+             </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="blue">
+        ¿Cón quien hablo?
+      </div>
+
+      <div class="esperar">
+        ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+      </div>
+
+      <div class="h_m d-flex justify-content-center mb-5">
+
+      </div>
+
+      AH pero usted tiene nombre de artista de telenovela
+
+      <div class="esperar">
+        ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+      </div>
+
+      <div class="prosp">
+        Tipo de prospecto? <select name="prospecto" [(ngModel)]="status">
+          <option value="1" name="status">Cliente Activo</option>
+          <option value="2" name="status">Inactivo</option>
+          <option value="3" name="status">Suspendido</option>
+          <option value="4" name="status">Rojo</option>
+          <option value="5" name="status">Virgen</option>
+          <option value="6" name="status">Prospecto</option>
+        </select>
+      </div>
+
+
+      <div class="row buscador d-flex justify-content-center" *ngIf="status != '5' && mintoggle">
+        <div class="form-group d-flex mt-3">
+          <div class="radiobnt d-flex mt-2">
+            <input type="radio" class="mt-3" name="selectFilt" [(ngModel)]="selectFilt" value="nombres"> Nombres
+            <input type="radio" class="mt-3 ml-3" name="selectFilt" [(ngModel)]="selectFilt" value="apellidos">
+            Apellidos
+            <input type="radio" class="mt-3 ml-3" name="selectFilt" [(ngModel)]="selectFilt" value="telefono">
+            Telefono
+          </div>
+
+
+          <input type="search" style="font-size: 18px;" name="buscar" placeholder="Buscar" [(ngModel)]="inp" #filtro
+            class="form-control ml-3 mt-2" (keyup)="filtar($event)" />
+        </div>
+
+
+        <div class="container mt-3" style="height: 40vh; overflow: auto">
+          <table class="table table-hover table-striped table-dark">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Telefono Celular</th>
+                <th scope="col">Telefono Trabajo</th>
+                <th scope="col">Telefono Fijo</th>
+                <th scope="col">Telefono Otro</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listClientes" (click)="setId(item.id, item.nombres, item.apellidos)" >
+                <th scope="row">{{ item.id }}</th>
+                <td>{{ item.nombres }}&nbsp;{{ item.apellidos }}</td>
+                <td>{{ item.telmovil }}</td>
+                <td>{{ item.teltrabajo }}</td>
+                <td>{{ item.telcasa }}</td>
+                <td>{{ item.telotro }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      ¡El <b class="sub_r">identificador</b> de llamadas me indica <br>
+      <span class="sub_r">que su telefono empieza en: </span> <b><span class="ml-3" *ngIf="telx">{{ telx | modTel }}</span></b>
+
+      <div class="mt-3">
+        ¿Eso es correcto? ¿Verdad que si?
+      </div>
+
+      <div class="esperar">
+        ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+      </div>
+
+
+    </div>
+    <div class="escritos2">
+      <h1>PERFECTO!</h1>
+
+      <div class="mt-3">
+        Nescesito un <b>segundo</b> numero de telefono <br>
+        puede ser el del trabajo o de la casa! <br>
+        ¿Cual seria?¿El del <b>trabajo</b> o de la casa? <br>
+      </div>
+
+      <div class="mt-3">
+        Telefono Trabajo:
+        <div class="flex " *ngIf="guardar">
+          <input type="tel" name="teltrabajo" class="form-control mx-auto" pattern="^(\d{10})" maxlength="10" minlength="10"
+          [(ngModel)]="teltrabajo" #teltrabajoI="ngModel" />
+          <div class="errores" *ngIf="teltrabajoI.invalid && teltrabajoI.dirty">
+            <div *ngIf="
+                (teltrabajoI.errors.minlength || teltrabajoI.errors.maxlength) &&
+                !teltrabajoI.touched
+              ">
+              <small>El telefono requiere de <b>10</b> digitos!</small>
+            </div>
+            <div *ngIf="
+                !teltrabajoI.errors.minlength &&
+                !teltrabajoI.errors.maxlength &&
+                teltrabajoI.errors.pattern
+              ">
+              <small><b>NO</b> se permiten letras ni simbolos!</small>
+            </div>
+          </div>
+        </div>
+        <b>
+          <p *ngIf="!guardar">{{ teltrabajo | modTel }}</p>
+        </b>
+
+      </div>
+      <div class="mt-3">
+        Telefono Casa:
+        <div class="flex " *ngIf="guardar">
+          <input type="tel" name="telcasa" class="form-control mx-auto" pattern="^(\d{10})" maxlength="10" minlength="10"
+        [(ngModel)]="telcasa" #telcasaI="ngModel" />
+        <div class="errores" *ngIf="telcasaI.invalid && telcasaI.dirty">
+          <div *ngIf="
+              (telcasaI.errors.minlength || telcasaI.errors.maxlength) &&
+              !telcasaI.touched
+            ">
+            <small>El telefono requiere de <b>10</b> digitos!</small>
+          </div>
+          <div *ngIf="
+              !telcasaI.errors.minlength &&
+              !telcasaI.errors.maxlength &&
+              telcasaI.errors.pattern
+            ">
+            <small><b>NO</b> se permiten letras ni simbolos!</small>
+          </div>
+        </div>
+        </div>
+        <b>
+          <p *ngIf="!guardar" >{{ telcasa | modTel }}</p>
+        </b>
+      </div>
+
+      <div class="mt-3">
+        ¿Qué <b>operador</b> Telefónico tiene usted? <br>
+        Operador: <select name="prospecto" [(ngModel)]="compania_movil">
+          <option value="Verizon">Verizon</option>
+          <option value="AT&T">AT&T</option>
+          <option value="Sprint">Sprint</option>
+          <option value="T-Movil">T-Movil</option>
+          <option value="U.S. Cellular">U.S. Cellular</option>
+          <option value="MetroPCS">MetroPCS</option>
+          <option value="Vox movil">Vox movil</option>
+        </select>
+      </div>
+
+
+      <div class="mt-5">
+        Mi hermana se <b>cambio</b> <br>
+        la semana pasada para {{ compania_movil }}<br>
+        ¿Cómo es el <b>servicio</b> con ellos? <br>
+        ¿Usted los <b>recomienda</b> para yo cambiarme? <br>
+        ¿Cómo le ha <b>funcionado</b> ? <br>
+      </div>
+
+      <div class="mt-5">
+        ¿Cual <b>es</b> Su número Movil?
+        <div class="" *ngIf="guardar">
+          <input  type="text" class="form-control mx-auto" name="telwht" pattern="^(\d{10})" maxlength="10" minlength="10" [(ngModel)]="telwht" #telwhtI="ngModel">
+        <div class="errores" *ngIf="telwhtI.invalid && telwhtI.dirty">
+          <div *ngIf="
+              (telwhtI.errors.minlength || telwhtI.errors.maxlength) &&
+              !telwhtI.touched
+            ">
+            <small>El telefono requiere de <b>10</b> digitos!</small>
+          </div>
+          <div *ngIf="
+              !telwhtI.errors.minlength &&
+              !telwhtI.errors.maxlength &&
+              telwhtI.errors.pattern
+            ">
+            <small><b>NO</b> se permiten letras ni simbolos!</small>
+          </div>
+        </div>
+        </div>
+        <b>
+          <p *ngIf="!guardar" >{{ telwht | modTel }}</p>
+        </b>
+
+      </div>
+      <br>
+      <div class="mt-5">
+        ¿En cual de estos numeros <b>Maneja</b> Whatsapp?
+      </div>
+
+      <div class="esperar mt-5">
+        ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+      </div>
+
+    </div>
+
+    <div class="escrito3" >
+
+      <p *ngIf="telmovil">
+        {{telmovil | modTel }}
+      </p>
+
+
+      <div class="mt-5">
+        ¿A <b>Que Hora</b> se levanta?<span><input type="time" name="hora_levanta" [(ngModel)]="horalevanta"></span>
+      </div>
+
+      <div class="mt-3">
+        <br> ¿A que hora se <b>acuesta</b> a dormir
+        <br> todas las noches?
+        <br> ¿A las 10? ¿11? ¿12? o ¿<b>A la una de la mañana</b> ?
+        <br> <input type="time" name="hora_acuesta" [(ngModel)]="horaduerme">
+      </div>
+
+      <div class="esperar">
+        ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+      </div>
+
+      <div class="mt-5">
+        <br> ¿Porque quiere <b>arreglar</b> su credito?
+        <br> ¿Quiere <b>comprar</b> un automovil,
+        <br> <b>Sacar</b> una tarjeta de credito,
+        <br> mejor <b>comprar</b> una casita?
+        <br> u <b>otro?</b>
+      </div>
+
+      <div class="mt-3">
+        Motivación: <select name="motivacion" id="" [(ngModel)]="motivacion">
+          <option name="motivacion" value="1">Tarjeta</option>
+          <option name="motivacion" value="2">Auto</option>
+          <option name="motivacion" value="3">Casa</option>
+        </select>
+      </div>
+
+
+
+      <div class="mt-5">
+        <br> Entonces, usted quiere comprar un <span *ngIf="motivacion == '2'"><b>automovil</b></span> <span
+          *ngIf="motivacion == '3'"><b>casita</b></span>
+        <br> <b>Perfecto!</b>
+        <br> para eso, tiene que tener un pronto.
+        <br> <b>Cúanto</b> usted puede guardar
+        <br> todos los meses que <b>no</b> le afecte su presupuesto?
+
+        <br> Ahorro Mensual: <input type="number" name="ahorro_mensual" [(ngModel)]="ahorro_mensual">
+      </div>
+
+      <div class="esperar">
+        ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO Y DEPENDIENDO LA CONTESTACION <br> PREGUNTARLE LO QUE APLIQUE
+      </div>
+
+      <div class="mt-4 mb-5">
+        <br> Usted trabaja?
+        <button class="bton" (click)="t1 = 'si'">si trabaja</button>
+        <button class="bton ml-2" (click)="t1 = 'no'">no trabaja</button>
+
+      </div>
+
+
+      <div class="" *ngIf="t1 == 'si'">
+        <br> Usted <b>tiene</b> permiso de trabajo?
+        <br> <select name="permiso_trabajo" id="">
+          <option value="0">No</option>
+          <option value="1">Si</option>
+        </select>
+        <br> es residente o <b>es ciudadano</b> ?
+        <br> <select name="residente" id="">
+          <option value="1">Residente</option>
+          <option value="2">ciudadano</option>
+        </select>
+        <div class="blue">o <b>NO</b> es ninguna de las que mencione?</div>
+        <div class="blue">cual es su situacion?</div>
+        <br> Situacion: <input type="text" name="situacion" id="">
+
+        <br>
+        <br> ¿A que horas <b>trabaja</b> ?
+        <br> ¿De que hora a <b>que hora</b> trabaja?
+        <br> <input type="text" name="horariotrabajo" id="" [(ngModel)]="horariotrabajo">
+        <div class="esperar">
+          ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+        </div>
+
+        <br> Que bueno es tener un <b>trabajo</b>
+        <br> hay mucha gente que <b>no</b> tiene trabajo
+        <br> usted ha sido <b>bendeci@</b> con un trabajo
+        <br> ¿verdad que <b>si</b> ?
+        <br> ¿Usted es empleado <b>regular</b> y le pagan por nómina?
+        <select name="nomina" id="">
+          <option value="1">Regular</option>
+          <option value="2">Nómina</option>
+        </select>
+        <br> Su trabajo es estable?
+        <select name="trabajo_estable" id="">
+          <option value="0">No</option>
+          <option value="1">Si</option>
+        </select>
+        <br> Cuándo recibio en su último cheque? <input type="text" name="" id="">
+        <br>
+
+        <div class="mt-3">
+          <b>¿Cuál es su dia libre en la semana?</b>
+          <br>
+          <label for="dia_pago" class="">Día libre</label>
+          <select name="dialibre" id="dia_pago" [(ngModel)]="dialibre">
+            <option value="1" name="dialibre">Domingo</option>
+            <option value="2" name="dialibre">Lunes</option>
+            <option value="3" name="dialibre">Martes</option>
+            <option value="4" name="dialibre">Miércoles</option>
+            <option value="5" name="dialibre">Jueves</option>
+            <option value="6" name="dialibre">Viernes</option>
+            <option value="7" name="dialibre">Sábado</option>
+          </select>
+        </div>
+
+        <div class="mt-3">
+          <br> Que bien que usted tiene
+          <br> el
+          <span *ngIf="dialibre == '1'">Domingo</span>
+          <span *ngIf="dialibre == '2'">Lunes</span>
+          <span *ngIf="dialibre == '3'">Martes</span>
+          <span *ngIf="dialibre == '4'">Miercoles</span>
+          <span *ngIf="dialibre == '5'">Jueves</span>
+          <span *ngIf="dialibre == '6'">Viernes</span>
+          <span *ngIf="dialibre == '7'">Sábado</span>
+          <b> libre</b> en la semana
+          <br> ¿verdad que <b>si</b> ?
+
+          <br>
+          <br> ¿En que <b>trabaja usted </b> ? <input type="text" name="tipo_trabajo" [(ngModel)]="tipo_trabajo">
+          <br>
+
+          <br> ¿Cuanto gana usted semanal?
+          <br> O es quincenal?
+          <br> <label for="sueldoS_Q" class="">Sueldo Sem/Quinc/Mens</label>
+          <select name="sueldoS_Q" id="sueldoS_Q" [(ngModel)]="sueldoS_Q">
+            <option value=1 name="sueldoS_Q">Semanal</option>
+            <option value=2 name="sueldoS_Q">Quincenal</option>
+            <option value=3 name="sueldoS_Q">Mensual</option>
+          </select>
+          <br>
+
+          <div class="esperar">
+            ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+          </div>
+
+          <br> En que banco <b>tiene</b> su cuenta de cheque?
+          <br> <b><small>
+              Si responde <input class="mr-3" [(ngModel)]="t2" value="si" type="radio" name="xd" id="">
+              No responde <input type="radio" [(ngModel)]="t2" value="no" name="xd" id="">
+            </small></b>
+          <br> <span *ngIf="t2 =='si'">Banco: <input type="text" name="banco" [(ngModel)]="banco"></span>
+          <span class="blue" *ngIf="t2 =='no'">
+            <br> Queremos saber el banco,
+            <br> para ver si usted
+            <br> corre peligro
+            <br> de que puedan quitarle el dinero del banco
+            <br> por alguna deuda pendiente.
+            <br> <b>en que banco tiene su cuenta?</b>
+          </span>
+          <br>
+          <br> Quien <b>más</b> tiene ingreso en su casa? <input type="text" name="" id="">
+          <br> Y de eso <b>cuanto</b> le dan a usted para la casa? <input type="text" name="" id="">
+          <br> Usted <b>recibe</b> alguna ayuda economica?
+          <br> Cuanto? : <input type="text" name="" id="">
+          <br>
+          <br> Cuando fue la ultima semana que usted trabajó? <input type="text" name="" id="">
+          <br> ¿Usted tiene automovil? <select name="carro" id="carro" [(ngModel)]="carro">
+            <option value=1 name="carro">No</option>
+            <option value=2 name="carro">Si</option>
+          </select>
+
+          <div class="mt-3" *ngIf="carro == 1">
+
+            <br> Cuanto paga de automovil? <input type="text" name="" id="">
+            <br> Cuanto paga de seguro del automovil? <input type="text" name="" id="">
+            <br> Cuanto paga de gasolina? <input type="text" name="" id="">
+            <br> Paga algun seguro medico? <input type="text" name="" id="">
+            <br> Paga childsupport? <input type="text" name="" id="">
+
+          </div>
+
+          <div class="mt-3" *ngIf="carro == 2">
+            <br> Cuanto paga en transporte? <input type="text" name="" id="">
+            <br> Paga algun seguro medico? <input type="text" name="" id="">
+            <br> Paga childsupport? <input type="text" name="" id="">
+          </div>
+        </div>
+
+        <div class="otra_acti mt-3">
+          <div class="mt-3">
+            <br> Cuánto paga de:
+            <br> &nbsp;&nbsp;&nbsp;Luz <input type="text" name="" id="">
+            <br> Agua <input type="text" name="" id="">
+            <br> &nbsp;&nbsp;&nbsp;Gas <input type="text" name="" id="">
+          </div>
+          <br>
+          <div *ngIf=" t1 == 'si' ">
+            ¿Despues del trabajo tiene alguna otra actividad?
+          </div>
+          <div *ngIf=" t1 !== 'si' ">
+            ¿Realizas alguna actividad en la semana?
+          </div>
+          <br> ¿Como ir a la escuela, a la iglesia o al gimnasio?
+          <br> Otra Act : <input type="text" name="otra_actividad" id="">
+          <br><label for="dia_iglesia" class="blue">¿Que dias asiste a la iglesia?</label>
+          <select name="dia_iglesia" id="dia_iglesia" [(ngModel)]="dia_iglesia">
+            <option value="1" name="dia_iglesia">Domingo</option>
+            <option value="2" name="dia_iglesia">Lunes</option>
+            <option value="3" name="dia_iglesia">Martes</option>
+            <option value="4" name="dia_iglesia">Miércoles</option>
+            <option value="5" name="dia_iglesia">Jueves</option>
+            <option value="6" name="dia_iglesia">Viernes</option>
+            <option value="7" name="dia_iglesia">Sábado</option>
+          </select>
+        </div>
+
+        <div class="esperar">
+          ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+        </div>
+      </div>
+
+      <div class="mt-5" *ngIf="t1 == 'no'">
+        <br> Me imagino que usted recibe un <b>chequecito</b> del gobierno
+        <br> ¿de que recibe el <b>chequecito</b> ?
+        <br> SSI : <input type="text" name="" id="">
+        <br> Seguro Social : <input type="text" name="" id="">
+        <br> Auxilio Desempleo : <input type="text" name="" id="">
+        <br> Veteranos : <input type="text" name="" id="">
+        <br> Child Support : <input type="text" name="" id="">
+        <br> Plan 8 : <input type="text" name="" id="">
+        <br>
+        <br> En que banco <b>tiene</b> su cuenta de cheque? <input type="text" name="" id="">
+        <br> Cuanto <b>tiempo</b> lleva usted pagando renta? <input type="text" name="" id="">
+        <br> Quien <b>más</b> tiene ingreso en su casa? <input type="text" name="" id="">
+        <br> Y de eso <b>cuanto</b> le dan a usted para la casa? <input type="text" name="" id="">
+        <br> Usted <b>recibe</b> alguna ayuda economica? <input type="text" name="" id="">
+        <br>
+        <br>
+        <br> Cuando fue la ultima semana que usted trabajó? <input type="text" name="" id="">
+
+        <br> ¿Usted tiene automovil? <select name="carro" id="carro" [(ngModel)]="carro">
+          <option value=1 name="carro">No</option>
+          <option value=2 name="carro">Si</option>
+        </select>
+
+        <div class="mt-3" *ngIf="carro == 1">
+
+          <br> Cuanto paga de automovil? <input type="text" name="" id="">
+          <br> Cuanto paga de seguro del automovil? <input type="text" name="" id="">
+          <br> Cuanto paga de gasolina? <input type="text" name="" id="">
+          <br> Paga algun seguro medico? <input type="text" name="" id="">
+          <br> Paga childsupport? <input type="text" name="" id="">
+
+        </div>
+
+        <div class="mt-3" *ngIf="carro == 2">
+          <br> Cuanto paga en transporte? <input type="text" name="" id="">
+          <br> Paga algun seguro medico? <input type="text" name="" id="">
+          <br> Paga childsupport? <input type="text" name="" id="">
+        </div>
+
+        <div class="otra_acti mt-3">
+          <div class="mt-3">
+            <br> Cuánto paga de:
+            <br> &nbsp;&nbsp;&nbsp;Luz <input type="text" name="" id="">
+            <br> Agua <input type="text" name="" id="">
+            <br> &nbsp;&nbsp;&nbsp;Gas <input type="text" name="" id="">
+          </div>
+          <br>
+          <div>
+            ¿Realizas alguna actividad en la semana?
+          </div>
+          <br> ¿Como ir a la escuela, a la <b>iglesia</b> o al gimnasio?
+          <br> Otra Act : <input type="text" name="otra_actividad" id="">
+          <br><label for="dia_iglesia" class="blue">¿Que dias asiste a la iglesia?</label>
+          <select name="dia_iglesia" id="dia_iglesia" [(ngModel)]="dia_iglesia">
+            <option value="1" name="dia_iglesia">Domingo</option>
+            <option value="2" name="dia_iglesia">Lunes</option>
+            <option value="3" name="dia_iglesia">Martes</option>
+            <option value="4" name="dia_iglesia">Miércoles</option>
+            <option value="5" name="dia_iglesia">Jueves</option>
+            <option value="6" name="dia_iglesia">Viernes</option>
+            <option value="7" name="dia_iglesia">Sábado</option>
+          </select>
+        </div>
+
+        <div class="esperar">
+          ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+        </div>
+
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+    </div>
+
+    <div class="escrito4">
+      <div class="mt-3">
+        <br> ¿Que <b>edad</b> tiene usted?
+        <p class="blue">
+          ¿Cuanto <b>años</b> tiene?<br>
+        </p>
+        <br> <b>Ohhh,</b> le faltan (___)
+        <br> para <b>los CIEN!</b>
+        <br> JAJAJA
+
+        <div class="esperar">
+          ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+        </div>
+
+        <br> voy <b>hacerle</b> unas pregunticas para ver si califica para
+        <br>
+
+      </div>
+
+    </div>
+    <br>
+    <br>
+
+    <button class="btn" (click)="abrirLlamadaRadio()">ir a Credito bueno-malo</button>
+
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  </div>
+</div>
+
+<div class={{ver800}}>
+  <app-speech800 (idClientePost)="idClientePost"></app-speech800>
+</div>

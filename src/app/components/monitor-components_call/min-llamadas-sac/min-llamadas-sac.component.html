@@ -1,0 +1,140 @@
+
+
+<div class="llamadas_perdidas mt-3 h100 w50">
+  <h2 class="t_h2">{{ tittle }} <small>Total/{{total}}</small>
+
+    <button class="btn btn-success btn-sm float-right" style="margin-top: 2px;" (click)="refresh()">
+      <h6 class="mb-0">{{ btnGet }}</h6>
+    </button>
+  </h2>
+
+  <div class="filtros mb-1" *ngIf="llamadasHoyClientInj">
+    <div class="opc d-flex justify-content-between">
+
+      <div class="dropdown d-flex ml-3">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Filtros
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" (click)="cambiarTabla('todas')" >Todas</a>
+          <a class="dropdown-item" (click)="cambiarTabla('entrantes')" >Entrantes</a>
+          <a class="dropdown-item" (click)="cambiarTabla('salientes')" >Salientes</a>
+          <a class="dropdown-item" (click)="cambiarTabla('perdidas')" >Perdidas</a>
+          <a class="dropdown-item" (click)="cambiarTabla('contestadas')" >Contestadas</a>
+          <a class="dropdown-item" (click)="cambiarTabla('prospectos')" >Prospectos</a>
+          <a class="dropdown-item" (click)="cambiarTabla('800')" >800</a>
+          <a class="dropdown-item" (click)="cambiarTabla('914')" >914</a>
+          <a class="dropdown-item" (click)="cambiarTabla('1001')" >1001</a>
+        </div>
+      </div>
+      <span>
+      </span>
+      <div class="flechas">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16" (click)="prevP()">
+          <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+        </svg>
+
+        <small class="text-white">
+          {{page + 1 }} a {{page + 50 }}
+        </small>
+
+        <span *ngIf="(llamadasHoyClientInj | paging:page:search:selectFilt).length  === 50">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16" (click)="nextP()">
+            <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+          </svg>
+        </span>
+      </div>
+
+      <div class="radiobnt d-flex mt-2 text-white">
+
+        <input type="radio" class="" name="selectFilt" [(ngModel)]="selectFilt" value="origen"><span class="mxd">Origen </span>
+        <input type="radio" class="ml-3" name="selectFilt" [(ngModel)]="selectFilt" value="destino"><span class="mxd">Destino </span>
+        <input type="radio" class="ml-3" name="selectFilt" [(ngModel)]="selectFilt" value="todo"><span class="mxd">Todo</span>
+
+          <input type="search" name="search" class="min-search mxd "
+            #buscar (keyup)="buscador( buscar.value )" >
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="cont-table">
+
+    <table class="table table-hover table-striped table-dark mb-0">
+      <thead>
+        <tr>
+          <th scope="col">Hora</th>
+          <th scope="col">Origen</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Destino</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Tiempo</th>
+          <th scope="col">Opc</th>
+
+        </tr>
+      </thead>
+
+     <tbody class="body-table">
+        <tr *ngFor="let it of llamadasHoyClientInj | paging:page:search:selectFilt; index as i">
+          <td>{{ it.fecha | date:'shortTime' }}</td>
+
+          <td>{{ it.origen }}</td>
+
+          <td>
+            <span *ngIf=" it.origen.length == 3 ">
+              {{ it.asignado | slice:0:12 }}
+            </span>
+            <span *ngIf=" it.origen.length == 7 ">
+              <b>{{ it.id_cliente | searchCliID:clientes  }}</b>
+
+          <!--  {{ it.nombres | slice:0:14 }} -->
+            </span>
+          </td>
+
+          <td>{{ it.destino }}</td>
+
+          <td>
+            <span *ngIf=" it.destino.length == 3 ">
+              {{ it.asignado2 | slice:0:12 }}
+            </span>
+            <span *ngIf=" it.destino.length == 7 ">
+              <b>{{ it.id_cliente | searchCliID:clientes  }}</b>
+
+             <!--  {{ it.nombres | slice:0:14  }} -->
+            </span>
+          </td>
+
+          <td>{{ it.duracion | secToMin }} s</td>
+
+          <td >
+
+            <a *ngIf="it.id_cliente && it.id_cliente != '0'" title="ASIGNAR LLAMADA INMEDIATA">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-arrow-up-left-circle-fill " viewBox="0 0 16 16"
+              (click)="abrirModal( it.id_cliente )">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-5.904 2.803a.5.5 0 1 0 .707-.707L6.707 6h2.768a.5.5 0 1 0 0-1H5.5a.5.5 0 0 0-.5.5v3.975a.5.5 0 0 0 1 0V6.707l4.096 4.096z"/>
+              </svg>
+            </a>
+
+            <a *ngIf="it.id_cliente && it.id_cliente != '0'" target="_blank" rel="noopener noreferrer" title="VER PERFIL"
+              [routerLink]="['/vercliente/',it.id_cliente ]">
+              <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-person-badge-fill ml-2" viewBox="0 0 16 16" >
+                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
+              </svg>
+            </a>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal_lista">
+  <app-modal-lista-agentes
+    [modal]="modal"
+    (enviarModal)="modal = false"
+    [id_cli]="id_cli" >
+  </app-modal-lista-agentes>
+</div>

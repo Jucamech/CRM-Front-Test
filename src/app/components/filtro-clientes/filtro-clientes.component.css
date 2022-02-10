@@ -1,0 +1,18 @@
+
+
+.form-group select{
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+option {
+  color: black;
+  background-color: rgb(255, 255, 255, .6);
+}
+
+
+.font-w {
+    text-shadow: 1px 1px 3px black;
+    background-color: rgb(255, 255, 255, .6);
+}

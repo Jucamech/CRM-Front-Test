@@ -1,0 +1,1624 @@
+<div class="content" #content >
+
+  <div class="{{intro}}">
+    <br>
+    <br> <b>Dios</b> le bendiga (<span *ngIf="dataCliente">{{dataCliente.nombres }}</span>)
+    <br>
+    <br>
+    <br> Estamos en <b>victoria</b> y espero
+    <br> que usted también
+
+    <div class="esperar">
+      ESPERAR REACCIÓN
+      <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+    </div>
+
+    <br> Yo soy <b>{{agente}}</b>, la persona
+    <br> que habla con <b>Mackenzie</b>
+    <br> en la radio
+    <br>
+    <br> Y <b>aunque</b> a mí me gustaría
+    <br> contestarle la llamada a <b>todos</b>
+    <br> los que llaman, es humanamente imposible
+    <br> poder hacerlo, porque son
+    <br> <b>cientos</b> las llamadas,
+    <br> por eso tenemos a <b>más</b>
+    <br> de 70 agentes, que, nos ayudan,
+    <br> con <b>todas</b> las personas.
+
+    <div class="esperar">
+      ESPERAR REACCIÓN
+      <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+    </div>
+
+    <br> En el caso <b>suyo</b>, su llamada
+    <br> fue <b>seleccionada</b> para yo
+    <br> <b>personalmente</b> poder atenderla.
+    <br>
+    <br> Las consultas mías <b>anteriormente</b>
+    <br> en el "<span class="blue"><b>WORLD</b> TRADE CENTER</span>"
+    <br> costaban <b>$300.00</b> dólares
+    <br> cada <b>una</b>.
+    <br>
+    <br> <b>Pero</b> debido al distanciamiento
+    <br> social ya <b><u>NO</u></b> damos
+    <br> <b>consultas</b> en persona,
+    <br> la damos por <b>teléfono</b>,
+    <br> por eso son <b>gratis</b>.
+    <br>
+    <br> Para <b>yo</b> dar la consulta gratis,
+    <br> tengo dos <b>pequeñas</b> reglitas
+    <br> (<span *ngIf="dataCliente">{{dataCliente.nombres }}</span>).
+    <br>
+    <div class="esperar">
+      ESPERAR REACCIÓN
+      <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+    </div>
+    <br>
+    <br> La <b>primera</b> es que si usted
+    <br> me está <b>hablando</b>, desde un celular
+    <br> debe tener más de <b>media</b> batería,
+    <br> porque <b>sino</b> se puede
+    <br> <b>cortar</b> la llamada
+    <br> en la parte <b>más</b> importante.
+
+    <br> ¿Usted <b>tiene</b> que
+    <br> <b>poner</b> a cargar su celular?
+    <br> o tiene <b>más</b> de media batería?
+
+    <div class="esperar">
+      ESPERAR REACCIÓN
+      <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+    </div>
+
+    <br> Okay, puede ponerlo a cargar
+    <br> o agendamos una cita?
+
+    <br>
+    <br>
+
+
+
+    <button (click)="cita = true">
+      No, agendar una Cita
+    </button>
+
+
+    <button (click)="cita = false" class="ml-3">
+      Si, Continuar
+    </button>
+    <br>
+    <br>
+    <div class="form-row bg" *ngIf="cita">
+
+      <div class="form-group col-md-4">
+        <label for="fecha_cita" class="text-white span-w">Fecha de la Cita</label>
+        <input type="date" name="fecha_cita" class="form-control mx-auto"
+          pattern="^(\d{4})(\/|-)(0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1])$" [min]="Hoy" [(ngModel)]="fecha_cita"
+          #fecha_citaI="ngModel" />
+        <div class="errores" *ngIf="fecha_citaI.invalid && fecha_citaI.dirty">
+          <div *ngIf="fecha_citaI.errors.pattern">
+            <small>Formato de <b>Fecha</b> no válido</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="hora_cita" class="text-white span-w">Hora de la Cita</label>
+        <input type="time" name="hora_cita" class="form-control mx-auto" [(ngModel)]="hora_cita" #hora_citaI="ngModel" />
+        <div class="errores" *ngIf="hora_citaI.invalid && hora_citaI.dirty">
+          <div *ngIf="hora_citaI.errors.pattern">
+            <small>Formato de <b>hora</b> no válido</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="motivo_cita" class="text-white span-w">Motivo</label>
+        <select name="motivo_cita" id="motivo_citaSel" class="form-control mx-auto" [(ngModel)]="motivo_cita">
+          <option value="1" name="motivo_cita">Lectura de reporte</option>
+          <option value="2" name="motivo_cita">Hablar de caso</option>
+          <option value="3" name="motivo_cita">Documentos pendientes</option>
+          <option value="4" name="motivo_cita">Firmar contrato</option>
+          <option value="5" name="motivo_cita">Cobro</option>
+          <option value="6" name="motivo_cita">Trackins</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="nota_cita" class="text-white span-w">Nota-Comentario <span class="obli">*</span>
+        </label>
+        <input type="text" name="nota_cita" class="form-control mx-auto" maxlength="500"
+          pattern="([a-zA-Z0-9¡¿!.,: ;\?]{1,500})" [(ngModel)]="nota_cita" #nota_citaI="ngModel" />
+        <div class="errores" *ngIf="nota_citaI.invalid && nota_citaI.dirty">
+          <div *ngIf="nota_citaI.errors.pattern">
+            <small>Use solo <b>caracteres</b> comunes</small>
+          </div>
+          <div *ngIf="nota_citaI.errors.required">
+            <small>Campo es Obligatorio</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="cobro" class="text-white span-w">Agendar Cita</label>
+        <button class="btn btn-primary btn-small btn-block" (click)="agregarCita()">
+          Add...
+        </button>
+      </div>
+    </div>
+
+    Okay, perfecto.<br><br>
+
+    <div class="btn-uy mt-4" *ngIf="cita == false">
+      <button type="button" class="btn btn-danger" (click)="cambiarP('segreglita')">
+        Segunda reglita
+      </button>
+    </div>
+  </div>
+
+  <div class="{{segreglita}}">
+
+    <div class="reglita" *ngIf="!reglita">
+
+      <div class="reglita_1" *ngIf="!seg_re">
+        <div class="atras">
+          <button class="btn-A" (click)="regresarP('segreglita')">Atras</button>
+        </div>
+        <br> La <b>segunda</b>  reglita,
+        <br> es que,
+        <br> aunque estemos en el siglo <b>XXI</b>
+        <br> si usted <b>tiene</b> que
+        <br> <b>pedir</b> permiso para <b>cruzar</b>
+        <br> la calle o para hacer
+        <br> cualquier cosa con su <b>crédito</b>,
+        <br> usted necesita la <b>autorización</b>
+        <br> de su pareja o alguien más.
+        <br>
+        <br> Esta persona <b>debería</b>
+        <br> estar aquí en este <b>momento</b>.
+        <br> Mas, sin embargo,
+        <br> si usted es una persona, que
+        <br> tiene <b>problemas</b> en su crédito
+        <br> y los quiere <b>resolver</b>,
+        <br> si usted toma sus propias <b>decisiones</b>,
+        <br> con mucho gusto
+        <br> yo <b>saco</b> mi tiempo y le explico.
+        <br>
+        <br> ¿Usted tiene que <b>pedirle</b>
+        <br> permiso a alguien?
+        <br> O esto es algo que entre <b>usted</b>,
+        <br> mi persona y el señor en
+        <br> los cielos, lo <b>resolvemos</b> ?
+        <br>
+
+        <div class="esperar">
+          ESPERAR REACCIÓN
+          <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+        </div>
+
+        <br> Amén, <b>amén</b>, así es.
+        <br> <b>Entonces</b> esto es lo que va
+        <br> a <b>transcurrir...</b>
+        <br>
+        <br>
+        <br> Yo voy a <b>interpretar</b>
+        <br> su reporte de crédito
+        <br>
+        <br> Le voy a decir, que <b>tiempo</b>
+        <br> usted se tarda, en sacar una <b>casa</b>
+        <br> sí 1, <b>2</b>, 3 años
+        <br>
+        <br>
+        <br> Le voy a <b>indicar</b>,
+        <br> cuanto nos debe pagar de inicial,
+        <br> cuanto es la <b>mensualidad</b>
+        <br> y usted me <b>dice</b>, una de dos cosas;
+        <br> no o <b>sí</b> quiero sí
+        <br> si voy a hacerlo.
+        <br> <b>¿Okay?</b>
+        <br>
+        <br>
+        <div class="esperar">
+          ESPERAR REACCIÓN
+          <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+        </div>
+        <br>
+        <br>
+        <br> Lo que <b>NO</b> me va decir
+        <br> al <b>final</b>
+        <br> es que tengo que pensarlo
+        <br> o que tengo que <b>consultarlo</b>
+        <br> a <b>alguien</b>
+        <br> porque <b>perderiamos</b> el tiempo.
+        <br> <b>OK</b>?
+        <br>
+        <br> Bien, lo <b>primero</b> es que,
+        <br> si usted se acuerda,
+        <br> en <b>cuanto</b> estaba su puntaje.
+        <br>
+        <br>
+        <br> Experian : <input type="number" name="puntaje_experian" id="puntaje_experian" [(ngModel)]="puntaje_experian">
+        <br> Equifax : <input type="number" name="puntaje_equifax" id="puntaje_equifax" [(ngModel)]="puntaje_equifax">
+        <br> Trans-Union : <input type="number" name="puntaje_trans_u" id="puntaje_trans_u" [(ngModel)]="puntaje_trans_u">
+        <br>
+        <br>
+        <button>Dio el puntaje</button>
+        <button class="ml-3">No dio el puntaje</button>
+
+
+        <div class="esperar">
+          ESPERAR REACCIÓN
+          <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+        </div>
+        <br> (<span *ngIf="dataCliente">{{dataCliente.nombres }}</span>) con ese puntaje,
+        <br><b>NO </b>pida crédito a nadie,
+        <br> con eso <b>NO </b>le dan ni una bicicleta.
+        <br> ES <b>MÁS</b> NI UN PATIN:
+
+        <div class="esperar">
+          ESPERAR REACCIÓN
+          <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+        </div>
+
+        <br> Cuando usted pida <b>crédito</b>
+        <br> el <b>problema</b>
+        <br> <b>NO</b> es que se lo <b>nieguen</b>.
+        <br> El <b>problema</b> es que
+        <br> le van a <b>quitar</b>
+        <br> de 5 a 15 puntos de su puntaje
+        <br> <b>Okay</b>
+        <br>
+        <div class="esperar">
+          ESPERAR REACCIÓN
+          <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+        </div>
+        <br> Por ahora <b>no pida</b> credito,
+        <br> cuando <b>nosotros</b> le digamos
+        <br> que lo <b>solicite</b>,
+        <br> es porque estamos <b>seguros</b>
+        <br> que se lo <b>van a dar</b>.
+        <br>
+        <br>
+        <div class="btn-uy mt-4">
+          <button type="button" class="btn btn-danger" (click)="seg_re = true; scrollToBottom()">
+            Lo primero que vamos ver
+          </button>
+        </div>
+
+      </div>
+
+
+      <div class="reglita_2" *ngIf="seg_re">
+        <div class="atras">
+          <button class="btn-A" (click)="seg_re = false">Atras</button>
+        </div>
+
+      <br> (<span *ngIf="dataCliente">{{dataCliente.nombres }}</span>) Lo <b>primero</b> que vamos ver
+      <br> es la información <b>personal</b>
+      <br> que tienen los <b>buros</b>
+      <br> de crédito sobre <b>ud!</b>
+      <br>
+      <br> Mire <b>usted</b>, tiene variaciones
+      <br> en su <b>nombre</b>,
+      <br> hay que poner un <b>solo</b> nombre
+      <br> en su reporte de <b>crédito</b>.
+      <br> Que es tal cual como <b>aparece</b>
+      <br> en su <b>seguro social</b>.
+      <br>
+      <br><label for="nombres">Nombres</label> <input type="text" name="nombres" [(ngModel)]="nombres">
+      <br><label for="apellidos">Apellidos</label> <input type="text" name="apellidos" [(ngModel)]="apellidos">
+      <br>
+      <br> A <b>ud</b> lo estan <b>reconociendo</b> como...
+      <br>
+      <br> <p class=green>(Mencionar Variaciones de Nombre)</p>
+      <br>
+      <br> Hay que poner <b>UNO</b> solo,
+      <br> para que no se preste para
+      <br> posibles <b>robo</b> de identidad.
+      <br>
+      <div class="esperar">
+        ESPERAR REACCIÓN
+        <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+      </div>
+      <br>
+      <br> Aparte de eso, el <b>problema</b>
+      <br> es que tienen varias <b>direcciones</b>
+      <br> que <b>NO</b> son las que usted vive actualmente.
+      <br> hay que <b>quitar</b> estas direcciones.
+      <br> Ya que la <b>única</b> que debe aparecer
+      <br> en su registro, es en la cual vive
+      <br> que es : {{direccion}}
+      <br>
+      <br> ¿Usted a <b>vivido</b>
+      <br> alguna vez en ? <p class=green>(Mencionar variaciones de direcciones)</p>
+
+      <div class="esperar">
+        ESPERAR REACCIÓN
+        <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+      </div>
+      <br>
+      <br> Esas direcciones que usted tiene <b>demás</b>
+      <br> hay que <b>quitarlas</b>,
+      <br> por que el <b>problema</b>
+      <br> que le pueden <b>demandar</b> en ausencia
+      <br> y ganarle el <b>caso</b>.
+      <br>
+      <br> (<span *ngIf="dataCliente">{{dataCliente.nombres || 'cliente' }}</span>) , si es que
+      <b>NO</b> lo han demandado ya!
+      <br> <b>Ojoooo!</b>.
+      <br>
+      <br>
+      <div class="esperar">
+        ESPERAR REACCIÓN
+        <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+      </div>
+      <br>
+      <br>
+
+      <div class="btn-uy mt-4">
+        <button type="button" class="btn btn-danger" (click)="cambiarP('cuentaimpor')">
+          Las cuentas más importantes
+        </button>
+      </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="{{cuentaimpor}}">
+
+    <div class="atras">
+      <button class="btn-A" (click)="regresarP('cuentaimpor')">Atras</button>
+    </div>
+
+    <br> (<span *ngIf="dataCliente">{{dataCliente.nombres }}</span>), le voy a <b>indicar</b> las cuentas más
+    importantes
+    <br> que <b>están</b> en su reporte
+    <br> y usted me dice <b>si</b> son suyas o no.
+    <br><br>
+
+    <div class="esperar">
+      MENCIONAR CUENTAS Y GENERAR PREOCUPACION
+      <br> CON CADA UNA DE ELLAS QUE ESTE AFECTANDO.
+      <br> SEAN CUANTAS CON ATRASOS COLECCIÓN CHARE OFF.
+    </div>
+    <br>
+    <br>
+
+    <label class="separar">Cuentas</label>
+    <select id="tipopago" name="tipopago" [(ngModel)]="tipopago">
+      <option value="balance">Tarjeta balance en cero</option>
+      <option value="coleccion">Colección</option>
+      <option value="dhospital">Deuda Hospital</option>
+      <option value="quitasalario">Le embargaron el salario</option>
+      <option value="cpositiva">Cuenta positivas</option>
+      <option value="cchargeoff">Cuentas chargeoff</option>
+    </select><br>
+
+    <div *ngIf="tipopago == 'balance'">
+      <title> Tarjeta balance en cero </title>
+      <br>
+      <br> Okay, el <b>balance</b> lo tiene en cero (0)
+      <br> ya, pero <b>NO</b> me lo puede tener en cero (0)
+      <br> por qué entonces le <b>bajan</b> el puntaje,
+      <br> va tener que hacer unos <b>gastos</b>,
+      <br> <b>mercado</b> o algo así con ella.
+      <br>
+      <br> Ya cuando <b>contrate</b> nuestros servicios
+      <br> le digo cuanto <b>debe</b> de gastar
+      <br> y cual <b>tarjeta</b> debe de cerrar y
+      <br> <b>cuales</b> abiertas, etcétera.
+      <br> ¿Okay?
+      <br>
+      <br>
+      <div class="esperar">
+        ESPERAR REACCIÓN
+        <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+      </div>
+      <br>
+      <br>
+    </div>
+
+    <div *ngIf="tipopago == 'coleccion'">
+      <title>Colección</title>
+      <br>
+      <br> El <b>problema</b> con esta
+      <br> agencia de colecciones,
+      <br> como le indicamos <b>anteriormente</b>
+      <br> por <b>ley</b>
+      <br> pueden llevarle a <b>corte</b>.
+      <br>
+      <br> Lo que ellos <b>pueden</b> hacer,
+      <br> es que se <b>presentan </b>
+      <br> ante un <b>juez</b> con las evidencias
+      <br> de que han estado <b>intentando</b>
+      <br> comunicarse con <b>ud</b>
+      <br> de <b>todas</b> las formas
+      <br> y no ha respondido.
+      <br>
+      <br> Ellos envian una primera carta
+      <br> la cual da a <b>UD</b>
+      <br> la opción de <b>aceptar</b>
+      <br> o no la <b>deuda</b>
+      <br>
+      <br> Si ud no <b>responde</b>
+      <br> esta carta,
+      <br> como dicen por ahí...
+      <br> <b>el que calla otorga</b>.
+      <br> quiere decir que ud
+      <br> acepta la <b>deuda</b>.
+      <br>
+  <!--     <br> Ellos vuelven y envian luego de esa
+      <br> <b>carta</b>, en la cual le dan
+      <br> la opción de llegar a un
+      <br> plan de pago.
+      <br> -->
+      <br> Si <b><u>no</u></b> la responde, envian
+      <br> una <b>segunda</b> carta
+      <br> en la cual <!-- le <b>siguen</b> -->
+   <!--    <br> ofreciendo planes para pagar.
+      <br> Al ud <b><u>no</u></b> responder, ellos -->
+      <br> se comunican a <b>todas</b>  las direcciones
+      <br> que aparecen en su <b>registro</b> .
+      <br>
+      <br> Con todas estas <b>pruebas</b>
+      <br> se presentan ante un <b>juez</b>
+      <br> y le dicen que ellos han <b>seguido</b>
+      <br> el debido <b>proceso</b>,
+      <br> de la <b>ley</b>, pero que <b>ud</b>
+      <br> es un individuo el cual
+      <br> <b>NO OBEDECE</b> las leyes de este pais.
+      <br>
+      <br> El <b>juez</b> al ver esto,
+      <br> les va a preguntar
+      <br> ¿que es lo que quieren?
+      <br> Ellos <b>minímamente</b>
+      <br> van a solicitar que les <b>pague</b>
+      <br> la cuenta, <b>más!</b> los <b>intereses</b>,
+      <br> más los <b>gastos</b> de corte,
+      <br> más <b>abogado</b>
+      <br> que van hasta <b>$3500</b> Dolares
+      <br>
+      <br> <div class="red">
+        MENOS MAL QUE UD ESTA HABLANDO CONMIGO
+      </div>
+      <br>
+      <br> Ya que lo que <b>tenemos</b>
+      <br> que hacer <b>aqui</b>,
+      <br> es <b>convalidar</b> la cuenta
+      <br> y ver si ellos, si tienen
+      <br> los derechos que la <b>ley</b>
+      <br> les pide para <b>cobrarle</b>
+      <br> a ud la cuenta,
+      <br> si ellos dentro de los primeros
+      <br> 30 a 45 dias no <b>responden</b>,
+      <br> <b>tienen</b> que quitarle la cuenta de alli,
+      <br> sin que ud <b>tenga</b> que pagar
+      <br> un solo dólar, ahora bien.
+      <br>
+      <br> En el <b>peor</b> de los casos
+      <br> que ellos respondan,
+      <br> al nosotros saber que ellos <b>adquirieron</b>
+      <br> la cuenta a <b>5 o 10</b> centavos de dólar,
+      <br> entrariamos en una <b>negociacion</b>
+      <br> la cual le ofreceriamos una tercera o <b>cuarta parte</b>
+      <br> en base a lo que ellos
+      <br> <b>pagaron</b> por ella.
+      <br>
+      <br> Un ejemplo si debe una <b>cuenta</b> de $1000
+      <br> ellos, las agencias de <b>Colección</b>
+      <br> compraron la cuenta a $50 o $100 dolares <b>máximo</b>,
+      <br> nosotros le <b>ofreceriamos</b>
+      <br> unos <b>$300</b> o $400 dolares
+      <br> en un <b>plan</b> de pago,
+      <br> pero con la <b>condicion</b> de
+      <br> que <b>inmediatamente</b> se les pague,
+      <br> le tienen que <b>quitar</b>
+      <br> esa cuenta negativa de ahí de su <b>reporte</b>.
+      <br>
+      <br> A diferencia que <b>ud</b> les pague completo
+      <br> lo que le debe,
+      <br> ellos le <b>toman</b> el dinero,
+      <br> pero no tienen <b>ningun</b> incentivo
+      <br> y le dejan esa cuenta alli por <b>hasta 7 años</b>.
+      <br> A diferencia con <b>nosotros</b>
+      <br> que <b>inmediatamente</b> se les pague
+      <br> deben quitarle esa <b>cuenta</b> de allÍ.
+      <br>
+
+      <br>
+      <br>
+      <a  target="_blank" [routerLink]="['/speechsticket/speechCreeQuePagaElAcreedorOriginal']"
+        class="btn-flotante">¿Acreedor Original?</a>
+    </div>
+
+    <div *ngIf="tipopago == 'dhospital'">
+      <a  target="_blank" [routerLink]="['/speechsticket/DeudaHospital']"
+        class="btn-flotante">Deuda Hospital</a>
+    </div>
+
+    <div *ngIf="tipopago == 'quitasalario'">
+      <a href="http://www.ticketpapi.com:85/credito_speech/embargoalsalario.php" class="btn-flotante2">¿Embargo al
+        salario?</a>
+    </div>
+
+    <div *ngIf="tipopago == 'cpositiva'">
+      <title>Cuenta positiva</title>
+      <br>
+      <br> El problema es que <b><u>NO</u></b> le están
+      <br> <b>reportando</b> a usted lo positivo
+      <br> le voy a mandar una <b>foto</b>, para
+      <br> que usted <b>vea</b> que no le están
+      <br> reportando en
+      <br> <span class="blue">Experian, Equifax, TransUnion</span>
+      <br>
+      <br> El departamento de <b>procesamiento</b>
+      <br> se lo va mandar, para que <b>usted</b>
+      <br> vea que donde está mi dedo
+      <br> según mi <b>opinión</b>
+      <br> están cometiendo una <b>opinión</b> ,
+      <br> ellos deben de <b>poner</b> lo bien que
+      <br> usted ha pagado
+      <br> y <b><u>NO</u></b> lo han hecho.
+      <br>
+      <br> No solo se trata de <b>reportar</b>
+      <br> lo malo sino <b>también</b> lo bueno,
+      <br> ¿Okay?
+      <br>
+      <br>
+      <div class="esperar">
+        ESPERAR REACCIÓN
+        <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+      </div>
+      <br>
+      <br>
+      <br>
+    </div>
+
+    <div *ngIf="tipopago == 'cchargeoff'">
+      <title>Cuentas Chargeoff</title>
+      <br>
+      <br> Aquí tenemos una palabra <b>mala</b> ,
+      <br> que le voy a <b>mandar</b>,
+      <br> que es de <b>chargeoff</b> indicando
+      <br> que fue una <b>cuenta mala</b>,
+      <br> hay que <b>ayudarle</b> a borrarlo,
+      <br> <b>fíjese</b> en mi dedo en la foto
+      <br> que el departamento de
+      <br> procesamiento le ha <b>enviado</b>,
+      <br> abra el <b>WhatsApp</b> suyo
+      <br>
+      <br>
+      <div class="green">
+        DESPUES DE LAS CUENTAS MENCIONAR LOS INQUIRES
+      </div>
+    </div>
+
+    <div class="btn-uy mt-4">
+      <button type="button" class="btn btn-danger" (click)="cambiarP('pregunt0')">
+        CIERRE
+      </button>
+    </div>
+  </div>
+
+  <div class="{{pregunt0}}">
+
+
+
+    <div class="diarrea">
+      <div class="diarrea1" *ngIf="!diarrea">
+
+        <div class="atras">
+          <button class="btn-A" (click)="regresarP('pregunt0')">Atras</button>
+        </div>
+
+        <div class="rojito">CIERRE</div>
+
+        <br> Usted tiene alguna <b>pregunta</b>
+        <br> que <b><u>no</u></b> sea :
+        <br> ¿ cuanto me va a costar a mí
+        <br> <b>arreglar</b> mi credito ?
+        <br>
+        <br>
+        <br> Ya yo vi su <b>reporte</b> de crédito
+        <br> esto está muy <b>complicado</b>,
+        <br> pero yo lo veo <b>fácil</b>.
+        <br>
+        <br> Fíjese que <b>combinación</b> de palabras,
+        <br> complicado pero <b>fácil</b>!
+        <br> Para <b>nosotros</b>.
+        <br>
+        <br>
+        <br> Hay muchas <b>cosas</b> que hay que hacer
+        <br> pero se puede <b>hacer</b>,
+        <br> para que usted <b>pueda</b> tener su casita,
+        <br> con el favor de <b>Dios</b>.
+        <br>
+        <br> Ahora bien, que yo diga que sea <b>fácil</b>
+        <br> <b><u>NO</u></b> quiere decir que sea fácil,
+        <br> o sea, es como <b>cuando</b> usted
+        <br> tiene un <b>cirujano</b> de corazón abierto
+        <br> y le <b>pregunta</b>:
+        <br> ¡¿ Cómo ve la <b>operación ?!</b>
+        <br>
+        <br> Y él le va decir que <b>fácil</b>,
+        <br> POR <b>SUPUESTO</b>, que es fácil
+        <br> por él ha operado <b>miles</b> de veces,
+        <br> lo mismo <b>nosotros</b>
+        <br> que llevamos 15 años <b>haciendo</b> esto.
+        <br>
+        <br> Ahora bien,
+        <br> <b>habiendo</b> dicho esto,
+        <br> para <b>sacar</b> una casa
+        <br> y poner a <b>buen</b> uso esos ${{renta}} de renta
+        <br> que usted está <b>pagando</b>, hay gente que le diría
+        <br> que se <b>puede</b> tardar
+        <br> para <b>calificar</b> para una casa,
+        <br> unos <b>(2)</b> o (3) años
+        <br> más, <b>sin</b> embargo
+        <br> <b><em>Mmmmm</em></b>
+        <br> <b>NO.</b>
+        <br>
+        <br> Yo le calculo 15 <b>meses</b>...
+        <br>
+        <br> En unos 15 meses con el <b>favor</b> de Dios
+        <br> usted puede <b>calificar</b> para tener su propia casa,
+        <br> <b>Okay</b>
+        <br>
+        <br>
+        <div class="esperar">
+          ESPERAR REACCIÓN
+          <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="btn-uy mt-4">
+          <button type="button" class="btn btn-danger" (click)="cambiarP('preguntita')">
+            ¿Tiene alguna preguntita?
+          </button>
+        </div>
+        <br>
+        <br>
+        <br>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="{{preguntita}}">
+
+    <div class="pregun" *ngIf="!pregun">
+
+      <div class="atras">
+        <button class="btn-A" (click)="regresarP('preguntita')">Atras</button>
+      </div>
+
+      <br> Ahora <b>bien</b>,
+      <br>
+      <br> ¿Tiene <b>alguna</b> pregunta,
+      <br> que no sea <b>cuanto</b> me va costar
+      <br> a mí, ayudar a <b>resolver</b> todo
+      <br> este <b>problema</b>?
+      <br>
+      <br>
+      <div class="rojo">
+        (Mencionar si hay demandas)
+      </div>
+
+      <br> Y con el favor de <b>Dios</b>
+      <br> tener su propia casa?
+      <br>
+      <br> ¿O esa era la <b>pregunta</b>?
+
+      <div class="esperar">
+        ESPERAR REACCIÓN
+        <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+      </div>
+      <br>
+      <br>
+      <br> Okay Herman<b>o/a</b><span *ngIf="dataCliente"> {{dataCliente.nombres || 'cliente' }}</span>
+      <br> arreglar un <b>crédito</b>
+      <br> con abogados, Le puede costar
+      <br> unos $10 o <b>$12</b>
+      <br> o $15 mil dólares,
+      <br> un <b>crédito</b> como el suyo
+      <br>
+      <br> Usualmente ellos le <b>cobran</b>
+      <br> al principio $2 o <b>$3 mil dólares</b>
+      <br> y una <b>mensualidad</b>,
+      <br> de unos <b>$800</b> o mil dólares
+      <br> al <b>mes</b> por un año
+      <br> <b>Nosotros</b> CREDITOMEJOR hacemos lo mismo,
+      <br> pero más <b>económico</b>,
+      <br> <b>$700 dólares</b> de inicial,
+      <br> más unas <b>mensualidades</b> de
+      <br> $500 dólares por <b>15 meses</b>,
+      <br> para una <b>casa</b>.
+      <br>
+      <br> Pero hoy <b>tiramos</b> una oferta en la radio
+      <br> Que me imagino que <b>usted</b> la escucho.
+      <br>
+      <br> Solo en el <b>día de hoy</b>,
+      <br> <b><u>NO</u></b> mañana,
+      <br> <b>ni</b> pasado
+      <br> como <b>hablamos</b> en la radio
+      <br> y mientras <b>tengamos</b> el teléfono en la mano,
+      <br> en la cual usted solo paga <b>$500</b> dólares de inicial
+      <br> de los <b>abogados</b>.
+      <br>
+      <br> Vaya y <b>búsquese</b> un abogado
+      <br> que le cobre <b>$500</b> dólares
+      <br> por <b>hacer</b> esto.
+      <br>
+      <br> <b>No existe!</b>
+      <br> Si no tiene los <b>$500</b> completos
+      <br> Le hacemos un <b>plan</b> de pago,
+      <br> <b>no</b> hay problema,
+      <br> todo mundo nos <b>paga</b> siempre,
+      <br> porque <b>resolvemos</b> problemas.
+      <br>
+      <br> y una cómoda <b>mensualidad</b> de $265 dólares al mes,
+      <br> que son $199 con <b>50 centavos</b> para nosotros
+      <br> como <b>decimos</b> en la radio,
+      <br> y <b>$65 dólares</b> de las cartas certificadas,
+      <br> procesamiento, <b>manejo</b> y envió,
+      <br> TODO ESTO VA POR <b>CARTA</b> CERTIFICADA
+      <br> CON <b>ACUSE</b> DE RECIBO.
+      <br>
+      <br> O SEA, SOLAMENTE <b>$265 </b>AL MES,
+      <br>
+      <br> esto si usted quiere <b>calificar</b> para una casa,
+      <br> por 15 meses, con el <b>favor</b> de Dios.
+      <br> Si lo que quiere es <b>arreglar</b> su crédito
+      <br> y calificar para <b>automóvil</b>
+      <br> son 7 a 10 <b>meses</b>, Dios mediante.
+      <br> Si lo que quiere es <b>tarjeta</b> de crédito,
+      <br> que puedan darle con altos <b>balances</b>,
+      <br> de $2 o $3 mil dólares y <b>hasta</b> un año sin intereses,
+      <br> de 4 a 7 meses.
+      <br> con el <b>favor</b> de Dios.
+      <br>
+      <br>
+      <br>
+
+      <div class="btn-uy mt-4">
+        <button type="button" class="btn btn-danger" (click)="cambiarP('nofunciona')">
+          Esto no funciona
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="{{nofunciona}}">
+
+    <div class="funciona" *ngIf="!funciona">
+
+      <div class="parte1" *ngIf="!toggle_parte">
+        <div class="atras">
+          <button class="btn-A" (click)="regresarP('nofunciona')">Atras</button>
+        </div>
+        Ahora <b>bien</b>,
+        <br> esto <b><u>NO </u></b> funciona
+        <br> si usted <b><u>NO </u></b> hace 3 cosas,
+        <br> que yo le digo que <b>tiene</b> que hacer,
+        <br> sino las <b>hace</b> <span *ngIf="dataCliente">{{dataCliente.nombres || 'cliente' }}</span>,
+        <br> <b>no</b> se meta que <b><u>NO</u></b> le va funcionar.
+        <br>
+        <br> ¿Estamos <b>claros</b>?,
+        <br> <b>Okay</b>
+        <br>
+        <br>
+        <div class="esperar">
+          ESPERAR REACCIÓN
+          <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+        </div>
+
+        <br> <b>Número</b> uno:
+        <br>
+        <br> La primera es que <b>toda</b> carta
+        <br> que <b>usted</b> reciba,
+        <br> nos la <b>tiene</b> enviar,
+        <br> <b>nosotros</b> vamos a mandar a <b>borrar</b>
+        <br> todas las <b>direcciones</b> que usted tiene de más,
+        <br> que <b><u>no</u></b> son las suyas <b>existentes</b>.
+        <br> <b>la de _________________________,
+          <br> la de _________________________,
+          <br> la de _________________________,
+          <br> y la de _______________________,</b>
+        <br>
+        <br> Eso quiere <b>decir</b> que cualquier
+        <br> correspondencia <b>negativa</b>
+        <br> la va a recibir en;
+
+        <div class="verde">
+          (<span *ngIf="dataCliente">{{ dataCliente.direccion }} </span>).
+        </div>
+
+        <br> (<span *ngIf="dataCliente">{{ dataCliente.nombres }} </span>) es muy posible usted
+        <br> reciba <b>cartas</b> de
+        <br> las agencias de <b>colecciones</b>,
+        <br> de <b>abogados</b>,
+        <br> Citaciones de <b>corte</b>,
+        <br> <b>incluso</b> dictamen de corte,
+        <br> y como ellos <b>siempre</b> mandan cartas,
+        <br> sino las <b>contesta</b>, pierde el caso,
+        <br> SI A USTED LO ESTAN <b>DEMANDANDO</b>
+        <br> QUEREMOS <b>ENTERARNOS</b>.
+        <br>
+        <br> En fin, <b>carta</b> recibida,
+        <br> carta <b>fotografiada</b>,
+        <br> carta <b>enviada</b> a nuestro WhatsApp,
+        <br> carta <b>contestada</b> por nosotros, okey?
+        <br>
+        <br>
+        <div class="esperar">
+          ESPERAR REACCIÓN
+          <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+        </div>
+        <br>
+        <br> <b>Número</b> dos:
+        <br> Ahora ellos tienen su
+        <br> <b>teléfono</b> actualizado
+        <br>
+        <br> Si <b><u>NO</u></b> lo tenían antes,
+        <br> es un <b>requisito</b> de
+        <br> los buros de crédito
+        <br> para <b>poder</b> sacar
+        <br> su reporte de crédito
+        <br> tener el <b>teléfono</b>
+        <br> actualizado
+        <br>
+        <br> Por consiguiente, es <b>posible</b>
+        <br> que le llamen para cuestionarle,
+        <br> para <b>amenazarle</b> y molestarle
+        <br> cuando ellos <b>hagan</b> esto,
+        <br> usted les dice que <b>NO</b> lo llamen,
+        <br> que manden <b>todo</b> por escrito
+        <br> y asi podemos <b>contestarles</b> por escrito,
+        <br> dejando <b>evidencia</b>.
+        <br> Si siguen <b>hablando</b>,
+        <br> les <b></b>indica que los va a grabar.
+        <br>
+        <br> Esto es <b>importante</b>,
+        <br> Porque en el <b>estado</b> de <span *ngIf="dataCliente">{{dataCliente.estado}}</span>
+        <br> Tiene que <b>indicarlo</b>
+        <br> Para que la <b>grabación</b>
+        <br> sea permisible en corte.
+        <br>
+        <br> los va <b>grabar</b>,
+        <br> y con esa <b>evidencia</b>
+        <br> pueden ser <b>llevados</b> a corte
+        <br> bajo <b>Harassment</b> (acoso)
+        <br> y ahí <b>sí</b>, que con el
+        <br> <b>favor</b> de Dios
+        <br> hasta la <b>casita</b>
+        <br> le puede salir gratis, ¿Okay?
+        <br>
+        <br>
+        <div class="esperar">
+          ESPERAR REACCIÓN
+          <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+        </div>
+        <br>
+        <br>
+        <br> <b>Número</b> tres:
+        <br> <b><u>NO</u></b> se trata de pagar y olvidarse,
+        <br> ya que, cada <b>treinta</b>
+        <br> (30) días nos tiene que llamar,
+        <br> para ver como esta su <b>caso</b>
+        <br> y usted va estar <b>viendo</b>
+        <br> como se le borran
+        <br> las cosas <b>negativas</b> de
+        <br> su <b>reporte</b>, entonces, si
+        <br> usted hace estas <b>tres</b>
+        <br> (3) cosas estas otras <b>cuatro</b>
+        <br> (4) cosas le van a suceder con
+        <br> el favor de <b>Dios</b>.
+        <br>
+        <br>
+        <br>
+        <div class="btn-uy mt-4">
+          <button type="button" class="btn btn-danger" (click)="toggle_parte = true; scrollToBottom()">
+            Número uno: en el transcurso de los próximos
+          </button>
+        </div>
+      </div>
+
+      <div class="parte2" *ngIf="toggle_parte">
+        <div class="atras">
+          <button class="btn-A" (click)="toggle_parte = false">Atras</button>
+        </div>
+        <br>
+        <br> <b>Número</b> uno :
+        <br> en el transcurso de los <b>próximos</b>
+        <br> <b>90 días</b> a 120 días,
+        <br> todo vestigio de <b>robo</b> de identidad,
+        <br> va ser una cosa del <b>ayer</b>,
+        <br> por eso vamos a <b>exigir</b>...
+        <br>
+        <br> <b><u>NO</u></b> a pedir.
+        <br>
+        <br> Sino a <b>exigir!</b>
+        <br> a los buros de <b>crédito</b>, a
+        <br> <b>Experian, Equifax y transunion</b>
+        <br>
+        <br>
+        <br> Que le <b>envíen</b>,
+        <br> su reporte de crédito
+        <br> el cual le <b>identifiquen</b> a usted
+        <br> como <span style="color: blue;">el/la</span> <b>dueñ<span style="color: blue;">o/a</span></b> absolut<span
+          style="color: blue;">o/a
+        </span>
+        <br> y legal de su <b>reporte</b> de crédito
+        <br> y por ende
+        <br> de su <b>seguro</b> social.
+        <br>
+        <br>
+        <br> <b>Número</b> dos:
+        <br> En el t<b>rascurso</b> de los
+        <br> próximos 4 a 7 meses,
+        <br> con el favor de <b>Dios</b>,
+        <br> usted va a <b>calificar</b>
+        <br> a tarjetas de crédito,
+        <br> aunque va calificar para <b>muchas</b> ,
+        <br> solamente va <b>escoger</b>
+        <br> la que le <b>vamos</b> a decir.
+        <br>
+        <br> Cuando le lleguen <b><u>NO</u></b>
+        <br> va gastar todo el <b>límite</b>
+        <br> sino una <b>porción</b>
+        <br> que le vamos a <b>indicar</b> en un tutorial
+        <br> que se le va <b>enviar</b> a usted.
+        <br>
+        <br> Indicando, cuando es lo que usted
+        <br> debe de <b>comprar</b>, con cada
+        <br> <b>tarjeta</b> y así de esta forma,
+        <br> paga el <b>mínimo. </b>
+        <br> Y le <b>aumenta</b> el puntaje.
+        <br>
+        <br> <b>Número</b> tres (3)
+        <br> en los <b>próximos</b>
+        <br> 7 a 10 <b>meses</b>, podrá,
+        <br> con el favor de <b>dios</b> sacar su
+        <br> <b>automóvil</b> ultimo modelo
+        <br> solo con la <b>firma</b>.
+        <br>
+        <br> Y (4) número <b>cuatro</b>
+        <br> en los <b>próximos</b>
+        <br> 15 <b>meses</b>, poner esos
+        <br>
+        <div class="verde">
+          (${{ renta || 'no hay datos' }})
+        </div>
+        <br>
+        <br> Para su <b>casa</b> propia,
+        <br> o se busca unos <b>300 dólares</b> más y
+        <br> entonces <b>compra</b> una casa
+        <br> de dos pisos, alquila uno
+        <br> y en el <b>otro</b>
+        <br> vive casi gratis
+        <br> <b>Okay</b>.
+        <br>
+        <br>
+        <div class="esperar">
+          ESPERAR REACCIÓN
+          <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+        </div>
+        <br>
+        <br>
+        <br> Ahora <b>bien</b>,
+        <br> tengo que <b>indicarle</b>,
+        <br> que debido a que aquí,
+        <br> hay un aparente <b>robo</b> de identidad,
+        <br> que esta <b>conversación</b>
+        <br> ha sido <b>grabada</b> desde su principio
+        <br> y si usted <b><u>NO</u></b> es
+        <br>
+        (<span *ngIf="dataCliente">{{dataCliente.nombres || 'no existe dato' }}</span>)&nbsp;
+        (<span *ngIf="dataCliente">{{dataCliente.apellidos || 'no existe dato' }}</span>)
+        <br> con la fecha de nacimiento (<b *ngIf="dataCliente">{{dataCliente.nacimiento || '(falta dato!)' }}</b>)
+        <br> <b>identificado/a</b> con el número
+        <br> de <b>seguro</b> social (<span *ngIf="dataCliente">{{dataCliente.numero_id || '(falta dato!)' }} </span>)
+        <br> le tengo <b>mala</b> noticias,
+        <br> esta es la única <b>evidencia</b>
+        <br> que necesita un juez,
+        <br> para <b>condenarle</b>
+        <br> a <b>prisión</b>, por 3 a 5 años
+        <br> de <b>cárcel</b>, por <b>fraude</b>
+        <br>
+        <br>
+        <br>
+
+        <div class="btn-uy mt-4">
+          <button type="button" class="btn btn-danger" (click)="cambiarP('ustedsies');scrollToBottom()">
+            Sin embargo, si usted si es
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <div class="{{ ustedsies }}">
+    <div class="ustedsies">
+
+      <div class="sinembargo" *ngIf="!sinembargo">
+
+        <div class="atras">
+          <button class="btn-A" (click)="regresarP('ustedsies')">Atras</button>
+        </div>
+
+        <div class="rojito">FIN DE LA VENTA</div>
+        Sin <b>embargo</b>, si usted si es
+
+        <div class="verde">
+          (<b *ngIf="dataCliente">{{dataCliente.nombres || '(falta dato!)' }}</b>)
+          <br>(<b *ngIf="dataCliente">{{dataCliente.apellidos || '(falta dato!)' }}</b>)
+        </div>
+
+        <br> Con la fecha de nacimiento (<b *ngIf="dataCliente">{{dataCliente.nacimiento || '(falta dato!)' }}) </b>
+        <br> identificado/a con el <b>número</b>
+        <br> de seguro social (<b *ngIf="dataCliente">{{dataCliente.numero_id || '(falta dato!)' }}</b>)
+        <br> puede permanecer en <b>línea</b>.
+        <br>
+
+        <div class="verde">
+         (<b *ngIf="dataCliente">{{dataCliente.nombres || '(falta dato!)' }}</b>)
+        </div>
+
+         Usted quiere <b>colgar</b> el teléfono
+        <br> o quiere continuar con la <b>conversación</b>.
+        <br>
+        <br> Okay, perfecto, en ese caso la <b>ley</b>
+        <br> me exige <b>identificarlo/a</b> a usted
+        <br> como el/la dueño/a absoluta
+        <br> de su <b>seguro</b> social,
+        <br> esto por <b>medio</b> de su licencia o ID,
+        <br>
+        <br> ¿Cuál de estos <b>usted</b> tiene, ID o licencia?
+        <br><br>
+
+        <form #Form1="ngForm" (change)="enviarData()">
+          <label for="tipo_id" class="">
+            Tipo Identificación
+          </label>
+          <select name="tipo_id" id="tipo_idsele" [(ngModel)]="tipo_id">
+            <option value="1" >Seguro Social</option>
+            <option value="2" >Tax-ID</option>
+            <option value="3" >Licencia</option>
+          </select>
+        </form>
+
+        <br>
+
+        <div *ngIf="tipo_id == '3'">
+          <br> La licencia tiene 8 números,
+          <br> <p class="blue"><b>si es de Massachusetts comienza</b> por la
+            <br> letra <b>"S" </b></p>
+          <br> ¿Cuáles son esos 8 <b>números</b>?
+          <br>
+
+          <form #Form="ngForm" (change)="enviarData()">
+            <label for="numero_id">Número de Id</label>
+            <input type="text" name="numero_id"
+              [(ngModel)]="numero_id" #numero_idI="ngModel" />
+            <div class="errores" *ngIf="numero_idI.invalid && numero_idI.dirty">
+            </div>
+            <br>
+            <br> ¿Cuál es la <b>fecha</b> de expiración?
+            <br> <input type="date" class="reacciono" [(ngModel)]="licencia_exp">
+          </form>
+
+
+          <br>
+          <br> Perfecto, le <b>advierto</b> que le vamos a solicitar
+          <br> los <b>números</b> de nuevo
+          <br> y esta vez lo vamos a <b>digitar</b> al dyanby
+          <br> y en <b>cuestión</b> de 3 a 5 minutos
+          <br> me va <b>certificar</b>,
+          <br> si usted es o no es la <b>dueña</b>
+          <br> absoluta de esta <b>licencia</b> de conducir,
+          <br> por favor repita los <b>números</b>
+        </div>
+
+
+        <br> Entonces <b>habiendo</b> dicho eso,
+        <br> estamos digitando esa <b>información</b>
+        <br> a los buros de <b>crédito</b> y también
+        <br> se la estamos <b>certificando</b>, al dyanby,
+        <br> en estos <b>momentos</b>
+        <br> el departamento de procesamiento
+        <br> le acaba de enviar un mensaje
+        <br> a su WhatsApp,
+        <br> ábralo y <b>léame</b> que dice,
+        <br> comienza con la <b>palabra</b> bienvenido/a
+        <br>
+        <br> <b>Perfecto</b>,
+        <br>
+        <br> Escriba hola, para <b>estar</b>
+        <br> en <b>comunicación</b>.
+        <br>
+        <br> Bien, donde usted <b>escribió</b>
+        <br> hola a mano derecha ahí una camarita,
+        <br> abra la cámara le toma una <b>foto</b>
+        <br> a su licencia de conducir,
+        <br> <b><u>NO</u></b> puede estar en su mano,
+        <br> debe estar en una <b>superficie</b> plana,
+        <br> sin flash y que se <b>vean</b> las cuatro puntas,
+        <br> tan pronto <b>usted</b> haya hecho
+        <br> eso nos lo <b>envía</b> y nos lo indica
+        <br>
+
+        <div class="esperar mt-3">
+          ESPERAR REACCIÓN
+          <br><input type="text" class="reacciono" placeholder="Reacción del cliente">
+        </div>
+
+        <br> Ahora mientras <b>usted</b> hace eso
+        <br> yo voy a enviar <b>una alerta </b>
+        <br> a los buros de <b>crédito </b>
+
+        <div class="azul">
+          Experian, <b>Equifax</b> y transunion
+        </div>
+
+        <br> Para que, de ahora en <b>adelante</b>,
+        <br> cualquier <b>situación</b> con su reporte de crédito,
+        <br> tienen que llamar <b>explícitamente</b> al teléfono
+        <br> que termina en
+        <div class="azul" *ngIf="dataCliente">( {{dataCliente.telmovil | slice:0:5 }} )</div>
+        <br> Y hablar con:
+
+        <div class="verde">
+         ( <b *ngIf="dataCliente">{{dataCliente.nombres || '(falta dato!)' }}</b> )<br>
+         ( <b *ngIf="dataCliente">{{dataCliente.apellidos || '(falta dato!)' }}</b>)
+        </div>
+
+        <label>¿Usted tiene su seguro <br> social firmado?</label> <br><br>
+        <select class="reacciono" [(ngModel)]="ssfirmado">
+          <option value="sif">Sí</option>
+          <option value="nof">No</option>
+        </select> <br><br>
+
+        <div *ngIf="ssfirmado == 'sif'">
+          <br>
+          <br> <b>Perfecto</b>,
+          <br>
+          <br> <b>tómele</b> una foto y
+          <br> envíela <b>también</b>
+          <br> si es <b>tan</b> amable
+
+        </div>
+
+        <div *ngIf="ssfirmado == 'nof'">
+          <br> <b>Fírmelo</b>,
+          <br> porque se lo <b>pueden</b> falsificar
+        </div>
+
+        <div class="verde">
+          (HACER EMPATIA CUANDO ENVIA LA LICENCIA)
+        </div>
+
+        <br> Okay <b>perfecto</b>,
+        <br> ya, nosotros <b>vamos</b> a sacar
+        <br> estas cartas, <b>inmediatamente</b>
+        <br> van a salir, en el <b>día</b> de hoy
+        <br> con el favor de <b>Dios</b>,
+        <br> de hecho, yo me <b>voy</b> a dedicar
+        <br> a <b>ello</b>
+        <br>
+        <br> Ya que esta es mi <b>última</b> llamada,
+        <br> son dos horas <b>maso</b> menos que yo
+        <br> me tardo para <b>hacer</b> esto, pero,
+        <br> aunque los <b>correos</b> ya cerraron hoy,
+        <br> el correo <b>general</b> cierra a las 9
+        <br> y lo que <b>queremos</b> es que
+        <br> estas <b>cartas</b> salgan
+        <br> con el mata <b>sello</b> el día de hoy
+        <br> para evitar <b>cualquier</b> tipo de demanda,
+        <br> para esto lo <b>único</b>, que falta
+        <br> en estos <b>momentos</b> es matricularla,
+        <br> en nuestro <b>programa</b>
+        <br>
+        <br> Para <b>eso</b> debe pagar
+        <br> los <b><span class="blue">300/500/700</span> dólares </b>de los abogados.
+        <br>
+        <br> Usted lo tiene <b>completos</b>
+        <br> para salir ya de esto o
+        <br>
+        <br> ¿Necesita un <b>plan</b> de pago?
+        <br>
+        <div class="btn-uy mt-4">
+          <button type="button" class="btn btn-success" (click)=" plan_de_pago = 2; excusa = 0">
+            Formas de Deposito
+          </button>
+          <button type="button" class="btn btn-success" (click)=" plan_de_pago = 1; excusa = 0">
+            Necesita Plan
+          </button>
+
+        </div>
+        <div class="btn-uy mt-4">
+          <button type="button" class="btn btn-danger ml-4" (click)=" plan_de_pago = 0; excusa = 0">
+            7 enanitos
+          </button>
+          <button type="button" class="btn btn-danger ml-4" (click)="excusa = 10">
+            Crear CashApp
+          </button>
+        </div>
+        <div class="plan_dep" *ngIf="excusa == 10">
+          <app-speech-crear-cash-app></app-speech-crear-cash-app>
+        </div>
+
+        <div class="plan_dep" *ngIf="plan_de_pago == 2">
+          <div class="cash_app style_b">
+            <h2 class="tt_b">CASH APP</h2>
+            <p>TELEFONO: <b>(786) 282-3045</b></p>
+            <p>A nombre de: <b>Vanessa Gómez</b></p>
+          </div>
+          <div class="zelle style_b">
+            <h2 class="tt_b">ZELLE</h2>
+            <p>CORREO: <b>creditomejor@gmail.com</b></p>
+            <p>A nombre de: <b>Elfre Mackenzie</b></p>
+          </div>
+          <div class="zelle style_b">
+            <h2 class="tt_b">ZELLE VIEJO</h2>
+            <b class="red">Solo clientes viejos!</b>
+            <p>TELEFONO: <b>(786) 282-3045</b></p>
+            <p>A nombre de: <b>Vanessa Gómez</b></p>
+            <p>A nombre de: <b>Secreto Natural International inc.</b></p>
+          </div>
+          <div class="banco style_b">
+            <h2 class="tt_b">BANCOS</h2>
+            <div class="bancos">
+              <h3>CHASE</h3>
+              <p>Cuenta de cheques: <b>#578-057-850</b></p>
+              <p>A nombre de: <b>Secreto Natural International inc.</b></p>
+            </div>
+            <div class="bancos">
+              <h3>TD Bank</h3>
+              <p>Cuenta de cheques: <b>#434-170-9066</b></p>
+              <p>A nombre de: <b>Secreto Natural International inc.</b></p>
+            </div>
+            <div class="bancos">
+              <h3>BANK OF AMERICA</h3>
+              <p>Cuenta de cheques: <b>#898 11571 9236</b></p>
+              <p>A nombre de: <b>Secreto Natural International inc.</b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="plan_dep" *ngIf="plan_de_pago == 1">
+          <br> Claro que si,
+          <br> como las cartas
+          <br> deben de salir hoy mismo,
+          <br> yo le hago el plan de pago
+          <br> ud me dice con cuanto
+          <br> le coloco el dia de hoy
+          <br> de los $700 y con el resto
+          <br> le hago un plan de pago.
+          <br>
+          <br> De los $700 con cuanto le pongo el dia de hoy
+          <br>
+          <br>
+          <button type="button" class="btn btn-primary btn-lg" (click)="excusa = 8">Ofrece menos de la mitad!</button>
+          <br>
+          <div class="excusas" *ngIf="excusa == 8">
+            <br> Nosotros usualmente <b>aceptamos</b>
+            <br> la mitad.
+            <br> <b>Cuanto</b> es lo máximo
+            <br> que se puede acercar
+            <br> a la <b>mitad</b>.
+          </div>
+
+        </div>
+        <div class="plan_dep" *ngIf="!plan_de_pago">
+          <br> <button type="button" class="btn btn-primary btn-lg" (click)="excusa = 1">Puedo esperar hasta el:</button>
+          <br> <button type="button" class="btn btn-primary btn-lg" (click)="excusa = 2">Quien no puede esperar es ud</button>
+          <br> <button type="button" class="btn btn-primary btn-lg" (click)="excusa = 3">Que es mejor? que le quiten hasta...</button>
+          <br> <button type="button" class="btn btn-primary btn-lg" (click)="excusa = 4">Yo estoy para decirle la verdad!</button>
+          <br> <button type="button" class="btn btn-primary btn-lg" (click)="excusa = 5">Despertamos el panal de las abejas</button>
+          <br> <button type="button" class="btn btn-primary btn-lg" (click)="excusa = 6">Empezar poquito a poquito</button>
+          <br> <button type="button" class="btn btn-primary btn-lg" (click)="excusa = 7">Es irrelevante la cantidad q ud ponga</button>
+        </div>
+
+        <div class="excusas" *ngIf="excusa == 1">
+          <br> Quien le dijo que <b>usted</b>
+          <br> tiene tiempo hasta el viernes,
+          <br> porque yo <b>NO</b> le he dicho
+          <br> que tiene tiempo.
+          <br> De aquí alla, le púeden <b>quitar</b> su salario,
+          <br> es más, no le extrañe que <b> mañana</b>
+          <br> cuando llegue a su trabajo
+          <br> se encuentre con una orden
+          <br> de <b>corte</b> embargandole hasta
+          <br> el <b>25%</b> de su salario.
+          <br>
+          <br> <b>Tienen</b> que salir unas cartas
+          <br> <b>inmediatamente</b>.
+          <br> A usted lo unico que le <b>proteje</b>
+          <br> de una demanda es el <b>matasello</b> del correo.
+          <br>
+          <br> De los 700 con cuanto le pongo?.
+        </div>
+        <div class="excusas" *ngIf="excusa == 2">
+          <br> Yo puedo esperar!
+          <br>
+          <br> Quien <b>NO</b> puede esperar
+          <br> es <b>usted</b>. Porque como le dije anteriormente
+          <br> le <b>pueden</b> quitar hasta el <b>25%</b>
+          <br> de su salario
+          <br> y le digo cuanto es eso en dinero……
+          <br> se lo pueden quitar por <b>hasta 20 años</b>
+          <br> o hasta que <b>termine</b> de pagar
+          <br> en su totalidad la deuda
+        </div>
+        <div class="excusas" *ngIf="excusa == 3">
+          <br> Que es mejor?
+          <br>
+          <br> que le quiten $700 dolares al mes
+          <br> por <b>hasta 20 años</b>
+          <br> o pagarnos solamente 265 al mes,
+          <br> obviamente los $265 solamente.
+          <br> Ademas aqui lo <b>primero</b> que tenemos que hacer
+          <br> es trabajar con los casos suyos
+          <br> que estan en <b>proceso de corte</b>
+          <br> y luego podemos ver lo de arreglar su credito
+          <br> Okey?.
+          <br>
+          <br> No se preocupe de los $700 dolares
+          <br> le hacemos un <b>plan de pago</b>
+          <br> ya que todo el mundo nos paga siempre,
+          <br> porque resolvemos los problemas de los 700 dolares
+          <br> para que podamos ayudar a prevenir
+          <br> a que lo <b>demanden</b>.
+          <br>
+          <br> Con cuento le pongo ahora?.
+        </div>
+        <div class="excusas" *ngIf="excusa == 4">
+          <br> Yo <b>NO</b> estoy aquí para decirle
+          <br> lo que usted <b>quiere</b> escuchar
+          <br> sino <b>la verdad</b>,
+          <br> tengo que informarle que todas
+          <br> nuestras conversaciones
+          <br> estan <b>siendo grabadas</b>
+          <br> y si yo no le digo a <b>usted</b>
+          <br> lo que le va <b>a suceder</b>
+          <br> que es mi responsabilidad <b>fiduciaria</b>.
+          <br> Entonces como se esta grabando
+          <br> la conversacion usted nos puede demandar.
+          <br>
+          <br> Yo le estoy diciendo a usted
+          <br> lo que le puede <b>suceder</b>!.
+          <br> Si usted hace caso
+          <br> o no ya es su <b>problema</b>.
+          <br> ya yo <b>cumplí</b>!.
+          <br> Ahorrese problemas <b>serios de corte</b>.
+          <br> Una vez saquemos <b>estas cartas</b>
+          <br> con el favor de <b>Dios</b>
+          <br> no pueden <b>demandarle</b>,
+          <br> estas cartas <b>tienen</b>
+          <br> que salir <b>inmediatamente</b>.
+          <br> Y para salir tiene que darme
+          <br> algo de dinero
+          <br>
+          <br> con cuanto le pongo?
+          <br>
+          <br> a mi no me importa la cantidad
+          <br> lo que quiero medir es <b>su seriedad</b>.
+          <br>
+          <br> De los $700 cuanto le pongo?.
+        </div>
+        <div class="excusas" *ngIf="excusa == 5">
+          <br> El <b>problema</b> que tenemos aquí
+          <br> es que <b> ahora</b>
+          <br> acabamos de <b>despertar</b>
+          <br> el panal de abejas
+          <br> y antes <b>estaban dormidos</b>
+          <br> los <b>avispones</b>
+          <br> ahora saben donde ubicarl<span class="blue">o/a</span> .
+          <br>
+          <br> Ya saben su <b>direccion</b>
+          <br> y ya saben su <b>telefono</b>
+          <br> y aunque es posible
+          <br> que ellos lo hayan sabido antes,
+          <br> ahora usted
+          <br> esta en <b>más peligro</b> que antes.
+          <br>
+          <br> Como le dije anteriormente
+          <br> yo puede esperar
+          <br> quien <b>NO</b> puede esperar es <b>usted</b>
+          <br> no se eche al abandono.
+          <br> Vamos a <b>trabajar juntos</b> de la mano.
+          <br> Estas cartas las voy hacer
+          <br> <b>inmediatamente</b>
+          <br> debido al <b>peligro inminente</b>
+          <br> que usted tiene.
+          <br>
+          <br> Para hacer las cartas con cuanto le póngo?
+        </div>
+        <div class="excusas" *ngIf="excusa == 6">
+          <br> Poquito a poquito
+          <br> lo <b>importante</b> aquí
+          <br> es <b>frenar</b> todo proceso
+          <br> de <b>demanda</b>
+          <br> en <b>su contra</b>.
+          <br> Por eso esas cartas
+          <br> deben salir <b>hoy mismo</b>
+          <br> y asi <b>esclarecer</b>
+          <br> con el favor de <b>Dios</b>
+          <br> cualquier vestigio de robo
+          <br> que <b>usted tiene</b>.
+          <br>
+          <br> De los $700 cuanto le pongo?.
+        </div>
+        <div class="excusas" *ngIf="excusa == 7">
+          <br> Para mi es <b>irrelevante</b>
+          <br> la cantidad que usted ponga.
+          <br>
+          <br> Como le dije anteriormente
+          <br> yo lo que quiero ver
+          <br> es su <b>seriedad</b>,
+          <br> no importa la cantidad que sea,
+          <br> puede ser $<b class="blue">X</b>
+          <br> lo otro me lo puede dar
+          <br> despues, no hay problema,
+          <br> pero estas <b>cartas</b>
+          <br> <b>tienen</b> que salir <b>inmediatamente</b>.
+          <br>
+          <br> Logicamente...
+          <br> hay que pagar el correo.
+          <br>
+          <br> ¿para evitar que a <b>usted</b>
+          <br> con el favor de <b>Dios</b>,
+          <br> no le embarguen parte de su <b>salario</b>
+          <br> y <b>problema de corte</b>
+          <br>
+          <br> con cuanto le pongo ahora?
+        </div>
+        <br>
+        <hr>
+        <br> <button type="button" class="btn  border-dark btn-lg" (click)="f_pago = !f_pago">Crear Plan de Pagos</button>
+        <br>
+        <div class="bg" *ngIf="f_pago">
+          <div class="form-row">
+            <div class="form-group col-md-2"></div>
+
+            <div class="form-group col-md-4">
+              <label for="valor_inscripcion" class="text-white font-w ml--4">Valor a pagar de Inscripción
+              </label>
+              <select name="valor_inscripcion" id="valor_inscripcionSel" class="form-control" [(ngModel)]="valor_inscripcion">
+                <option value=1000 name="valor_inscripcion">$ 1000</option>
+                <option value=900 name="valor_inscripcion">$ 900</option>
+                <option value=800 name="valor_inscripcion">$ 800</option>
+                <option value=700 name="valor_inscripcion">$ 700</option>
+                <option value=600 name="valor_inscripcion">$ 600</option>
+                <option value=500 name="valor_inscripcion">$ 500</option>
+                <option value=300 name="valor_inscripcion">$ 300</option>
+              </select>
+            </div>
+
+
+            <div class="form-group col-md-4">
+              <label for="cuotas_inscripcion" class="text-white font-w ml--8" >Cuotas de Inscripción
+              </label>
+              <select name="cuotas_inscripcion" id="cuotas_inscripcionSel" class="form-control"
+                [(ngModel)]="cuotas_inscripcion">
+                <option value='1' name="cuotas_inscripcion">1 Cuota</option>
+                <option value='2' name="cuotas_inscripcion">2 Cuotas</option>
+                <option value='3' name="cuotas_inscripcion">3 Cuotas</option>
+                <option value='4' name="cuotas_inscripcion">4 Cuotas</option>
+                <option value='5' name="cuotas_inscripcion">5 Cuotas</option>
+                <option value='6' name="cuotas_inscripcion">6 Cuotas</option>
+                <option value='7' name="cuotas_inscripcion">7 Cuotas</option>
+                <option value='8' name="cuotas_inscripcion">8 Cuotas</option>
+                <option value='9' name="cuotas_inscripcion">9 Cuotas</option>
+                <option value='10' name="cuotas_inscripcion">10 Cuotas</option>
+              </select>
+            </div>
+
+            <div class="form-group col-md-2">
+
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="ciudad" class="text-white font-w">Notas Plan Inscripción <span class="red">!!!!</span></label>
+              <input type="text" class="w100 mt-2 form-control" name="nota_plan_inscripcion" [(ngModel)]="nota_plan_inscripcion" style="width: 100%;">
+            </div>
+
+
+            <div class="form-group col-md-6 mod_psi">
+              <label for="fechas_pagos_inscripcion" class="text-white font-w">Fechas de Pagos Inscripción </label>
+              <div class="mod_psi_2 col-12">
+                <div class="form-group d-flex col-12" *ngIf="cuotas_inscripcion > 0">
+                  <input class="d-flex col-6" type="number" name="v0" placeholder="Valor de Couta" [(ngModel)]="v0">
+                  <input class="d-flex ml-3 col-6" size="20" type="date" id="fechas_pagos_inscripcionId"
+                    name="fechas_pagos_inscripcion" class="form-control"
+                    pattern="^(\d{4})(\/|-)(0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1])$" [(ngModel)]="f0" />
+                </div>
+                <div class="form-group d-flex col-12" *ngIf="cuotas_inscripcion > 1">
+                  <input class="d-flex col-6" type="number" name="cuotas_inscripcion" placeholder="Valor de Couta"
+                    [(ngModel)]="v1">
+                  <input class="d-flex ml-3 col-6" size="20" type="date" id="fechas_pagos_inscripcion1Id"
+                    name="fechas_pagos_inscripcion" class="form-control"
+                    pattern="^(\d{4})(\/|-)(0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1])$" [(ngModel)]="f1" />
+                </div>
+
+                <div class="form-group d-flex col-12" *ngIf="cuotas_inscripcion > 2">
+                  <input class="d-flex col-6" type="number" name="cuotas_inscripcion" placeholder="Valor de Couta"
+                    [(ngModel)]="v2">
+                  <input class="d-flex ml-3 col-6" size="20" type="date" id="fechas_pagos_inscripcion2Id"
+                    name="fechas_pagos_inscripcion" class="form-control"
+                    pattern="^(\d{4})(\/|-)(0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1])$" [(ngModel)]="f2" />
+                </div>
+
+                <div class="form-group d-flex col-12" *ngIf="cuotas_inscripcion > 3">
+                  <input class="d-flex col-6" type="number" name="cuotas_inscripcion" placeholder="Valor de Couta"
+                    [(ngModel)]="v3">
+                  <input class="d-flex ml-3 col-6" size="20" type="date" id="fechas_pagos_inscripcion3Id"
+                    name="fechas_pagos_inscripcion" class="form-control"
+                    pattern="^(\d{4})(\/|-)(0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1])$" [(ngModel)]="f3" />
+                </div>
+
+                <div class="form-group d-flex col-12" *ngIf="cuotas_inscripcion > 4">
+                  <input class="d-flex col-6" type="number" name="cuotas_inscripcion" placeholder="Valor de Couta"
+                    [(ngModel)]="v4">
+                  <input class="d-flex ml-3 col-6" size="20" type="date" id="fechas_pagos_inscripcion4Id"
+                    name="fechas_pagos_inscripcion" class="form-control"
+                    pattern="^(\d{4})(\/|-)(0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1])$" [(ngModel)]="f4" />
+                </div>
+
+                <div class="form-group d-flex col-12" *ngIf="cuotas_inscripcion > 5">
+                  <input class="d-flex col-6" type="number" name="cuotas_inscripcion" placeholder="Valor de Couta"
+                    [(ngModel)]="v5">
+                  <input class="d-flex ml-3 col-6" size="20" type="date" id="fechas_pagos_inscripcion4Id"
+                    name="fechas_pagos_inscripcion" class="form-control"
+                    pattern="^(\d{4})(\/|-)(0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1])$" [(ngModel)]="f5" />
+                </div>
+
+                <div class="form-group d-flex col-12" *ngIf="cuotas_inscripcion > 6">
+                  <input class="d-flex col-6" type="number" name="cuotas_inscripcion" placeholder="Valor de Couta"
+                    [(ngModel)]="v6">
+                  <input class="d-flex ml-3 col-6" size="20" type="date" id="fechas_pagos_inscripcion4Id"
+                    name="fechas_pagos_inscripcion" class="form-control"
+                    pattern="^(\d{4})(\/|-)(0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1])$" [(ngModel)]="f6" />
+                </div>
+
+                <div class="form-group d-flex col-12" *ngIf="cuotas_inscripcion > 7">
+                  <input class="d-flex col-6" type="number" name="cuotas_inscripcion" placeholder="Valor de Couta"
+                    [(ngModel)]="v7">
+                  <input class="d-flex ml-3 col-6" size="20" type="date" id="fechas_pagos_inscripcion4Id"
+                    name="fechas_pagos_inscripcion" class="form-control"
+                    pattern="^(\d{4})(\/|-)(0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1])$" [(ngModel)]="f7" />
+                </div>
+
+                <div class="form-group d-flex col-12" *ngIf="cuotas_inscripcion > 8">
+                  <input class="d-flex col-6" type="number" name="cuotas_inscripcion" placeholder="Valor de Couta"
+                    [(ngModel)]="v8">
+                  <input class="d-flex ml-3 col-6" size="20" type="date" id="fechas_pagos_inscripcion4Id"
+                    name="fechas_pagos_inscripcion" class="form-control"
+                    pattern="^(\d{4})(\/|-)(0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1])$" [(ngModel)]="f8" />
+                </div>
+
+              </div>
+            </div>
+
+            <div class="form-group col-md-12" *ngIf="nota_plan_inscripcion && v0 && f0 && valor_inscripcion ">
+              <button type="button" class="btn btn-success" (click)="enviarPlanPago()">Crear plan de Inscripción</button>
+            </div>
+
+          </div>
+        </div>
+        <hr>
+        <br>
+        <br>
+        <br>
+
+      </div>
+    </div>
+  </div>

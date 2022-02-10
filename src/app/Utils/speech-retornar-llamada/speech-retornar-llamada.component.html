@@ -1,0 +1,818 @@
+
+<div class="content" #content style="font-size: 36px;" *ngIf="!speech800">
+  <div class="llamando" *ngIf="cliente$">
+    <span>LLAMANDO A: {{cliente$.nombres | slice:0:20 }}</span><!-- <span *ngIf="!hayDid" class="red ml-3">Selecciona un DID!</span> -->
+  </div>
+
+  <div class="bg_modal" *ngIf="verModal">
+    <div class="dids_modal">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Seleccionar DID</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="verModal=false">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="did mt-2">
+          <ul class="list-inline">
+            <li class="list-inline-item" *ngFor="let item of dids">
+              <h5 title="{{item.numero}}-{{item.estado}}" style="margin: 0; padding: 3px 8px; color: black">
+                DID :
+                <button type="button" class="btn btn-outline-success mr-2" (click)="llamar2(item.did)">
+                  {{ item.did }}
+                </button>
+              </h5>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="{{ intro }}">
+    <br>
+    <h1 class="title mt-3"><b>Holaaa</b></h1>
+    <br><br>
+    <h1 class="" style="font-size: 70px; color: green">
+      (El primero que hable pierde) </h1>
+
+    <br>
+    <div>
+      <button type="button" class="btn" (click)="cambiarP('comoEstamos')">
+        Continuar
+      </button>
+    </div>
+
+  </div>
+
+  <div class="{{ comoEstamos }}">
+
+    <div class="atras">
+      <button class="btn-A" (click)="regresarP('comoEstamos')">Atras</button>
+    </div>
+
+    <h1 style="margin-top: 30px;" class="title">Como <br> estaaaamos?</h1>
+    <br>
+    <h1 class="" style="font-size: 70px; color: green">
+      (El primero que hable pierde)
+    </h1>
+
+    <br>
+    <div>
+      <button type="button" class="btn" (click)="cambiarP('quehayN')">
+        Continuar
+      </button>
+    </div>
+  </div>
+
+  <div class="{{ quehayN }}">
+
+    <div class="atras">
+      <button class="btn-A" (click)="regresarP('quehayN')">Atras</button>
+    </div>
+
+    <h1 class="title mt-6">¿Qué hay de <br> nuevoo?</h1>
+    <br>
+    <h1 class="" style="margin-top: 40px; color: green;font-size: 70px">
+      (El primero que hable pierde)
+    </h1><br>
+    <div>
+      <button type="button" class="btn" (click)="cambiarP('cuenteme')">
+        Continuar
+      </button>
+    </div>
+  </div>
+
+  <div class="{{ cuenteme }}">
+
+    <div class="atras">
+      <button class="btn-A" (click)="regresarP('cuenteme')">Atras</button>
+    </div>
+    <br>
+    <br> Dios le <b>bendiga</b> herman@,
+    <br> le saluda ( <b>{{agente}}</b> )
+    <br> soy la persona que habla con Mackenzie
+    <br> en la <b>radio</b>.
+    <br>
+    <br> <b>Somos</b> las personas
+    <br> que le ayudamos a <b>reparar</b> su credito,
+    <br>
+    <br>
+    <br>
+   <!--  <h1 class=" mt-3"><br><br> ... Cuenteme ...</h1> -->
+
+    <button type="button" class="btn" (click)="cambiarP('cuenteme2')">
+      ... Cuenteme ...
+    </button>
+    <br><br>
+
+
+<!--
+
+
+
+
+
+
+    <div>
+      <div style="display: flex;justify-content: center;">
+        <span>
+          <span style="font-size: 25px;">
+            ¿Cómo <b>está</b> su crédito? ¿Esta Bueno o esta <b>MALO</b> ?
+          </span>
+          <br>
+          <br>
+          <span>
+            <button class="btn b-m-r" (click)="credi_BM = 'bueno'">Bueno</button> <span style="font-size: 25px;">&nbsp;
+            <button class="btn b-m-r" type="button" (click)="credi_BM = 'malo'">Malo</button>&nbsp;
+            <button class="btn b-m-r" type="button" (click)="credi_BM = 'regular'">regular</button>&nbsp;
+            <span style="font-size: 25px;">
+              Otro : <input type="text" name="otro" [(ngModel)]="otro">
+            </span>
+
+          </span>
+          </span>
+          <br><br><br>
+        </span>
+      </div>
+    </div>
+
+    <div style="font-size: 36px;" *ngIf="credi_BM ==  'bueno' && !otro ">
+      <b><u>Y</u></b> ¿Porque dice que su credito <b>está </b> <u>bueno?</u><br><br><br>
+    </div>
+
+    <div style="font-size: 36px;" *ngIf="credi_BM ==  'malo' && !otro ">
+      <b><u>Y</u></b> ¿Porque dice que su credito <b>está </b> <u>Malo?</u><br><br><br>
+    </div>
+
+    <div style="font-size: 36px;" *ngIf="credi_BM ==  'regular' && !otro ">
+      <b><u>Y</u></b> ¿Porque dice que su credito <b>está </b> <u>Regular?</u><br><br><br>
+    </div>
+
+    <div style="font-size: 36px;" *ngIf="otro">
+      <b><u>Y</u></b> ¿Porque dice que su credito <b>está </b> <u>{{otro}}</u><br><br><br>
+    </div>
+
+    <div class="verde">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO <br><br><br>
+    </div>
+
+    <div style="font-size: 36px;">
+      <button type="button" class="btn_g" (click)="cambiarP('udemanda')">
+        UUUUYYY, Esa gente usualmente demanda
+      </button>
+    </div>
+    <br>
+    <br>
+
+    <div style="font-size: 36px;">
+      <button type="button" class="btn_g" (click)="cambiarP('tienecu')">
+        Tiene cuentas
+      </button>
+    </div>
+    <br>
+    <br>
+  </div>
+
+  <div class="{{ udemanda }}">
+
+    <div class="atras">
+      <button class="btn-A" (click)="regresarP('udemanda')">Atras</button>
+    </div>
+
+    <br> Uy herman<span class="blue">o/a</span> eso es <b><u>MUY</u></b> peligroso
+    <br> porque esa gente usualmente <b>demanda</b>
+    <br>
+    <br> y le pueden <b>quitar</b> hasta $3500 dólares
+    <br> por <b>gastos</b> de corte y abogados
+    <br> más los <b>interés</b>.
+    <br>
+
+    <br> Hábleme de la <b>primera</b> cuenta
+
+    <div>
+      <input type="text" name="credores" [(ngModel)]="acredores" class="reacciono"
+        placeholder="Escriba aqui la primera cuenta">
+    </div>
+
+    <br> Esa cuenta <b><u>NO</u></b> me preocupa
+    <br> ya que por el <b>balance</b> esto
+    <br> pasa al <b>small</b> client court
+    <br> esto le va a estar <b>afectando</b>
+    <br> su <b>puntaje</b>.
+    <br>
+    <br> Tenemos que <b>trabajar</b> en ella
+    <br>
+    <br>
+    <br> Hábleme de la <b>segunda</b> cuenta
+    <div>
+      <input type="text" name="credores2" [(ngModel)]="acredores" class="reacciono"
+        placeholder="Escriba aqui la segunda cuenta">
+    </div>
+    <br> Ay herman<span color="blue">o/a</span> eso <b><u>NO</u></b> es de _____
+    <br> como <b>usted</b> cree ya que hay
+    <br> que sumarle los <b>intereses</b>
+    <br> que <b>crecen</b> hasta un
+    <br> <b>25%</b> anual.
+    <br>
+    <br> Hace cuánto <b>dejo</b> de pagarla
+
+    <div>
+
+      <input type="text" name="deudas_pendientes" [(ngModel)]="deudas_pendientes" class="reacciono"
+        placeholder="Escriba cuando dejo de pagarla">
+    </div>
+
+    <br> Uy herman<span color="blue">o/a </span> <span *ngIf="cliente">{{cliente || '(____)'}}</span>
+    <br> está cuenta <b>sumándole</b> los intereses
+    <br> <b>estaría</b> posiblemente en _____
+    <br> además hay que <b>sumarle</b> los gastos
+    <br> de <b>corte</b> y abogado.
+    <br>
+    <br> Ya que los <b>abogados</b> usualmente
+    <br> <b>mandan</b> una carta donde notifican
+    <br> que ya tienen esa <b>cuenta</b>,
+    <br> que <b><u>YA</u></b> les pertenece
+    <br> al usted <b><u>NO</u></b> responder
+    <br> <b>asumen</b> que esa cuenta es suya.
+    <br>
+    <br> Y la <b>siguiente</b> carta
+    <br> que le van a <b>enviar</b>
+    <br> es una <b>carta</b> de cobro
+    <br> <b>donde</b> ellos luego de
+    <br> <b><u>NO</u></b> responder esta carta<b></b>,
+    <br> la van a <b>mandar</b> nuevamente.
+    <br>
+    <br> Y luego <b>van</b> a ir donde
+    <br> el <b>juez</b> diciendo que ellos
+    <br> hicieron todo el <b>debido</b>
+    <br> <b>procedimiento</b> de la ley
+    <br> que enviaron las <b>tres</b> cartas
+    <br> y que este <b>individuo</b>
+    <br> <b><u>NO</u></b> las respondió
+    <br>
+    <br> O sea que a <span color="blue">él/ella</span> <b>NO</b> le importa
+    <br> la <b>ley</b> de esta gran nación
+    <br> que es <b>ESTADOS UNIDOS</b>
+    <br> luego el <b>juez</b> le va a preguntar
+    <br> al abogado <em>"Ustedes <b>que</b> quieren"</em>
+    <br> y <b>ellos</b> le van a decir
+    <br>
+    <br><em>"Nosotros <b>queremos</b> nuestros
+      <br> <b>honorarios</b> ya que estuvimos
+      <br> trabajando <b>aproximadamente</b>
+      <br> <b>10 horas</b> a razón de $300 dólares
+      <br> la <b>hora</b>"</em>
+    <br>
+    <br> y el juez va a fallar a favor
+    <br> de los abogados y a usted
+    <br> le estarían cobrando esos
+    <br> $3500 dolares
+    <br>
+
+  </div>
+
+  <div class="{{ tienecu }}">
+
+    <div class="preguntas" *ngIf="!preguntas">
+
+      <div class="atras">
+        <button class="btn-A" (click)="regresarP('tienecu')">Atras</button>
+      </div>
+
+      <div>
+        <span> ¿De donde es la <b>cuenta </b>?</span><br>
+        <select name="buro" id="buroId" [(ngModel)]="buro">
+          <option value="Equifax" name="buro">Equifax</option>
+          <option value="Experian" name="buro">Experian</option>
+          <option value="TransUnion" name="buro">TransUnion</option>
+        </select>
+        <span style="color: green;">ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO</span> <br><br>
+      </div>
+
+      <div>
+        <span> ¿Que <b>cantidad</b>?</span><br>
+        <input type="number" class="reacciono" placeholder="Cantidad" [(ngModel)]="cuenta_pendientes"><br><br>
+        <span style="color: green;">ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO</span><br><br>
+      </div>
+
+      <div style="font-size: 36px;">
+        <button type="button" class="btn_g" (click)="preguntas = true">
+          Siguiente Escrito
+        </button>
+      </div>
+
+    </div>
+
+    <div class="preguntas2" *ngIf="preguntas">
+
+      <div class="atras">
+        <button class="btn-A" (click)="preguntas = false">Atras</button>
+      </div>
+
+      <div>
+        <span> ¿Cuando fue su <b>ultimo</b> pago?</span><br>
+        <input type="text" required="required" class="reacciono" placeholder="Ultimo pago"><br><br>
+        <span style="color: green;">ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO</span><br><br>
+      </div>
+
+      <div>
+        <span> ¿Cuando fue la <b>ultima</b> vez que hablo con ellos?</span><br>
+        <input type="text" required="required" class="reacciono" placeholder="Ultima conversacion"><br><br>
+        <span style="color: green;">ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO</span><br><br>
+      </div>
+
+      <div>
+        <span> ¿En <b>que fue</b> lo que quedaron?</span><br>
+        <input type="text" required="required" class="reacciono" placeholder="En que quedaron"><br><br>
+        <span style="color: green;">ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO</span><br><br>
+      </div>
+
+      <div style="font-size: 36px;">
+        <button type="button" class="btn_g" (click)="cambiarP('next')">
+          Siguiente Escrito
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="{{ next }}">
+
+    <div class="aveces" *ngIf="!aveces">
+
+      <div class="atras">
+        <button class="btn-A" (click)="regresarP('next')">Atras</button>
+      </div>
+
+      <br> ¡A veces el <b>crédito</b>
+      <br> de nosotros está <b><u>mejor</u></b>
+      <br> de lo que creemos o <b><u>peor</u></b>!<br><br>
+
+      <span style="color: green;">
+        <br> <b>(ESPERAR Y PROPICIAR REACCIÓN
+          <br> DEL PROSPECTO Y DEPENDIENDO LA CONTESTACIÓN
+          <br> PREGUNTARLE LO QUE APLIQUE)</b>
+        <br>
+      </span>
+      <br>
+      <br>
+
+      <div style="font-size: 36px;">
+        <button type="button" class="btn_g" (click)="aveces = true">
+          Siguiente Escrito
+        </button>
+      </div>
+
+    </div>
+
+    <div class="aveces" *ngIf="aveces">
+
+      <div class="atras">
+        <button class="btn-A" (click)="aveces = false">Atras</button>
+      </div>
+
+      <br> La <b><u>única</u></b> forma
+      <br> de saberlo es <b>sacando</b>
+      <br> el <b>reporte</b> de crédito.<br><br>
+
+
+      <span style="color: green;">
+        <br> <b>(ESPERAR Y PROPICIAR REACCIÓN
+          <br> DEL PROSPECTO Y DEPENDIENDO LA CONTESTACIÓN
+          <br> PREGUNTARLE LO QUE APLIQUE)</b>
+        <br>
+      </span>
+
+
+      <br> Nosotros lo hacemos sin <b><u>quitarle</u></b>
+      <br> <b>puntos</b> ni le afecte
+      <br> a su <b>crédito</b>.
+      <br>
+      <br>
+      <br> Como hemos dicho en la <b>radio</b>, <span></span>
+      <br> ambas cuestan <b>solamente</b>
+      <br> <b>1</b> dólar con 10 centavos
+      <br> con su <b>tárjeta</b>
+      <br> de crédito o débito.
+      <br>
+      <br>
+      <span style="color: green;">
+        <br> <b>(ESPERAR Y PROPICIAR REACCIÓN
+          <br> DEL PROSPECTO Y DEPENDIENDO LA CONTESTACIÓN
+          <br> PREGUNTARLE LO QUE APLIQUE)</b>
+        <br><br><br>
+      </span>
+
+      <div style="font-size: 36px;">
+        <button type="button" class="btn_g" (click)="cambiarP('undolar')">
+          LA OTRA FORMA
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="{{paraluego}}">
+
+    <div class="atras">
+      <button class="btn-A" (click)="regresarP('paraluego')">Atras</button>
+    </div>
+
+    <div>
+
+      <br>Yo le voy a ayudar a <b>sacar</b> su reporte de credito
+      <br>para luego, si desea, le envio las <b>claves</b>
+      a su <b>correo</b> electrónico.
+      <br>
+      <br>
+    </div>
+
+    <div>
+      ¿Cuál es su correo <b>electrónico</b>?
+      <input class="reacciono" [(ngModel)]="email" placeholder=""> <br><br>
+    </div>
+
+    <div>
+      ¿Tiene un segundo correo <b>electrónico</b>?
+      <input class="reacciono" [(ngModel)]="email2" placeholder=""><br><br>
+    </div>
+
+    <div>
+      ¿Cuál es el nombre suyo <b>completo</b>?<br>
+      Nombres :<input class="reacciono" [(ngModel)]="nombres" placeholder=""><br>
+      Apellidos :<input class="reacciono" [(ngModel)]="apellidos" placeholder=""><br>
+      ¡<u>Tal</u> y como <b>aparece</b> en su seguro social! <br><br>
+    </div>
+
+    <div>
+      ¿Cuál es su <b>número</b> de seguro social?
+      <input class="reacciono" [(ngModel)]="numero_id" placeholder=""><br><br>
+    </div>
+
+    <div>
+      ¿Cuál es su direccion <b>fisica</b> actual?
+      <input class="reacciono" [(ngModel)]="direccion" placeholder=""><br><br>
+    </div>
+
+    <div>
+      ¿Usted tiene actualmente algun crédito que esta pagando? <br>
+      <input type="text" [(ngModel)]="creditos" name="" id="">
+      <br><br>
+    </div>
+
+    <div>
+
+      <div>
+        ¿Cuál es la dirección en la que <b>usted</b> recibe esa factura?<br>
+        <input type="text" [(ngModel)]="direccion_facturas"><br><br>
+      </div>
+      <div>
+        <br>Indiqueme una una <b>todas</b> las direcciones
+        <br>que usted <b>tenga</b>,
+        <br> de todas las <b>facturas</b> que usted
+        <br> reciba, tarjetas de <b>crédito</b>
+        <br> o lo que sea...
+        <br>
+        <br>
+
+        Dirección reciente - <input type="text" placeholder="Dirección reciente" [(ngModel)]="direccion_reciente"> <br>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <div>
+      ¿Cuanto tiempo tiene <b>viviendo</b> en esta direccion?
+      <input placeholder="tiempo viviendo en la direccion" type="text"><br><br>
+    </div>
+
+    <br>
+    <br>
+    <div>
+      ¿Cuál es el <b><u>apellido</u></b> de soltera de su mama?
+      <input placeholder="Respuesta" type="text" class="reacciono"><br><br>
+    </div>
+
+    <div>
+      ¿En qué <b>ciudad</b> nació su mamá?
+      <input placeholder="Respuesta" type="text" class="reacciono"><br><br>
+    </div>
+
+    <div>
+      El <b>procesador</b> me esta pidiendo <br>
+      un <b>segundo</b> numero telefonico...<br><br>
+      ¿Cuál es el telefono suyo de su <b>casa</b>?
+      <input [(ngModel)]="telcasa" type="text" class="reacciono"><br><br>
+    </div>
+
+    <div>
+      ¿Cuál es la fecha de nacimiento <b>suya</b>?
+      <br>
+      <input type="date" class="reacciono" [(ngModel)]="nacimiento"><br><br>
+    </div>
+
+    <div>
+
+      <br>Perfecto, ya estamos <b>listos</b> para sacar su reporte de credito.
+      <br>
+      <br>
+      <b>Ahora</b> necesitamos<br>
+      una <b>tarjeta</b> de crédito o debito<br>
+      para sacar su <b>actual</b> reporte de credito,<br>
+      con un <b>balance</b> de 1 dólar con 9 centavos…<br>
+      <b>¿Cuál</b> <u>va</u> a utilizar visa o mastercard?
+      <select>
+        <option value="mastercard">Mastercard</option>
+        <option value="visa">Visa</option>
+      </select>
+    </div>
+
+    <br>
+    <br>Si su tarjeta <b>comienza</b>
+    <br>con un <b>cuatro</b> o un cinco
+    <br>la podemos <b>aceptar</b>,
+    <br>sino, <b>lamentablemente</b> <b><u>NO</u></b>
+    <br>le puedo ayudar.
+    <br>
+    <br>
+    <br> ¿Con que numero <b>comienza</b>,
+    <br> porque <b>solo</b> la puedo aceptar por teléfono
+    <br> si <b>comienza</b> con un 4 o un 5.
+    <br>
+    <br> ¿Con que <b>número</b> comienza?
+    <br> ¿Con un <b>cuatro</b> o con un cinco?
+    <br> Vaya y <b>busquela</b>.
+    <br>
+    <br> Mientras yo sigo <b>trabajando</b>
+    <br> en la computadora, me avisa cuando
+    <br> la <b>tenga</b> en la mano.
+    <br><span style="color: blue;">vaya y busquela , que yo le espero.. <br></span>
+    <br>
+
+    <span style="color: green;">
+      /////ESPERAR CONTESTACION DEL CLIENTE Y CUANDO LE DICE QUE ES CON UN 4 O 5... decirle:///// <br><br>
+    </span>
+
+    <div>
+      <br>
+      <br> Ohhh. <b>siiiii</b>....
+      <br> Esa la <b>aceptamos</b>.
+      <br> <b>dictemela</b> de 2 en 2
+      <br> para no equivocarme.
+      <br> <b>Cuarenta</b> y que?
+      <br> <b>Cincuenta</b> y que? <br>
+      <input placeholder="# Tarjeta" [(ngModel)]="id_tarjeta" type="text" class="reacciono"><br><br>
+    </div>
+
+    <div>
+      Cual es la dirección en la que recibe facturas de esta tarjeta?<br>
+      <input type="text" name="direccion_tarjeta" id="" [(ngModel)]="direccion_tarjeta">
+    </div>
+
+    <div>
+      ¿<b>Cuál es la fecha de <u>expiración</u> de la tarjeta?</b>
+      <br>
+      <input placeholder="fecha expiracion" [(ngModel)]="exp" type="text" class="reacciono"><br><br>
+    </div>
+
+    <div>
+      ¿<b><u>Usted en que banco tiene su cuenta?</u></b>
+      <br>
+      <input placeholder="nombre del banco" [(ngModel)]="banco" type="text" class="reacciono"> <br>
+    </div>
+    <br>
+    <div>
+      <br>En la <b>parte</b> de atras hay unos numeritos
+      <br>debajo de donde <b>usted</b> firma
+      <br>
+      <b>Cuales</b> son esos numerito?
+      <input type="number" class="reacciono" [(ngModel)]="cv" placeholder="cv o cvc"><br><br>
+    </div>
+
+    <div>
+      <br>¿Indiqueme el nombre tal y como aparece en la tarjeta?
+      <input placeholder="titular de tarjeta" type="text" class="reacciono" [(ngModel)]="nombres_tarjeta"><br><br>
+    </div>
+
+    <div style="font-size: 36px;">
+      <button type="button" class="btn_g" (click)="cambiarP('fin')">
+        Siguiente
+      </button>
+      <br>
+      <br>
+      <br>
+    </div>
+
+  </div>
+
+  <div class="{{undolar}}">
+
+    <div class="atras">
+      <button class="btn-A" (click)="regresarP('undolar')">Atras</button>
+    </div>
+    <span>
+      Al sacar su reporte de credito podemos saber
+      <br>si usted está en <u>vias</u> de ser <b>demandad<span style="color: blue;">o(a)</span></b>
+      <br>o que le lleven a <b> corte</b>,
+      <br><u>cuesta </u> <b>solo</b> 1 dólar con 10 centavos
+      <br>con su tarjeta de crédito o <b> debito</b>
+      <br>y es en <b> línea</b> mientras
+      <br><b> estamos</b> hablando por teléfono<br>
+    </span>
+
+    <div style="font-size: 36px;">
+      <button type="button" class="btn_g" (click)="cambiarP('paraluego')">
+        Siguiente Escrito
+      </button>
+    </div>
+  </div>
+
+  <div class="{{fin}}">
+
+    <div class="muybn" *ngIf="!muybn">
+      <div class="atras">
+        <button class="btn-A" (click)="regresarP('fin')">Atras</button>
+      </div>
+      <br>
+      <br> <b>Muy</b> bien
+      <br> <span *ngIf="cliente">{{cliente || '(____)'}}</span>, yo soy la <b>persona</b> que habla con
+      Mackenzie en la radio
+      <br> y aunque a mi me <b>gustaria</b> hablar
+      <br> con <b>todas</b> las personas que nos llaman
+      <br> es humanamente <b>imposible</b> poder
+      <br> <b>conversar</b> con todo el mundo
+      <br> y por eso yo tengo <b>persona</b> que me ayudan
+      <br> a <b>hablar</b> con los clientes
+      <br>
+      <br>
+
+      <div style="font-size: 36px;">
+        <button type="button" class="btn_g" (click)="muybn = true">
+          Siguiente Escrito
+        </button>
+      </div>
+
+    </div>
+    <div class="muybn" *ngIf="muybn">
+
+      <br> Pero en el <b>caso</b> suyo
+      <br> su llamada fue <b>seleccionada</b> al azar
+      <br> para <b>personalmente</b>
+      <br> poder <b>atenderle</b>,
+      <br> asi que a partir <b>de</b> este momento
+      <br> con el <b>favor</b> de Dios
+      <br> <b>voy</b> a estar aqui
+      <br> hasta ayudarle a <b>resolver</b>
+      <br> su <b>problema</b> de credito
+      <br> y a contestar <b>todas</b> sus preguntas.
+      <br>
+      <br>
+      <br> Tengo que <b>indicarle</b>
+      <br> que las <b>consultas</b> mias
+      <br> en <b>persona</b> cuestan $200 dólares
+      <br> y por eso ya <b>solo</b>
+      <br> <b>atiendo</b> por telefono,
+      <br> debido a que la <b>consulta</b> por telefono
+      <br> es gratis, <b>GRATIS</b>, gratis.
+      <br>
+      <br>
+      <br> Asi que <b>aproveche</b> esta llamada
+      <br> imaginese que tiene un <b>limon</b>
+      <br> y <b>saquele</b> el jugo
+      <br> <b>esprimalo</b> y saquele limonada.
+      <br> <b>jajaja</b>
+      <br>
+
+      <span style="color: green;">
+        <br><b>ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO</b><br><br>
+      </span>
+
+      <br>
+      <br> Muy bien (), pero para <b>yo</b> darle
+      <br> la <b>consulta</b> gratis
+      <br> yo tengo 2 <b>pequeñas</b> reglitas...
+      <br>
+
+      <span style="color: green;">
+        <br><br><b>ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO</b><br><br>
+      </span>
+
+      <br>
+      <br> La <b>primera</b> reglita es que
+      <br> si usted me esta <b>hablando</b> de un celular
+      <br>
+      <br>
+      <br> El mismo deberia tener
+      <br> suficiente carga
+      <br> ya que no queremos
+      <br> que la conversacion se termine
+      <br> en el mejor momento
+      <br>
+      <br>
+      <br><span *ngIf="cliente">{{cliente || '(____)'}}</span>, usted me esta <b>hablando</b> de un celular?
+      <br><b>tiene</b> mas de media bateria de carga?
+      <br>verdad que <b>si</b>?
+      <br>
+      <br>
+
+      <span style="color: green;">
+        ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO <br><br>
+      </span>
+
+      <br> Muy <b>bien</b> <span *ngIf="cliente">{{cliente || '(____)'}}</span>!
+      <br> la segunda <b>reglita</b>,es qu...
+      <br> si <b>usted</b> es una persona que,
+      <br> aunque <b>estamo</b>s en el siglo 21
+      <br> tiene que <b>peeeedirle</b> permiso
+      <br> a su esposa o <b>cualquier</b> otra persona,
+      <br> <b>entonces</b> esta persona
+      <br> deberia estar <b>aqui</b>
+      <br> en esta <b>conversacion</b>.
+      <br>
+      <br>
+      Mas sin <b>embargo</b><span *ngIf="cliente">{{cliente || '(____)'}}</span>,
+      si usted tiene sus <b>propios</b> ingresos
+      y <b>toma</b> sus propias desiciones al igual que yo,
+      y tomando en cuenta que es <b>usted</b> la persona afectada,
+      y sobretodo que es su <b>credito</b> personal,
+      si usted toma sus <b>propias</b> desiciones,
+      con mucho gusto yo le <b>explico</b>
+      <br>
+      <br>
+      <br> Usted tiene que <b>perdirle</b> permiso a alguien
+      <br> o <b>esto</b> es algo que
+      <br> entre usted y <b>yo</b> lo resolvemos?
+      <br>
+      <br>
+
+      <span style="color: green;">
+        <br> <b>ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO</b><br>
+      </span>
+
+      <br>
+      <br> Muy <b>bien</b>(),
+      <br> esto es lo que va a <b>transcribir</b> <br>
+      <br> en esta <b>conversacion</b>.
+      <br>
+      <br>
+      <br> <span *ngIf="cliente">{{cliente || '(____)'}}</span>,<b>vamos</b> a intentar
+      <br> sacar su <b>reporte</b> de credito.
+      <br>
+      <br> Lo <b>vamos</b> a analizar <br>
+      <br> y le vamos a <b>indicar</b> <br>
+      <br> los <b>defectos</b> que pueden <br>
+      <br> ser <b>corregidos</b>.
+      <br>
+      <br>
+      <br>
+      <br> Al final de la conversacion,
+      <br> usted <u>no</u> me va a decir
+      <br> que lo tiene que pensar
+      <br> o consultar con alguien,
+      <br> y <u>si</u> me va a indicar una de dos.
+      <br>
+      <br> <u><b>NO</b></u> lo quiero hacer
+      <br> o <u>si</u> lo quiero hacer
+      <br> OKEY?
+      <br>
+
+      <span style="color: green;">
+        <br><b>ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO</b><br>
+      </span>
+
+      <br>
+      <br> Muy <b>bien</b> <span *ngIf="cliente">{{cliente || '(____)'}}</span>
+      <br> Vamos a <b>procesar</b> su informacion
+      <br> y en unos 15 a 20 <b>minuto</b> o antes
+      <br> le <b>retornamos</b> la llamada
+      <br> Cuelgue que en unos 15 o 20 <b>minutos</b>
+      <br> le <b>llamamos</b> con la informacion.
+      <br>
+      <br> Por favor este pendiente al telefono.
+
+      <br>
+      <br>
+      <br>
+      <div style="font-size: 36px;">
+        <button type="button" class="btn_g">
+          Fin
+        </button>
+      </div>
+      <br>
+      <br>
+
+    </div>
+
+  -->
+  </div>
+
+</div>
+
+<div class="sp800 h100" *ngIf="speech800">
+  <app-speech800 (atrasEmit)="speech800 = false">
+  </app-speech800>
+
+</div>

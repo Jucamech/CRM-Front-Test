@@ -1,0 +1,186 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+#sidebar {
+  background: rgba(1, 54, 119, 0.9);
+  color: #fff;
+  transition: all 0.3s;
+  min-width: 180px;
+  max-width: 230px;
+  min-height: 90vh;
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: #6d7fcc;
+}
+
+#sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+
+#sidebar ul li a:hover,
+.selected {
+  color: black;
+  background: #fff;
+  font-weight: 600;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+  color: #fff;
+  background: rgba(255, 255, 255, .2);
+}
+
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: rgba(255, 255, 255, .2);
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+}
+
+
+/***************formulario *******************/
+
+.DatosPersonales,
+.DatosAdicionales {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: auto;
+  padding: 20px;
+  height: 79vh;
+  overflow: auto;
+}
+
+form .font-w {
+  font-weight: 600;
+  text-shadow: 1px 1px 3px black;
+}
+
+.form-group select,
+.form-group input[type=text],
+.form-group input[type=number],
+.form-group input[type=tel],
+.form-group input[type=email],
+.form-group input[type=datetime],
+.form-group input[type=date] {
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+option {
+  color: black;
+}
+
+.btC {
+  position: absolute;
+  top: -15px;
+  right: 29px;
+}
+
+.btx {
+  background: none;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 300%;
+  font-family: monospace;
+}
+
+.errores {
+  border: 1px solid;
+  font-weight: 600;
+  margin-top: 2px;
+  padding: 0 9px;
+  border-radius: 6px;
+  color: #f12337;
+}
+
+.req {
+  color: #f12337;
+  font-weight: 600;
+}
+
+.color-v {
+  color: #1ec11e;
+}
+
+.edi {
+  box-sizing: border-box;
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.notas {
+  position: fixed;
+  top: 25%;
+  right: 3rem;
+}
+
+.equix {
+  float: right;
+  color: red;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+/* modal */
+.modal_bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.form-control{
+  color: black!important;
+  border: solid 1px #0000001f!important;
+}
+
+/* crear user */
+.crear_user{
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 50%;
+  height: auto;
+}

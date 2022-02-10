@@ -1,0 +1,232 @@
+.contfoot {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.none{
+  display: none;
+}
+.h50{
+  height: 50%;
+}
+.h100{
+  height: 100%;
+}
+.w50{
+  width: 50%;
+}
+.w100{
+  width: 100%;
+}
+.d p {
+  font-size: 90px;
+  padding: 1rem;
+}
+
+.mes {
+  align-items: center;
+  display: flex;
+  padding-right: .5rem;
+}
+
+.h {
+  text-align: center;
+  font-size: x-large;
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.w-f {
+  width: 100%!important;
+}
+
+select {
+  color: black;
+}
+
+.calendario {
+  height: 100%;
+  margin: auto;
+  padding: 1rem;
+
+}
+.cal{
+  height: 100%;
+}
+
+.citas_body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100% - 52px);
+}
+
+.citas_body::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.citas_body::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+.citas_body::-webkit-scrollbar-button:increment,
+.citas_body::-webkit-scrollbar-button {
+  display: none;
+}
+
+.citas_body::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.citas_body::-webkit-scrollbar-thumb {
+  background-color: #14c40e;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.citas_body::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+h5 {
+  margin: 0;
+}
+
+.boton_citas {
+  width: 100%;
+  padding: 0;
+  border-radius: 10px;
+  margin-bottom: 4px;
+}
+
+.fs-4 {
+  font-size: 1.5rem;
+}
+
+.fs-5 {
+  font-size: 1.25rem;
+}
+
+.red {
+  color: red;
+}
+.green {
+  color: green    ;
+}
+
+.dia {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.list-group-item{
+  cursor: pointer;
+}
+
+/* llamadas  */
+.llamadas_perdidas{
+  overflow: auto;
+  max-width: 70%;
+  margin: auto;
+  padding: 1rem;
+  min-width: 40%;
+}
+.t_h2{
+  background-color: red;
+  color: white;
+  margin-bottom: 0;
+  padding: 5px 30px;
+}
+
+.cont-table{
+  max-height: 70%;
+  overflow: auto;
+}
+.body-table{
+  font-size: 90%;
+}
+.bton_get{
+  text-align: center;
+  font-size: larger;
+  color: white;
+  font-weight: 700;
+  padding: 5px;
+  background-color: #28a745;
+}
+
+/* ((((( modal  )))) */
+.bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .4);
+}
+.modal-body{
+  max-height: 60vh;
+  overflow: auto;
+}
+.li_user {
+  list-style-type: none;
+  margin: 5px 0;
+}
+/*  modal   */
+
+
+/* llamadas redtorndadas */
+.ll_title{
+  background-color: darkred;
+  color: white;
+  margin-bottom: 0;
+  padding: 2px 2rem;
+}
+/* llamadas redtorndadas */
+/* (((((( min search )))))) */
+.min-search{
+  height: calc(1.5rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.min-search:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+.mxd{
+  margin-top: -5px!important;
+}
+/* min search */
+/* filtros */
+.dropdown-item{
+  cursor: pointer;
+}
+.dropdown-item:hover{
+  background-color: #495057;
+  color: white!important;
+}
+
+.opc {
+  border-top: 1px solid white;
+  background-color: red;
+  padding: 5px;
+}
+/* filtros */
+.B, .NC, .LLC { background-color: red!important; }
+.G, .WWW, .D, .MG, .PP, .PN, .LL8  { background-color: yellow!important; }
+/* min cuadros */
+.microCu{
+  background-color: green;
+  display: flex;
+  margin: 3px;
+  width: 12px;
+  height: 12px;
+}
+.aling-center{
+  align-items: center;
+}
+/* min cuadros */

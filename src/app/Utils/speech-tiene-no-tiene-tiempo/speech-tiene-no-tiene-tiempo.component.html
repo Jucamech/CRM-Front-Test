@@ -1,0 +1,535 @@
+
+<div class="content">
+  <div class="intro">
+    <br> <b>Hola</b> que tal (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+    <br> Le habla <b>( {{agente}} )</b>
+    <br> De <b>creditomejor.com</b>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) yo le estoy <b>llamando</b>
+    <br> Del <b>departamento</b> de servicio al cliente
+    <br> porque <b>soy</b> una de las personas
+    <br> <b>Asignadas</b> a su equipo de trabajo
+    <br> Para ayudarle con su <b>reparación</b> de crédito
+    <br> Y como le habíamos <b>prometido</b>
+    <br> Aca le estamos dando <b>seguimiento</b> a su caso
+    <br> Y estoy aquí para <b>hablarle</b>
+    <br> Sobre el <b>progreso</b>
+    <br> de su <b>reparación</b> de crédito
+    <br> para que usted esté al día con todo.
+    <br>
+    <br>
+    <br>
+    <div class="w50">
+      <a href="speechsticket/TieneNoTieneTiempo#no_tiene">
+        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="tiempo = false">No Tiene tiempo</button>
+      </a>
+      <br>
+      <a href="/speechsticket/TieneNoTieneTiempo#si_tiene">
+        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="tiempo = true">Si Tiene tiempo</button>
+      </a>
+    </div>
+    <br>
+    <br>
+    <div class="no_tiene" id="no_tiene" *ngIf="tiempo == false">
+      <hr>
+      <small class="red">NO TIENE TIEMPO PARA ENVIAR DOCUMENTOS O PARA HABLAR…</small>
+      <br>
+      <br> <b>Rapidito</b> le quiero decir
+      <br> que estamos <b>trabajando</b> duro su caso
+      <br> y vemos que <b>todo</b>
+      <br> está encaminando <b>correctamente.</b>
+      <br>
+      <br> Ahora <b>bien (<span *ngIf="cliente">{{ cliente.nombres }}</span>),</b>
+      <br> hay una <b>información</b>
+      <br> que nos <b>están</b> pidiendo
+      <br> para <b>Dios</b> mediante
+      <br> continuar su <b>reparación</b> de crédito
+      <br> y es <b>urgente</b> que hablemos pronto
+      <br> para poder <b>responderle</b> a los buros
+      <br> y seguir <b>avanzando</b> en su caso.
+      <br> Por qué no le queremos dar <b>más</b> tiempo
+      <br> De lo que la <b>ley</b> permite.
+      <br>
+      <br> <b>Entonces (<span *ngIf="cliente">{{ cliente.nombres }}</span>)</b>
+      <br> Como <b>no</b> tenemos mucho tiempo
+      <br> Hay que moverse <b>rápido</b> en su caso.
+      <br>
+      <br> <b>Entonces (<span *ngIf="cliente">{{ cliente.nombres }}</span>)</b>
+      <br> ¿ <b>Cuándo</b> podemos hablar con usted?
+      <br> ¿Es <b>mejor</b> hablar con usted
+      <br> en la mañana o en la <b>tarde?</b>
+      <br>
+      <br> <small class="green">HACER CITA</small>
+      <br>
+      <br> Okay (<span *ngIf="cliente">{{ cliente.nombres }}</span>), ¿A qué <b>hora</b> es mejor
+      <br> a <b>la</b> <span class="blue"> 1</span> _am/pm o las <span class="blue">7</span> _am/pm?
+      <br>
+      <br> <small class="green">CLIENTE RESPONDE</small>
+      <br>
+      <br> Ok <b>Perfecto</b>, Entonces (<span *ngIf="cliente">{{ cliente.nombres }}</span>),
+      <br> Más Tarde / Mañana / Día
+      <br> Le vamos a llamar <b>sin</b> falta.
+      <br> Por favor este <b>pendiente</b>
+      <br> de mi <b>llamada</b>
+      <br> porque estamos <b>trabajando</b> su caso
+      <br> y necesitamos <b>resolver</b> esto
+      <br> lo más <b>rápido</b> posible
+      <br> para continuar el <b>proceso.</b>
+      <br> ¿OkAy?
+      <br>
+      <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), Si yo <b>no</b> le he llamada
+      <br> en __  minutos,
+      <br> entonces usted me <b>devuelve</b>
+      <br> la <b>llamada</b> para atrás en ___ minutos.
+      <br> ¿OKAy?
+      <br>
+      <br> <small class="green">CLIENTE RESPONDE</small>
+      <br>
+      <br> Muy bien, (<span *ngIf="cliente">{{ cliente.nombres }}</span>),
+      <br> entonces <b>hablamos</b>
+      <br> el ____ <b>a las</b> ____ sin falta.
+      <br> Por favor <b>escriba</b> nuestra cita
+      <br> para que <b>no</b> se le olvide.
+      <br> ¿OkaY?
+      <br>
+      <br> <small class="green">CLIENTE RESPONDE</small>
+      <br>
+      <br> Ok Perfecto, Hablamos <b>pronto.</b>
+      <br> Que <b>Dios</b> Lo Bendiga.
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+    <div class="si_tiene" id="si_tiene" *ngIf="tiempo == true">
+      <br> <small class="red">TIENE TIEMPO PARA HABLAR Y ENVIAR DOCUMENTOS</small>
+      <br>
+      <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), estoy mirando su <b>archivo</b>
+      <br> Y quiero informarle que en base al <b>trabajo</b>
+      <br> que se ha venido <b>haciendo,</b>
+      <br> puedo <b>percatarme</b> que
+      <br> Gracias a <b>Dios</b>, todo está <b>progresando</b> acordemente.
+      <br>
+      <br> Aparte de eso (<span *ngIf="cliente">{{ cliente.nombres }}</span>),
+      <br> Veo que <b>sus cartas</b>
+      <br> ya se <b>enviarón</b> a los buros
+      <br> De <b>crédito.</b>
+      <br> Experian, <b>Equifax</b> y Transunion
+      <br> Y están <b>respondiéndole</b>
+      <br> a <b>otras</b> personas que enviamos
+      <br> en su misma fecha,
+      <br> O sea que usted <b>debe</b> estar
+      <br> <b>recibiendo</b> las notificaciones
+      <br> en el <b>transcurso </b> de las próximas semanas
+      <br> ¿O <b>ya</b> las recibió?
+      <br>
+      <br>
+        <button type="button" class="btn btn-secondary btn-lg" (click)="noti = false">No</button>
+        <button type="button" class="btn btn-primary btn-lg ml-3" (click)="noti = true">Si </button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="noti_P" *ngIf="noti == true">
+          <hr>
+          <br> <b>Buuuenooo</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>),
+          <br> veo que en su <b>caso</b>
+          <br> se <b>enviarón</b> unas cartas
+          <br> hace <b>más</b> de (__) día,
+          <br> Significando que es <b>mandatorio</b>
+          <br> haber <b>recibido</b> las respuestas
+          <br> o al menos <b>debe de estar</b> cerca de recibirlas
+          <br>
+          <br> Entonces (<span *ngIf="cliente">{{ cliente.nombres }}</span>), necesito que <b>nos</b> envíe;
+          <br> <b>todas</b> las cartas que le llegue
+          <br> de los burós de <b>crédito</b> y los acreedores.
+          <br> <b>¿Okay?</b>
+          <br>
+          <br> ¿O <b>ya</b> las recibió?
+          <br> ¿O <b>recibió</b> algunas (<span *ngIf="cliente">{{ cliente.nombres }}</span>)?
+          <br>
+
+        </div>
+
+        <div class="noti_N" *ngIf="noti == false">
+          <hr>
+          <br> Okay (<span *ngIf="cliente">{{ cliente.nombres }}</span>), La <b>inmensa</b> mayoría
+          <br> de <b>las personas</b> cuyas
+          <br> cartas certificadas fueron <b>enviadas</b>
+          <br> en <b>su misma</b> fecha
+          <br> y hasta <b>despues</b> que usted
+          <br> algunos ya han <b>recibido</b> contestaciones
+          <br> positivas, <b>borrándole</b> cuentas.
+          <br>
+          <br> Tal vez usted <b>no</b> guardó las cartas que le llegaron
+          <br> o <b>no</b> ha revisado su correo
+          <br> o alguien más las <b>recibía</b>
+          <br> y <b>no</b> se lo informó a usted.
+          <br>
+
+        </div>
+
+        <div class="xdxd" *ngIf="noti != undefined ">
+          <br> ¿<b> Dónde</b> se encuentra usted ahora mismo?
+          <br> ¿Usted está <b>cerca</b> del buzón en su casa?
+          <br>
+          <br>
+            <button type="button" class="btn btn-secondary btn-lg" (click)="buzon = false">No</button>
+            <button type="button" class="btn btn-primary btn-lg ml-3" (click)="buzon = true">Si </button>
+          <br>
+          <div class="cerca" *ngIf="buzon">
+            <br> Mejor para <b>asegurarnos</b>
+            <br> si <b>está</b> cerca de su buzón,
+            <br> vaya <b>AHORA</b> mismo
+            <br> y <b>revise</b> el buzón,
+            <br> a ver si <b>de pronto</b> hay algo
+            <br> mientras <b>estamos</b> hablando,
+          </div>
+          <div class="lejos" *ngIf="!buzon">
+            <br> Mejor para <b>asegurarnos</b>
+            <br> cuando <b>llegue</b> a su casa
+            <br> y <b>todos</b> los días este muy pendiente
+            <br> y <b>revise</b> el buzón,
+            <br> a ver si <b>de pronto</b> hay algo
+          </div>
+          <br> por que, de <b><u>NO</u></b> ser así <b>TENEMOS</b>
+          <br> que <b>actuar</b> rápidamente
+          <br> y hacer una <b>reclamación</b> a los burós de crédito
+          <br> <b>exigiéndole</b> que borren las cuentas reclamadas,
+          <br> ya que según <b>establece</b> la ley
+          <br> ellos <b>tenían</b> 45 días para respondernos
+          <br> y de <b><u>NO</u></b> haberlo hecho,
+          <br> esas <b>son</b> buenas noticias para nosotros,
+          <br> ya que la <b>ley</b> es muy explícita e índica
+          <br> que si <b><u>NO</u></b> responden
+          <br> en <b>45 días,</b>
+          <br>
+          <br> <b>Tienen</b> que borrarlas.
+          <br>
+          <br> y <b>como</b> según usted
+          <br> <b><u>NO</u></b> ha recibido contestación,
+          <br> entonces tenemos que <b>inmediatamente</b>
+          <br> hacerle una <b>reclamación</b>
+          <br> a los burós de crédito que tienen que <b>borrarlas</b>
+          <br> de su reporte de <b>crédito</b>
+          <br> , porque si <b>NO</b> lo hacen,
+          <br> estarán <b>violando</b> la Ley
+          <br> y pueden ser <b>multados</b> por mil dólares
+          <br>  por <b>cada</b> reclamación.
+          <br>
+          <button type="button" class="btn btn-primary btn-lg" (click)="reclamaciones = 3">3 Reclamaciones </button>
+          <button type="button" class="btn btn-primary btn-lg ml-3" (click)="reclamaciones = 5">5 Reclamaciones</button>
+          <br>
+          <br>
+          <br>Y en su caso son {{reclamaciones}} <b>reclamaciones</b> por cada buró
+          <br> haciendo un <b>total</b> de {{reclamaciones * 3 }} reclamaciones
+          <br> A <b>mil</b> dólares cada una
+          <br> <b>ósea</b>
+          <br> que de ser hallados culpables de <b>negligencia</b>
+          <br> pueden ser <b>multados</b>
+          <br> por <b>{{reclamaciones * 3 }} mil</b> dólares en total
+          <br> Y ese dinero se lo <b>tendrán</b>
+          <br> que pagar a <b>usted!</b>
+          <br>
+          <br> Por eso es <b>importante</b> que usted
+          <br> este seguro de <b>NO</b>
+          <br> haber <b>recibido</b> las contestaciones!
+          <br> ¿(<span *ngIf="cliente">{{ cliente.nombres }}</span>) usted <b>cuál</b> carta ha recibido
+          <br> de los <b>burós</b> de crédito?
+          <br> ¿De de ellos usted ha <b>recibido?</b>
+          <br> ¿De <b>Experian</b>, Equifax o transunion?
+          <br> ¿De <b>cuál</b> de ellos ha recibido?
+          <br>
+          <br> <span class="blue">
+            <br> Experian
+            <br> Equifax
+            <br> TransUnion
+          </span>
+          <br> O sea que todavía le <b>falta</b> ______
+          <br>
+          <br> En esta <b>opción</b>
+          <br> buscar el <b>tracking</b> y
+          <br> exhibir el <b>número</b> de tracking,
+          <br> la fecha y las cuentas a <b>disputar</b>
+          <br> tal como lo hace el <b>Marshall</b>
+          <br>
+          <button type="button" class="btn btn-primary btn-lg" (click)="mas45D = true">Mayor de 45 D </button>
+          <button type="button" class="btn btn-primary btn-lg ml-3" (click)="mas45D =  false">Menor de 45 D </button>
+          <br>
+          <div class="menor45D" *ngIf="mas45D == false">
+            <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), cuando <b>lleguen</b> los 45 días de enviados
+            <br> hay que hacer una <b>reclamación</b> a la FCRA
+            <br> que es el organismo <b>gubernamental</b>
+            <br> que <b>defiende</b> los derechos del consumidor,
+            <br> eso sí lo <b>ÚNICO</b> que necesito para hacerla,
+            <br> es que usted me esté siendo <b>SINCERO/A</b>
+            <br> de que <b>NO</b> le ha llegado nada,
+            <br> porque de lo contrario me <b>echarán</b>
+            <br> el <b>caso</b> para atráas.
+            <br>
+            <br> Entonces (<span *ngIf="cliente">{{ cliente.nombres }}</span>) <b>vamos</b> a esperar
+            <br> a que <b>pasen</b> los 45 días y la hacemos
+            <br> ¿Usted <b>está siendo</b> sincero/a?
+            <br>
+
+            <br>
+          </div>
+          <div class="mayor45D" *ngIf="mas45D == true">
+            <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), hay que hacer una <b>reclamación</b> a la FCRA
+            <br> que es el <b>organismo</b> gubernamental
+            <br> que defiende los <b>derechos</b> del consumidor,
+            <br> eso sí lo <b>ÚNICO</b> que necesito para hacerla,
+            <br> es que usted me esté siendo <b>SINCERO/A</b>
+            <br> de que <b>NO</b> le ha llegado nada,
+            <br> porque de lo contrario me <b>echarán</b>
+            <br> el caso para atrás.
+            <br> ¿Entonces la <b>hacemos</b> ahora mismo?
+            <br> ¿Usted está <b>siendo</b> sincero/a?
+            <br>
+            <br> <span class="green">(Insiste en que no le ha llegado nada)</span>
+            <br>
+            <br> Ya han <b>transcurrido</b> 45 días
+            <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), desde que <b>enviamos</b> las reclamaciones
+            <br> En ese caso voy a <b>índicarle</b>
+            <br> al departamento de <b>reclamaciones</b>
+            <br> Que le <b>envié</b> una carta en la cual
+            <br> Le vamos a índicar <b>todas</b> las cuentas
+            <br> Que nosotros estamos <b>reclamando</b>
+            <br> Y necesitamos que <b>usted</b>
+            <br> Nos la <b>devuelva</b>
+            <br> <b>Indicándonos</b> que en los últimos 45 días
+            <br> Usted <b>no</b> ha recibido
+            <br> <b>Ninguna</b> carta de los burós de crédito
+            <br> Equifax, <b>Experian</b> y/o Transunion .
+            <br>
+            <br> Con esta <b>evidencia</b> de su juramento
+            <br> De que usted <b>NO</b> ha recibido
+            <br> <b>Ninguna</b> notificación de ellos,
+            <br> <b>procederemos</b> a enviarle
+            <br> Una carta <b>certificada</b>
+            <br> Indicándole que <b>NO</b> contestaron
+            <br> En el tiempo <b>establecido</b> por la ley
+            <br> Y que por ende están en <b>violación</b> de la ley
+            <br> Y sus <b>derechos</b> del consumidor
+            <br> <b>Establecidos</b> por la FRCA
+            <br> Y que como <b>mandato</b> establecido
+            <br> Por el <b>congreso</b> de
+            <br> Los Estados Unidos de <b>América</b>
+            <br> <b>Tienen</b> que borrarlo.
+            <br> ¡Esa es la <b>Ley!</b>
+            <br>
+            <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), cuando <b>lleguen</b> los 45 días de enviados
+            <br> hay que hacer una <b>reclamación</b> a la FCRA
+            <br> que es el organismo <b>gubernamental</b>
+            <br> que <b>defiende</b> los derechos del consumidor,
+            <br> eso sí lo <b>ÚNICO</b> que necesito para hacerla,
+            <br> es que usted me esté siendo <b>SINCERO/A</b>
+            <br> de que <b>NO</b> le ha llegado nada,
+            <br> porque de lo contrario me <b>echarán</b>
+            <br> el <b>caso</b> para atráas.
+            <br>
+            <br> Entonces (<span *ngIf="cliente">{{ cliente.nombres }}</span>) <b>vamos</b> a esperar
+            <br> a que <b>pasen</b> los 45 días y la hacemos
+            <br> ¿Usted está <b>siendo</b> sincero/a?
+            <br>
+          </div>
+          <div class="d " *ngIf="mas45D != undefined">
+            <br> Solo hay que <b>esperar</b> a que pasen los 45 días
+            <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), desde que enviamos las <b>reclamaciones</b>
+            <br> para indicarle al <b>departamento</b> de reclamaciones
+            <br> que le <b>envié</b> una carta en la cual
+            <br> le vamos a índicar <b>todas</b> las cuentas
+            <br> que nosotros <b>estamos</b> reclamando
+            <br> y en ese entonces <b>necesitamos</b> que usted
+            <br> nos la <b>devuelva</b>
+            <br> indicándonos que en los <b>últimos</b> 45 días
+            <br> usted <b>NO</b> ha recibido
+            <br> <b>ninguna</b> carta de los burós de crédito
+            <br> Equifax, <b>Experian</b> y/o Transunion .
+            <br> con esta <b>evidencia</b> de su juramento
+            <br> de que usted <b>NO</b> ha recibido
+            <br> <b>ninguna</b> notificación de ellos,
+            <br> <b>procederemos</b> a enviarle
+            <br> una carta <b>certificada</b>
+            <br> indicándole que <b>NO</b> contestaron
+            <br> en el tiempo <b>establecido</b> por la ley
+            <br> y que por ende están en <b>violación</b> de la ley
+            <br> y sus <b>derechos</b> del consumidor
+            <br> <b>establecidos</b> por la FRCA
+            <br> y que como <b>mandato</b> establecido
+            <br> Por el <b>congreso</b> de
+            <br> los Estados Unidos de <b>América</b>
+            <br> <b>tienen</b> que borrarlo.
+            <br> ¡esa es la <b>Ley!</b>
+            <br>
+            <br> Ahora <b>bien (<span *ngIf="cliente">{{ cliente.nombres }}</span>),</b>
+            <br> Necesito su <b>seguridad</b> de que
+            <br> Usted o <b>ningún</b> pariente suyo,
+            <br> Amigo o <b>vecino</b>
+            <br> Haya <b>recibido</b> esa carta.
+            <br> Ya que <b>si</b> lo han recibido
+            <br> podrá ser <b>fraude</b>
+            <br> Y podríamos <b>perder</b> el caso.
+            <br>
+            <br> <span class="green">(Esperar respuesta del cliente)</span>
+            <br>
+            <br>Bueno (<span *ngIf="cliente">{{ cliente.nombres }}</span>) eso <b>NO</b> puede ser,
+            <br> porque es posible que
+            <br> algunos <b>NO</b> respondan,
+            <br> pero los <b>tres</b> (3) burós,
+            <br> que <b>NO</b> respondan,
+            <br> eso es totalmente <b>imposible</b>.
+            <br>
+            <br> La <b>última</b> vez que pasó algo así
+            <br> Resultó que la pareja, o <b>algún</b> familiar
+            <br> Las había <b>recibido</b>
+            <br> E <b>inadvertidamente</b>
+            <br> <b>NO</b> se lo había dicho a nuestro cliente.
+            <br>
+            <br> Por favor, <b>pregúnteles</b>
+            <br> A las personas que <b>vivan</b> con usted
+            <br> O a lo mejor a <b>algún</b> vecino.
+            <br>
+            <br> <b>Pregúnteles</b> y me llama
+            <br> ¿O <b>prefiere</b> que le espere en la línea?.
+            <br>
+            <br> Porque si es como usted me <b>informa</b>
+            <br> <b>Entonces</b> es muy posible
+            <br> que estemos <b>ganando</b> la disputa.
+            <br>
+            <br> Pero <b>NO</b> se ilusione primero
+            <br> sin <b>antes</b> estar en la <b>completa</b> seguridad
+            <br> de que <b>NO</b> tiene correspondencia,
+            <br> Porque (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+            <br> <b>siempre</b> hay alguna respuesta,
+            <br> y en su <b>caso</b> es probable
+            <br> que <b>tenga</b> alguna carta
+            <br> del <b>acreedor</b> o el buró
+            <br> porque ya le <b>tuvo</b> que haber llegado,
+            <br> ya que ha pasado <b>mucho</b> tiempo
+            <br> y debe de haber <b>recibido</b> algo
+            <br> en el <b>trascurso</b> de este tiempo.
+            <br>
+            <br> <span class="green">(2ndo No Nada)</span>
+            <br>
+            <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) ¿Usted <b>está 100%</b> seguro/a
+            <br> que <b>NO</b> botó nada por accidente?
+            <br>
+            <br> <span class="green">(Cliente responde)</span>
+            <br>
+            <br> Mire, en el <b>caso</b> suyo
+            <br> <b>Ahora</b>, más que nunca
+            <br> Es especialmente <b>importante</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+            <br> Que esté <b>pendiente</b> a su correo postal.
+            <br> Y nos envía <b>todo</b>, tan pronto usted reciba
+            <br> Los <b>resultados</b> de nuestra investigación.
+            <br>
+            <br>
+            <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) ¿Usted tiene <b>lápiz</b> y papel?
+            <br> ¡Para <b>anotar</b> una información importante!
+            <br> ¡Me <b>avisa</b> cuando tenga
+            <br> el lápiz a <b>mano!</b>
+            <br>
+            <br>  <span class="green">(Esperar respuesta del cliente)</span>
+            <br>
+            <br> Ok <b>perfecto</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>),
+            <br> Cuando usted <b>reciba</b> cualquier notificación o
+            <br> correspondencia referente a su <b>crédito</b>,
+            <br> Nos debe llamar al (914) 219-0014
+            <br> y <b>enviárnoslas</b> inmediatamente
+            <br> a <b>nuestro</b> correo electrónico que es
+            <br> creditomejor@gmail.com
+            <br> <b>¿OKAY (<span *ngIf="cliente">{{ cliente.nombres }}</span>)?</b>
+            <br>
+            <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), <b>una</b> vez más
+            <br> Por <b>última</b> vez en esta conversación
+            <br> Y <b>recuerde</b> que su llamada está siendo grabada
+            <br> <b>Siempre</b> que usted habla con nosotros.
+            <br>
+            <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), Usted con <b>absoluta</b> certeza
+            <br> Puede <b>jurarme</b>
+            <br> Que <b>NO</b> ha recibido
+            <br> Las <b>documentaciones</b>
+            <br> De los <b>burós</b> de crédito.
+            <br> Esto puede <b>venir</b> en forma de
+            <br> <b>Reporte</b> de crédito
+            <br> Y pueden ser desde <b>solo</b> 2 páginas
+            <br> <b>Hasta</b> 20 o 30 paginas.
+            <br>
+            <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) Usted está con <b>absoluta</b> seguridad
+            <br> De que usted o <b>alguien</b> conocido por usted
+            <br> ¿ <b>NO</b> ha recibido ningún documento
+            <br> De Experian, <b>equifax</b> o Transunion?
+            <br>
+            <div class="cont_mas" *ngIf="mas45D == true">
+              <br>
+              <br> En ese <b>caso</b>
+              <br> Le enviaremos un <b>documento</b>
+              <br> antes de las <b>próximas</b> 48 horas
+              <br> vía <b>e-mail</b>.
+              <br>
+              <br>
+            </div>
+            <div class="cont_menos" *ngIf="mas45D == false">
+              <br> En ese <b>caso</b>
+              <br> cuando lleguen los <b>45</b> días
+              <br> usted nos <b>tiene</b> que llamar
+              <br> si es que <b>NO</b> ha recibido
+              <br> la <b>correspondencia</b>
+              <br> para nosotros enviarle un <b>documento</b>
+              <br>
+              <br>
+            </div>
+            <br> El cual tiene que devolver <b>firmado</b>
+            <br> índicando que <b>NO</b> ha recibido
+            <br> los <b>documentos</b> de
+            <br> Experian, <b>Equifax</b> o Transunion
+            <br> Por favor <b>rectifíqueme</b> su e-mail
+            <br>
+            <br>
+            <div class="green">
+              <br> (Poner campo en el cual verifica el e-mail )
+              <br>(aquí debería ir el e-mail de la persona si lo tiene)
+            </div>
+            <div class="cont_mas2" *ngIf="mas45D == true">
+              <br>Muy <b>bien</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>),
+              <br> Si en <b>48 horas</b>
+              <br> Usted <b>NO</b> recibe
+              <br> Nuestro <b>documento</b>
+              <br> Le agradezco que nos <b>llame</b>
+            </div>
+            <div class="cont_menos2" *ngIf="mas45D == false">
+              <br>Muy <b>bien</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>),
+              <br> cuando <b>pasen</b> los 45 días
+              <br> es su <b>responsabilidad</b> llamarnos.
+            </div>
+            <br> Y <b>recuerde</b> que puede llamarnos
+            <br> hasta las <b>10 de la noche</b> de Lunes a Sábado
+            <br> ¡okay <b>perfecto</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)!
+            <br>
+            <br> Bueno (<span *ngIf="cliente">{{ cliente.nombres }}</span>),
+            <br> ha sido un <b>placer</b>
+            <br> poder <b>informarle</b> de su caso
+            <br> y <b>actualizar</b> su información.
+            <br>
+            <br> ¿Tiene <b>alguna</b> otra pregunta
+            <br> para <b>mí</b> en el día de hoy
+            <br> o me <b>despido</b> de usted ahora?
+            <br>
+            <br> <b>Okay</b>
+            <br> <b>excelente</b>
+            <br> que tenga un <b>buen</b> día.
+            <br> <b>Dios</b> le bendiga
+            <br> rica y <b>abundantemente</b>.
+          </div>
+
+        </div>
+      <br>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>

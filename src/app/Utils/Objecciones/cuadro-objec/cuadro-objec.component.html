@@ -1,0 +1,99 @@
+
+<div class="content" #content>
+  <div class="intro">
+    <div class="contenedor_cuadro d-flex">
+      <div class="lateral">
+        O<br>
+        B<br>
+        J<br>
+        E<br>
+        C<br>
+        I<br>
+        O<br>
+        N<br>
+        E<br>
+        S<br>
+      </div>
+      <div class="cuadro ">
+
+        <div class="cuad">
+          <a href="/speechsticket/CuadroObjeciones#speechs">
+            <button (click)="verSpeech = 1">
+              QUIERE CANCELAR
+            </button>
+          </a>
+        </div>
+        <div class="cuad">
+          <a href="/speechsticket/CuadroObjeciones#speechs">
+            <button (click)="verSpeech = 2">
+              TENGO MAS DE 45 DIAS
+            </button>
+          </a>
+        </div>
+        <div class="cuad">
+          <a href="/speechsticket/CuadroObjeciones#speechs">
+            <button (click)="verSpeech = 3">
+              UNA CORTE Y EL JURADO
+            </button>
+          </a>
+        </div>
+        <div class="cuad">
+          <a href="/speechsticket/CuadroObjeciones#speechs">
+            <button (click)="verSpeech = 4">
+              NO HAN HECHO NADA
+            </button>
+          </a>
+        </div>
+        <div class="cuad">
+          <a href="/speechsticket/CuadroObjeciones#speechs">
+            <button (click)="verSpeech = 5">
+              DIJO ENVIABAN RAPIDO
+            </button>
+          </a>
+        </div>
+        <div class="cuad">
+          <a href="/speechsticket/CuadroObjeciones#speechs">
+            <button (click)="verSpeech = 6">
+              NOSOTROS CUMPLIMOS
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="lateral">
+        O<br>
+        B<br>
+        J<br>
+        E<br>
+        C<br>
+        I<br>
+        O<br>
+        N<br>
+        E<br>
+        S<br>
+      </div>
+    </div>
+  </div>
+
+  <div class="speechs" id="speechs">
+    <div class="speech1" *ngIf="verSpeech == 1 ">
+      <app-speech-quiere-cancelar></app-speech-quiere-cancelar>
+    </div>
+    <div class="speech2" *ngIf="verSpeech == 2 ">
+      <app-speech-tengo-mas45-dias></app-speech-tengo-mas45-dias>
+    </div>
+    <div class="speech3" *ngIf="verSpeech == 3 ">
+      <app-speech-corte-yel-jurado></app-speech-corte-yel-jurado>
+    </div>
+    <div class="speech4" *ngIf="verSpeech == 4 ">
+      <app-speech-no-han-hecho-nada></app-speech-no-han-hecho-nada>
+    </div>
+    <div class="speech5" *ngIf="verSpeech == 5 ">
+      <app-speech-dijo-enviaban-rapido></app-speech-dijo-enviaban-rapido>
+    </div>
+    <div class="speech6" *ngIf="verSpeech == 6 ">
+      <app-speech-nosotros-cumplimos></app-speech-nosotros-cumplimos>
+    </div>
+
+  </div>
+
+</div>

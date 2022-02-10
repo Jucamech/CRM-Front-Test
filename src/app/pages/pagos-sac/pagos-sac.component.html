@@ -1,0 +1,566 @@
+<app-header></app-header>
+
+<div class="content d-flex">
+    <!-- *************************************************************** -->
+    <!--***********************  nav-bar lateral  ***********************-->
+  <nav id="sidebar">
+    <ul class="list-unstyled components">
+
+      <li>
+        <a (click)="toogleSubMenus(1)"  data-toggle="collapse"
+          class="dropdown-toggle collapsed">Pagos </a>
+
+        <ul [class]="dropDown1" id="pageSubmenu1">
+          <li [class.selected2]="opcionVer == 1" id="nopago">
+            <label class="checkbox" (click)="toogleFiltroColores(1)">No Pagó <br />
+              a Fecha
+              <input type="checkbox" [(ngModel)]="nopago_afecha" />
+              <span class="check"></span>
+            </label>
+          </li>
+
+          <li [class.selected2]="opcionVer == 4" id="yp_nr">
+            <label class="checkbox" (click)="toogleFiltroColores(4)">Ya Pagó, pero<br />
+              No se Refleja
+              <input type="checkbox" [(ngModel)]="yapago_norefleja" />
+              <span class="check"></span>
+            </label>
+          </li>
+
+          <li [class.selected2]="opcionVer == 6" id="ya_pago">
+            <label class="checkbox pt-2" (click)="toogleFiltroColores(6)">Ya Pagó
+              <input type="checkbox" [(ngModel)]="yapago" />
+              <span class="check"></span>
+            </label>
+          </li>
+
+          <li [class.selected2]="opcionVer == 7" id="adela">
+            <label class="checkbox pt-2" (click)="toogleFiltroColores(7)">Pago Adelantado
+              <input type="checkbox" [(ngModel)]="pago_adela" />
+              <span class="check"></span>
+            </label>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a (click)="toogleSubMenus(2)" data-toggle="collapse"
+          class="dropdown-toggle collapsed">Cobros</a>
+
+        <ul [class]="dropDown2" id="pageSubmenu2">
+
+          <li [class.selected2]="opcionVer == 2" id="np_nc">
+            <label class="checkbox" (click)="toogleFiltroColores(2)">No Pago <br />
+              No Comunicación
+              <input type="checkbox" [(ngModel)]="nopago_nocomunicacion" />
+              <span class="check"></span>
+            </label>
+          </li>
+
+          <li [class.selected2]="opcionVer == 3" id="np_cf">
+            <label class="checkbox" (click)="toogleFiltroColores(3)">No Pago <br />
+              Cambio Fecha
+              <input type="checkbox" [(ngModel)]="nopago_cambiofecha" />
+              <span class="check"></span>
+            </label>
+          </li>
+
+
+
+          <li [class.selected2]="opcionVer == 5" id="atrazado">
+            <label class="checkbox pt-2" (click)="toogleFiltroColores(5)">Atrazado
+              <input type="checkbox" [(ngModel)]="atrazado" />
+              <span class="check"></span>
+            </label>
+          </li>
+
+          <li [class.selected2]="opcionVer == 8" id="c_rojo">
+            <label class="checkbox pt-2" (click)="toogleFiltroColores(8)">Cliente Rojo
+              <input type="checkbox" [(ngModel)]="c_rojo" />
+              <span class="check"></span>
+            </label>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a (click)="toogleSubMenus(3)" data-toggle="collapse"
+          class="dropdown-toggle collapsed">Pagos y Cobros</a>
+
+        <ul [class]="dropDown3" id="pageSubmenu3">
+          <li [class.selected2]="opcionVer == 1" id="nopago">
+            <label class="checkbox" (click)="toogleFiltroColores(1)">No Pagó a Fecha
+              <input type="checkbox" [(ngModel)]="nopago_afecha" />
+              <span class="check"></span>
+            </label>
+          </li>
+
+          <li [class.selected2]="opcionVer == 2" id="np_nc">
+            <label class="checkbox" (click)="toogleFiltroColores(2)">No Pagó, <br />
+              No Comunicación
+              <input type="checkbox" [(ngModel)]="nopago_nocomunicacion" />
+              <span class="check"></span>
+            </label>
+          </li>
+
+          <li [class.selected2]="opcionVer == 3" id="np_cf">
+            <label class="checkbox" (click)="toogleFiltroColores(3)">No Pagó <br />
+              Cambio Fecha
+              <input type="checkbox" [(ngModel)]="nopago_cambiofecha" />
+              <span class="check"></span>
+            </label>
+          </li>
+
+          <li [class.selected2]="opcionVer == 4" id="yp_nr">
+            <label class="checkbox" (click)="toogleFiltroColores(4)">Ya Pagó, pero <br />
+              No se Refleja
+              <input type="checkbox" [(ngModel)]="yapago_norefleja" />
+              <span class="check"></span>
+            </label>
+          </li>
+
+          <li [class.selected2]="opcionVer == 5" id="atrazado">
+            <label class="checkbox pt-2" (click)="toogleFiltroColores(5)">Atrazado
+              <input type="checkbox" [(ngModel)]="atrazado" />
+              <span class="check"></span>
+            </label>
+          </li>
+
+          <li [class.selected2]="opcionVer == 6" id="ya_pago">
+            <label class="checkbox pt-2" (click)="toogleFiltroColores(6)">Ya Pagó
+              <input type="checkbox" [(ngModel)]="yapago" />
+              <span class="check"></span>
+            </label>
+          </li>
+
+          <li [class.selected2]="opcionVer == 7" id="adela">
+            <label class="checkbox pt-2" (click)="toogleFiltroColores(7)">Pago Adelantado
+              <input type="checkbox" [(ngModel)]="pago_adela" />
+              <span class="check"></span>
+            </label>
+          </li>
+
+          <li [class.selected2]="opcionVer == 8" id="c_rojo">
+            <label class="checkbox pt-2" (click)="toogleFiltroColores(8)">Cliente Rojo
+              <input type="checkbox" [(ngModel)]="c_rojo" />
+              <span class="check"></span>
+            </label>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </nav>
+    <!--***********************  nav-bar lateral  ***********************-->
+    <!-- *************************************************************** -->
+  <div class="cont_body">
+    <!-- *************************************************************** -->
+    <!--*********************** botonera superior ***********************-->
+    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+
+
+      <div class="btn-group mod-btns mr-2" role="group " aria-label="First group">
+        <button type="button" class="btn btn-primary" (click)="filtrarFecha('hoy', '')">
+          Hoy
+        </button>
+        <div class="dropdown">
+          <button style="width: -webkit-fill-available" class="btn btn-primary dropdown-toggle" type="button"
+            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Año
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="yearDiv" *ngFor="let item of arraYears">
+              <a *ngIf="yearAct + 1 > item.y" class="dropdown-item selec" (click)="filtrarFecha('year', item.y)">{{
+                item.y }}</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button style="width: -webkit-fill-available" class="btn btn-primary dropdown-toggle" type="button"
+            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Mes
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item selec" (click)="filtrarFecha('mes',1)">Enero</a>
+            <a class="dropdown-item selec" (click)="filtrarFecha('mes',2)">Febrero</a>
+            <a class="dropdown-item selec" (click)="filtrarFecha('mes',3)">Marzo</a>
+            <a class="dropdown-item selec" (click)="filtrarFecha('mes',4)">Abrir</a>
+            <a class="dropdown-item selec" (click)="filtrarFecha('mes',5)">Mayo</a>
+            <a class="dropdown-item selec" (click)="filtrarFecha('mes',6)">Junio</a>
+            <a class="dropdown-item selec" (click)="filtrarFecha('mes',7)">Julio</a>
+            <a class="dropdown-item selec" (click)="filtrarFecha('mes',8)">Agosto</a>
+            <a class="dropdown-item selec" (click)="filtrarFecha('mes',9)">Septiembre</a>
+            <a class="dropdown-item selec" (click)="filtrarFecha('mes',10)">Octubre</a>
+            <a class="dropdown-item selec" (click)="filtrarFecha('mes',11)">Noviembre</a>
+            <a class="dropdown-item selec" (click)="filtrarFecha('mes',12)">Diciembre</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button style="width: -webkit-fill-available" class="btn btn-primary dropdown-toggle" type="button"
+            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Rango de Días
+          </button>
+          <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton">
+            <label for="inicio" style="font-weight: 600">Desde</label>
+            <div class="c d-flex">
+              <input type="date" name="" id="inicio" [(ngModel)]="diaInicio" />
+            </div>
+            <label for="fin" style="font-weight: 600">Hasta</label>
+            <div class="c d-flex">
+              <input [disabled]="!diaInicio" type="date" name="" id="fin" [min]="diaInicio" [(ngModel)]="diaFin" />
+            </div>
+            <button [disabled]="!diaFin" type="button" class="btn btn-primary btn-sm centrar"
+              (click)="filtrarFecha('rango', '')">
+              Confirmar
+            </button>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button style="width: -webkit-fill-available" class="btn btn-primary dropdown-toggle" type="button"
+            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Día Especifico
+          </button>
+          <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton">
+            <input type="date" name="" id="" [(ngModel)]="diaEspecifico" />
+            <button [disabled]="!diaEspecifico" type="button" class="btn btn-primary btn-sm centrar"
+              (click)="filtrarFecha('diax', '')">
+              Confirmar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert alert-primary d-flex align-items-center" role="alert" *ngIf="filtroAct">
+        <span class="mx-3">
+          <h4>Filtro Activo: </h4>
+        </span> <span class="pt-1">
+          <h6> {{filtroAct}}</h6>
+        </span>
+      </div>
+      <div class="alert">
+        <button type="button" class="btn btn-success" *ngIf="filtroAct" (click)="btnT = !btnT">Ver Resumen</button>
+      </div>
+
+
+    </div>
+    <!--*********************** botonera superior ***********************-->
+    <!-- *************************************************************** -->
+
+    <div class="cont_tablas" *ngIf="reset" #cont_tabla2 >
+      <!-- *************************************************************** -->
+      <!--*********************** tablas con pagos  ***********************-->
+                      <!-- all ! pagos y cobros -->
+
+      <div class="bot mb-2" *ngIf="toogleTabla == 'pago' || toogleTabla == 'pagoMod' || toogleTabla == 'todo' ">
+        <h4 *ngIf="toogleTabla == 'todo' ">Total de Cobros/pagos: <small><b>{{totalData}}</b></small></h4>
+        <h4 *ngIf="toogleTabla == 'pago' || toogleTabla == 'pagoMod'">Total de Pagos: <small><b>{{totalPagos}}</b></small></h4>
+        <h3 class="greenT text-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16" (click)="prevP()">
+            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+          </svg>
+
+          {{page + 1 }} a {{page + 100 }}
+
+          <span *ngIf="toogleTabla == 'todo' ">
+            <span *ngIf="( allData | pagosSac:page).length === 100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16" (click)="nextP()">
+                <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+              </svg>
+            </span>
+          </span>
+          <span *ngIf="toogleTabla == 'pago' || toogleTabla == 'pagoMod'">
+            <span *ngIf="( allPagos | pagosSac:page).length === 100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16" (click)="nextP()">
+                <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+              </svg>
+            </span>
+          </span>
+
+        </h3>
+      </div>
+      <table class="table" *ngIf="toogleTabla == 'todo' ">
+        <thead class="thead-dark min">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre Completo</th>
+            <th scope="col">Valor $</th>
+            <th scope="col">Fecha Pago</th>
+            <th scope="col">Mensualidad</th>
+            <th scope="col">Inscripción</th>
+           <!--  <th scope="col">Debe</th> -->
+            <th scope="col">Comentarios</th>
+            <th scope="col">Metodo</th>
+            <th scope="col">Ver Detalles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of allData | pagosSac:page; index as i" [class]="'color'+item.color">
+            <th scope="row">{{ i + 1 }}</th>
+            <td style="max-width: 300px;">{{ item.nombres | slice:0:35 }}</td>
+            <td>
+              <span *ngIf="item.tipo_pago == 1">Men </span>
+              <span *ngIf="item.tipo_pago == 2">Insc </span>
+              <b>
+                <span *ngIf="item.status == '1' ">$</span>
+                <span *ngIf="item.status == '0' || !item.status ">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-diamond-fill" viewBox="0 0 16 16">
+                    <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                  </svg>
+                </span>
+                {{ item.valor }} </b>
+            </td>
+            <td>{{ item.fecha_pago }}</td>
+            <td>{{ item.valor_mensualidad | currency }}</td>
+            <td>{{ item.valor_inscripcion | currency }}</td>
+           <!--  <td>{{ item.debe }}</td> -->
+            <td>{{ item.descripcion | slice:0:12 }}</td>
+            <td>
+              <span *ngFor="let m of metodoPago">
+                <span *ngIf="m[1] == item.medio ">{{ m[0] }}</span>
+              </span>
+            <td >
+              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" (click)="verPop(item)"
+                class="bi bi-plus-circle-fill btn-outline-secondary" viewBox="0 0 16 16">
+                <path
+                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+              </svg>
+
+              <span class="ml-1" *ngIf="item.status == '0' || !item.status ">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="green" title="Agendar Cita"
+                    class="bi bi-calendar2-plus-fill" viewBox="0 0 16 16" (click)="addCita(item)">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 3.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5H2.545c-.3 0-.545.224-.545.5zm6.5 5a.5.5 0 0 0-1 0V10H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V11H10a.5.5 0 0 0 0-1H8.5V8.5z" />
+                </svg>
+
+                <a [routerLink]="['/vercliente/',item.id_cliente]" >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="orange" title="Confirmar Pago"
+                  class="bi bi-check-circle-fill ml-1" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                  </svg>
+                </a>
+
+ <!--                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="grey" class="bi bi-trash-fill ml-1"
+                  viewBox="0 0 16 16" (click)="delCobro(item)">
+                  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                </svg> -->
+
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+                      <!-- solo los pagos -->
+
+      <table class="table" *ngIf="toogleTabla == 'pago' || toogleTabla == 'pagoMod'">
+        <thead class="thead-dark min">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre Completo</th>
+            <th scope="col">Valor $</th>
+            <th scope="col">Fecha Pago</th>
+            <th scope="col">Mensualidad</th>
+            <th scope="col">Inscripción</th>
+       <!--      <th scope="col">Debe</th> -->
+            <th scope="col">Comentarios</th>
+            <th scope="col">Metodo</th>
+            <th scope="col">Ver Detalles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of allPagos| pagosSac:page; index as i" [class]="'color'+item.color">
+            <th scope="row">{{ i + 1 }}</th>
+            <td style="max-width: 300px;">{{ item.nombres | slice:0:35 }}</td>
+            <td>
+              <span *ngIf="item.tipo_pago == 1">Men </span>
+              <span *ngIf="item.tipo_pago == 2">Insc </span>
+              <b>$ {{ item.valor }} </b>
+            </td>
+
+
+            <td>{{ item.fecha_pago }}</td>
+            <td>{{ item.valor_mensualidad | currency }}</td>
+            <td>{{ item.valor_inscripcion | currency }}</td>
+          <!--   <td>{{ item.debe }}</td> -->
+            <td>{{ item.descripcion | slice:0:12 }}</td>
+            <td>
+              <span *ngFor="let m of metodoPago">
+                <span *ngIf="item.medio == m[1]">{{ m[0] }}</span>
+              </span>
+            </td>
+            <td (click)="verPop(item)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
+                class="bi bi-plus-circle-fill btn-outline-secondary" viewBox="0 0 16 16">
+                <path
+                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+              </svg>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!--*********************** tablas con pagos  ***********************-->
+      <!-- *************************************************************** -->
+    </div>
+
+      <!-- ***************************************************************************** -->
+      <!-- ************************   tabla de cobros  ********************************* -->
+
+      <div class="bot mb-2" *ngIf="toogleTabla == 'cobro'">
+        <h4 >Total de Cobros: <small><b>{{totalCobros}}</b></small></h4>
+
+        <h3 class="greenT text-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16" (click)="prevP()">
+            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+          </svg>
+
+          {{page + 1 }} a {{page + 100 }}
+
+          <span *ngIf="toogleTabla == 'cobro' ">
+            <span *ngIf="( allCobros | pagosSac:page).length === 100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16" (click)="nextP()">
+                <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+              </svg>
+            </span>
+          </span>
+        </h3>
+      </div>
+
+      <div class="cont_tablas" #cont_tabla1 >
+        <table class="table" *ngIf="toogleTabla == 'cobro'"
+          style="width: 70%; margin: auto;box-shadow: 1px, 1px,1px,1px;">
+          <thead class="thead-dark min">
+            <th scope="col">#</th>
+            <th scope="col">Nombre Completo</th>
+            <th scope="col">Fecha Pago</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Cobrar</th>
+            <th scope="col" *ngIf="isSupervisor">Confirmar Pago</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of allCobros | pagosSac:page; index as i" [class]="'color'+item.color">
+              <th scope="row">{{ i + 1 }}</th>
+              <th scope="row">{{ item.nombres }}</th>
+              <th scope="row">{{ item.fecha_pago }}</th>
+              <th scope="row">
+                <span *ngIf="item.tipo_pago == 1">Men </span>
+                <span *ngIf="item.tipo_pago == 2">Insc </span>
+              </th>
+              <th scope="row">{{ item.valor | currency }}</th>
+              <th scope="row">
+                <button type="button" class="btn btn-primary" (click)="addCita(item)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-calendar2-plus-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 3.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5H2.545c-.3 0-.545.224-.545.5zm6.5 5a.5.5 0 0 0-1 0V10H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V11H10a.5.5 0 0 0 0-1H8.5V8.5z" />
+                  </svg>
+                  Agendar Cita
+                </button>
+              </th>
+              <th scope="row" *ngIf="isSupervisor">
+                <a [routerLink]="['/vercliente/',item.id_cliente]" >
+                  <button type="button" class="btn btn-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    </svg>
+                    Ir a Perfil
+                  </button>
+                </a>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <!-- ************************   tabla de cobros  ********************************* -->
+      <!-- ***************************************************************************** -->
+
+    </div>
+  </div>
+
+
+<!-- ************************************************************************************* -->
+<!--********************************** modal de resumen  **********************************-->
+
+<div class="bg" *ngIf="btnT">
+  <div class="sue_bg">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h4 class="ml-3">
+            RESUMEN DE CUENTAS
+          </h4>
+          <button type="button" class="close" (click)="btnT = false">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body" >
+          <div class="row">
+
+            <div class="col-md-6">
+              <label  class="">Total Recibido :</label>&nbsp;
+              <b style="color: green;">{{ totalRcibido | currency }}</b>
+            </div>
+
+            <div class="col-md-6">
+              <label class="">Total Pendientes :</label>&nbsp;
+              <b style="color: red;">{{ totalPendien | currency }}</b>
+            </div>
+
+            <div class="col-md-6">
+              <label class="">Total Esperado : </label>&nbsp;
+              <b>{{ totalEsperad | currency }}</b>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="btnT = false">Close</button>
+       <!--    <button type="button" class="btn btn-primary" >Confirmar</button> -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--********************************** modal de resumen  **********************************-->
+<!-- ************************************************************************************* -->
+<!--**************************** importaciones de componentes  ****************************-->
+<div>
+  <app-pop-up
+    (metodoEmit)="metodo=($event)"
+    [dataPagoH]="dataPagoHistorial"
+    [dataItem]="dataItemPop"
+    [usuariosList]="usuariosList"
+    [toogle]="tooglePop">
+  </app-pop-up>
+</div>
+
+<div class="cobros_ventana">
+  <app-ventana-historial-pagos
+    [toogle2]="tooglePop2"
+    [dataItem]="dataItemPop2"
+    [usuariosList]="usuariosList2"
+    >
+  </app-ventana-historial-pagos>
+</div>
+
+<!-- <div class="popup_pagos_conf">
+  <app-pop-up-confirmacion [toogle3]="tooglePop3" [dataItem]="dataItemPop3"></app-pop-up-confirmacion>
+</div> -->
+
+<div class="spin" *ngIf="spinner">
+  <app-spinner></app-spinner>
+</div>
+
+<app-alertas></app-alertas>
+

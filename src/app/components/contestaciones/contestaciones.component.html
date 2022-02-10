@@ -1,0 +1,288 @@
+
+<div class="contt">
+  <div class="form-row">
+
+    <div class="form-group col-md-3" *ngIf="!add">
+      <label for="fecha" class="text-white font-w">Fecha de Contestación</label>
+      <input type="date" name="fecha" class="form-control" [(ngModel)]="fecha" #fechaoI="ngModel" />
+    </div>
+
+
+    <div class="form-group col-md-3" *ngIf="!add" >
+      <label for="buro" class="text-white font-w">Buró</label>
+      <select name="buro" class="form-control" [(ngModel)]="buro" >
+        <option value=1 name="buro">Equifax</option>
+        <option value=2 name="buro">Experian</option>
+        <option value=3 name="buro">TransUnion</option>
+        <option value=4 name="buro">Acredor</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="!add">
+      <label for="nota" class="text-white font-w">Descripción</label>
+      <input type="text" name="nota" class="form-control" [(ngModel)]="nota" maxlength="100">
+
+    </div>
+
+    <div class="form-group col-md-3" *ngIf="!add">
+      <label for="ronda" class="text-white font-w">Ronda</label>
+      <select id="ronda" name="ronda" class="form-control" [(ngModel)]="ronda" >
+        <option value=1 name="ronda">1ra Ronda</option>
+        <option value=2 name="ronda">2ra Ronda</option>
+        <option value=3 name="ronda">3ra Ronda</option>
+        <option value=4 name="ronda">4ra Ronda</option>
+        <option value=5 name="ronda">5ra Ronda</option>
+        <option value=6 name="ronda">6ra Ronda</option>
+        <option value=7 name="ronda">7ra Ronda</option>
+        <option value=8 name="ronda">8ra Ronda</option>
+        <option value=9 name="ronda">9ra Ronda</option>
+        <option value=10 name="ronda">10ra Ronda</option>
+        <option value=11 name="ronda">11ra Ronda</option>
+        <option value=12 name="ronda">12ra Ronda</option>
+        <option value=55 name="ronda">Carta de Acreedor</option>
+      </select>
+    </div>
+
+
+    <div class="form-group col-md-3 filtros">
+      <div class="dropdown mt-3 ml-4">
+        <button class="btn btn-danger dropdown-toggle" type="button" (click)="none = !none" >
+          Ordenar Contestaciones Por :
+        </button>
+        <ul class="drod_mod" [class.none]="none" >
+          <li><a class="dropdown-item" [class.act]="ord == 1" (click)="ordenar(1)" >Ronda Asc</a></li>
+          <li><a class="dropdown-item" [class.act]="ord == 4" (click)="ordenar(4)" >Ronda Desc</a></li>
+          <li><a class="dropdown-item" [class.act]="ord == 2" (click)="ordenar(2)" >Buró Asc</a></li>
+          <li><a class="dropdown-item" [class.act]="ord == 5" (click)="ordenar(5)" >Buró Desc</a></li>
+          <li><a class="dropdown-item" [class.act]="ord == 3" (click)="ordenar(3)" >Fecha Asc</a></li>
+          <li><a class="dropdown-item" [class.act]="ord == 6" (click)="ordenar(6)" >Fecha Desc</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="form-group col-md-3 filtros">
+      <div class="dropdown mt-3 ml-4">
+        <button class="btn btn-warning dropdown-toggle" type="button" (click)="none2 = !none2" >
+          Filtrar Contestaciones:
+        </button>
+        <ul class="drod_mod" [class.none]="none2" >
+          <li><a class="dropdown-item" [class.act]="nd[1]== 0 && nd[0] == 0" (click)="filtrar(0, 0)" >Todo</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[1] == 1" (click)="filtrar(nd[0], 1)" >Ronda 1</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[1] == 2" (click)="filtrar(nd[0], 2)" >Ronda 2</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[1] == 3" (click)="filtrar(nd[0], 3)" >Ronda 3</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[1] == 4" (click)="filtrar(nd[0], 4)" >Ronda 4</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[1] == 5" (click)="filtrar(nd[0], 5)" >Ronda 5</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[1] == 6" (click)="filtrar(nd[0], 6)" >Ronda 6</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[1] == 7" (click)="filtrar(nd[0], 7)" >Ronda 7</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[1] == 8" (click)="filtrar(nd[0], 8)" >Ronda 8</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[1] == 9" (click)="filtrar(nd[0], 9)" >Ronda 9</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[1] == 10" (click)="filtrar(nd[0], 10)" >Ronda 10</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[1] == 11" (click)="filtrar(nd[0], 11)" >Ronda 11</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[1] == 12" (click)="filtrar(nd[0], 12)" >Ronda 12</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[0]== 51" (click)="filtrar(51, nd[1])" >Equifax</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[0] == 52" (click)="filtrar(52, nd[1])" >Experian</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[0] == 53" (click)="filtrar(53, nd[1])" >TransUnion</a></li>
+          <li><a class="dropdown-item" [class.act]="nd[0] == 54" (click)="filtrar(54, nd[1])" >Acredor</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="carta" class="text-white font-w">Subir Doc</label>
+      <div class="{{ classInputMod2 }}">
+        <input type="file" id="adatrckin" (change)="handlerImg64($event)" class="input-file"
+          accept=" image/* " />
+        <span>...</span>
+      </div>
+    </div>
+
+    <div class="col-md-3" *ngIf="!add">
+      <label class="text-white font-w d-block">Guardar</label>
+      <button type="button" class="btn btn-success" style="border: solid 3px darkgreen"
+      [disabled]="!guardar" (click)="guardarContestacion()">
+        Guardar Contestación
+      </button>
+    </div>
+
+    <div class="col-md-3" *ngIf="add">
+      <label class="text-white font-w d-block">Guardar</label>
+      <button type="button" class="btn btn-success" style="border: solid 3px darkgreen"
+      [disabled]="!guardar" (click)="addImagenREgistro()">
+        Agregar Nueva Imagen
+      </button>
+    </div>
+
+
+  </div>
+</div>
+
+<table class="table table-hover table-striped table-dark mt-3">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Ronda</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Buró</th>
+      <th scope="col">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of conste; let i = index" [class.select]="i == ind">
+      <td>{{ i + 1 }}</td>
+      <td>{{ item.fecha_resp }}</td>
+      <td>
+        <span *ngIf="item.ronda != 55 ">
+          Ronda: {{ item.ronda }}
+        </span>
+        <span *ngIf="item.ronda == 55 ">
+          Carta de Acreedor
+        </span>
+      </td>
+      <td>
+        {{ item.nota }}
+      </td>
+      <td>
+        <span *ngIf="item.buro == 1 ">Equifax</span>
+        <span *ngIf="item.buro == 2 ">Experian</span>
+        <span *ngIf="item.buro == 3 ">TransUnion</span>
+        <span *ngIf="item.buro == 4 ">Acredor</span>
+      </td>
+      <td>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-eye-fill cp" viewBox="0 0 16 16"
+            (click)="verImg(item)" *ngIf="i != ind">
+            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+          </svg>
+
+        &nbsp;
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-plus-circle-fill cp" viewBox="0 0 16 16" (click)="addImg(item, i)">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+        </svg>
+        &nbsp;
+        <span class="ml-2" style="color: red;" (click)="eliminarConst(item.id, item.document )" *ngIf="is_admin" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill cp" viewBox="0 0 16 16" *ngIf="i != ind">
+            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+          </svg>
+        </span>
+        &nbsp;
+        <span style="color: rgb(226, 206, 25);" (click)="editarConst(item)" *ngIf="i != ind">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square cp" viewBox="0 0 16 16">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg>
+        </span>
+
+        <span *ngIf="i == ind">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle cp" viewBox="0 0 16 16" (click)="cancel()">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </span>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div class="bg" *ngIf="modal">
+  <div class="">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Constestación</h5>
+          <button type="button" class="close" (click)="cerrarModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body" >
+          <div class="row">
+
+              <div class="form-group col-md-6">
+                <label for="fecha_envio" class="font-w">Fecha</label>
+                <input type="date" name="fecha_envio" class="form-control" [(ngModel)]="itemR.fecha_resp" #fecha_envioI="ngModel" />
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="ronda" class="font-w">Ronda</label>
+                <select id="ronda" name="ronda" class="form-control" [(ngModel)]="itemR.ronda" #rondaI="ngModel">
+                  <option value=1 name="ronda">1ra Ronda</option>
+                  <option value=2 name="ronda">2ra Ronda</option>
+                  <option value=3 name="ronda">3ra Ronda</option>
+                  <option value=4 name="ronda">4ra Ronda</option>
+                  <option value=5 name="ronda">5ra Ronda</option>
+                  <option value=6 name="ronda">6ra Ronda</option>
+                  <option value=7 name="ronda">7ra Ronda</option>
+                  <option value=8 name="ronda">8ra Ronda</option>
+                  <option value=9 name="ronda">9ra Ronda</option>
+                  <option value=10 name="ronda">10ra Ronda</option>
+                  <option value=11 name="ronda">11ra Ronda</option>
+                  <option value=12 name="ronda">12ra Ronda</option>
+                  <option value=55 name="ronda">Carta de Acreedor</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="buro" class=" font-w">Buró</label>
+                <select id="buro" name="buro" class="form-control" maxlength="1" [(ngModel)]="itemR.buro" #buroI="ngModel">
+                  <option value=1 name="buro">Equifax</option>
+                  <option value=2 name="buro">Experian</option>
+                  <option value=3 name="buro">TransUnion</option>
+                  <option value=4 name="buro">Acredor</option>
+                </select>
+              </div>
+
+            <div class="form-group col-md-6">
+              <!-- <label for="carta" class="font-w">Subir Track</label>
+                <div class="{{ classInputMod2 }}">
+                  <input type="file" id="edittrack" (change)="handlerImgtrack($event)" class="input-file"
+                    accept=" image/* " />
+                  <span>...</span>
+                </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"(click)="cerrarModal()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="enviarConstMod()">Confirmar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="verimg" *ngIf="min_modal">
+  <div class="iframe" *ngIf="src">
+    <embed width="100%" height="100%" [src]="src" type="" *ngIf="pdfInclude()">
+    <img [src]="src" *ngIf="!pdfInclude()" >
+
+  </div>
+  <div class="img_body">
+    <div class="hea modal-header">
+      <b>
+        Buró : <span *ngFor="let b of buros">
+          <span *ngIf="b[1] == docs.buro">{{b[0]}}</span>
+        </span>
+        <br> Ronda :<span *ngIf="docs.ronda !=  55">{{docs.ronda}}</span>
+                    <span *ngIf="docs.ronda ==  55">Carta de Acreedor</span>
+        <br> Fecha: {{ docs.fecha_resp }}
+      </b>
+
+      <button type="button" style="color: red;" id="close" class="close" (click)="cerrarMinModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="icons">
+      <span *ngFor="let x of docs.document">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#28a745" class="bi bi-inboxes-fill ml-2 cp" viewBox="0 0 16 16" (click)="get64(x)">
+            <path d="M4.98 1a.5.5 0 0 0-.39.188L1.54 5H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0A.5.5 0 0 1 10 5h4.46l-3.05-3.812A.5.5 0 0 0 11.02 1H4.98zM3.81.563A1.5 1.5 0 0 1 4.98 0h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1 .106.374l-.39 3.124A1.5 1.5 0 0 1 14.117 10H1.883A1.5 1.5 0 0 1 .394 8.686l-.39-3.124a.5.5 0 0 1 .106-.374L3.81.563zM.125 11.17A.5.5 0 0 1 .5 11H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0 .5.5 0 0 1 .5-.5h5.5a.5.5 0 0 1 .496.562l-.39 3.124A1.5 1.5 0 0 1 14.117 16H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .121-.393z"/>
+          </svg>
+      </span>
+    </div>
+    <hr>
+  </div>
+</div>

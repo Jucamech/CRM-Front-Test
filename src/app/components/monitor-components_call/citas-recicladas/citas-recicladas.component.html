@@ -1,0 +1,119 @@
+
+<div class="body_pt m-3">
+  <table class="table table-hover table-striped table-dark">
+    <thead *ngIf="citas">
+      <tr>
+        <!-- <th scope="col">ID</th> -->
+        <th scope="col">Id/ T:{{citas.length}}</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Fecha Creación</th>
+        <th scope="col">Ultima Hora</th>
+        <th scope="col">Asignador</th>
+        <th scope="col">Motivo</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Ver notas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of citas;let i = index "
+        [class.roja]="item.estado == '3' || item.estado == '4' "
+        [class.no_efect]="item.estado == '2' || item.estado == '5' || item.estado == '2' || item.estado == '7'|| item.estado == '8' "
+        [ngClass]="{ efect : item.estado == '12' }" >
+        <td>
+
+            <button class="btn btn-success btn-sm" title="Abrir Perfil de Cliente" (click)="verCliente(item.id_cliente)" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle mb-1" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              </svg>&nbsp;
+              {{item.id_cliente}}
+            </button>
+
+        </td>
+        <td>{{ item.nombres || 'LLamada' }} {{ item.apellidos || 'Perdidas' }}</td>
+        <!-- <td> {{ item.id_asignado | searchAgente2:agentes }} </td> -->
+        <td> {{ item.fecha_creacion | date:'mediumDate' }} {{ item.fecha_creacion | date:'shortTime' }} </td>
+        <td> {{ item.fechahora | date:'shortTime' }} </td>
+        <td> {{ item.id_user | searchAgente2:agentesV2 }} </td>
+        <td>
+          <span  *ngFor="let m of motivos_c">
+            <b *ngIf="m[1] == item.motivo ">{{ m[0] }}</b>
+          </span>
+        </td>
+        <td>
+          <span  *ngFor="let e of estados_c">
+            <b *ngIf="e[1] == item.estado">{{ e[0] }}</b>
+          </span>
+        </td>
+        <td>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2-fill" viewBox="0 0 16 16"  (click)="abrirOpc(item)" >
+            <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM2.545 3h10.91c.3 0 .545.224.545.5v1c0 .276-.244.5-.546.5H2.545C2.245 5 2 4.776 2 4.5v-1c0-.276.244-.5.545-.5z"/>
+          </svg>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="bg" *ngIf="modal" >
+  <div class="body_p2">
+    <div class="modal-header">
+      <button type="button" class="close ml-0" (click)="cerraM()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="body_detalles h100-p p-3" >
+      <div class="nota">
+        Nota Automatica:
+        <div class="not">
+          <b>{{ itemC.notas }}</b>
+        </div>
+      </div>
+      <div class="" *ngFor=" let n of notas ">
+        <p>
+          Fecha: <b>{{ n.fecha_llamada }}</b>
+        </p>
+        <p>
+          Agente: <b>{{ n.asignado }}</b>
+        </p>
+        <p>
+          Resultado: <span *ngFor="let r of result_n">
+            <b *ngIf="r[1] == n.resultado ">{{ r[0] }}</b>
+          </span>
+        </p>
+        <div>
+          Nota:
+          <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(n.nota)"></div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+  <div class="body_p3 ml-3">
+    <div class="modal-header">
+      <h4>Selecciona Agente</h4>
+    </div>
+    <div class="bod">
+      <ul>
+        <li *ngFor="let user of agentes2" class="li_user" >
+          <input type="radio" class="ml-2" name="id_us" [(ngModel)]="id_us" [value]="user.id" >&nbsp;
+          <b> {{ user.id }} - {{ user.nombre }} </b>
+        </li>
+      </ul>
+
+      <ul>
+        <li *ngFor="let user of agentes" class="li_user" >
+          <input type="radio" class="ml-2" name="id_us" [(ngModel)]="id_us" [value]="user.id_user" >&nbsp;
+          <b> {{ user.id_user }} - {{ user.nombres }} </b>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="foot mt-3">
+      <button type="button" class="btn btn-secondary" (click)="cerraM()" >Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="modCita()">Confirmar</button>
+    </div>
+
+  </div>
+</div>

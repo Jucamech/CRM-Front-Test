@@ -1,0 +1,107 @@
+
+<div class="contenedor d-flex">
+  <div class="texto">
+    <div class="texto_r" [innerHTML]="resultado"></div>
+    <div class="ed">
+      <ckeditor [(ngModel)]="ckeditorContent">
+        <ckbutton [name]="'saveButton'" [command]="'saveCmd'" [label]="'Save Document'" [toolbar]="'clipboard,1'">
+        </ckbutton>
+      </ckeditor>
+    </div>
+
+  </div>
+  <div class="opciones">
+    <div class="head_opc">
+
+      <div class="atras float-right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16" (click)="cerrar()">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </div>
+
+      <h3>{{ cliente }}</h3>
+    </div>
+    <div class="body_opc">
+      <div class="did" *ngIf="!did">
+        <label for="did" class="mr-3">DID</label>
+        <select name="did" [(ngModel)]="did_select" >
+          <option *ngFor="let i of dids" [value]="i.estado">{{i.estado}}</option>
+        </select>
+      </div>
+      <div class="did" *ngIf="did">
+        <label for="did" class="mr-3">DID</label>
+        <b>{{ did }}</b>
+      </div>
+      <div class="horas" *ngIf="hora">
+        <label for="hora" class="mr-3">Hora</label>
+        <b><span>{{ hora | date:'shortTime' }}</span></b>
+      </div>
+      <div class="agent">
+        <label class="mr-3">Creador</label>
+        <b>{{ agente }}</b>
+      </div>
+      <div class="resultado">
+        <label class="mr-3">Tipo de Llamada :</label>
+        <select name="llamada" [(ngModel)]="llamada">
+          <option value="Saliente">Saliente</option>
+          <option value="Entrante">Entrante</option>
+        </select>
+      </div>
+
+      <div class="resultado mt-2">
+        <label class="mr-3">Resultado de Llamada :</label>
+        <select name="resultado" [(ngModel)]="resultadoLL">
+          <option *ngFor="let r of result_n" [value]="r[1]" [class]="r[2]">{{ r[0] }}</option>
+        </select>
+      </div>
+
+      <div class="reasignar" *ngIf="resultadoLL == 'WWW' || resultadoLL == 'D' || resultadoLL == 'G' || verTiempo ">
+        <label class="mr-3"><b>Tiempo Minutos/Fecha Hora</b></label>
+        <br>
+        <div class="ml-2">
+
+          <input type="radio" name="radio" value="min" [(ngModel)]="radio">Minutos
+          <input type="radio" class="ml-2" name="radio" value="hora" [(ngModel)]="radio">Fecha/hora
+
+          <div class="opci mt-3">
+            <div class="fecha" *ngIf="radio == 'hora' ">
+              <label class="mr-3">Fecha :</label>
+              <input type="date" name="fecha" [min]="x" [(ngModel)]="fecha" >
+              <br>
+              <label class="mr-3 mt-2">Hora :</label>
+              <input type="time" name="horax" [(ngModel)]="horax">
+            </div>
+            <div class="min" *ngIf="radio == 'min' ">
+              <input type="number" name="min" [(ngModel)]="min">
+              <b *ngIf="min < 6" class="red">Minimo 6 minutos de anticipación</b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contador">
+        <label class="mr-3">Contador Caracteres</label>
+        <b><span>{{limit}}</span></b>
+      </div>
+      <hr>
+      <div class="dids_usados" *ngIf="didsUsados.length > 0 ">
+        <label class="mr-3">Dids Ya Usados</label><br>
+        <b *ngFor="let d of didsUsados">{{ d }} <br> </b>
+
+      </div>
+
+    </div>
+    <div class="foot_opc ">
+      <div class="enviar mt-2 mr-2 mb-2" style="float: right;" >
+        <button type="button" class="btn btn-success" [disabled]="max || !resultado" (click)="sendNotas()">Guardar Nota</button>
+      </div>
+      <div class="err pt-2" *ngIf="max">
+        Se ha excedido el limite de texto
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

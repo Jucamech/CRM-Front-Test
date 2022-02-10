@@ -1,0 +1,158 @@
+<style>
+  .factura {
+    margin: auto;
+    overflow: auto;
+    height: 100vh;
+    width: fit-content;
+    font-size: 85%;
+    background-color: white;
+    position: relative;
+    z-index: 1;
+  }
+  
+  img .fondo {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .body {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+  }
+  
+  .data {
+    margin: 3rem 0 0 1rem;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  @media print {
+    .factura,
+    .body,
+    .fondo {
+      width: 100%;
+      height: 100%;
+      font-size: 120%;
+    }
+    h4 {
+      position: relative;
+      color: red;
+      margin-top: 1.5rem;
+      text-align: center;
+      top: -16px;
+      font-size: 60px;
+      text-shadow: 1px 1px 1px white;
+    }
+    .fondo {
+      height: 120%;
+    }
+    .body {
+      padding: 3rem;
+    }
+    .data {
+      margin: 5rem 0 0 1rem;
+    }
+    .data_empresa img {
+      margin-top: 2rem;
+      height: 250px;
+      width: auto;
+    }
+    td,
+    tr,
+    tbody,
+    table,
+    th,
+    thead {
+      background: transparent;
+      background-image: none;
+      background-color: transparent;
+    }
+    .print {
+      display: none;
+    }
+    @page {
+      margin: 0;
+    }
+  }
+</style>
+<div class="print">
+  <button onclick="window.print()">Imprimir</button>
+</div>
+<!-- 792 x 612 -->
+<div class="factura">
+  <img class="fondo" src="../../../assets/103.jpg" alt="" />
+  <div class="body">
+    <div class="data_factura" style="width: 100%; height: 56%">
+      <div class="head">
+        <h4 style="color: #ffffff; text-align: center; margin-top: 1.3rem">
+          Invoice
+        </h4>
+        <div class="cont" style="display: flex; justify-content: space-between">
+          <div class="data">
+            <p>
+              Invoice #:<span><b>12231</b></span>
+            </p>
+            <p>
+              Date :<span><b>hoy</b></span>
+            </p>
+            <p>
+              Due date :<span><b>mañana</b></span>
+            </p>
+            <p>
+              Status :<span><b>a tiempo</b></span>
+            </p>
+
+            <h5 style="color: #2f80c1; margin-top: 1.5rem; font-size: 20px">
+              To :
+            </h5>
+            <p><b>Luis Picart</b></p>
+            <p><b>363 Hudson St Apt 1006</b></p>
+            <p><b>Hartford, Connecticut 06106-9404</b></p>
+            <p><b>Phone (959) 222-9140</b></p>
+          </div>
+          <div class="data_empresa">
+            <img src="../../../assets/images/descarga.jpg" height="100" width="auto" />
+            <p>www.creditomejor.com</p>
+            <p>tel (091)214 214 21 41</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="descripcion">
+      <table class="table">
+        <thead style="background-color: #2f80c1; color: white">
+          <tr>
+            <th scope="col">Description</th>
+            <th scope="col">Invoiced</th>
+            <th scope="col">Paid</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Factura del mes de Marzo 2021 - Pago de Inicial</td>
+            <td>$500.00</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Paid on 03/08/2021</td>
+            <td></td>
+            <td>$50.00</td>
+          </tr>
+          <tr>
+            <td>Paid on 04/02/2021</td>
+            <td></td>
+            <td>$100.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

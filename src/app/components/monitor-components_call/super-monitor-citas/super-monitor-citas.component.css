@@ -1,0 +1,70 @@
+
+.body_pt{
+  overflow: auto;
+  height: calc(100% - 220px);
+}
+.efect, .efect:hover {
+  background-color: green!important;
+  color: white!important;
+}
+.no_efect, .no_efect:hover {
+  background-color: yellow!important;
+  color: black;
+}
+.roja, .roja:hover {
+  background-color: red!important;
+  color: white;
+}
+.MG, .WWW, .DD, .PP, .PN, .LL8  {
+  background-color: yellow!important;
+  color: black;
+}
+.NC, .B {
+  background-color: red!important;
+  color: white;
+}
+.blue_bad {
+  color: #3186a9;
+}
+.red{
+  color: red;
+}
+/* ******** bg_modal ******** */
+.bg {
+  background-color: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.body_p2 {
+
+  width: 315px;
+  height: 570px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+}
+.body_p1 {
+  width: 390px;
+  height: 342px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+}
+
+a, a:hover{
+  text-decoration: none;
+}
+.body_detalles{
+  height: calc(100% - 64px);
+  overflow: auto;
+}
+.filtro{
+  width: 10rem;
+  margin: 1rem 0 0 1rem;
+}
+/* ******** ******** */

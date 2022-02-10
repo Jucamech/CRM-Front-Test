@@ -1,0 +1,265 @@
+<app-header></app-header>
+
+<div class="wrapper">
+  <!-- Sidebar -->
+  <nav id="sidebar">
+
+    <ul class="list-unstyled components">
+      <li>
+        <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Agentes</a>
+        <ul class="collapse list-unstyled show" id="pageSubmenu1">
+          <li [class.selected]="opcion == 1">
+            <a (click)="opcion = 1">Perfil Agentes</a>
+          </li>
+            <li [class.selected]="opcion == 2">
+            <a (click)="opcion = 2">Crear Agente</a>
+          </li>
+          <li [class.selected]="opcion == 3">
+            <a (click)="opcion = 3">Extensiones Activas</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Citas</a>
+        <ul class="collapse list-unstyled show" id="pageSubmenu2">
+          <li [class.selected]="opcion == 5">
+            <a (click)="opcion = 5">Crear Cita</a>
+          </li>
+          <li [class.selected]="opcion == 4">
+            <a (click)="opcion = 4">Citas Hoy</a>
+          </li>
+          <li [class.selected]="opcion == 8">
+            <a (click)="opcion = 8">Todas Citas</a>
+          </li>
+          <li [class.selected]="opcion == 6">
+            <a (click)="opcion = 6">Citas Perdidas</a>
+          </li>
+          <li [class.selected]="opcion == 7">
+            <a (click)="opcion = 7">Monitor Notas</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="content" style="padding: 40px; width: 100%">
+    <div>
+      <div class="content">
+        <div class="DatosPersonales" style="width: 70%;" *ngIf="opcion == 1">
+          <table class="table table-hover table-striped table-dark" *ngIf="opcion == 1">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Ext</th>
+                <th scope="col">Agente</th>
+                <th scope="col">Departamento</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of usuariosList2">
+                <th scope="row">{{ item.id }}</th>
+                <th scope="row">{{ item.ext }}</th>
+                <th scope="row">{{ item.nombre }} {{item.apellido}}</th>
+                <th scope="row">
+                  <span *ngIf="item.departamento == '1'">SAC</span>
+                  <span *ngIf="item.departamento == '2'">Ventas</span>
+                  <span *ngIf="item.departamento == '3'">Monitoreo</span>
+                  <span *ngIf="item.departamento == '4'">Control</span>
+                  <span *ngIf="item.departamento == '5'">Procesamiento</span>
+                </th>
+
+                <th scope="row">
+                  <button type="button" class="btn btn-warning" (click)="editarAgente(item)">Editar</button>
+                  <button type="button" class="btn btn-danger ml-3"(click)="delAgente(item)" *ngIf="isAdmin">
+                    Eliminar
+                  </button>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="crear_user" *ngIf="opcion == 2">
+          <h2 class="text-white font-w mt-3">Crear Agente</h2>
+          <div class="form-row justify-content-center">
+            <div class="mr-2">
+              <label for="nombre" class="text-white font-w">Nombre</label>
+              <input type="text" name="nombre" class="form-control" maxlength="50"
+                pattern="([a-zñÑA-Z0-9¡¿!.,: ;\?]{1,50})" [(ngModel)]="nombre" #nombreI="ngModel" required/>
+              <div class="errores" *ngIf="nombreI.invalid && nombreI.dirty">
+                <div *ngIf="nombreI.errors.pattern">
+                  <small>Use solo <b>caracteres</b> comunes</small>
+                </div>
+                <div *ngIf="apellidosI.errors.required">
+                  <small>Este campo es <b>obligatorio</b></small>
+                </div>
+              </div>
+            </div>
+
+            <div class="mr-2">
+              <label for="apellidos" class="text-white font-w">Apellidos</label>
+              <input type="text" name="apellidos" class="form-control" maxlength="50"
+                pattern="([a-zÑñA-Z0-9¡¿!.,: ;\?]{1,50})" [(ngModel)]="apellidos" #apellidosI="ngModel" required/>
+              <div class="errores" *ngIf="apellidosI.invalid && apellidosI.dirty">
+                <div *ngIf="apellidosI.errors.pattern">
+                  <small>Use solo <b>caracteres</b> comunes</small>
+                </div>
+                <div *ngIf="apellidosI.errors.required">
+                  <small>Este campo es <b>obligatorio</b></small>
+                </div>
+              </div>
+            </div>
+
+            <div class="mr-2">
+              <label for="extension" class="text-white font-w">Extención</label>
+              <input type="text" name="extension" class="form-control" maxlength="5" pattern="(\d{1,5})"[(ngModel)]="extension"
+                #extensionI="ngModel" />
+              <div class="errores" *ngIf="extensionI.invalid && extensionI.dirty">
+                <div *ngIf="extensionI.errors.pattern">
+                  <small>Formato de <b>Extensión</b> no válido</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="mr-2">
+              <label for="nombres" class="text-white font-w">Nick User</label>
+              <input type="text" name="user"  class="form-control" [(ngModel)]="user">
+            </div>
+
+             <div >
+              <label for="extension" class="text-white font-w">Departamento</label>
+              <select name="departamento" class="form-control" [(ngModel)]="dep">
+                <option value="1" name="departamento">SAC</option>
+                <option value="2" name="departamento">Ventas</option>
+                <option value="3" name="departamento">Monitoreo</option>
+                <option value="4" name="departamento">Control</option>
+                <option value="5" name="departamento">Procesamiento</option>
+              </select>
+            </div>
+
+            <div class="form-group ml-4">
+              <label for="cobro" class="text-white font-w">Nuevo Agente</label>
+              <button class="btn btn-primary btn-small btn-block" (click)="nuevoAgente()">
+                Add...
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="DatosPersonales" *ngIf="opcion == 3">
+          <table class="table table-hover table-striped table-dark py-4 edi" *ngIf="opcion == 3">
+            <thead>
+              <tr>
+                <th scope="col">Extensiones</th>
+                <th scope="col">Agente</th>
+                <th scope="col">Departamento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of usuariosList">
+                <!--  -->
+                <th scope="row" class="color-v">{{ item.ext }}</th>
+                <th scope="row">{{ item.nombres }}</th>
+                <th scope="row">{{ item.departamento}}</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="DatosPersonales" *ngIf="opcion == 4">
+          <h5 class="text-center text-light py-3">Monitor Citas Hoy</h5>
+          <app-monitorcitas [usuariosList2]="usuariosList2"></app-monitorcitas>
+        </div>
+
+        <div class="DatosPersonales" *ngIf="opcion == 5">
+          <app-citas-cli [listClientes]="listClientes"></app-citas-cli>
+        </div>
+
+        <div class="DatosPersonales" *ngIf="opcion == 6">
+          <h5 class="text-center text-light py-3">Citas Perdidas</h5>
+          <app-prospectos></app-prospectos>
+        </div>
+
+        <div class="DatosPersonales" *ngIf="opcion == 7">
+          <h5 class="text-center text-light py-3">Monitor de Notas</h5>
+          <app-monitor-notas [usuariosList2]="usuariosList2" [citasHoy]="citasHoy"></app-monitor-notas>
+        </div>
+
+        <div class="DatosPersonales" *ngIf="opcion == 8">
+          <h5 class="text-center text-light py-3">Todas citas</h5>
+          <app-monitorcitas [opcion]="opcion" [usuariosList2]="usuariosList2"></app-monitorcitas>
+
+        </div>
+
+        <div class="DatosPersonales" style="overflow-y: auto; overflow-x: hidden; min-height: 65vh" *ngIf="opcion == 9">
+          <app-editor-speech></app-editor-speech>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="editarCitas">
+  <app-citas-cli></app-citas-cli>
+</div>
+<!-- modal de patch usuario -->
+<div class="modal_bg" *ngIf="modal">
+  <div class="">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Agente</h5>
+          <button type="button" class="close" data-dismiss="modal" (click)="modal = !modal; reset()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group ml-3">
+              <label for="nombres" class="">Nombres</label>
+              <input type="text" name="nombres"  class="form-control" [(ngModel)]="nombre">
+            </div>
+            <div class="form-group ml-3">
+              <label for="nombres" class="">Apellidos</label>
+              <input type="text" name="apellidos"  class="form-control" [(ngModel)]="apellidos">
+            </div>
+            <div class="form-group ml-3">
+              <label for="nombres" class="">Extensión</label>
+              <input type="text" name="extension"  class="form-control" [(ngModel)]="extension">
+            </div>
+            <div class="form-group ml-3">
+              <label for="nombres" class="">Departamento</label>
+              <select name="departamento"  class="form-control" [(ngModel)]="dep" >
+                <option value="1" name="departamento" >SAC</option>
+                <option value="2" name="departamento" >Ventas</option>
+                <option value="3" name="departamento" >Monitoreo</option>
+                <option value="4" name="departamento" >Control</option>
+                <option value="5" name="departamento" >Procesamiento</option>
+              </select>
+            </div>
+
+            <div class="form-group ml-3" *ngIf="isAdmin" >
+              <label for="extension" >Nivel</label>
+              <select name="departamento" class="form-control" [(ngModel)]="nivel">
+                <option value="1" name="nivel">Nivel 1</option>
+                <option value="2" name="nivel">Nivel 2</option>
+                <option value="3" name="nivel">Nivel 3</option>
+              </select>
+            </div>
+
+            <div class="form-group ml-3">
+              <label for="nombres" class="">Nick User</label>
+              <input type="text" name="user"  class="form-control" [(ngModel)]="user">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="modal = !modal; reset()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="patchAgente()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

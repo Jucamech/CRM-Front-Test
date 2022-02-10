@@ -1,0 +1,73 @@
+
+
+<table class="table table-hover table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Cliente</th>
+      <th scope="col" *ngIf="opcionVer == 2">Hora de cita</th>
+      <th scope="col" *ngIf="opcionVer == 3">Fecha de cita</th>
+      <th scope="col">Asignado</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Motivo</th>
+      <th scope="col">Notas</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Creación</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of dataClienteDocument; index as i">
+      <td>{{ i + 1 }}</td>
+
+      <td *ngIf="!id">
+        <button type="button" class="btn btn-outline-success" (click)="call(item)">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-telephone-forward-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z"
+            />
+          </svg>
+          {{ item.nombres | slice: 0:10 }} {{ item.apellidos | slice: 0:10 }}
+        </button>
+      </td>
+
+      <td *ngIf="id">
+        {{ item.nombres | slice: 0:10 }} {{ item.apellidos | slice: 0:10 }}
+      </td>
+
+      <td *ngIf="opcionVer == 2">{{ item.fechahora | date: "shortTime" }}</td>
+      <td *ngIf="opcionVer == 3">{{ item.fechahora | date:'medium'}}</td>
+      <td>{{ item.asignado }}</td>
+      <td>
+        <div [ngSwitch]="item.estado">
+          <span *ngSwitchCase="1">En Agenda</span>
+          <span *ngSwitchCase="2">Postpuesta</span>
+          <span *ngSwitchCase="3">No Contestada</span>
+          <span *ngSwitchCase="4">Cliente Ocupado</span>
+          <span *ngSwitchCase="10">Cita Atendida</span>
+          <span *ngSwitchCase="11">Solicitud a Post</span>
+        </div>
+      </td>
+      <td>
+        <div [ngSwitch]="item.motivo">
+          <span *ngSwitchCase="1">Lectura de Reporte</span>
+          <span *ngSwitchCase="2">Hablar del Caso</span>
+          <span *ngSwitchCase="3">Documentos Pendientes</span>
+          <span *ngSwitchCase="4">Firmar Contrato</span>
+          <span *ngSwitchCase="5">Cobro</span>
+          <span *ngSwitchCase="6">Tracking</span>
+        </div>
+      </td>
+      <td>{{ item.notas | slice: 0:25 }}</td>
+      <td>{{ item.fechahora | date:'medium'}}</td>
+      <td>{{ item.fecha_creacion }}</td>
+    </tr>
+  </tbody>
+</table>

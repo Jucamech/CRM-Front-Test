@@ -1,0 +1,36 @@
+.content {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.none {
+    display: none;
+}
+
+.intro,
+.puntaje,
+.direccion,
+.inkiri,
+.chequeado,
+.borrar,
+.public,
+.notiene,
+.judgements,
+.sumario,
+.cuentarepor,
+.sumariod,
+.cuentarepord,
+.drama{
+    line-height: 45px;
+    margin: 4rem auto;
+    font-size: 30px;
+    text-align: center;
+}
+
+.btnbn{
+    font-size: 15px;
+    width: 300px;
+}
+
+

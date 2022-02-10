@@ -1,0 +1,212 @@
+
+<div class="content">
+  <div class="{{ intro }}">
+    <br /><b>Hola </b>
+    <span style="color: blue">buen(os/as) (dias/tardes/ noches)</span> <br />le
+    <b>saluda {{agente}} </b> y estoy llamando <br />para hablarle sobre su
+    <b>reparación</b> de crédito.
+    <br />
+    <br />¿Como se <b>encuentra</b> usted en el dia de hoy? <br />¡me
+    <b>alegra</b> escuchar eso (<span *ngIf="cliente">{{ cliente.nombres }}</span>)!
+    <br />
+    <br /><b>Cuenteme (<span *ngIf="cliente">{{ cliente.nombres }}</span>) </b>,
+    <br />¿Usted ha <b>recibido</b> cartas o reportes de credito?
+    <br>
+    <br /><span style="color: green" >esperar reaccion del cliente y continuar...</span>
+    <br />
+    <br />
+    <label for="">Ha recibido o no : </label>
+    <select select name="tipo_rc" id="tipo_rcsele" [(ngModel)]="tipo_rc">
+      <option value="respuesta">ha recibido</option>
+      <option value="no" name="tipo_rc">no</option></select>
+    <br />
+    <br />
+
+    <div *ngIf="tipo_rc == 'no'">
+      <br />
+      <br />Es importante que cuando <b>reciba</b> <br />cualquier
+      <b>correspondencia</b> <br />referente a <b>su</b> credito,
+      <br />sin importar que sean <br />cartas o <b>reportes</b> de credito.
+      <br />
+    </div>
+
+    <br />Nos las hace llegar <b>inmediatamente</b>
+    <br />y por favor <b>no</b> me esconda las cartas.
+    <br />¿Okay?
+    <br />
+    <br />
+    <span style="color: green" >esperar reaccion del cliente y continuar...</span>
+    <br />
+    <br />Usted debe estar <b>muy</b> pendiente
+    <br> porque es <b>probable</b> que llegue
+    <br> a recibir en <b>cualquier momento</b>
+    <br> documentos de abogados o cartas de <b>corte!</b>
+    <br> y <b>tenemos</b> que contestarle <b>antes</b> de 10 días
+    <br> porque sino podemos <b>perder</b> el caso.
+    <br>
+    <br>
+    <span style="color: green"
+      >esperar reaccion del cliente y continuar...</span
+    >
+    <br />
+    <br />(<span *ngIf="cliente">{{ cliente.nombres }}</span>), Si usted a mi <b>me dice</b>
+    <br />que <b>no</b> recibio las cartas
+    <br />y <b>si </b>las recibio,
+    <br />entonces ellos van a <b>indicarnos</b>
+    <br />que usted <b>si</b> las recibio
+    <br />y se puede <b>perder</b> el caso.
+    <br />
+    <br />(<span *ngIf="cliente">{{ cliente.nombres }}</span>), Por eso es <b>muy</b> importante
+    <br />que usted este
+    <b>pendiente</b> <br />por que va a recibir 3 <b>reportes</b> de credito
+    <br />uno de <b>cada</b> buro de credito
+    <br />Experian <b>equifax</b> y de
+    <b>transunion?.</b>
+    <br />
+    <br />Tan <b>pronto</b> usted los reciba
+    <br />me las tiene que
+    <b>enviar</b> a nuestro
+    <br />
+    <br />
+    <button class="btn_g" type="button" (click)="verBtns('mw')">
+      whatsapp corpotarivo
+    </button>
+    <br />
+    <br />
+    <div style="font-size: 36px" *ngIf="wppmstrar">
+      <table style="border:1px;" class="cent">
+        <tbody>
+          <tr style="border:1px;">
+            <td>
+              <h5>
+                <b>Servicio<br /> al cliente</b>
+              </h5>
+            </td>
+
+            <td>
+              <h5><b>Coquito</b></h5>
+            </td>
+
+            <td>
+              <h6><b>Procesamiento</b></h6>
+            </td>
+          </tr>
+          <tr style="border:1px;">
+            <td style="color: grey">+1 (351) 300-8333</td>
+            <td style="color: grey">+1 (781) 819-0019</td>
+            <td style="color: grey">+1 (346) 201-6089</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br />
+
+    <button class="btn_g" type="button" (click)="verBtns('mc')">
+      correo electronico
+    </button>
+    <br /><br />
+
+    <div style="font-size: 36px" *ngIf="mostrarcorreo">
+      <p class="cent">mejorandolasvidas@gmail.com || creditomejor@gmail.com</p>
+    </div>
+    <br />
+    <br />
+    <br />Como <b>máximo</b> 24 horas despues,
+    <br />pero <b>preferiblemente</b> el mismo dia
+    <br /><b>inmediatamente</b> que usted las reciba.
+    <br />
+    <br />
+    <span style="color: green"
+      >esperar reaccion del cliente y continuar...</span
+    >
+    <br />
+    <br />(<span *ngIf="cliente">{{ cliente.nombres }}</span>), ¿Usted esta <b>absolutamente</b> seguro<span
+      style="color: blue"
+      >(a)
+    </span>
+    <br />que <b>no</b> ha recibido ninguna carta? <br />por que
+    <b>todas</b> las cartas o reportes de credito <br />que usted <b>reciba</b>
+    <br />tenemos que contestarlas <b>inmediatamente. </b>
+    <br />
+    <br />
+    <span style="color: green"
+      >Esperar reaccion del cliente y continuar...</span
+    >
+    <br>
+    <br />Si (<span *ngIf="cliente">{{ cliente.nombres }}</span>), por que la <b>ley</b> es muy clara, <br />si los buros de
+    credito <b>no</b> responden <br />
+    en un plazo <b>maximo</b> de 60 dias <br />tienen que <b>borrar</b> <br />el
+    reporte <b>negativo</b> de su credito. <br />¡Esa es <b>la ley!</b>
+    <br />
+    <br />
+    <span style="color: green">Esperar reaccion del cliente y continuar...</span>
+    <br />
+    <br />
+
+    <button (click)="nopuedoH = !nopuedoH">No puedo Hablar</button>
+
+    <br />
+    <div class="ocu" *ngIf="nopuedoH">
+      <app-speech-no-puedo-hablar></app-speech-no-puedo-hablar>
+    </div>
+ <!--    <br />
+    <br />Yo le voy a <b>asignar</b>
+    <br /><b>un</b> dia de la semana
+    <br />que de <b>ahora</b> en adelante
+    <br />es su <b>obligacion</b> llamarnos religiosamente.
+    <br />
+    <br />
+    <span style="color: green" >esperar reaccion del cliente y continuar...</span >
+    <br>
+    <br />Yo le voy a <b>asignar</b> el dia: _________ (<span *ngIf="cliente">{{ cliente.nombres }}</span>), <br />y de
+    <b>ahora</b> en adelante <br />usted me tiene que llamar <b>todos</b> los:
+    _________ <br />(<span *ngIf="cliente">{{ cliente.nombres }}</span>), aunque me <b>haya</b> llamado un dia antes
+    <br />me <b>debe</b> llamar los dias: _________ <br />¿Estamos
+    <b>claros</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>),? <br /><b>¿Okey? ...</b>
+    <br />
+    <br />
+    <span style="color: green">esperar reaccion del cliente y continuar...</span>
+    <br />
+    <br />¿que <b>dia</b> es el que usted me va a llamar ?. <br /><b
+      >perfecto.
+    </b>
+    yo estoy de 2 de la tarde a 10 de la noche (<span *ngIf="cliente">{{ cliente.nombres }}</span>), <br />menos mi dia
+    <b>libre</b> que es el: _________.
+    <br /> -->
+    <br />
+    <br />
+
+    <br />
+    <br />¿A que <b>hora</b> le pongo que usted va a llamar? <br /><b
+      >¿Ujum?
+    </b>
+    <br />¿Alguna <b>otra</b> pregunta? <br />¡hagame todas las que quiera!
+    <br />yo soy una enciclopedia.
+    <br />
+    <br />
+    <span style="color: green"
+      >Esperar reaccion del cliente y continuar...</span
+    >
+    <br />
+    <br />
+    (<span *ngIf="cliente">{{ cliente.nombres }}</span>), Tengo aqui? una <b>notita</b> <br />del departamento de
+    <b>contabilidad</b> <br />que indica que usted <b>tiene</b> <br />un
+    <b>paguito</b> pendiente para el dia_________ <br />¿Usted prefiere
+    <b>hacerlo</b> el_________ (<span *ngIf="cliente">{{ cliente.nombres }}</span>),? <br />¿O prefiere
+    <b>aprovechar</b> el tiempo que estamos hablando <br />¿Y hacerlo
+    <b>ahora</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)?
+    <br />
+    <br />
+    <span style="color: green"
+      >esperar reaccion del cliente y continuar...</span
+    >
+    <br>
+    <br />  {{ pro | date:'longDate' }}
+    <br />¿Que prefiere, lo <b>hacemos</b> el dia:
+    <br />  _________ ? ¿O <b>depositarlo</b> mañana?
+    <br />Ok (<span *ngIf="cliente">{{ cliente.nombres }}</span>),<b>perfecto</b>
+    <br />espero su llamadita. <br />hasta luego y que <b>dios</b> le bendiga
+    <br /><b>rica</b> y abundantemente. <br /><b>¡feliz dia! </b>
+    <br />
+  </div>
+</div>

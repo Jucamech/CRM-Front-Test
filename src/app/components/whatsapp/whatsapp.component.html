@@ -1,0 +1,100 @@
+<div class="main">
+
+  <div class="cam" *ngIf="!isChat">
+    <div class="camara"></div>
+  </div>
+  <div class="cargando" *ngIf="isLoading">
+    <span >Cargando...
+      <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </span>
+  </div>
+
+  <div class="opciones" *ngIf="!isChat">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16" (click)="opciones = !opciones">
+      <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+    </svg>
+    <div class="opt" *ngIf="opciones">
+      <p class="buscador w100 mb-0" (click)="buscardor = !buscardor" *ngIf="opciones">
+        <b>
+          Buscar&nbsp;
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" >
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        </b>
+      </p>
+      <p class="mb-1" *ngIf="buscardor">
+        <input type="text" name="buscar" style="width: 97%;" [(ngModel)]="buscarInp">
+      </p>
+    </div>
+  </div>
+
+  <div class="infoChat" *ngIf="isChat">
+    <img class="img_perfil" [src]="dataChatCli.image" >
+    <h5 class="ml-2 mb-0">{{ dataChatCli.name || 'no name' }}</h5>
+    <div class="cam cam_2">
+      <div class="camara"></div>
+    </div>
+  </div>
+
+  <div class="wht_body" [class.none]="isChat" #listChat >
+    <div class="chat m-3 d-flex" *ngFor="let item of listChats | listChatsWht:n:buscarInp " (click)="getChatCliente(item)" >
+      <img loading='lazy' class="img_chat" [src]="item.image" width="30px" height="30px">
+      <div class="dat text-white ml-3">
+        <h6>{{ item.name }}</h6>
+        <small style="float:right;">{{ item.last_time | date:'mediumDate' }} {{ item.last_time | date:'shortTime' }}</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="wht_body_chat px-3 pt-2" *ngIf="isChat" #chatCli >
+    <div class="msg" [class.from_me]="m.fromMe" *ngFor="let m of chat.messages">
+      <p class="text" [class.text_get]="m.fromMe" [class.text_send]="!m.fromMe" *ngIf="!isImg(m.body)">
+        {{ m.body }}
+      </p>
+      <div
+        *ngIf="isImg(m.body)"
+        class="text"
+        [class.text_get]="m.fromMe"
+        [class.text_send]="!m.fromMe"
+        [innerHTML]="generarMult(m.body ) | safeHtml " >
+      </div>
+
+    </div>
+  </div>
+  <div class="input-group" *ngIf="isChat"> <!--  -->
+
+
+    <form class="d-flex form">
+
+      <!--<input class="form-control-mod" type="text" name="mensaje" id="mensajeId" [(ngModel)]="mensaje" >-->
+      <textarea class="form-control-mod" name="mensaje" id="mensajeId" [(ngModel)]="mensaje"></textarea>
+      <div class="custom-input-file ">
+        <input type="file" id="documentos" class="input-file" (change)="handlerImg64($event)" accept="image/* , .pdf , .accdb " />
+        <span class="input-group-text">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-paperclip" viewBox="0 0 16 16">
+            <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
+          </svg>
+        </span>
+
+      </div>
+      <div class="send" (click)="enviarMsg()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16" >
+          <path fill-rule="evenodd" d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89.471-1.178-1.178.471L5.93 9.363l.338.215a.5.5 0 0 1 .154.154l.215.338 7.494-7.494Z"/>
+        </svg>
+      </div>
+    </form>
+  </div>
+
+  <div class="botones">
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-x-square-fill" viewBox="0 0 16 16" (click)="cerrarWhat()">
+      <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-up-left-square-fill" viewBox="0 0 16 16" (click)="atrasWhat()" >
+      <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm8.096 10.803L6 6.707v2.768a.5.5 0 0 1-1 0V5.5a.5.5 0 0 1 .5-.5h3.975a.5.5 0 1 1 0 1H6.707l4.096 4.096a.5.5 0 1 1-.707.707z"/>
+    </svg>
+
+  </div>
+
+</div>

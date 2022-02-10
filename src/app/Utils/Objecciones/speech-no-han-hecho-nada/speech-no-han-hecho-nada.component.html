@@ -1,0 +1,236 @@
+<hr>
+<small class="green">
+  <br> HEMOS HECHO UNA
+  <br> SERIE DE ACCIONES</small>
+<div class="content">
+  <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), nosotros <b>hemos</b> hecho
+  <br> una serie de <b>acciones</b> para
+  <br> Asegurarnos que con el favor de <b>Dios</b>,
+  <br> usted <b>restablezca</b> su buen crédito.
+  <br>
+  <br> <b>Primero</b>. Hemos enviado una cartas
+  <br> <b>Indicándole</b> a los buros de crédito
+  <br> que le <b>borren</b> todas las direcciones
+  <br> que usted ha <b>tenido</b> anteriormente
+  <br> y que solo se <b>quede</b>
+  <br> la suya <b>actual</b>,
+  <br> ya que esto se puede <b>prestar</b>
+  <br> para que lo <b>demande</b> a usted
+  <br> y <b>nunca</b> se entere de la demanda
+  <br> y le ganen la demanda en <b>ausencia</b>.
+  <br>
+  <br> Por eso es <b>muy</b> importante quitar
+  <br> inmediatamente <b>todas</b> las direcciones
+  <br> que ya usted no vive.
+  <br>
+  <br> <b>Segundo</b>. Hemos requerido
+  <br> <b>quitar</b> variaciones de su nombre
+  <br> y <b>actualizarlo</b> ya que se puede prestar
+  <br> para <b>robo</b> de identidad.
+  <br>
+  <br>
+  <div class="d-flex">
+    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="opc = 1">Hemos hecho una serie de acciones</button>
+    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="opc = 2">Si es con un pagocompartido</button>
+    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="opc = 3">ustedes iban a mandar las cartas?</button>
+    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="opc = 4">A que ud va a depositar?</button>
+  </div>
+  <br>
+  <div class="opc1" *ngIf="opc == 1">
+    <br> <small class="green">COMO SI ESTO FUERA POCO</small>
+    <br>
+    <br> Como si esto fuera poco hemos <b>realizado</b>
+    <br> <b>un</b> MAXIMO de
+    <br> tres (3) <b>reclamaciones</b> a los buro de crédito.
+    <br> A Expirian, <b>Equifax</b> y Transunion.
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), <b>Hicimos</b> (3) tres reclamaciones
+    <br> a <b>cada</b> buro de crédito.
+    <br> Son <b>nueve</b> reclamaciones en total.
+    <br>
+    <br> Usted va a <b>recibir</b> tres (3) contestaciones
+    <br> De <b>cada</b> Buro de crédito,
+    <br> en forma de <b>reportes</b> de crédito
+    <br>
+    <br> <b>Estos</b> reportes pueden ser
+    <br> de <b>dos(2)</b> páginas
+    <br> hasta <b>veinte (20)</b> paginas
+    <br> y es muy <b>importante</b>
+    <br> que tan pronto usted los <b>reciba</b>,
+    <br> inmediatamente nos los <b>envíe</b>,
+    <br> ya que hay unos <b>códigos</b>
+    <br> en los cuales nos indica
+    <br> qué cosas <b>tenemos</b> que seguir peleando
+    <br> y que cuales han sido <b>borradas</b>.
+    <br>
+    <br> Una vez usted <b>reciba</b> estos reportes,
+    <br> nos los envía y nos <b>llama</b> inmediatamente
+    <br> para asegurarse que nosotros lo hemos recibido.
+    <br>
+  </div>
+  <div class="opc1" *ngIf="opc == 2">
+    <br> <b>Estas</b> cartas las tenemos listas
+    <br> pero <b><u>NO</u></b> las podemos enviar
+    <br> hasta que usted haga <b><u>su</u></b> pago.
+    <br>
+    <br> ¿Cuando usted va a <b>hacer</b> el pago?
+    <br> El banco <b>abre</b> a las 9am,
+    <br> ¿A <b>qué hora</b> le pongo aquí?
+    <br> <b>¿A las 9 de la mañana o al lunch?</b>
+    <br>
+    <br>
+    <div class="d-flex">
+      <button type="button" class="btn btn-primary btn-lg btn-block">ustedes iban a mandar las cartas?</button>
+    </div>
+    <br>
+    <br>
+  </div>
+  <div class="opc1" *ngIf="opc == 3">
+    <small class="green">
+      Respuesta posible del cliente
+    </small>
+    <div class="green">
+      <b>
+        <br> Ah pero ustedes me dijeron a mí que
+        <br> si yo lo hacía el pago inmediatamente,
+        <br> ustedes iban a mandar las cartas?
+      </b>
+    </div>
+    <br> Nosotros le <b>indicamos</b> que nosotros
+    <br> haríamos las cartas <b>inmediatamente</b>
+    <br> y así lo <b>hicimos</b>.
+    <br>
+    <br> <span class="blue">Pero hasta que nosotros <b><u>NO</u></b> recibamos el</span>
+    <br>
+    <button type="button" class="btn btn-primary btn-sm" (click)="opc2 = 1">Seguro Social</button>
+    <button type="button" class="btn btn-primary btn-sm ml-3" (click)="opc2 = 2">Seguro Socia y Licencia</button>
+    <button type="button" class="btn btn-primary btn-sm ml-3" (click)="opc2 = 1">Seguro Socia, Licencia y Bill</button>
+    <br>
+    <div class="opc2" *ngIf="opc2 == 1">
+      <hr>
+      <div class="blue">
+        <br> Pero hasta que nosotros <u>NO</u> recibamos el
+        <br> Seguro Social
+      </div>
+      <br> Hasta que nosotros
+      <br> <u>NO</u> hayamos recibido las
+      <br> identificaciones completas, del
+      <br> seguro social
+      <br>
+      <br> <u>NO</u> podemos enviar las cartas
+      <br> ya que la ley nos exige que tenemos que asegurarnos que
+      <br> usted es realmente la persona
+      <br> que usted dice ser,
+      <br> y que <u>NO</u> es una persona
+      <br> haciendo robo de identidad,
+      <br> esto es por su propia seguridad.
+      <br> OKEY?
+      <br>
+      <br> por eso necesitamos que nos mande
+      <br> de una forma legible que se vean
+      <br> las cuatro esquinas del seguro social
+      <br>
+      <br>
+      <br> OKEY?
+    </div>
+    <div class="opc2" *ngIf="opc2 == 2">
+      <hr>
+      <div class="blue">
+        <br> Seguro Social y Licencia
+      </div>
+      <br> Hasta que nosotros
+      <br> <u>NO</u> hayamos recibido las
+      <br> identificaciones completas, del
+      <br> seguro social Y la licencia
+      <br>
+      <br> <u>NO</u> podemos enviar las cartas
+      <br> ya que la ley nos exige que tenemos que asegurarnos que
+      <br> usted es realmente la persona
+      <br> que usted dice ser,
+      <br> y que NO es una persona
+      <br> haciendo robo de identidad,
+      <br> esto es por su propia seguridad.
+      <br> OKEY?
+      <br>
+      <br> por eso necesitamos que nos mande
+      <br> de una forma legible que se vean
+      <br> las cuatro esquinas del seguro social
+      <br> y la licencia.
+      <br>
+      <br> OKEY?
+    </div>
+    <div class="opc2" *ngIf="opc2 == 3">
+      <hr>
+      <div class="blue">
+        <br> Seguro Social, licencia y Bill
+      </div>
+      <br> Hasta que nosotros
+      <br> <u>NO</u> hayamos recibido las
+      <br> identificaciones completas, del
+      <br> seguro social la licencia y el
+      <br> bill ya sea de luz, gas o agua.
+      <br>
+      <br> <u>NO</u> podemos enviar las cartas
+      <br> ya que la ley nos exige que tenemos que asegurarnos que
+      <br> usted es realmente la persona
+      <br> que usted dice ser,
+      <br> y que NO es una persona
+      <br> haciendo robo de identidad,
+      <br> esto es por su propia seguridad.
+      <br> OKEY?
+      <br>
+      <br> por eso necesitamos que nos mande
+      <br> de una forma legible que se vean
+      <br> las cuatro esquinas del seguro social
+      <br> y la licencia.
+      <br>
+      <br> OKEY?
+    </div>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="opc1" *ngIf="opc == 4">
+    <hr>
+    <small class="blue">
+      ¿A qué hora usted la va enviar?
+    </small>
+    <br>
+    <br> Tengo una <b>notita</b>
+    <br> del departamente <b>contabilidad</b>
+    <br> de que usted tiene un <b>paguito</b>
+    <br> comprometido para sacar sus <b>reclamaciones</b>.
+    <br>
+    <br> El banco abre a las <b>9</b> de la mañana
+    <br> o al <b>lonche</b>
+    <br>
+    <br> ¿A qué hora usted lo va a <b>depositar</b> ?
+    <br>
+    <br>
+    <small class="green">
+      (Indicarle que vamos al correo tres (3) horas después.
+      <br> Usualmente los correos cierran a las _:00 pm
+      <br> O sea que podemos enviar sus cartas a las__
+    </small>
+    <br>
+    <br>
+    <small class="blue">
+      Yo deposito a las -----
+    </small>
+    <br>
+    <br> <b>Perfecto</b> porque tenemos
+    <br> <b>hasta</b> las _________
+    <br> para <b>enviar</b> las cartas.
+    <br>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+</div>

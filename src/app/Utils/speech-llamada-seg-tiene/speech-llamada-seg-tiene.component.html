@@ -1,0 +1,415 @@
+
+<div class="content">
+  <div class="{{ intro }}">
+    <br />(____ ), estoy mirando su <b>archivo</b> <br />Y quiero informarle que
+    en base al <b>trabajo</b> <br />que se ha venido <b>haciendo,</b>
+    <br />puedo <b>percatarme</b> que <br />Gracias a <b>Dios,</b> todo está
+    <b>progresando</b> acordemente.
+    <br />
+    <br />Aparte de eso (_____), <br />Veo que <b>sus cartas</b> <br />ya se
+    <b>enviarón</b> a los buros <br />De <b>crédito.</b> <br />Experian,
+    <b>Equifax</b> y Transunion <br />Y están <b>respondiéndole</b> <br />a
+    <b>otras</b> personas que enviamos <br />en su misma fecha, <br />O sea que
+    usted <b>debe</b> estar <br /><b>recibiendo</b> las notificaciones <br />en
+    el <b>transcurso</b> de las próximas semanas <br />¿O <b>ya</b> las recibió?
+    <br />
+    <br />
+
+    <button class="btn_g" type="button" (click)="verBtns('bnsi')">SI</button>
+
+    <button class="btn_g" type="button" (click)="verBtns('bnnop')">NO</button>
+
+    <div style="font-size: 36px" *ngIf="butonSi">
+      <br />
+      <b>Buuuenooo</b> (_____), <br />veo que en su <b>caso</b> <br />se
+      <b>enviarón</b> unas cartas <br />hace <b>más</b> de (__) día,
+      <br />Significando que es <b>mandatorio</b> <br />haber
+      <b>recibido</b> las respuestas <br />o al menos <b>debe de estar</b> cerca
+      de recibirlas
+      <br />
+      <br />Entonces (_______), <br />necesito que <b>nos</b> envíe; <br /><b
+        >todas</b
+      >
+      las cartas que le llegue <br />de los burós de <b>crédito</b> y los
+      acreedores. <br />
+      <b>¿Okay?</b><br />
+      <br />
+      <br />¿O <b>ya</b> las recibió? <br />¿O <b>recibió</b> algunas (______)?
+      <br />
+    </div>
+    <div style="font-size: 36px" *ngIf="butonnopi">
+      <br />Okay (____), La <b>inmensa</b> mayoría <br />de
+      <b>las personas</b> cuyas <br />
+      cartas certificadas fueron <b>enviadas</b> <br />en <b>su misma</b> fecha
+      <br />
+      y hasta <b>despues</b> que usted <br />algunos ya han
+      <b>recibido</b> contestaciones <br />
+      positivas, <b>borrándole</b> cuentas.
+      <br />
+      <br />Tal vez usted <b>no</b> guardó las cartas que le llegaron <br />o
+      <b>no</b> ha revisado su correo <br />o alguien más las <b>recibía</b>
+      <br />y <b>no</b> se lo informó a usted.
+      <br />
+    </div>
+
+    <br />
+    <br />
+    ¿<b>Dónde</b> se encuentra usted ahora mismo? <br />
+    ¿Usted está <b>cerca</b> del buzón en su casa?
+    <br />
+    <br />
+
+    <button class="btn_g" type="button" (click)="verBtns('bzsi')">SI</button>
+
+    <button class="btn_g" type="button" (click)="verBtns('bzno')">NO</button>
+    <br /><br />
+
+    <div style="font-size: 36px" *ngIf="buzonSi">
+      <br />¿Cuando fue la<b> última</b> vez <br />que <b>chequeó</b> su correo
+      postal? <br /><br />
+
+      <button class="btn_g" type="button" (click)="verBtns('hcpc')">
+        Hace poco y no vi nada
+      </button>
+      <br />
+
+      <div style="font-size: 36px" *ngIf="hacepoco">
+        <br />
+        <br />Mejor para <b>asegurarnos</b> <br />si <b>está</b> cerca de su
+        buzón, <br />vaya <b>AHORA</b> mismo <br />y <b>revise</b> el buzón,
+        <br />a ver si <b>de pronto</b> hay algo <br />mientras
+        <b>estamos</b> hablando, <br />por que de <b><u>NO</u></b> ser así
+        <b>TENEMOS</b> <br />que <b>actuar</b> rápidamente <br />y hacer una
+        <b>reclamación</b> a los burós de crédito <br /><b>exigiéndole</b> que
+        borren las cuentas reclamadas, <br />ya que según<b> establece</b> la
+        ley <br />ellos <b>tenían</b> 45 días para respondernos <br />y de
+        <b><u>NO</u></b> haberlo hecho, <br />esas <b>son</b> buenas noticias
+        para nosotros, <br />ya que la <b>ley</b> es muy explícita e índica
+        <br />que si <b><u>NO</u></b> responden <br />en <b>45 días,</b>
+        <br />
+        <br /><b>Tienen</b> que borrarlas. <br /><br />
+      </div>
+    </div>
+
+    <div style="font-size: 36px" *ngIf="buzonno">
+      <br />¿Cuando fue la <b>última</b> vez <br />que <b>chequeó</b> su correo
+      postal? <br />
+      <br />
+
+      <button class="btn_g" type="button" (click)="verBtns('nohcpc')">
+        Hace poco y no vi nada
+      </button>
+      <br />
+
+      <div style="font-size: 36px" *ngIf="nohacepoco">
+        <br />Mejor para <b>asegurarnos</b> <br />cuando <b>llegue</b> a su casa
+        <br />y <b>todos</b> los días este muy pendiente <br />y
+        <b>revise</b> el buzón, <br />a ver si <b>de pronto</b> hay algo
+        <br />porque de <b>NO</b> ser así <b>TENEMOS</b> <br />que
+        <b>actuar</b> rápidamente <br />y hacer una <b>reclamación</b> a los
+        burós de crédito <br /><b>exigiéndole</b> que borren las cuentas
+        reclamadas, <br />ya que según <b>establece</b> la Ley <br />ellos
+        <b>tenían</b> 45 días para respondernos <br />y de <b>NO</b> haberlo
+        hecho, <br />esas son <b>buenas</b> noticias para nosotros, <br />ya que
+        la <b>ley</b> es muy explícita e índica <br />que si <b>NO</b> responden
+        <br />En <b>45 días,</b>
+        <br />
+        <b>Tienen</b> que borrarlas. <br /><br />¡Esa es la <b>ley</b>! <br />y
+        <b>como</b> según usted <br /><b>NO</b> ha recibido contestación,
+        <br />entonces tenemos que <b>inmediatamente</b> <br />hacerle una
+        <b>reclamación</b> <br />a los burós de crédito que tienen que
+        <b>borrarlas</b> <br />de su reporte de <b>crédito</b> <br />porque si
+        <b>NO</b> lo hacen, <br />estarán <b>violando</b> la Ley <br />y pueden
+        ser <b>multados</b> por mil dólares <br />por <b>cada</b> reclamación.
+        <br />
+      </div>
+      <br />
+    </div>
+
+    <button class="btn_g" type="button" (click)="verBtns('cincorclmcon')">
+      5 Reclamaciones
+    </button>
+
+    <button class="btn_g" type="button" (click)="verBtns('tresrclmcon')">
+      3 Reclamaciones
+    </button>
+
+    <div style="font-size: 36px" *ngIf="reclamaciontres">
+      <br />Y en su caso son 3 <b>reclamaciones</b> por cada buró <br />haciendo
+      un <b>total</b> de 9 reclamaciones <br />A <b>mil</b> dólares cada una
+      <br /><b>ósea</b><br />
+      que de ser <br />hallados culpables de <b>negligencia</b> <br />pueden ser
+      <b>multados</b> <br />por <b>9 mil</b> dólares en total <br />Y ese dinero
+      se lo <b>tendrán</b> <br />que pagar a <b>usted</b>?
+      <br />
+    </div>
+
+    <div style="font-size: 36px" *ngIf="reclamacioncinco">
+      <br />Y en su caso son 5 <b>reclamaciones</b> por cada buró <br />haciendo
+      un <b>total</b> de 15 reclamaciones <br />A <b>mil</b> dólares cada una
+      <br /><b>o sea</b> <br />que de ser hallados culpables de
+      <b>negligencia</b> <br />pueden ser <b>multados</b> <br />por
+      <b>15 mil</b> dólares en total <br />Y ese dinero se lo <b>tendrán</b>
+      <br />que pagar a <b>usted</b>?
+      <br />
+      <br />Por eso es <b>importante</b> que usted <br />este seguro de
+      <b>NO</b> <br />haber <b>recibido</b> las contestaciones? <br />¿(____)
+      usted <b>cuál</b> carta ha recibido <br />de los <b>burós</b> de crédito?
+      <br />
+      <br />¿De de ellos usted ha <b>recibido</b>? <br />¿De
+      <b>Experian,</b> Equifax o transunion? <br />¿De <b>cuál</b> de ellos ha
+      recibido?
+      <br />
+      <br /><span>Experian</span>:
+      <input type="date" name="experiandate" id="experiandate" /> <br /><span
+        >Equifax</span
+      >: <input type="date" name="Equifaxdate" id="Equifaxdate" /> <br /><span
+        >TransUnion</span
+      >: <input type="date" name="Transuniondate" id="Transuniondate" />
+      <br />
+      <br />
+      O sea que todavía le <b>falta</b> _______
+      <br />
+      <br />En esta <b>opción</b> <br />buscar el <b>tracking</b> y
+      <br />exhibir el <b>número</b> de tracking, <br />la fecha y las cuentas a
+      <b>disputar</b> <br />tal como lo hace el <b>Marshall</b>
+      <br />____________.
+      <br />
+      <br />
+    </div>
+
+    <br />
+    <br />
+    <button class="btn_g" type="button" (click)="verBtns('mnsds')">
+      Menor de 45 Días
+    </button>
+
+    <button class="btn_g" type="button" (click)="verBtns('mxds')">
+      45 Días o Más
+    </button>
+    <br />
+
+    <div style="font-size: 36px" *ngIf="maxdias">
+      <br />(____), hay que hacer una <b>reclamación</b> a la FCRA <br />que es
+      el <b>organismo</b> gubernamental <br />que defiende los
+      <b>derechos</b> del consumidor, <br />eso sí lo <b>úNICO</b> que necesito
+      para hacerla, <br />es que usted me esté siendo <b>SINCERO/A</b> <br />de
+      que <b>NO</b> le ha llegado nada, <br />porque de lo contrario me
+      <b>echarán</b> <br />el caso para atrás. <br />¿Entonces la
+      <b>hacemos</b> ahora mismo?
+      <br />
+      <br />¿Usted está <b>siendo</b> sincer<span style="color: blue">o/a</span
+      >?
+      <br />
+      <br /><span style="color: green"
+        >(Insiste en que no le ha llegado nada)</span
+      >
+      <br />
+      <br />Ya han <b>transcurrido</b> 45 días
+      <br />
+      <br />
+      (____), desde que <b>enviamos</b> las reclamaciones <br />En ese caso voy
+      a <b>índicarle</b> <br />al departamento de <b>reclamaciones</b> <br />Que
+      le <b>envié</b> una carta en la cual <br />Le vamos a índicar
+      <b>todas</b> las cuentas <br />Que nosotros estamos <b>reclamando</b>
+      <br />Y necesitamos que <b>usted</b> <br />Nos la <b>devuelva</b> <br /><b
+        >Indicándonos</b
+      >
+      que en los últimos 45 días <br />Usted <b>no</b> ha recibido <br /><b
+        >Ninguna</b
+      >
+      carta de los burós de crédito <br />Equifax, <b> Experian</b> y/o
+      Transunion.
+      <br />
+      <br />Con esta <b>evidencia</b> de su juramento <br />De que usted
+      <b>NO</b> ha recibido <br /><b>Ninguna</b> notificación de ellos, <br /><b
+        >procederemos</b
+      >
+      a enviarle <br />Una carta <b>certificada</b> <br />Indicándole que
+      <b>NO</b> contestaron <br />En el tiempo <b>establecido</b> por la ley
+      <br />Y que por ende están en <b>violación</b> de la ley <br />Y sus
+      <b>derechos</b> del consumidor <br /><b>Establecidos</b> por la FRCA
+      <br />Y que como <b>mandato</b> establecido <br />Por el
+      <b>congreso</b> de <br />Los Estados Unidos de <b>América</b> <br /><b
+        >Tienen</b
+      >
+      que borrarlo. <br />¡Esa es <b>la Ley!</b>
+      <br />
+    </div>
+
+    <div style="font-size: 36px" *ngIf="menosdias">
+      <br />(___), cuando <b>lleguen</b> los 45 días de enviados <br />hay que
+      hacer una <b>reclamación</b> a la FCRA <br />que es el organismo
+      <b>gubernamental</b> <br />que <b>defiende</b> los derechos del
+      consumidor, <br />eso sí lo <b>úNICO</b> que necesito para hacerla,
+      <br />es que usted me esté siendo <b>SINCERO/A</b> <br />de que
+      <b>NO</b> le ha llegado nada, <br />porque de lo contrario me
+      <b>echarán</b> <br />el <b>caso</b> para atráas. <br />
+      <br />Entonces (___) <b>vamos</b> a esperar <br />a que <b>pasen</b> los
+      45 dÃ­as y la hacemos <br />¿Usted está <b>siendo</b> sincer<span
+        style="color: blue"
+        >o/a</span
+      >?<br />
+      <br />Solo hay que <b>esperar</b> a que pasen los 45 días <br />(___),
+      desde que enviamos las <b>reclamaciones</b> <br />para indicarle al
+      <b>departamento</b> de reclamaciones <br />que le <b>envié</b> una carta
+      en la cual <br />le vamos a índicar <b>todas</b> las cuentas <br />que
+      nosotros <b>estamos</b> reclamando <br />y en ese entonces
+      <b>necesitamos</b> que usted <br />nos la <b>devuelva</b>
+      <br />indicándonos que en los <b>últimos</b> 45 días <br />usted
+      <b>NO</b> ha recibido <br /><b>ninguna</b> carta de los burós de crédito
+      <br />Equifax, Experian y/o Transunion. <br />con esta <b>evidencia</b> de
+      su juramento <br />de que usted <b>NO</b> ha recibido <br /><b>ninguna</b>
+      notificación de ellos, <br /><b>procederemos</b> a enviarle <br />una
+      carta <b>certificada</b> <br />indicándole que <b>NO</b> contestaron
+      <br />en el tiempo <b>establecido</b> por la ley <br />y que por ende
+      están en <b>violación</b> de la ley <br />y sus <b>derechos</b> del
+      consumidor <br /><b>establecidos</b> por la FRCA <br />y que como
+      <b>mandato</b> establecido <br />Por el <b>congreso</b> de <br />los
+      Estados Unidos de <b>América</b> <br /><b>tienen</b> que borrarlo.
+      <br />¡Esa es la <b>Ley!</b>
+      <br />
+      <br />
+    </div>
+
+    <br />
+    <br />Ahora <b>bien</b> (____ ), <br />Necesito su <b>seguridad</b> de que
+    <br />Usted o <b>ningún</b> pariente suyo, <br />Amigo o <b>vecino</b>
+    <br />Haya <b>recibido</b> esa carta. <br />Ya que <b>si</b> lo han recibido
+    <br />podrá ser <b>fraude</b> <br />Y podríamos <b>perder</b> el caso.
+    <br />
+    <br /><span style="color: green">(Esperar respuesta del cliente)</span>
+    <br />
+    <br />Bueno ( ____ ) eso <b>NO</b> puede ser, <br />porque es posible que
+    <br />algunos <b>NO</b> respondan, <br />pero los <b>tres</b> (3) burós,
+    <br />que <b>NO</b> respondan, <br />eso es totalmente <b>imposible.</b>
+    <br />
+    <br />La <b>última</b> vez que pasó algo así <br />Resultó que la pareja, o
+    <b>algún</b> familiar <br />Las había <b>recibido</b> <br />E
+    <b>inadvertidamente</b> <br /><b>NO</b> se lo había dicho a nuestro cliente.
+    <br />
+    <br />Por favor, <b>pregúnteles</b> <br />A las personas que
+    <b>vivan</b> con usted <br />O a lo mejor a <b>algún</b> vecino.
+    <br />
+    <br /><b>Pregúnteles</b> y me llama <br />¿O <b>prefiere</b> que le espere
+    en la línea?.
+    <br />
+    <br />Porque si es como usted me <b>informa</b> <br /><b>Entonces</b> es muy
+    posible <br />que estemos <b>ganando</b> la disputa.<br />
+    <br />Pero <b>NO</b> se ilusione primero <br />sin <b>antes</b> estar en la
+    <b>completa</b> seguridad <br />
+    de que <b>NO</b> tiene correspondencia, <br />Porque ( ____)
+    <br />
+    <b>siempre</b> hay alguna respuesta, <br />y en su <b>caso</b> es probable
+    <br />que <b>tenga</b> alguna carta <br />del <b>acreedor</b> o el buró
+    <br />porque ya le <b>tuvo</b> que haber llegado, <br />ya que ha pasado
+    <b>mucho</b> tiempo <br />y debe de haber <b>recibido</b> algo <br />en el
+    <b>trascurso</b> de este tiempo.
+    <br />
+    <br /><span style="color: green">(2ndo No Nada)</span>
+    <br />
+    <br />(____) ¿Usted está <b>100%</b> segur<span style="color: blue"
+      >o/a</span
+    >
+    <br />
+    que <b>NO</b> botó nada por accidente?
+    <br />
+    <br />
+    <br />
+    <span style="color: green">(Cliente responde)</span>
+    <br />
+    <br />Mire, en el <b>caso</b> suyo <br /><b>Ahora,</b> más que nunca
+    <br />Es especialmente <b>importante</b> (______) <br />Que esté
+    <b>pendiente</b> a su correo postal. <br />Y nos envía <b>todo,</b> tan
+    pronto usted reciba <br />Los <b>resultados</b> de nuestra investigación.
+    <br />
+    <br />
+    <br />(____) ¿Usted tiene <b>lápiz</b> y papel? <br />¿Para
+    <b>anotar</b> una información importante? <br />Me <b>avisa</b> cuando tenga
+    <br />el lápiz a <b>mano</b>
+    <br />
+    <br /><span style="color: green">(Esperar respuesta del cliente)</span>
+    <br />
+    <br />
+    <br />Ok <b>perfecto</b> (____), <br />Cuando usted <b>reciba</b> cualquier
+    notificación o <br />correspondencia referente a su <b>crédito</b>,
+    <br />Nos debe <b>llamar</b> al (914) 219-0014 <br />y
+    <b>enviárnoslas</b> inmediatamente <br />a <b>nuestro</b> correo electrónico
+    que e <br />creditomejor@gmail.com <br /><b>¿OKAY</b> (____)?
+    <br />
+    <br />(____), <b>una</b> vez más <br />por <b>última</b> vez en esta
+    conversación <br />y <b>recuerde</b> que su llamada está siendo grabada
+    <br /><b>siempre</b> que usted habla con nosotros.
+    <br />
+    <br />(____), Usted con <b>absoluta</b> certeza <br />Puede <b>jurarme</b>
+    <br />Que <b>NO</b> ha recibido <br />Las <b>documentaciones</b> <br />De
+    los <b>burós</b> de crédito. <br />Esto puede <b>venir</b> en forma de
+    <br /><b>Reporte</b> de crédito <br />Y pueden ser desde <b>solo</b> 2
+    páginas <br /><b>Hasta</b> 20 o 30 paginas.
+    <br />
+    <br />(____) Usted está con <b>absoluta</b> seguridad <br />De que usted o
+    <b>alguien</b> conocido por usted <br />¿<b>NO</b> ha recibido ningún
+    documento <br />De Experian, <b>equifax</b> o Transunion?
+    <br />
+    <br />
+    <button class="btn_g" type="button" (click)="verBtns('mx')">
+      Mayor 45 días
+    </button>
+
+    <button class="btn_g" type="button" (click)="verBtns('mn')">
+      Menos de 45 días
+    </button>
+    <br />
+    <br />
+    <div style="font-size: 36px" *ngIf="dicmn">
+      <h1>Menos de 45 días</h1>
+      <br />
+      <br />En <b>ese</b> caso <br />cuando <b>lleguen</b> los 45 días
+      <br />usted nos tiene que <b>llamar</b> <br />si es que <b>NO</b> ha
+      recibido <br />la <b>correspondencia</b> <br />para nosotros
+      <b>enviarle</b> un documento
+      <br />
+      <br />
+      <br />
+      <br />Muy <b>bien</b> (______), <br />cuando <b>pasen</b> los 45 días
+      <br />es su <b>responsabilidad</b> llamarnos.
+    </div>
+    <br />
+    <br />
+    <div style="font-size: 36px" *ngIf="insmx">
+      <h1>45 días o más</h1>
+      <br />
+      <br />En ese <b>caso</b> <br />Le <b>enviaremos</b> un documento
+      <br />antes de las próximas <b>48 horas</b> <br />vía <b>e-mail</b>.
+      <br />
+      <br />El cual tiene que devolver <b>firmado</b> <br />índicando que
+      <b>NO</b> ha recibido <br />los <b>documentos</b> de <br />Experian,
+      Equifax o <b>Transunion</b> <br />Por favor <b>rectifíqueme</b> su e-mail
+      <br />
+      <br />
+      <span style="color: green">
+        <br />(Poner campo en el cual verifica el e-mail ) <br />(aquí debería
+        ir el e-mail de la persona si lo tiene)
+      </span>
+      <br />Muy <b>bien</b> (______), <br />Si en <b>48 horas</b> <br />Usted
+      <b>NO</b> recibe <br />Nuestro <b>documento</b> <br />
+      Le agradezco que nos <b>llame</b> <br />Y <b>recuerde</b> que puede
+      llamarnos <br />hasta las <b>10 de la noche</b> de Lunes a Sábado
+      <br />¿Okay <b>perfecto</b> (______)?
+      <br />
+      <br />
+    </div>
+
+    Bueno (______),
+    <br />ha sido un <b>placer</b> <br />poder <b>informarle</b> de su caso
+    <br />y <b>actualizar</b> su información.
+    <br />
+    <br />¿Tiene <b>alguna</b> otra pregunta <br />para <b>mí</b> en el día de
+    hoy <br />o me <b>despido</b> de usted ahora?
+    <br />
+    <br /><b>Okay</b> <br /><b>excelente</b> <br />que tenga un <b>buen</b> día.
+    <br /><b>Dios</b> le bendiga <br />rica y <b>abundantemente</b>
+    <br />
+    <br />
+  </div>
+</div>

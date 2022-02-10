@@ -1,0 +1,72 @@
+<div class="cont" *ngIf="toogle3">
+  <div class="cliente d-flex justify-content-center">
+    <div class="close">
+      <svg (click)="cerrar()" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="red"
+        class="bi bi-x-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+        <path
+          d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+      </svg>
+    </div>
+    <h3 *ngIf="dataItem && dataItem.nombres">{{ dataItem.nombres }}</h3>
+  </div>
+
+  <div class="body_p row">
+    <div class="form-group obli col-12">
+      <h3>Confirmación de Pago!</h3>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="valor" class="text-white">Pagó</label>
+      <input type="number" name="valor" class="form-control" [(ngModel)]="valor"
+        #valorI="ngModel" />
+    </div>
+
+
+    <div class="form-group col-md-6">
+      <label for="medio" class="text-white">Medio</label>
+      <select name="medio" class="form-control" [(ngModel)]="medio">
+        <option *ngFor="let m of medios" [value]="m[1]">{{m[0]}}</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="color" class="text-white">Color</label>
+      <select name="color" class="form-control" [(ngModel)]="color">
+        <option *ngFor="let c of colores" [value]="c[1]">{{c[0]}}</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-6"><!-- [min]="Hoy"  -->
+      <label for="pago" class="text-white font-w">Fecha de Pago</label>
+      <input type="date" name="fecha_pago" class="form-control" [(ngModel)]="fecha_pago"/>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="nota_cita" class="text-white">Nota-Comentario <span class="obli">*</span>
+      </label>
+      <input required type="text" name="nota_cita" class="form-control" maxlength="1500"
+        pattern="([a-zA-Z0-9¡¿!.,: ;\?]{1,500})" [(ngModel)]="nota_cita" #nota_citaI="ngModel" />
+      <div class="errores obli" *ngIf="nota_citaI.invalid && nota_citaI.dirty">
+        <div *ngIf="nota_citaI.errors.pattern">
+          <small>Use solo <b>caracteres</b> comunes</small>
+        </div>
+        <div *ngIf="nota_citaI.errors.required">
+          <small>Campo es Obligatorio</small>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group col-md-12">
+      <div class="row2">
+        <label for="cobro" class="text-white">Generar Pago</label>
+        <button class="btn btn-primary btn-small btn-block" (click)="editarCobro()">
+          Add...
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

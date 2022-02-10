@@ -1,0 +1,15 @@
+
+.conten_nota{
+  margin-top: 7px;
+  border-radius: 8px;
+  border: 2px solid;
+  padding: 5px;
+  background-color: #0062cc;
+}
+.tit{
+  color: navy;
+}
+.modal-body {
+  background-color: white;
+  color: initial;
+}

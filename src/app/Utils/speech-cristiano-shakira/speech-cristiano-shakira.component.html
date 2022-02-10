@@ -1,0 +1,129 @@
+
+<div class="content">
+  <div class=" intro ">
+    <small class="green">----Cristiano-----</small>
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), <b>cada</b> vez que salimos al aire
+    <br> recibimos <b>cientos</b> de llamadas
+    <br> y por eso <u>solo </u> <b>trabajamos</b> con citas
+    <br> y (<span *ngIf="cliente">{{ cliente.nombres }}</span>), usted es sumamente <b>afortunad<span class="blue">o(a)</span></b>
+    <br> al yo sacarle una cita <b>tan rápida</b>,
+    <br> ya que hay personas que se quedan <b>semanas</b>
+    <br> esperando para hablar <b>conmigo</b>
+    <br>
+    <br> Es importante (<span *ngIf="cliente">{{ cliente.nombres }}</span>), que usted <b>cumpla</b> con la cita,
+    <br> ya que hay personas que <b>desean</b> hablar conmigo,
+    <br> y debido a que tengo mi agenda <b>llena</b>,
+    <br> tienen que <b>atenderle</b> uno de mis ayudantes!
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), Si usted no va cumplir con esta cita <b>dígamelo</b> ahora.
+    <br> Para darle la oportunidad a <b>otra</b> persona.
+    <br>
+    <br> Sin embargo, si usted va a <b>cumplir</b> con la cita
+    <br> yo <b><u>no</u> le refiero a ninguno de mis ayudantes
+    <br> y le atiendo personalmente. </b>
+    <br>
+    <b>
+      <br> Usted prefiere que le separe el espacio?
+      <br> o le doy la cita a alguien mas?</b>
+    <br>
+    <b>
+      <br> Muy bien, le voy a guardar su espacio
+      <br> para el dia ({{fecha_cita | date:'mediumDate'}}) a las ({{ hora_cita | hora24 }}) de la <span class="blue">tarde/noche</span>
+
+      <div class="form-row bg" >
+
+        <div class="form-group col-md-4">
+          <label for="fecha_cita" class="text-white span-w">Fecha de la Cita</label>
+          <input type="date" name="fecha_cita" class="form-control mx-auto"
+            pattern="^(\d{4})(\/|-)(0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1])$" [min]="Hoy" [(ngModel)]="fecha_cita"
+            #fecha_citaI="ngModel" />
+          <div class="errores" *ngIf="fecha_citaI.invalid && fecha_citaI.dirty">
+            <div *ngIf="fecha_citaI.errors.pattern">
+              <small>Formato de <b>Fecha</b> no válido</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="hora_cita" class="text-white span-w">Hora de la Cita</label>
+          <input type="time" name="hora_cita" class="form-control mx-auto" [(ngModel)]="hora_cita" #hora_citaI="ngModel" />
+          <div class="errores" *ngIf="hora_citaI.invalid && hora_citaI.dirty">
+            <div *ngIf="hora_citaI.errors.pattern">
+              <small>Formato de <b>hora</b> no válido</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="motivo_cita" class="text-white span-w">Motivo</label>
+          <select name="motivo_cita" id="motivo_citaSel" class="form-control mx-auto" [(ngModel)]="motivo_cita">
+            <option value="1" name="motivo_cita">Lectura de reporte</option>
+            <option value="2" name="motivo_cita">Hablar de caso</option>
+            <option value="3" name="motivo_cita">Documentos pendientes</option>
+            <option value="4" name="motivo_cita">Firmar contrato</option>
+            <option value="5" name="motivo_cita">Cobro</option>
+            <option value="6" name="motivo_cita">Trackins</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="nota_cita" class="text-white span-w">Nota-Comentario <span class="obli">*</span>
+          </label>
+          <input type="text" name="nota_cita" class="form-control mx-auto" maxlength="500"
+            pattern="([a-zA-Z0-9¡¿!.,: ;\?]{1,500})" [(ngModel)]="nota_cita" #nota_citaI="ngModel" />
+          <div class="errores" *ngIf="nota_citaI.invalid && nota_citaI.dirty">
+            <div *ngIf="nota_citaI.errors.pattern">
+              <small>Use solo <b>caracteres</b> comunes</small>
+            </div>
+            <div *ngIf="nota_citaI.errors.required">
+              <small>Campo es Obligatorio</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="cobro" class="text-white span-w">Agendar Cita</label>
+          <button class="btn btn-primary btn-small btn-block" (click)="agregarCita()">
+            Add...
+          </button>
+        </div>
+      </div>
+
+    </b>
+    <br>
+    <b>
+      <br> Si llega antes me llama a este numero
+      <br> y sino, le voy a poner
+      <br> en una maquina que le llama cada 30 minutos
+      <br> hasta que le ubique.
+      <br> OKAY?
+    </b>
+    <b>
+      <br>
+      <br> Perfecto!
+      <br>
+      <br> Tiene alguna otra pregunta?
+      <br>
+      <br> Muy bien....
+      <br>
+      <br> Entonces... asi quedamos!
+      <br>
+      <br> El dia ({{fecha_cita | date:'mediumDate'}}) a las ({{ hora_cita | hora24 }}) de la <span class="blue">tarde/noche</span>
+      <br>
+      <br> Que Dios le bendiga,
+      <br> rica y abundantemente.
+      <br>
+      <br> Amen!
+      <br>
+      <br> Hasta pronto.
+    </b>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+  </div>
+</div>
+

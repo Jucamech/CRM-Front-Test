@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  /*   background: linear-gradient(135deg, #a8d1fd 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px), linear-gradient(225deg, #a8d1fd 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px;
+  background-color: #a8d1fd; */
+  background-size: 64px 128px;
+  background-color: #c7d5e2;
+}
+/*
+.swal2-container {
+  z-index: 1050!important;
+  position: absolute;
+}
+ */

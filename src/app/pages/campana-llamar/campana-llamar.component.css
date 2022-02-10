@@ -1,0 +1,124 @@
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+#sidebar {
+  /* don't forget to add all the previously mentioned styles here too */
+  background: #002a51;
+  color: #fff;
+  transition: all 0.3s;
+  min-width: 180px;
+  max-width: 230px;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: #0C71C3;
+}
+
+#sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid #0C71C3;
+  width: 100%;
+  margin-top: -12rem;
+  /*  !!!!  */
+}
+
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+
+#sidebar ul li a:hover,
+.selected {
+  color: #000000;
+  background: #fff;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+  color: #fff;
+  background: #0C71C3;
+}
+
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: #0C71C3;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+}
+
+
+/* label color */
+
+.input-field label {
+  color: white;
+}
+
+
+/* label focus color */
+
+.input-field input[type=text]:focus+label,
+.input-field input[type=date]:focus+label {
+  color: white;
+}
+
+.form-group label {
+  color: white;
+}
+
+.form-group select,
+.form-group input[type=text],
+.form-group input[type=date] {
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.form-group option {
+  color: black;
+}
+
+.input-field input[type=text],
+.input-field input[type=date] {
+  color: white;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+
+/* label underline focus color */
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+

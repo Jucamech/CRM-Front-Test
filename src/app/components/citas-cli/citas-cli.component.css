@@ -1,0 +1,86 @@
+.form-group select,
+.form-group input[type=text],
+.form-group input[type=tel],
+.form-group input[type=time],
+.form-group input[type=date] {
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.form-group input[type=file i] {
+  background-color: #007bff;
+}
+
+option {
+  color: black;
+}
+
+.btC {
+  position: absolute;
+  top: -15px;
+  right: 29px;
+}
+
+.btx {
+  background: none;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 300%;
+  font-family: monospace;
+}
+
+.custom-input-file {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 auto 0;
+  min-height: 15px;
+  overflow: hidden;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  width: 400px;
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+  border-radius: .25rem;
+}
+
+.custom-input-file .input-file {
+  border: 10000px solid transparent;
+  cursor: pointer;
+  font-size: 10000px;
+  margin: 0;
+  opacity: 0;
+  outline: 0 none;
+  padding: 0;
+  position: absolute;
+  right: -1000px;
+  top: -1000px;
+}
+
+.adMod {
+  background-color: #12ee25!important;
+  border-color: #00cc11!important;
+}
+
+.errores {
+  border: 1px solid;
+  font-weight: 600;
+  margin-top: 2px;
+  padding: 0 9px;
+  border-radius: 6px;
+  color: #f12337;
+}
+
+.obli {
+  color: red;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+::-webkit-calendar-picker-indicator {
+  filter: drop-shadow(16px 16px 20px rgb(255, 255, 255)) invert(100%);
+}

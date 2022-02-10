@@ -1,0 +1,75 @@
+
+/* llamadas  */
+.llamadas_perdidas{
+  max-width: 95%;
+  margin: auto;
+  min-width: 40%;
+}
+.h100{
+  height: 100%;
+}
+.t_h2{
+  background-color: red;
+  color: white;
+  margin-bottom: 0;
+  padding: 5px 30px;
+}
+.cont-table{
+  width: 100%;
+  height: calc(100% - 280px);
+  overflow: auto;
+}
+.body-table{
+  font-size: 90%;
+}
+.bton_get{
+  text-align: center;
+  font-size: larger;
+  color: white;
+  font-weight: 700;
+  padding: 5px;
+  background-color: #28a745;
+}
+/* llamadas redtorndadas */
+.ll_title{
+  background-color: darkred;
+  color: white;
+  margin-bottom: 0;
+  padding: 2px 2rem;
+}
+/* llamadas redtorndadas */
+/* (((((( min search )))))) */
+.min-search{
+  height: calc(1.5rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.min-search:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+.mxd{
+  margin-top: -5px!important;
+}
+/* min search */
+/* filtros */
+.dropdown-item{
+  cursor: pointer;
+}
+.dropdown-item:hover{
+  background-color: #495057;
+  color: white!important;
+}
+
+.opc {
+  border-top: 1px solid white;
+  background-color: red;
+  padding: 5px;
+}
+/* filtros */

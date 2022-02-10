@@ -1,0 +1,27 @@
+.w100 {
+  width: 100%;
+}
+
+.contenido {
+  position: absolute;
+  bottom: 7rem;
+}
+
+.img {
+  width: 30%;
+}
+
+.img_cuadro {
+  width: 100%;
+}
+
+.min_img {
+  width: 120px;
+  height: 90px;
+}
+
+.min_img img {
+  border: solid black 2px;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,71 @@
+
+.contenedor {
+  width: 100%;
+  height: 100%;
+}
+.texto {
+  width: 76%;
+}
+.opciones{
+  width: 24%;
+  border: solid 2px;
+  position: relative;
+}
+.red, .rojo { color: red!important; font-weight: 600; }
+.green, .verde { color: green!important; font-weight: 600; }
+.amarillo { color: rgb(136, 136, 5)!important; font-weight: 600; }
+.negro { color: black!important; font-weight: 600; }
+
+.reasignar{
+  padding: .5rem 0;
+  border-radius: 7px;
+  border: solid 1px green;
+}
+.ed, .texto_r {
+  width: 100%;
+  height: 50%;
+}
+
+.texto_r{
+  padding: 2rem;
+  overflow: auto;
+}
+
+.head_opc{
+  background-color: dodgerblue;
+  color: white;
+  min-height: 3rem;
+  display: flex;
+  align-content: center;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+}
+.atras{
+  position: absolute;
+  right: 1rem;
+  top: .5rem;
+  color: red;
+}
+.body_opc{
+  padding: 1rem;
+}
+.body_opc select{
+  width: 6rem;
+}
+.foot_opc{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.err{
+  background-color: crimson;
+  color: white;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+

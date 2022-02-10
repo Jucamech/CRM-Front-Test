@@ -1,0 +1,60 @@
+
+<div class="contenedor">
+  <div class="head_llama">
+    <h3 class="text-white">Historial - LLamadas</h3>
+  </div>
+  <div class="body_llam mt-4">
+    <table class="table table-hover table-striped table-dark">
+      <thead class="min">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Hora</th>
+          <th scope="col">Origen</th>
+          <th scope="col">Nombre-Org</th>
+          <th scope="col">Destino</th>
+          <th scope="col">Nombre-Des</th>
+          <th scope="col">Duración</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Tipo</th>
+        </tr>
+      </thead>
+
+      <tbody >
+
+        <tr *ngFor="let item of llamadas ; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ item.fecha  }}</td>
+          <td>{{ item.origen }}</td>
+
+          <td>
+            <span *ngIf="item.origen.length == 3">
+              {{ item.asignado | slice:0:20 }}
+            </span>
+
+            <span *ngIf="item.origen.length == 7">
+              <!-- <b>{{ item.id_cliente | searchCliID:clientes  }}</b> -->
+              <b> {{ item.nombre | slice:0:20 }} </b>
+            </span>
+          </td>
+
+          <td>{{ item.destino }}</td>
+
+          <td>
+            <span *ngIf="item.destino.length == 3 ">
+              {{ item.asignado2 | slice:0:20 }}
+            </span>
+            <span *ngIf="item.destino.length == 7 ">
+              <!-- <b>{{ item.id_cliente | searchCliID:clientes  }}</b> -->
+              <b> {{ item.nombre | slice:0:20 }} </b>
+            </span>
+          </td>
+
+          <td> <b>{{ item.duracion | secToMin  }}</b> S.</td>
+          <td>{{ item.estado }}</td>
+          <td>{{ item.tipo }}</td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

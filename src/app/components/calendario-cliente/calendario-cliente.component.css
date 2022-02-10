@@ -1,0 +1,170 @@
+
+.contt{
+  width: 100%;
+  height: 100%;
+}
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+/* Month header */
+.month {
+  padding: 70px 25px;
+  width: 100%;
+  background: #007bffcc;;
+  text-align: center;
+}
+
+/* Month list */
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Previous button inside month header */
+.month .prev {
+  float: left;
+  padding-top: 10px;
+  padding: 15px;
+}
+
+.cp{
+  cursor: pointer;
+}
+
+/* Next button */
+.month .next {
+  float: right;
+  padding-top: 10px;
+  padding: 15px;
+
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color:#ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  color: #666;
+  text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  height: 2.3rem;
+  font-size: 13px;
+  color: #777;
+}
+
+/* Highlight the "current" day */
+.active {
+  border: grey solid 2px;
+  color: black!important;
+  font-weight: 600;
+}
+.hoy{
+  background-color: #66666647;
+}
+/* //////////////////////////////////////////////// */
+.circle{
+  content: '';
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  margin: auto;
+}
+.sub_iconos{
+  position: absolute;
+  width: 7vw;
+  display: block;
+}
+.iconos {
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: -4px;
+  max-width: 70px;
+  max-height: 20px;
+}
+.dia_tt{
+  min-width: 26rem;
+  text-align: center;
+  font-weight: 600;
+  background-color: #2900bd;
+}
+.data_D{
+  height: 70vh;
+  overflow: auto;
+}
+.info{
+  padding: 1rem;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  margin: 0 10px;
+}
+.box{
+  width: 5rem;
+  height: 2rem;
+}
+
+h2, h3, h4, h5 {color: white;}
+.bg_pago { border: green solid 1px; }
+.bg_pago_ok { background-color: palegreen; }
+.bg_ult_cobro {
+  background-color: #ff00009e;
+  color: white!important;
+}
+
+/* .xy10 { width: 10px; height: 10px; } */
+.red_ { color: red; }
+.blue_ { color: blue; }
+.green_ { color: green; }
+.yellow_ { color: yellow; }
+.black_ { color: black!important; }
+.purple_ { color: purple; }
+.pink_ { color: hotpink;}
+.orang_ {color :orangered}
+.mt_10{ margin-top: -10px; }
+/*////// MODAL MAS OPC //////*/
+.mas_opc{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal_notas{
+  width: 600px;
+  border-radius: 16px;
+  height: 60%;
+  background-color: white;
+}

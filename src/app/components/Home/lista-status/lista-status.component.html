@@ -1,0 +1,419 @@
+<div [class.princ]="!full_p" [class.full_pantalla]="full_p" #FullPantalla >
+
+  <div class="btn-toolbar sticky mb-3" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group mod_btn mr-2" role="group " aria-label="First group">
+
+      <button type="button" class="btn btn-primary btn_w"  (click)="getTodos()">
+        Todos
+      </button>
+
+      <div class="dropdown btn_w">
+        <button style="width: -webkit-fill-available" class="btn btn-primary dropdown-toggle" type="button"
+          id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Hoy
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+          <a class="dropdown-item selec" (click)="getPagosHoy()">Pagos Hoy</a>
+          <a class="dropdown-item selec" (click)="getCobrosHoy()">Cobros Pendientes</a>
+        </div>
+      </div>
+
+      <div class="dropdown btn_w">
+        <button style="width: -webkit-fill-available" class="btn btn-primary dropdown-toggle" type="button"
+          id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Próxim/recientes
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+          <a class="dropdown-item selec" (click)="getProximos()">Próximos Cobros</a>
+          <a class="dropdown-item selec" (click)="getRecientes()">Cobros Recientes</a>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-success btn_w" (click)="full_p = !full_p">
+        Full Pantalla
+      </button>
+
+      <button type="button" class="btn btn-primary btn_w" (click)="getAtrasado30()">
+        Atrasados hasta 30D
+      </button>
+
+      <button type="button" class="btn btn-primary btn_w"(click)="getAtrasadoMas30()">
+        Atrasados más de 30D
+      </button>
+
+      <div class="dropdown btn_w">
+        <button style="width: -webkit-fill-available" class="btn btn-primary dropdown-toggle" type="button"
+          id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Más Opciones
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item selec" (click)=" getFullData() " >Ver Todo</a>
+          <a class="dropdown-item selec" (click)=" getAlDia() ">Clientes Al Dia</a>
+          <a class="dropdown-item selec" (click)="getSinPagos()">Clientes sin pagos</a>
+     <!--      <a class="dropdown-item selec" (click)="getRecientes()">Pagos Recientes</a> -->
+          <a class="dropdown-item selec" >Pagos Extras</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="" style="width: 50%; margin: auto;box-shadow: -6px 7px 16px 5px;" *ngIf="!dataInit" >
+    <button type="button" class="btn btn-warning btn-lg btn-block" (click)="iniciarLIst()">Iniciar Lista Status</button>
+  </div>
+
+<!--   <button class="botton_mod" >Full Pantalla</button> -->
+  <div class="dataP m-auto" *ngIf="dataInit">
+    <div class="cobros" *ngIf="verpagos == 'tabla1' ">
+      <h2 *ngIf="cobros && cobros.length > 0 ">{{ txto }} {{ cobros.length }} <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="green" class="bi bi-arrow-clockwise" viewBox="0 0 16 16" (click)="refrescar()">
+            <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+            <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+          </svg>
+        </span>
+        <span class="buscador">
+          <input type="radio" class="" name="selectFilt"
+            [(ngModel)]="selectFilt" value="Fecha"> Fecha
+          <input type="radio" class="ml-2" name="selectFilt"
+            [(ngModel)]="selectFilt" value="Nombre"> Nombre
+          <input type="radio" class="ml-2" name="selectFilt"
+            [(ngModel)]="selectFilt" value="Id"> Id
+          <input type="search" name="search" class="input"
+            #buscar (keyup)="buscador( buscar.value, 1 )" >
+        </span>
+      </h2>
+      <div >
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Crear Cita</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of cobros | listaStatus1:search:selectFilt ; let i = index ">
+              <td class="">{{ c.id_cliente }}</td>
+              <td class="">{{ c.nombres }}</td>
+              <td class="">{{ c.fecha_pago }}</td>
+              <td class="">
+                <span *ngIf="c.status == 0 ">Cobro</span>
+                <span *ngIf="c.status == 1 ">Pago Realizado</span>
+              </td>
+              <td class=""> $ {{ c.valor }}</td>
+              <td class="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-week-fill" viewBox="0 0 16 16" (click)="pedirCita(c)">
+                  <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM9.5 7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm3 0h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zM2 10.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+                </svg>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="data" *ngIf="verpagos == 'tabla2' ">
+      <h2 class="d-flex"> <b> Todos los Clientes :</b> {{ fullData2.length }}
+        <span class="flechas m-auto">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16"(click)="prevP()">
+            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+          </svg>
+
+          <span>
+            {{page}} - {{page + 20}}
+          </span>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16" (click)="nextP()">
+            <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+          </svg>
+
+        </span>
+        <span class="buscador">
+          <input type="radio" class="ml-2" name="selectFilt"
+            [(ngModel)]="selectFilt3" value="Nombre"> Nombre
+          <input type="radio" class="ml-2" name="selectFilt"
+            [(ngModel)]="selectFilt3" value="Id"> Id
+          <input type="search" name="search" class="input"
+            #buscar (keyup)="buscador( buscar.value, 3)" >
+        </span>
+      </h2>
+      <div class="dato_ind" *ngFor="let d of fullData2 | listaStatus3 :search3: selectFilt3: page; let i = index" >
+        <div *ngIf="d">
+
+          <h3 style="background-color: rgb(29, 145, 6); color: white;" class="mt-3 mb-1 ml-2 text-center"> # {{ i + 1 }} {{ d[0].nombres }}-ID {{ d[0].id_cliente }}</h3>
+          <div class="cobroCont" *ngIf="d">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Valor</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Metodo</th>
+                  <th scope="col">crear Cita</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="d" >
+                <tr *ngFor="let cobro of d; let j = index" [class.cobroST]="cobro.status == 0 " class="tr_mod">
+                  <th class="p-0" scope="row">{{j + 1 }}</th>
+                  <td class="p-0">{{ cobro.fecha_pago }}</td>
+                  <td class="p-0" [class.cobroST]=" !cobro.tipo_pago ">
+                    <span *ngIf="cobro.tipo_pago == 1">Men </span>
+                    <span *ngIf="cobro.tipo_pago == 2">Insc </span>
+                    <span *ngIf="!cobro.tipo_pago">Error</span>
+                  </td>
+                  <td class="p-0">$ <b>{{ cobro.valor }}</b></td>
+                  <td class="p-0">
+                    <span *ngIf="cobro.status == 0 ">Cobro</span>
+                    <span *ngIf="cobro.status == 1 ">Pago</span>
+                  </td>
+                  <td class="p-0">
+                    <span *ngFor="let m of Metodo">
+                      <span *ngIf="m[1] == cobro.medio ">{{ m[0] }}</span>
+                    </span>
+                  </td>
+                  <td class="p-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16" (click)="verdetalle(cobro)">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                    </svg>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          Fecha Inicio : <b>{{ d[0].fechaInincio || '0000-00-00' }}</b> <br>
+          Ultimo Pago : <b>{{ totalizar(d).ultimo_Pago }}</b> <br>
+          Plan : <b>{{d[0].plan_mes}}</b> meses<br>
+          Fecha para SAC: <b>{{totalizar(d).fecha_sac}}</b> <br>
+          Próximo Pago Recomendado: <b>{{ totalizar(d).proximo_Pago }}</b> <br>
+          Pagos Mensualidad : $<b>{{totalizar(d).pagosMen }}</b>/{{d[0].valor_mensualidad}} <br>
+          Pagos Inscripcion : $ <b>{{totalizar(d).pagosInsc }}</b>/{{d[0].valor_inscripcion}} <br>
+          Total Pagado : $ <b>{{totalizar(d).pagosTotal }} </b> <br>
+          <h6 class="blue text-center" *ngIf="totalizar(d).alDia">El Cliente está Al Dia</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabla3" *ngIf="verpagos == 'tabla3' ">
+      <h3>Total {{ clienteSinPago.length }}</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha Inicio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cli of clienteSinPago">
+            <td>{{ cli.id }}</td>
+            <td>{{ cli.name }}</td>
+            <td>{{ cli.fecha_ini}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tabla4" *ngIf="verpagos == 'tabla4'">
+      <h5>Total de Hoy $ <b>{{ totalizado.pagos }}</b> </h5>
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Valor Pagado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cli of pagosHoy" [class.cobroST]="cli.status == 0 ">
+            <td>{{ cli.id }}</td>
+            <td>{{ cli.nombres }}</td>
+            <td>$ {{ cli.valor}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="data" *ngIf="verpagos == 'tabla5' ">
+
+      <h2 class="d-flex"> <b>  CLIENTES AL DIA :</b> {{ clienteAlDia.length }}
+        <span class="flechas m-auto">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16"(click)="prevP()">
+            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+          </svg>
+
+          <span>
+            {{page}} - {{page + 20}}
+          </span>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-right-circle-fill"
+            viewBox="0 0 16 16" (click)="nextP()" *ngIf="clienteAlDia.length > page + 20">
+            <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+          </svg>
+
+        </span>
+        <span class="buscador">
+          <input type="radio" class="ml-2" name="selectFilt"
+            [(ngModel)]="selectFilt3" value="Nombre"> Nombre
+          <input type="radio" class="ml-2" name="selectFilt"
+            [(ngModel)]="selectFilt3" value="Id"> Id
+          <input type="search" name="search" class="input"
+            #buscar (keyup)="buscador( buscar.value, 3)" >
+        </span>
+      </h2>
+
+
+      <div class="dato_ind" *ngFor="let d of clienteAlDia | listaStatus3 :search3: selectFilt3: page; let i = index" >
+        <h3 style="background-color: rgb(29, 145, 6); color: white;" class="mt-3 mb-1 ml-2 text-center"> # {{ i + 1 }} {{ d[0].nombres }}-ID {{ d[0].id_cliente }}</h3>
+        <div class="cobroCont" *ngIf="d">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Metodo</th>
+                <th scope="col">Opc</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="d" >
+              <tr *ngFor="let cobro of d ; let j = index" [class.cobroST]="cobro.status == 0 " class="tr_mod">
+                <th class="p-0" scope="row">{{j + 1 }}</th>
+                <td class="p-0">{{ cobro.fecha_pago }}</td>
+                <td class="p-0" [class.cobroST]=" !cobro.tipo_pago ">
+                  <span *ngIf="cobro.tipo_pago == 1">Men </span>
+                  <span *ngIf="cobro.tipo_pago == 2">Insc </span>
+                  <span *ngIf="!cobro.tipo_pago">Error</span>
+                </td>
+                <td class="p-0">$ <b>{{ cobro.valor }}</b></td>
+                <td class="p-0">
+                  <span *ngIf="cobro.status == 0 ">Cobro</span>
+                  <span *ngIf="cobro.status == 1 ">Pago</span>
+                </td>
+                <td class="p-0">
+                  <span *ngFor="let m of Metodo">
+                    <span *ngIf="m[1] == cobro.medio ">{{ m[0] }}</span>
+                  </span>
+                </td>
+                <td class="p-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16" (click)="verdetalle(cobro)">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                  </svg>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        Fecha Inicio : <b>{{ d[0].fechaInincio || '0000-00-00' }}</b> <br>
+        Ultimo Pago : <b>{{ totalizar(d).ultimo_Pago }}</b> <br>
+        Plan : <b>{{d[0].plan_mes}}</b> meses<br>
+        Fecha para SAC: <b>{{totalizar(d).fecha_sac}}</b> <br>
+        Próximo Pago Recomendado: <b>{{ totalizar(d).proximo_Pago }}</b> <br>
+        Pagos Mensualidad : $<b>{{totalizar(d).pagosMen }}</b>/{{d[0].valor_mensualidad}} <br>
+        Pagos Inscripcion : $ <b>{{totalizar(d).pagosInsc }}</b>/{{d[0].valor_inscripcion}} <br>
+        Total Pagado : $ <b>{{totalizar(d).pagosTotal }} </b> <br>
+        <h6 class="blue text-center" *ngIf="totalizar(d).alDia">El Cliente está Al Dia</h6>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!--*********************************** MODALES ***********************************-->
+<div class="bg" *ngIf="minmodal" >
+  <div class="body_p2">
+    <div class="modal-header">
+      <button type="button" class="close ml-0" (click)="minmodal = false">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="body_detalles h100-p p-3">
+      <h4>{{detallePago.nombres}}</h4>
+      <p>
+        Valor: <b>{{ detallePago.valor}}</b>
+      </p>
+      <p>
+        Fecha: <b>{{ detallePago.fecha_pago }}</b>
+      </p>
+      <p>
+        Estado: <b>
+          <span *ngIf="detallePago.status == 0 ">Cobro</span>
+          <span *ngIf="detallePago.status == 1 ">Pago</span>
+        </b>
+      </p>
+      <p>
+        Medio:
+        <b *ngFor="let m of Metodo">
+          <span *ngIf="m[1] == detallePago.medio ">{{ m[0] }}</span>
+        </b>
+      </p>
+      <p>
+        Nota:
+      </p>
+      <div class="nota_b">
+        {{ detallePago.descripcion }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg" *ngIf="minmodalCita" >
+  <div class="body_p2 bpm">
+    <div class="modal-header">
+      <h4>{{ itemCita.nombres }}</h4>
+
+      <button type="button" class="close ml-0" (click)="cerrarModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="body_detalles h100-p p-3">
+      <div class="c form-group">
+        <label for="agente" class="font-w">Asignar a:</label>
+        <select name="agente" class="form-control" [(ngModel)]="agt">
+          <option *ngFor="let item of agentesFilt" value="{{ item.id }}">{{item.ext}} - {{ item.nombre }} {{ item.apellido }}</option>
+        </select>
+      </div>
+      <div class="c form-group">
+        <label for="agente" class="font-w">Motivo:</label>
+        <select name="agente" class="form-control" [(ngModel)]="motivo">
+          <option *ngFor="let item of motivos_cita" value="{{ item[1] }}">{{ item[0] }}</option>
+        </select>
+      </div>
+      <div class="c form-group">
+        <label for="agente" class="font-w">Tipo de Cita:</label>
+        <select name="" class="form-control" [(ngModel)]="estado">
+          <option value="1" name="estado_cita">En Agenda</option>
+          <option *ngIf="is_admin" value="17" name="estado_cita">Cita Inmediata</option>
+        </select>
+      </div>
+      <div class="c form-group">
+        <label for="agente" class="font-w">Fecha:</label>
+        <input type="date" name="fecha" class="form-control"  [(ngModel)]="fecha">
+      </div>
+      <div class="c form-group">
+        <label for="agente" class="font-w">Hora:</label>
+        <input type="time" name="hora" class="form-control" [(ngModel)]="hora">
+      </div>
+      <div class="c form-group">
+        <label for="agente" class="font-w">Nota:</label>
+      </div>
+      <div class="c form-group">
+        <input type="text" name="nota" class="nota" [(ngModel)]="nota">
+      </div>
+    </div>
+    <div class="modal-footer" >
+      <button type="button" class="btn btn-secondary" (click)="cerrarModal()" >Close</button>
+      <button type="button" class="btn btn-primary" (click)="crearCita()">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<div class="load" *ngIf="spinner">
+  <app-spinner></app-spinner>
+</div>

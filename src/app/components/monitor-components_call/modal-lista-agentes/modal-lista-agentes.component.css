@@ -1,0 +1,28 @@
+.red{
+  color: red;
+  font-size: 130%;
+}
+/* ((((( modal  )))) */
+.bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .4);
+}
+.modal-body{
+  max-height: 60vh;
+  overflow: auto;
+}
+.li_user {
+  list-style-type: none;
+  margin: 5px 0;
+}
+/*  modal   */
+
+.btn-column{
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,244 @@
+
+<div class="content">
+  <div class="{{ intro }}">
+
+      <span style="color: green;">
+              <br> Antes de iniciar primero se ingresa a la página de
+              <br> Docusing en internet y hace  login
+              <br> Usuario: YVONNEDVOV@gmail.com
+              <br> Contraseña: Credito789 <br>
+      </span>
+
+
+      <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), Vamos a <b>realizar</b> el contrato
+      <br> donde se <b>describe</b>
+      <br> los <b>derechos</b> del consumidor,
+      <br> sus obligaciones y las <b>nuestras</b>,
+      <br> en un <b>simple</b> documento,
+      <br> en el cual en la <b>primera</b> página
+      <br> están sus derechos por <b>ley</b>,
+      <br> e <b>incluso</b> se <b>describe</b>
+      <br> en las siguientes páginas
+      <br> el <b>proceso</b> y el servicio
+      <br> que le vamos a <b>brindar</b>,
+      <br> y además nos <b>autoriza</b>
+      <br> a ayudarle en su <b>reparación</b> de crédito
+      <br> y a <b>cumplirle</b>
+      <br> con todas las <b>obligaciones</b>,
+      <br> de <b>nosotros</b> hacia usted y de <b>usted</b> hacia nosotros.
+      <br>
+      <br>
+      <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) , para realizarlo es <b>necesario</b>
+      <br> que usted tenga correo <b>electrónico</b>,
+      <br> ¿<b>Cual</b> es su correo electrónico?
+      <br>
+      <br> <span style="color: green;">(Esperar reacción del cliente)</span>
+      <br>
+      <br>
+      <div class="btn-uy mt-4">
+        <button type="button" class="btn_g" (click)="cambiarP('sitiene')">
+          Si Tiene Correo
+        </button>
+      </div>
+      <div class="btn-uy mt-4">
+        <button type="button" class="btn_g" (click)="cambiarP('notiene')">
+          No Tiene Correo
+        </button>
+      </div>
+  </div>
+  <div class="{{ sitiene }}">
+    <br><b>Perfecto</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>),
+    <br>Entonces, yo estoy <b>aquí­</b>
+    <br>para ayudarle a <b>realizarlo</b> de una vez,
+    <br>si tiene <b>acceso</b> a su correo electrónico
+    <br>solamente será cuestión de 2 o 3 minutos.
+    <br>
+    <br>Si usted tiene acceso a su correo <b>electrónico</b> ahora <b>mismo</b>,
+    <br>con <b>gusto</b> se lo enví­o.
+    <br>
+
+    <span style="color: green;">(Confirmar correo eletrónico)</span>
+
+    <br>
+    <br> <b>¡Perfecto!</b>
+    <br>
+    <br> Le voy a <b>enviar</b> un correo electrónico y
+    <br> me <b>confirma</b> cuando le llegue
+    <br>
+    <br> Muy <b>bien</b>, vamos a abrir juntos
+    <br> ahora <b>mismo</b>
+    <br> su correo electrónico
+    <br>
+
+    <span style="color: green;">(Esperar reacción del cliente)</span>
+
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), se lo acabo de <b>enviar</b>,
+    <br><b>confí­rmeme</b> si ya le llegó
+    <br>
+
+    <span style="color: green;">(Esperar reacción del cliente)<br></span><br><br>
+
+    <button class="btn_g" type="button" (click)="verBtns('sillego')">
+        SI LLEGO
+    </button>
+
+    <button class="btn_g" type="button"  (click)="verBtns('nollego')">
+        NO LLEGO
+    </button>
+    <br><br>
+
+    <div style="font-size: 36px;"  *ngIf="sillegoelcorreo">
+        <br> <b>Perfecto</b>, en este momento le voy a
+        <br> <b>enviar</b> el <b>documento</b> del contrato,
+        <br> me <b>avisa</b> cuando le <b>llegue</b>
+        <br> y yo lo voy a ir <b>haciéndolo</b> con usted
+        <br> para <b>explicar</b> le paso, por paso
+        <br> ¿OKAY?
+
+        <span style="color: green;">(Esperar reacción del cliente)<br></span>
+
+        <br><b>Okay </b>(<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+        <br>Lo <b>primero</b> que le va
+        <br>aparecer es un <b>cuadro</b> verde
+        <br>que dice <b>Login now</b>,
+        <br>o inicia <b>sesión</b> ahora
+        <br>
+        <br>(<span *ngIf="cliente">{{ cliente.nombres }}</span>), usted lo <b>va</b> a <b>seleccionar</b>,
+        <br><b>inmediatamente</b> aparece algo que dice
+        <br> setup <b>your</b> password
+        <br> o configura tu <b>contraseña</b>
+        <br> Agregue una <b>contraseña</b> y confírmela
+        <br>
+        <br> Continue <b>dándole</b> click
+        <br> al <b>botón</b> set password
+        <br>
+        <br>  (<span *ngIf="cliente">{{ cliente.nombres }}</span>), ahora <b>vamos</b> al siguiente paso,
+        <br>  le va a <b>aparecer</b> una pagina donde
+        <br>  estan los <b>derechos</b> del consumidor
+        <br>
+        <br>
+        <br> ¿Ya <b>esta</b> en la pagina?
+        <br>
+        <br>  <span style="color: green;">(si)</span> perfecto ahora <b>deslice</b> hasta
+        <br>  llegar al <b>final</b> del contrato,
+        <br>  va encontrar un <b>botón</b> gris
+        <br>  que indica <b>restablecer</b> su firma,
+        <br>  arriba de el va <b>encontrar</b>
+        <br>  un <b>cuadro</b> rojo donde usted puede
+        <br>  hacerla <b>digital</b>.
+
+        <br>  Con su <b>dedo</b> va proceder a
+        <br>  escribir <b>su</b> firma
+        <br>  <b>indiqueme</b> cuando la tenga lista
+        <br>
+        <br>  <span style="color: green;">ESPERAR REACCION DEL PROSPECTO</span>
+        <br>
+        <br> Perfecto (<span *ngIf="cliente">{{ cliente.nombres }}</span>), <b>ahora</b> le va a dar click
+        <br> al botón que dice <b>submit now</b>
+        <br>
+        <br> En la <b>parte</b> azul donde dice
+        <br> <b>progreso</b> hay una x,
+        <br> dele <b>click</b> ahí
+        <br> para <b>salir</b> de esa ventana
+        <br>
+        <br>  Me indica <b>cuando</b> lo haya hecho
+        <br>  <b>Okay </b>(<span *ngIf="cliente">{{ cliente.nombres }}</span>)?
+        <br>
+        <br>Perfecto, ya <b>terminamos.</b>
+        <br>¿<b>Vio</b> lo fácil que es (<span *ngIf="cliente">{{ cliente.nombres }}</span>)?
+        <br>¿<b>Verdad</b> que si?
+        <br>
+        <br>Muy <b>bien</b> (),
+        <br>ahora <b>deme</b> un momentito
+        <br>y yo <b>verifico</b>
+        <br>que haya <b>quedado</b> correcto,
+        <br><b><u>NO</u></b> me vaya a colgar el teléfono
+        <br><b>mantengase</b> en linea.
+        <br>
+
+        <span style="color: green;">(Se verifica el contrato)<br></span>
+
+        <br><b>Muy</b> bien,
+        <br><b>quedó</b> perfecto,
+        <br>esto va a <b>servir</b>
+        <br>como un <b>respaldo</b> del proceso,
+        <br>ya que <b>así­</b> podemos
+        <br>darle <b>todo</b> el apoyo
+        <br>que usted <b>necesita,</b>
+        <br>para ayudarle a su <b>reparación</b>
+        <br>de su <b>crédito</b>.
+        <br>
+        <br> ¿Tiene <b>alguna</b> otra preguntita?
+        <br> Hágame <b>todas</b> las que quiera,
+        <br> yo soy una <b>enciclopenia</b>
+        <br>
+        <br>  <b>Perfecto</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+        <br> Dios le bendiga <b>rica</b>
+        <br> y <b>abundantemente</b>
+        <br>  bye bye!
+        <br>
+    </div>
+
+    <div style="font-size: 36px;"  *ngIf="nollegoelcorreo">
+        <br> Me confirma su correo ()
+        <br>
+    <span style="color: green;">
+        <br>(Ver en el credit repair si
+        <br> el correo es el mismo,
+        <br>
+        <br> <b>SI ES EL MISMO</b>
+        <br>
+        <br> Preguntar si esta en el celular
+        <br> o desde un compitador)
+        <br>
+        <br> recordarle en revisar el spam o
+        <br> refrescar la bandeja de entrada
+        <br>
+        <br>  Si dice que ya le llego
+        <br>  continuar con la firma de contrato
+    </span>
+    </div>
+
+  </div>
+  <div class="{{ notiene }}">
+    <br>Entonces como es <b>TAN</b> importante realizarlo,
+    <br>porque hace parte del <b>proceso,</b>
+    <br>para poder hacer<b> toda</b> la documentación
+    <br>necesaria para ayudarle a <b>arreglar </b>su crédito.
+    <br>Entonces <b>usted</b> le va
+    <br>a pedir el favor a algún <b>familiar</b>
+    <br>o <b>amigo</b> que tenga correo electrónico
+    <br>y en cuanto <b>está</b> con el
+    <br>me <b>llama</b> para atrás
+    <br>y lo realizamos.
+    <br>
+    <br>Este <b>proceso</b> lo hacemos
+    <br>en <b>unos</b> 10 minutos,
+    <br>así­ que saque el <b>espacio</b>
+    <br>para que lo <b>realicemos</b>.
+    <br>¿Para cuándo le <b>pongo</b> acá
+    <br>en mi <b>agenda</b> de citas
+    <br>que usted <b>VA</b> a estar
+    <br>con la <b>persona</b><br>
+    que <b>tenga</b> correo electrónico?
+    <br><span style="color:green">(Se agenda la cita)</span>
+
+    <div class="btn-uy mt-4">
+        <button type="button" class="btn_g" (click)="cambiarP('notienept2')">
+            No Tiene Correo
+        </button>
+    </div>
+  </div>
+
+  <div class="{{ notienept2 }}">
+    <br> OK, <b>perfecto</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>). Entonces el día (<b>Fecha de la cita</b>),
+    <br> tome <b>nota</b> usted también
+    <br> para que <b>NO</b> lo vaya a olvidar.
+    <br>
+    <br> Le voy a estar llamando a (<b>La hora establecida</b>),
+    <br> y si yo <b>no</b> lo he llamado
+    <br> usted me <b>llama</b> para atrás las
+    <br> <span style="color:green">(30minutos después de la hora establecida).</span>
+  </div>
+</div>

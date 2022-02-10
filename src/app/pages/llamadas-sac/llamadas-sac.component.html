@@ -1,0 +1,512 @@
+<app-header *ngIf="!opc"></app-header>
+
+<div class="content d-flex">
+
+  <nav id="sidebar">
+    <ul class="list-unstyled components">
+      <li [class.selected]="opcionVer == menu_l.TODAS ">
+        <a (click)="filtar('Todas')" >Todas</a>
+      </li>
+      <li [class.selected]="opcionVer == menu_l.ENT ">
+        <a (click)="filtar('Entrantes')" >Entrantes</a>
+      </li>
+      <li [class.selected]="opcionVer == menu_l.SAL ">
+        <a (click)="filtar('Salientes')" >Salientes</a>
+      </li>
+      <li [class.selected]="opcionVer == menu_l.PER ">
+        <a (click)="filtar('Perdidas')" >Perdidas</a>
+      </li>
+      <li [class.selected]="opcionVer == menu_l.CONT ">
+        <a (click)="filtar('Contestadas')" >Contestadas</a>
+      </li>
+      <li [class.selected]="opcionVer == menu_l.EFEC ">
+        <a (click)="filtar('Efectivas')" >Efectivas</a>
+      </li>
+      <li [class.selected]="opcionVer == menu_l.NO_EF ">
+        <a (click)="filtar('No Efectivas')" >No Efectivas</a>
+      </li>
+      <li [class.selected]="opcionVer == menu_l.Z800 ">
+        <a (click)="filtar('800')" >Ent - 800</a>
+      </li>
+      <li [class.selected]="opcionVer == menu_l.Z914 ">
+        <a (click)="filtar('914')" >Ent - 914</a>
+      </li>
+      <li [class.selected]="opcionVer == menu_l.Z1001 ">
+        <a (click)="filtar('101')" >Retornadas - 1001</a>
+      </li>
+<!--       <li [class.selected]="opcionVer == menu_l.CLI ">
+        <a (click)="filtar('Clientes')" >Clientes</a>
+      </li>
+      <li [class.selected]="opcionVer == menu_l.CLI_NN ">
+        <a (click)="filtar('Clientes NN')" >Prospectos</a>
+      </li>
+ -->
+    </ul>
+  </nav>
+
+  <div class="cont_body">
+
+    <div class="btn-toolbar bt-tol mb-2" role="toolbar" aria-label="Toolbar with button groups">
+
+      <div class="btn-group mod-btns mr-2" role="group " aria-label="First group">
+        <button type="button" class="btn btn-primary" (click)="filtrarFecha('hoy', '')">
+          Hoy
+        </button>
+        <button type="button" class="btn btn-primary" (click)="filtrarFecha('ayer', '')">
+          Ayer
+        </button>
+
+        <div class="dropdown">
+          <button style="width: -webkit-fill-available" class="btn btn-primary dropdown-toggle" type="button"
+            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Rango de Días
+          </button>
+          <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton">
+            <label for="inicio" style="font-weight: 600">Desde</label>
+            <div class="c d-flex">
+              <input type="date" name="diaInicio" id="inicio" [(ngModel)]="diaInicio" />
+            </div>
+            <label for="fin" style="font-weight: 600">Hasta</label>
+            <div class="c d-flex">
+              <input [disabled]="!diaInicio" type="date" name="" id="fin" [min]="diaInicio" [(ngModel)]="diaFin" />
+            </div>
+            <button [disabled]="!diaFin" type="button" class="btn btn-primary btn-sm centrar"
+              (click)="filtrarFecha('rango', '')">
+              Confirmar
+            </button>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button style="width: -webkit-fill-available" class="btn btn-primary dropdown-toggle" type="button"
+            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Día Especifico
+          </button>
+          <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton">
+            <input type="date" name="" id="" [(ngModel)]="diaEspecifico" />
+            <button [disabled]="!diaEspecifico" type="button" class="btn btn-primary btn-sm centrar"
+              (click)="filtrarFecha('diax', '')">
+              Confirmar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex w100">
+
+        <div class="alert alert-primary d-flex justify-content-between" role="alert" *ngIf="filtroAct">
+          <div class="bloq1 d-flex align-items-center">
+            <span class="mx-3">
+              <h4>Filtro Activo: </h4>
+            </span> <span class="pt-1">
+              <h6> {{filtroAct}}</h6>
+            </span>
+          </div>
+          <div class="bloq2">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="green" class="bi bi-bootstrap-reboot mr-3" viewBox="0 0 16 16" title="Actualizar lista de clientes"
+            (click)="getAllClientes()" >
+              <path d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 1 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.812 6.812 0 0 0 1.16 8z"/>
+              <path d="M6.641 11.671V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352h1.141zm0-3.75V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324h-1.6z"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="botones d-flex">
+          <div class="opc w50 mr-4">
+            <!-- ************* FILTRO ORIGEN DEST TODO************** -->
+            <div class="radiobnt d-flex mt-2">
+
+              <input type="radio" class="mt-w" name="selectFilt"
+                [(ngModel)]="selectFilt" value="origen"> Origen
+              <input type="radio" class="mt-w ml-3" name="selectFilt"
+                [(ngModel)]="selectFilt" value="destino"> Destino
+              <input type="radio" class="mt-w ml-3" name="selectFilt"
+                [(ngModel)]="selectFilt" value="todo"> Todo
+
+            </div>
+
+              <input type="search" name="search" class="form-control ds-input"
+                #buscar (keyup)="buscador( buscar.value )" >
+
+          </div>
+
+          <button type="button" class="btn btn-success float-right"
+           (click)="prevP()" [disabled]="page < 5">Atras</button>
+
+          <button type="button" class="btn btn-success float-right ml-3"
+            (click)="nextP()" *ngIf="filtroAct == 'Hoy'"
+            [disabled]="( llamadas | paging:page ).length === 0"
+            >Siguiente</button>
+
+          <button type="button" class="btn btn-success float-right ml-3"
+            (click)="nextP()" *ngIf="filtroAct == 'Ayer' "
+            [disabled]="( llamadasAyer | paging:page ).length === 0"
+            >Siguiente</button>
+
+          <button type="button" class="btn btn-success float-right ml-3"
+            (click)="nextP()" *ngIf="filtroAct.length > 4 "
+            [disabled]="( llamadasFecha | paging:page ).length === 0"
+            >Siguiente</button>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="ml-3 d-flex" *ngIf="llamadas || llamadasAyer || llamadasFecha ">
+      <!-- ************ BUSCADOR DE DIDS *********** -->
+      <p class="busq">
+        <b class="green">*</b><b>Buscar en DIDs</b>
+        <input type="search" name="search" class="min-search ml-3"
+        #buscarDid (keyup)="buscadorDid( buscarDid.value )" >
+
+        <input type="radio" class="mt-w ml-2" name="selectFilt"
+          [(ngModel)]="selectFiltDid" value="did">Did
+
+        <input type="radio" class="mt-w ml-3" name="selectFilt"
+          [(ngModel)]="selectFiltDid" value="telefono">Telefono
+
+          <!-- ************ RESULTADOS BUSCADOR *********** -->
+          <span class="resul d-block" *ngIf="did_json && did_json.length < 5 && did_json.length > 0">
+            <small *ngFor="let i of did_json">
+              <b class="green ">*</b> Did: <b>{{ i.did }}</b> Telefono: <b>{{ i.telefono }}</b> Estado: <b>{{ i.estado }}</b><br>
+            </small>
+          </span>
+      </p>
+
+      <!-- ************ BUSCADOR DE AREA CODE *********** -->
+      <p class="busq">
+        <b class="green">*</b><b>Buscar Area Code</b>
+        <input type="search" name="search" class="min-search ml-3"
+        #buscarArea (keyup)="buscadorAreaCode( buscarArea.value )" >
+
+        <!-- ************ RESULTADOS BUSCADOR *********** -->
+        <span class="resul d-block" *ngIf="area_c && area_c.length == 1">
+          <small *ngFor="let ic of area_c">
+            <b class="green">*</b> Estado: <b>{{ ic.estado }}</b> Ciudad: <b>{{ ic.cuidad | slice:0:60 }}</b>
+          </small>
+        </span>
+
+      </p>
+    </div>
+     <!-- ************ BUSCADOR DE ID CLIENTE *********** -->
+    <div class="row ml-3" *ngIf="is_admin">
+      <div class="form-group d-flex mt-3">
+
+        <input type="number" name="buscarID" placeholder="Buscar Telefono" [(ngModel)]="tel" #filtro2 class="form-control ml-3" />
+      </div>
+
+      <div class="mt-3 ml-4">
+        <button class="btn btn-success" style="border-color: black" (click)="getCliTel()">
+          Buscar Número
+        </button>
+      </div>
+
+      <div class="mt-3 ml-4">
+        <span *ngFor="let item of respID">
+          ID: <b>{{ item.id }}</b>
+          Nombre: <b>{{ item.nombres }}</b>
+          <a  title="ASIGNAR LLAMADA INMEDIATA">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-arrow-up-left-circle-fill " viewBox="0 0 16 16"
+            (click)="abrirModal( item.id )">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-5.904 2.803a.5.5 0 1 0 .707-.707L6.707 6h2.768a.5.5 0 1 0 0-1H5.5a.5.5 0 0 0-.5.5v3.975a.5.5 0 0 0 1 0V6.707l4.096 4.096z"/>
+            </svg>
+          </a>
+
+          <a  target="_blank" rel="noopener noreferrer" title="VER PERFIL" [routerLink]="['/vercliente/',item.id ]">
+            <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-person-badge-fill ml-2" viewBox="0 0 16 16" >
+              <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
+            </svg>
+          </a>
+          <br>
+
+        </span>
+
+      </div>
+
+    </div>
+    <!-- ************ FILTRO DE LLAMADAS *********** -->
+    <div class="ml-3 filtroF" *ngIf="llamadas || llamadasAyer || llamadasFecha ">
+      <b> Total LLamadas: <span class="green">{{ totalLLamadas }}</span>
+        <span *ngIf="totalLLamadas > 10">/ {{ page + 1}} al
+        <span *ngIf="page + 50 < totalLLamadas">{{ page + 50 }}</span>
+        <span *ngIf="page + 50 >= totalLLamadas">{{ totalLLamadas }}</span>
+      </span> </b>
+      <span class="ml-5">
+
+        <a class="ordenar" (click)="asc()" >
+          <span class="ml-3">Origen Asc
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill girar" viewBox="0 0 16 16">
+                <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
+              </svg>
+            </span>
+          </span>
+        </a>
+
+        <a class="ordenar" (click)="des()" >
+
+          <span class="ml-4">Origen Des
+            <span >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
+                <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
+              </svg>
+            </span>
+          </span>
+        </a>
+
+
+        <a class="ordenar" (click)="timeInvet()" >
+          <span class="ml-4">Invertir
+            <span >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-clock-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+              </svg>
+            </span>
+          </span>
+        </a>
+
+        <a class="ordenar" (click)="resetAsDes()" >
+          <span class="ml-4">Reset
+            <span >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-octagon-fill " viewBox="0 0 16 16" >
+                <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+              </svg>
+            </span>
+          </span>
+        </a>
+
+      </span>
+    </div>
+
+
+    <div class="cont_tablas mx-3 pb-4" [class.cont_mod]="opc" #content >
+
+      <table class="table">
+        <thead class="thead-dark min">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Origen</th>
+            <th scope="col">Nombre-Org</th>
+            <th scope="col">Destino</th>
+            <th scope="col">Nombre-Des</th>
+            <th scope="col">Duración</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Opc</th>
+          </tr>
+        </thead>
+
+        <tbody *ngIf="filtroAct == 'Hoy'">
+
+          <tr *ngFor="let item of llamadas | paging:page:search:selectFilt:orden ; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ item.fecha | date:'mediumTime' }}</td>
+            <td>{{ item.origen }}</td>
+
+            <td>
+              <span *ngIf="item.origen.length == 3">
+                {{ item.asignado | slice:0:20 }}
+              </span>
+
+              <span *ngIf="item.origen.length == 7">
+                <b>{{ item.id_cliente | searchCliID:clientes  }}</b>
+                <!-- <b> {{ item.nombres | slice:0:20 }} </b> -->
+              </span>
+            </td>
+
+            <td>{{ item.destino }}</td>
+
+            <td>
+              <span *ngIf="item.destino.length == 3 ">
+                {{ item.asignado2 | slice:0:20 }}
+              </span>
+              <span *ngIf="item.destino.length == 7 ">
+                <b>{{ item.id_cliente | searchCliID:clientes  }}</b>
+                <!-- <b> {{ item.nombres | slice:0:20 }} </b> -->
+              </span>
+            </td>
+
+            <td> <b>{{ item.duracion | secToMin  }}</b> S.</td>
+            <td>{{ item.estado }}</td>
+            <td>{{ item.tipo }}</td>
+            <td >
+
+<!--               <a *ngIf="item.id" title="ASIGNAR LLAMADA INMEDIATA">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-arrow-up-left-circle-fill " viewBox="0 0 16 16"
+                (click)="abrirModal( item.id )">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-5.904 2.803a.5.5 0 1 0 .707-.707L6.707 6h2.768a.5.5 0 1 0 0-1H5.5a.5.5 0 0 0-.5.5v3.975a.5.5 0 0 0 1 0V6.707l4.096 4.096z"/>
+                </svg>
+              </a>
+
+              <a *ngIf="item.id" target="_blank" rel="noopener noreferrer" title="VER PERFIL" [routerLink]="['/vercliente/',item.id ]">
+                <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-person-badge-fill ml-2" viewBox="0 0 16 16" >
+                  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
+                </svg>
+              </a> -->
+              <a *ngIf="item.id_cliente && item.id_cliente != '0'" title="ASIGNAR LLAMADA INMEDIATA">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-arrow-up-left-circle-fill " viewBox="0 0 16 16"
+                (click)="abrirModal( item.id_cliente )">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-5.904 2.803a.5.5 0 1 0 .707-.707L6.707 6h2.768a.5.5 0 1 0 0-1H5.5a.5.5 0 0 0-.5.5v3.975a.5.5 0 0 0 1 0V6.707l4.096 4.096z"/>
+                </svg>
+              </a>
+
+              <a *ngIf="item.id_cliente && item.id_cliente != '0'" target="_blank" rel="noopener noreferrer" title="VER PERFIL" [routerLink]="['/vercliente/',item.id_cliente ]">
+                <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-person-badge-fill ml-2" viewBox="0 0 16 16" >
+                  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
+                </svg>
+              </a>
+            </td>
+
+          </tr>
+        </tbody>
+
+        <tbody *ngIf="filtroAct == 'Ayer'">
+
+          <tr *ngFor="let item of llamadasAyer | paging:page:search:selectFilt:orden ; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>Ayer - {{ item.fecha | date:'mediumTime' }}</td>
+            <td>{{ item.origen }} </td>
+
+            <td>
+              <span *ngIf="item.origen.length == 3">
+                {{ item.asignado | slice:0:20 }}
+              </span>
+
+              <span *ngIf="item.origen.length == 7">
+                <b>{{ item.id_cliente | searchCliID:clientes  }}</b>
+
+                <!-- <b> {{ item.nombres | slice:0:20 }} </b> -->
+              </span>
+            </td>
+
+            <td>{{ item.destino }}</td>
+
+            <td>
+              <span *ngIf="item.destino.length == 3 ">
+                {{ item.asignado2 | slice:0:20 }}
+              </span>
+              <span *ngIf="item.destino.length == 7 ">
+                <span >
+                <b>{{ item.id_cliente | searchCliID:clientes  }}</b>
+
+                  <!-- <b> {{ item.nombres | slice:0:20 }} </b> -->
+                </span>
+              </span>
+            </td>
+
+            <td> <b>{{ item.duracion | secToMin  }}</b> S.</td>
+            <td>{{ item.estado }}</td>
+            <td>{{ item.tipo }}</td>
+            <td >
+
+  <!--               <a *ngIf="item.id" title="ASIGNAR LLAMADA INMEDIATA">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-arrow-up-left-circle-fill " viewBox="0 0 16 16"
+                  (click)="abrirModal( item.id )">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-5.904 2.803a.5.5 0 1 0 .707-.707L6.707 6h2.768a.5.5 0 1 0 0-1H5.5a.5.5 0 0 0-.5.5v3.975a.5.5 0 0 0 1 0V6.707l4.096 4.096z"/>
+                  </svg>
+                </a>
+
+                <a *ngIf="item.id" target="_blank" rel="noopener noreferrer" title="VER PERFIL" [routerLink]="['/vercliente/',item.id ]">
+                  <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-person-badge-fill ml-2" viewBox="0 0 16 16" >
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
+                  </svg>
+                </a> -->
+                <a *ngIf="item.id_cliente && item.id_cliente != '0'" title="ASIGNAR LLAMADA INMEDIATA">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-arrow-up-left-circle-fill " viewBox="0 0 16 16"
+                  (click)="abrirModal( item.id_cliente )">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-5.904 2.803a.5.5 0 1 0 .707-.707L6.707 6h2.768a.5.5 0 1 0 0-1H5.5a.5.5 0 0 0-.5.5v3.975a.5.5 0 0 0 1 0V6.707l4.096 4.096z"/>
+                  </svg>
+                </a>
+
+                <a *ngIf="item.id_cliente && item.id_cliente != '0'" target="_blank" rel="noopener noreferrer" title="VER PERFIL" [routerLink]="['/vercliente/',item.id_cliente ]">
+                  <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-person-badge-fill ml-2" viewBox="0 0 16 16" >
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
+                  </svg>
+                </a>
+              </td>
+          </tr>
+        </tbody>
+
+        <tbody *ngIf="filtroAct.length > 4">
+
+          <tr *ngFor="let item of llamadasFecha | paging:page:search:selectFilt:orden ; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ item.fecha }}</td>
+            <td>{{ item.origen }}</td>
+
+
+            <td>
+              <span *ngIf="item.origen.length == 3">
+                {{ item.asignado | slice:0:20 }}
+              </span>
+
+              <span *ngIf="item.origen.length == 7">
+                <b>{{ item.id_cliente | searchCliID:clientes  }}</b>
+
+               <!--  <b> {{ item.nombres | slice:0:20 }} </b> -->
+              </span>
+            </td>
+
+            <td>{{ item.destino }}</td>
+
+            <td>
+              <span *ngIf="item.destino.length == 3 ">
+                {{ item.asignado2 | slice:0:20 }}
+              </span>
+              <span *ngIf="item.destino.length == 7 ">
+                <span >
+                <b>{{ item.id_cliente | searchCliID:clientes  }}</b>
+
+                <!--   <b> {{ item.nombres | slice:0:20 }} </b> -->
+                </span>
+              </span>
+            </td>
+
+            <td> <b>{{ item.duracion | secToMin  }}</b> S.</td>
+            <td>{{ item.estado }}</td>
+            <td>{{ item.tipo }}</td>
+            <td >
+
+  <!--      <a *ngIf="item.id" title="ASIGNAR LLAMADA INMEDIATA">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-arrow-up-left-circle-fill " viewBox="0 0 16 16"
+              (click)="abrirModal( item.id )">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-5.904 2.803a.5.5 0 1 0 .707-.707L6.707 6h2.768a.5.5 0 1 0 0-1H5.5a.5.5 0 0 0-.5.5v3.975a.5.5 0 0 0 1 0V6.707l4.096 4.096z"/>
+              </svg>
+            </a>
+
+            <a *ngIf="item.id" target="_blank" rel="noopener noreferrer" title="VER PERFIL" [routerLink]="['/vercliente/',item.id ]">
+              <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-person-badge-fill ml-2" viewBox="0 0 16 16" >
+                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
+              </svg>
+            </a> -->
+            <a *ngIf="item.id_cliente && item.id_cliente != '0'" title="ASIGNAR LLAMADA INMEDIATA">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-arrow-up-left-circle-fill " viewBox="0 0 16 16"
+              (click)="abrirModal( item.id_cliente )">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-5.904 2.803a.5.5 0 1 0 .707-.707L6.707 6h2.768a.5.5 0 1 0 0-1H5.5a.5.5 0 0 0-.5.5v3.975a.5.5 0 0 0 1 0V6.707l4.096 4.096z"/>
+              </svg>
+            </a>
+
+            <a *ngIf="item.id_cliente && item.id_cliente != '0'" target="_blank" rel="noopener noreferrer" title="VER PERFIL" [routerLink]="['/vercliente/',item.id_cliente ]">
+              <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-person-badge-fill ml-2" viewBox="0 0 16 16" >
+                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
+              </svg>
+            </a>
+          </td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="modal_lista">
+  <app-modal-lista-agentes
+    [modal]="modal"
+    (enviarModal)="modal = false"
+    [id_cli]="id_cli" >
+  </app-modal-lista-agentes>
+</div>
+
+<app-alertas></app-alertas>
+

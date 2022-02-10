@@ -1,0 +1,76 @@
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.form-group select,
+.form-group input[type=text],
+.form-group input[type=number],
+.form-group input[type=tel],
+.form-group input[type=email],
+.form-group input[type=date] {
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+option {
+    color: black;
+}
+
+.btC {
+  position: absolute;
+  top: -15px;
+  right: 29px;
+}
+.btx{
+  background: none;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 300%;
+  font-family: monospace;
+}
+
+
+/* modal de informacion explicita */
+.modal_notas{
+  width: 600px;
+  border-radius: 16px;
+  position: fixed;
+  right: 2rem;
+  top: 7rem;
+  height: auto;
+  background-color: white;
+}
+.modal-body {
+  max-height: 340px;
+  overflow: auto;
+}
+.modal-f{
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  border-top: 1px solid #e9ecef;
+  flex-direction: column;
+}
+.modal-f p {
+  margin-bottom: .4rem;
+}
+.cortar_txt{
+  max-height: 40px!important;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 600px;
+}
+.img{/* add */
+  display: flex;
+  justify-content: center;
+}
+
+/*  */

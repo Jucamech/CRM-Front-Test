@@ -1,0 +1,50 @@
+
+<div class="bg" *ngIf="modal">
+  <div class="">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Selecciona un Agente o Stack</h5>
+          <button type="button" class="close" (click)="cerrarModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="opc d-flex justify-content-around py-5" *ngIf="estado_cita !== '17' ">
+          <div class="btn-column" *ngIf="is_admin">
+            <button type="button" class="btn btn-success" (click)="estado_cita = '25'; enviarCitaToStack() ">A Stack Ventas</button>
+            <button type="button" class="btn btn-primary mt-2" (click)="estado_cita = '26'; enviarCitaToStack() ">A Stack SAC </button>
+            <button type="button" class="btn btn-secondary mt-2" (click)="estado_cita = '27'; enviarCitaToStack() ">A Stack Cobro</button>
+          </div>
+          <div class="" *ngIf="is_admin || is_kim">
+            <button type="button" class="btn btn-warning" (click)="estado_cita = '17' ">Llamada Rápida</button>
+          </div>
+        </div>
+        <div class="modal-body" *ngIf="estado_cita == '17' ">
+          <div class="select">
+
+            <label for="motivo"><b class="red">Selecciona el Motivo! :</b></label>
+            <select name="motivo" [(ngModel)]="motivo">
+              <option value="7">Llamada 800</option>
+              <option value="8">Venta</option>
+              <option value="4">Firmar Contratos</option>
+            </select>
+
+          </div>
+          <ul>
+            <li *ngFor="let user of agentes" class="li_user" > <!--  [value]="user.id" -->
+              <input type="radio" class="ml-2" name="id_us" [(ngModel)]="id_us" [value]="user.id_user" >&nbsp;
+              <b>
+                {{ user.departamento }} - {{ user.nombres }}
+              </b>
+            </li>
+          </ul>
+        </div>
+        <div class="modal-footer" *ngIf="estado_cita == '17' ">
+          <button type="button" class="btn btn-secondary"(click)="cerrarModal()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="generarCitaInmedita()">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

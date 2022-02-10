@@ -1,0 +1,191 @@
+
+<div class="content">
+  <div class="{{intro}}"><br><br>
+      <table class="cen" height="280" border="1" width="1000" bgcolor="lightpink">
+          <tbody>
+          <tr>
+          <td bordercolor="silver" bgcolor="black" rowspan="6">
+          <span style="color:white;">
+          M<br>E<br>N<br>S<br>A<br>J<br>E<br>S<br>
+          </span>
+          </td>
+
+
+          <td>
+              <div>
+                  <button type="button" (click)="cambiarP('dmensaje')">
+                    Dejar Mensaje
+                  </button>
+                </div>
+          </td>
+
+          <td>
+              <div>
+                  <button type="button" (click)="cambiarP('mensajebn')">
+                   Mensaje Buenas Noticias
+                  </button>
+                </div>
+          </td>
+
+
+
+          <td>
+              <div>
+                  <button type="button" (click)="cambiarP('llamadap')">
+                    LLAMADA PERDIDA
+                  </button>
+                </div>
+          </td>
+
+
+          <td>
+              <div>
+                  <a  target="_blank" [routerLink]="['/speechsticket/speechCuentaDisputada']" >
+                    <button>
+                   D4
+                    </button>
+                  </a>
+                </div>
+          </td>
+
+              <td bordercolor="silver" bgcolor="black" rowspan="6"><span style="color:white;">
+
+              M<br>E<br>N<br>S<br>A<br>J<br>E<br>S<br>
+              </span>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+
+  </div>
+<div class="{{dmensaje}}">
+
+<span style="color:green;">----(001)(mensaje)----</span><br><br>
+<b>hola</b>  buen(os/as) (dias/tardes/ noches)<br>
+le <b> saluda  ( ______) </b>de creditomejor.com<br>
+y le llamo para <b> hablarle</b>  <br>
+sobre su <b>reparacion</b> de credito. <br>
+
+es <b>importante</b> que tan pronto escuche<br>
+<b>este</b> mensaje,  nos llame al (914) 219-0014<br>
+hasta las 10 de <b>la noche. </b><br>
+
+de nuevo le <b>saluda ( ______) </b> <br>
+especialsta de <b>creditomejor.com</b><br>
+favor de <b>retornar</b> la llamada<br>
+al <b> (914) </b> 219-0014
+
+<b>no</b> importa lo tarde que sea, <br>
+para mi <b>nunca</b> es tarde<br>
+para <b>atenderle. </b> <br>
+
+<b>dios le bendiga</b>
+
+</div>
+
+<div class="{{mensajebn}}">
+<span style="color: green;">----Mensaje buenas noticias para solicitar documentos----</span><br><br>
+
+Dios le <b>bendiga</b> (_____),<br>
+le saluda ( _______)
+de <b>creditomejor.com</b><br>
+Y me <b>comunico</b> con usted<br>
+para informarle que le tengo muy <b>buenas</b> noticias<br>
+y que los buros de <b>crédito</b><br>
+nos están <b>solicitando</b><br>
+unos <b>documentos</b> suyos. <br>
+Por favor comuníquese <b>inmediatamente</b><br>
+con nosotros al <b> (914) 219-0014</b><br>
+(914) 219-0014<br>
+De nuevo le <b>saluda ( _____) </b> <br>
+especialista de <b>creditomejor.com</b><br>
+Y es muy <b>importante</b> <br>
+que se <b>comunique</b> con nosotros<br>
+tan pronto <b>escuche</b> este mensaje <br>
+favor de <b>comunícarse</b> al (914) 219-0014<br>
+</div>
+
+<div class="{{llamadap}}">
+
+  <span style="color: green;">----llamada entrante recuperda----</span> <br>
+<br> Dios le <b>bendiga</b> (_____),le saluda
+<br> ( _____)
+<br> Yo soy la persona que habla
+<br> con el señor Mackenzie en <b>radiocanticonuevo</b>
+<br> en el programa <b>creditomejor.com</b>,
+<br> nosotros <b>somos</b> las personas,
+<br> que ayudamos a <b>arreglar</b> el crédito
+<br> y tenemos una llamada suya <b>perdida</b>.
+<br> ¿Cuénteme que le <b>motivo</b> a llamarnos?
+<br> ¿Cómo <b>esta</b> su credito?
+<br> ¿Esta bueno o esta <b>malo</b>?
+<br>
+
+<h1 class=" mt-3"><br><br> ... Cuenteme ...</h1>
+  <br><br>
+  <div>
+    <div style="display: flex;justify-content: center;">
+      <span>
+        <span style="font-size: 25px;">
+          ¿Cómo <b>está</b> su crédito? ¿Esta
+        </span>
+        <span>
+          <button class="btn b-m-r" (click)="credi_BM = 'bueno'">Bueno</button> <span style="font-size: 25px;">
+            o
+          </span>
+          <button class="btn b-m-r" type="button" (click)="credi_BM = 'malo'">
+            Malo
+          </button>
+          <span style="font-size: 25px;">
+            ?
+          </span>
+          <button class="btn b-m-r" type="button" (click)="credi_BM = 'regular'">
+            regular
+          </button>
+        </span> <br><br><br>
+      </span>
+    </div>
+  </div>
+
+  <div style="font-size: 36px;" *ngIf="credi_BM ==  'bueno' ">
+    <b><u>Y</u></b> ¿Porque dice que su credito <b>está </b> <u>bueno?</u><br><br><br>
+  </div>
+
+  <div style="font-size: 36px;" *ngIf="credi_BM ==  'malo' ">
+    <b><u>Y</u></b> ¿Porque dice que su credito <b>está </b> <u>Malo?</u><br><br><br>
+  </div>
+
+  <div style="font-size: 36px;" *ngIf="credi_BM ==  'regular' ">
+    <b><u>Y</u></b> ¿Porque dice que su credito <b>está </b> <u>Regular?</u><br><br><br>
+  </div>
+
+  <textarea class="textarea" cols="30" rows="3" placeholder="Escribir lo que el cliente dice"></textarea> <br><br>
+
+<span style="color: green;">
+ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO<br>
+Y DEPENDIENDO LA CONTESTACION PREGUNTARLE LO QUE APLIQUE <br><br>
+</span>
+<br><br>
+<br> ¿Porque quiere <b>arreglar</b> su credito?
+<br> ¿Quiere <b>comprar</b> un automovil,
+<br> <b>Sacar</b> una tarjeta de credito,
+<br> o mejor <b>comprar</b> una casita?
+<br>
+<select (click)="verBtns('auto')">
+   <option value=""></option>
+   <option value="automovil">Automovil</option>
+   <option value="tarjeta">tarjeta de credito</option>
+   <option value="casita">Casita</option>
+</select>
+<br>
+<span style="color: green;">
+   ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO<br>
+   Y DEPENDIENDO LA CONTESTACION PREGUNTARLE LO QUE APLIQUE <br><br>
+</span>
+
+
+
+</div>
+
+
+</div>

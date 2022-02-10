@@ -1,0 +1,280 @@
+<div class="row">
+  <div class="col-12">
+    <h5 class="text-center text-light py-3">Documentacion - Cartas</h5>
+    <div class="d-flex btC" *ngIf="id">
+      <button class="btx" (click)="cerrarForm()">x</button>
+    </div>
+  </div>
+</div>
+
+<form #F_C *ngIf="!modal">
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="fecha_envio" class="text-white font-w">Fecha de Carta</label>
+      <input type="date" name="fecha_envio" class="form-control" [(ngModel)]="fecha_envio" #fecha_envioI="ngModel" />
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="buro" class="text-white font-w">Buró</label>
+      <select id="buro" name="buro" class="form-control" maxlength="1" [(ngModel)]="buro" #buroI="ngModel">
+        <option value="1" name="buro">Equifax</option>
+        <option value="2" name="buro">Experian</option>
+        <option value="3" name="buro">TransUnion</option>
+        <option value="4" name="buro">Acredor</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="ronda" class="text-white font-w">Ronda</label>
+      <select id="ronda" name="ronda" class="form-control" [(ngModel)]="ronda" #rondaI="ngModel">
+        <option value="1" name="ronda">1ra Ronda</option>
+        <option value="2" name="ronda">2ra Ronda</option>
+        <option value="3" name="ronda">3ra Ronda</option>
+        <option value="4" name="ronda">4ra Ronda</option>
+        <option value="5" name="ronda">5ra Ronda</option>
+        <option value="6" name="ronda">6ra Ronda</option>
+        <option value="7" name="ronda">7ra Ronda</option>
+        <option value="8" name="ronda">8ra Ronda</option>
+        <option value="9" name="ronda">9ra Ronda</option>
+        <option value="10" name="ronda">10ra Ronda</option>
+        <option value="11" name="ronda">11ra Ronda</option>
+        <option value="12" name="ronda">12ra Ronda</option>
+        <option value="55" name="ronda">Carta de Acreedor</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="ronda" class="text-white font-w">Num Tracking</label>
+      <input type="text" class="form-control" name="num_tracking" [(ngModel)]="num_tracking">
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="carta" class="text-white font-w">Subir Carta</label>
+      <div class="{{ classInputMod }}">
+        <input type="file" id="cartas" (change)="handlerImg64Carta($event)" class="input-file"
+          accept="image/*, .docx, .doc, .pdf" />
+        <span>...</span>
+      </div>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="carta" class="text-white font-w">Subir Track</label>
+      <div class="{{ classInputMod2 }}">
+        <input type="file" id="adatrckin" (change)="handlerImg64Track($event)" class="input-file"
+          accept=" image/* " />
+        <span>...</span>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <label class="text-white font-w d-block">Guardar</label>
+      <button type="button" class="btn btn-success" style="border: solid 3px darkgreen"
+      [disabled]="!guardar" (click)="addCarta()">
+        Subir Documentación
+      </button>
+    </div>
+  </div>
+</form>
+
+<table class="table table-hover table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Fecha Envio</th>
+      <th scope="col">Ronda de Carta</th>
+      <th scope="col">Num Track</th>
+      <th scope="col">Buró</th>
+      <th scope="col">Ver Tracking</th>
+      <th scope="col">Descargar Cartas</th>
+      <th scope="col">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of cartas; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ item.fecha_envio }}</td>
+      <td>
+        <span *ngIf="item.ronda != '55' ">
+          Ronda: {{ item.ronda }}
+        </span>
+        <span *ngIf="item.ronda == '55' ">
+          Carta de Acreedor
+        </span>
+      </td>
+      <td>{{ item.num_tracking }}</td>
+      <td>
+        <span *ngIf="item.buro == '1' ">Equifax</span>
+        <span *ngIf="item.buro == '2' ">Experian</span>
+        <span *ngIf="item.buro == '3' ">TransUnion</span>
+        <span *ngIf="item.buro == '4' ">Acredor</span>
+      </td>
+
+      <td>
+        <span *ngIf="item.tracking && item.tracking.length > 20 ">
+          <a target="_blank" [href]="item.tracking"  rel="noopener noreferrer" *ngIf="item.tracking != 'nulo' ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#28a745" class="bi bi-inboxes-fill" viewBox="0 0 16 16">
+              <path d="M4.98 1a.5.5 0 0 0-.39.188L1.54 5H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0A.5.5 0 0 1 10 5h4.46l-3.05-3.812A.5.5 0 0 0 11.02 1H4.98zM3.81.563A1.5 1.5 0 0 1 4.98 0h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1 .106.374l-.39 3.124A1.5 1.5 0 0 1 14.117 10H1.883A1.5 1.5 0 0 1 .394 8.686l-.39-3.124a.5.5 0 0 1 .106-.374L3.81.563zM.125 11.17A.5.5 0 0 1 .5 11H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0 .5.5 0 0 1 .5-.5h5.5a.5.5 0 0 1 .496.562l-.39 3.124A1.5 1.5 0 0 1 14.117 16H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .121-.393z"/>
+            </svg>
+          </a>
+        </span>
+
+        <span *ngIf="item.tracking && item.tracking.length < 18 ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#28a745" class="bi bi-inboxes-fill" viewBox="0 0 16 16"
+            *ngIf="item.tracking != 'nulo' " (click)="get64(item.tracking)">
+            <path d="M4.98 1a.5.5 0 0 0-.39.188L1.54 5H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0A.5.5 0 0 1 10 5h4.46l-3.05-3.812A.5.5 0 0 0 11.02 1H4.98zM3.81.563A1.5 1.5 0 0 1 4.98 0h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1 .106.374l-.39 3.124A1.5 1.5 0 0 1 14.117 10H1.883A1.5 1.5 0 0 1 .394 8.686l-.39-3.124a.5.5 0 0 1 .106-.374L3.81.563zM.125 11.17A.5.5 0 0 1 .5 11H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0 .5.5 0 0 1 .5-.5h5.5a.5.5 0 0 1 .496.562l-.39 3.124A1.5 1.5 0 0 1 14.117 16H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .121-.393z"/>
+          </svg>
+        </span>
+
+        <span class="ml-2" style="color: red;" *ngIf="is_admin && item.tracking && item.tracking.length > 20">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16"
+            *ngIf="item.tracking.length > 20" (click)="eliminarImg(item.tracking, true)">
+            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+          </svg>
+        </span>
+
+        <span class="ml-2" style="color: red;" *ngIf="is_admin && item.tracking && item.tracking != 'nulo'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16"
+            *ngIf="item.tracking.length < 20" (click)="eliminarArchivos(item.tracking)">
+            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+          </svg>
+        </span>
+
+      </td>
+
+      <td>
+        <a target="_blank" [href]="item.carta"  rel="noopener noreferrer" *ngIf="item.carta && item.carta.length > 20">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#28a745" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+            <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
+          </svg>
+        </a>
+
+        <span *ngIf="item.carta && item.carta.length < 18">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#28a745" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16" (click)="get64(item.carta)">
+            <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
+          </svg>
+        </span>
+
+        <span class="ml-2" style="color: red;" (click)="eliminarImg(item.carta, true)" *ngIf="is_admin">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+          </svg>
+        </span>
+      </td>
+
+      <td>
+        <span style="color: rgb(226, 206, 25);" (click)="handCarta(item)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg>
+        </span>
+        <span class="ml-2" style="color: red;" (click)="eliminarCarta(item)" *ngIf="is_admin">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+          </svg>
+        </span>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+<div class="bg" *ngIf="modal">
+  <div class="">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Carta</h5>
+          <button type="button" class="close" (click)="cerrarModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body" >
+          <div class="row">
+
+              <div class="form-group col-md-6">
+                <label for="fecha_envio" class="font-w">Fecha de Envio</label>
+                <input type="date" name="fecha_envio" class="form-control" [(ngModel)]="editCarta.fecha_envio" #fecha_envioI="ngModel" />
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="ronda" class="font-w">Ronda</label>
+                <select id="ronda" name="ronda" class="form-control" maxlength="1" [(ngModel)]="editCarta.ronda" #rondaI="ngModel">
+                  <option value="1" name="ronda">1ra Ronda</option>
+                  <option value="2" name="ronda">2ra Ronda</option>
+                  <option value="3" name="ronda">3ra Ronda</option>
+                  <option value="4" name="ronda">4ra Ronda</option>
+                  <option value="5" name="ronda">5ra Ronda</option>
+                  <option value="6" name="ronda">6ra Ronda</option>
+                  <option value="7" name="ronda">7ra Ronda</option>
+                  <option value="8" name="ronda">8ra Ronda</option>
+                  <option value="9" name="ronda">9ra Ronda</option>
+                  <option value="10" name="ronda">10ra Ronda</option>
+                  <option value="11" name="ronda">11ra Ronda</option>
+                  <option value="12" name="ronda">12ra Ronda</option>
+                  <option value="55" name="ronda">Carta de Acreedor</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="ronda" class="font-w">Num Tracking</label>
+                <input type="text" class="form-control" name="num_tracking" [(ngModel)]="num_tracking">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="buro" class=" font-w">Buró</label>
+                <select id="buro" name="buro" class="form-control" maxlength="1" [(ngModel)]="buro" #buroI="ngModel">
+                  <option value="1" name="buro">Equifax</option>
+                  <option value="2" name="buro">Experian</option>
+                  <option value="3" name="buro">TransUnion</option>
+                  <option value="4" name="buro">Acredor</option>
+                </select>
+              </div>
+
+            <div class="form-group col-md-6">
+              <label for="carta" class="font-w">Cambiar Carta</label>
+              <div class="{{ classInputMod }}">
+                <input type="file" id="editcartas" (change)="handlerImg64Carta($event)" class="input-file"
+                  accept=" .docx, .doc , .pdf "  />
+                <span>...</span>
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="carta" class="font-w">Subir Track</label>
+                <div class="{{ classInputMod2 }}">
+                  <input type="file" id="edittrack" (change)="handlerImg64Track($event)" class="input-file"
+                    accept=" image/* " />
+                  <span>...</span>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"(click)="cerrarModal()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="editarCartaCli(editCarta)">Confirmar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg2" *ngIf="src">
+  <button type="button" class="close_mod" (click)="src = null">
+    <span aria-hidden="true" class="x_mod">&times;</span>
+  </button>
+  <div class="bendem">
+    <div class="botones m-2">
+      <a [href]="src" [download]="nameRes" >
+        <button type="button" class="btn btn-warning" (click)="src = null">Descargar</button>
+      </a>
+    </div>
+    <img [src]="src" width="auto" height="90%" *ngIf="(typeRes| split:'/':0) == 'image' " >
+    <embed [src]="src" [type]="typeRes" width="80%" height="90%"  *ngIf="(typeRes| split:'/':0) != 'image' ">
+  </div>
+</div>
+

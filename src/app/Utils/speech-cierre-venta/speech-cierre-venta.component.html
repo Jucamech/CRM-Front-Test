@@ -1,0 +1,634 @@
+
+<div class="content" #content>
+  <div class="{{ intro }}">
+    <br> Tiene alguna otra pregunta que <b><u>no</u></b> sea
+    <br> <b>Cuanto</b> me va costar ayudarme
+    <br> a <b>arreglar</b> mi crédito?
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>),
+      <b>arreglar</b> un crédito,
+    <br> como el suyo con unos abogados
+    <br> puede <b>costarle</b> entre 10, 12 o 15mil dólares.
+    <br>
+    <br> En algunos casos los <b>abogados</b>
+    <br> le <b>piden</b> un pronto inicial
+    <br> de hasta 2mil o <b>3mil</b> dólares
+    <br> y unas <b>mensualidades</b> por un año
+    <br> de hasta <b>mil</b> dólares al mes.
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), usted tiene dos <b>alternativas</b>.
+    <br> La <b>primera</b> es:
+    <br>
+    <br> Estar con el crédito <b>dañado</b>
+    <br> por 7 años <b>más</b>
+    <br> hasta el año {{ pro }}
+    <br>
+    <br> Por ende tener el <b>peligro</b>
+    <br> de que un <b>marshall</b>
+    <br> se presente en su <b>trabajo</b>
+    <br> con una orden de <b>corte</b>
+    <br> <b>exigiendo</b> que le paguen
+    <br> la <b>cantidad de dinero</b> cada mes.
+    <br> Correspondiente al 25% de <b><u>su</u> sueldo.</b>
+    <br>
+    <br> La <b>segunda</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+    <br> que es la mas <b>indicada</b>, es; con el favor de <b>Dios</b>
+    <br> utilizar <b>nuestros</b> servicios
+    <br> para ayudarle a <b>arreglar</b> su crédito.
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) <b>Arreglar</b> un credito puede <b>tardar</b>
+    <br> entre 1 a <b>2 años</b>,
+    <br> pero en el <b>caso</b> suyo
+    <br> en vez de <b>2 años</b>,
+    <br> su crédito
+    <br> <b>Dios</b> mediante podemos ayudarle
+    <br> a arreglarlo en <b>1 año</b>,
+    <br> <b>SOLAMENTE 1 AÑO</b>.
+    <br>
+    <br> En <b>créditomejor.com</b>
+    <br> Nuestro precio <b>regular</b>
+    <br> es de <b><u>UN</u></b> pago inicial y 12 <b>mensualidades</b>
+    <br> de <span class="blue">500</span> a <b class="blue">700</b> dólares al mes,
+    <br> mientras se <b>arregla</b> su crédito.
+    <br>
+    <br> <b><u>PERO</u></b>
+    <br> en el <b>caso</b> suyo
+    <br> como usted <b>escuchó</b> en la radio,
+    <br> nosotros tenemos una <b>oferta</b>,
+    <br> <b>solo</b> mientras usted y <b><u>yo</u></b>
+    <br> <b>tengamos</b>
+    <br> el <b>teléfono</b>
+    <br> en la <b>mano</b>.
+    <br> <b><u>NO</u></b> luego,
+    <br> <b><u>NI</u></b> mañana,
+    <br> <b><u>NI</u></b> PASADO
+    <br> y solo mientras <b>estemos</b> nosotros hablando.
+    <br> en el cual usted <b><u>solo</u></b> realiza
+    <br> 1 pago <b>inicial</b>
+    <br> y <b>12</b> mensualidades
+    <br> de <b class="blue">$199.50</b>
+    <br> <b><u>más</u></b> $100 dólares
+    <br> de las cartas <b>certificadas</b>,
+    <br> manejo y <b>envío</b>
+    <br> ósea que solamente paga <b class="blue">$299 con 50</b> centavos.
+    <br>
+    <br>
+    <button type="button" class="btn btn-danger" (click)="gana4mil = !gana4mil">GANA 4MIL O MAS</button>
+    <br>
+    <div class="gana_mas" *ngIf="gana4mil">
+      <br>
+      <h3 class="blue">por los primeros 5 casos.</h3>
+      <br> Pero en el <b>caso</b> suyo,
+      <br> como usted tiene <b>más</b> de 5 casos,
+      <br> son 200 dólares <b>más</b> adicionales,
+      <br> pero con la oferta le sale en <b>solo</b> 100
+      <br> ósea que son <b class="blue">299.50</b>
+      <br>
+      <br> Pero en el <b>caso</b> suyo,
+      <br> como usted tiene cosas en manos de <b>abogados</b> son,
+      <br> son <b>200</b> dólares más adicionales,
+      <br> pero con la <b>oferta</b> le sale en solo 100
+      <br> ósea que <b>solamente</b> hace 1 pago inicial
+      <br> y 12 mensualidades de tan <b>solo</b> 398.50
+      <br>
+      <br> <b>Ahora bien</b> ?
+      <br> Con los <b>primeros</b> <span class="blue">$259.50/$298.50/$398.50</span>
+      <br> Vamos a <b>matricularle</b>
+      <br> En nuestro <b>programa</b>,
+      <br> <b>Abrir</b> unas investigaciones con lo buros de crédito,
+      <br> Solicitar que le <b>quiten</b>
+      <br> Las direcciones y nombres que tiene <b>demás</b>
+      <br> Y someter algunas reclamaciones en su <b>beneficio.</b>
+      <br>
+      <br> De <b>ahí</b>
+      <br> Su <b>próximo</b> pago debe de hacerlo a las 2 semanas
+      <br> (que sería su <b>primera</b> mensualidad),
+      <br> Pero como usted <b>tiene</b> casos
+      <br> En manos de <b>abogados</b> ?
+      <br> Tenemos que hacerlo en <b>una</b> semana
+      <br> Ya que estamos corriendo <b>contra el tiempo</b>
+      <br> Y queremos ayudarle a <b>evitar</b>
+      <br> Que le <b>demanden!</b>
+    </div>
+
+
+    <br> Y de <b>ahí</b> en adelante
+    <br> Sigue pagando poquito a <b>poquito</b>
+    <br> una mensualidad de <b><u>tan</u></b> solo <span class="blue">$299</span> con 50
+    <br> centavos <b>Cada</b> Mes
+    <br> Poquito a <b>poquito</b>.
+    <br>
+    <br> Mientras <b>usted <u>ve</u></b> como
+    <br> Con el favor de <b>Dios</b>
+    <br> Se va <b>arreglando</b> su crédito.
+    <br>
+    <br> Con el favor de <b>Dios</b>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) usted vera como recibe cartas
+    <br> de los buró de <b>crédito</b>
+    <br> <b>Experian</b>
+    <br> <b>Equifax</b>
+    <br> <b>TransUnion</b>
+    <br> indicandole, con el favor de <b>Dios</b>
+    <br> <b>borrado</b>, borrado
+    <br> <b>BORRADO</b>
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) Al <b>quinto</b> o sexto mes,
+    <br> Con el favor de <b>Dios</b>
+    <br> Usted verá como se le ha <b>arreglado</b>
+    <br> <b><u>sustancialmente</u></b> su crédito.
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) <b>Puede</b> cancelar en ese momento,
+    <br> pero la <b>realidad</b>
+    <br> la <b>mayoría</b> de la gente
+    <br> continuan hasta que logren <b>comprar</b> su casita
+    <br> o que le <b>aprueben</b> un prestamo
+    <br> para poder <b>montar</b>
+    <br> su <b>propio</b> negocio
+    <br>
+    <br> <b>Ahora bien!</b>
+    <br> Yo quiero ser bien <b>claro</b> con usted,
+    <br> como lo he <b>sido</b> en toda la conversación.
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), esto <b><u>NO</u></b> funciona
+    <br> si usted NOhace 3 cosas.
+    <br>
+    <br> Si <b><u>NO</u></b> las hace,
+    <br> <b><u>NOSE</u></b> meta,
+    <br> que esto <b><u>NO</u></b> le va funcionar.
+    <br>
+    <br> <h1><b>OKAY?</b></h1>
+    <br>
+    <br>
+    <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br>
+    <br> La <b>primera</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>),
+    <br> es que usted va a <b>recibir</b>
+    <br> <b>muchas</b> cartas,
+    <br> algunas de ellas de <b>acreedores</b>
+    <br> y otras <b>amenazandole</b>
+    <br> para <b>demandarle</b> en corte.
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) Cada vez que usted <b>reciba</b> una carta
+    <br> usted le toma una <b>fotografía</b>
+    <br> y nos la <b>envia</b>.
+    <br>
+    <br> Nos tiene que enviar <b>todas</b> las cartas
+    <br> que nosotros nos encargamos de contestarlas.
+    <br> <b><u>NO</u> PUEDE IGNORARLAS.</b>
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) Tiene que enviárnosla inmediatamente.
+    <br> <h1><b>OKAY?</b></h1>
+    <br>
+    <br>
+    <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br>
+    <br> La <b>segunda</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), es que a usted
+    <br> le van a llamar <b>varias</b> personas,
+    <br> incluso hasta <b>amenazándole</b> y cobrándole.
+    <br> alguno de ellos <b>abogados</b> ,
+    <br> <b>amenazando</b> con llevarle a <b><u>corte</u></b>
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), <b>Contéstele</b> tranquilamente
+    <br> y dígales que usted tiene un <b>acuerdo</b>
+    <br> con la gente de <b>creditomejor.com</b>
+    <br> y que de <b>ahora</b> en adelante,
+    <br> nos llamen, <b><u>solo</u></b> a nosotros.
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), si ellos <b><u>NO</u></b> hacen caso
+    <br> y le <b>siguen</b> llamando
+    <br> los podemos llevar a la <b>corte</b>
+    <br> y ponerles una <b>demanda</b> por acoso
+    <br> (<b>harassment</b> ).
+    <br>
+    <br> Y AHI <b><u>SI</u></b>
+    <br> que la <b>casa</b> suya
+    <br> le puede salir <b><u>gratis</u></b>
+    <br>
+    <h1><b>OKAY?</b></h1>
+    <br>
+    <br>
+    <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) La <b>tercera</b> y mas importante es que usted
+    <br> nos va a <b>llamar</b> cada 15 dias sin falta,
+    <br> incluso <b>tambien</b> cada vez
+    <br> que usted <b>reciba</b> correspondencia
+    <br> tenemos que <b>enterarnos</b>,
+    <br> ya que <b>hay</b> cosas que
+    <br> <b>tenemos</b> que responder en 4 o 5 días
+    <br> porque <b><u>si no</u></b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+    <br> podemos <b>perder</b> el caso.
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), incluso es su <b>deber</b> religioso llamarnos
+    <br> y si nosotros le <b><u>llamamos</u></b>
+    <br> y usted <b><u>NO</u></b> contesta ese día
+    <br> <b>debe</b> comunicarse
+    <br> <b><u>mínimo</u></b> al día siguiente.
+    <br>
+    <h1><b>OKAY??</b></h1>
+    <br>
+    <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br>
+    <br> Si usted sigue mis instrucciones al pie de la letra,
+    <br> con el favor de <b>DIOS</b>,
+    <br> en los próximos <b>3</b> a 6 meses,
+    <br> usted puede sacar una <b>tarjeta</b> de crédito,
+    <br> con un balance de 2 a <b>3 mil dólares</b>
+    <br> e incluso aumentar el <b>balance</b> suyo
+    <br> de la <b>tarjeta</b> de crédito.
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) Para <b>tener</b>
+    <br> un prestamo para negocios
+    <br> o ser <b>aprobado</b> para una casa
+    <br> debe tener <b>tarjeta</b> de crédito
+    <br> con balances <b>altos</b>
+    <br> porque si no
+    <br> es muy probable que <b>no</b> le <b>aprueben</b>
+    <br>
+    <br> Parte de los <b>requisitos</b>
+    <br> para ser <b>aprobado</b> para una casa
+    <br> es demostrar que <b>tiene</b> tarjeta de crédito
+    <br> con <b>balances</b> altos,
+    <br> para que ellos <b>entiendan</b>
+    <br> que usted puede <b>manejar</b> el crédito
+    <br> y así aprobarle un <b>crédito</b> para que pueda montar un negocio
+    <br> o para tener su casa <b>propia</b>.
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), Si usted me sigue <b>ciegamente</b>
+    <br> nosotros le <b>vamos</b> a ayudar
+    <br> a que usted <b>Dios</b> mediante,
+    <br> tenga su casa <b>propia</b>
+    <br> de aqui a un año
+    <br>
+    <h1><b>OKAY</b></h1>
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), como <b><u>si</u></b> esto fuera poco
+    <br> En los proximos <b>6</b> a 9 meses,
+    <br> con el favor de <b>Dios</b>,
+    <br> usted podrá sacar un <b>automóvil</b> nuevo,
+    <br> o <b>refinanciar</b> con menos intereses
+    <br> el <b>automóvil</b> de sus sueños
+    <br> economizandole mucho dinero
+    <br>
+    <br> Incluso hay <b>empresas</b> de autos
+    <br> que <b>solo</b> con la firma
+    <br> le <b>entregan</b> un auto nuevo
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), con el favor de Dios
+    <br> a principios del 2022,
+    <br> <b>Dios</b> mediante,
+    <br> usted podrá <b></b>
+    <br> para que <b>tenga</b>
+    <br> su <b>casa propia</b>.
+    <br>
+    <br> Incluso hay empresas que le entregan
+    <br> una casa por <b>lo mismo</b>
+    <br> que usted hasta ahora <u>ha</u> estado
+    <br> <b>pagando</b> de renta.
+    <br>
+    <br> <b>Ahora bien,</b>
+    <br> en este momento debo <b>indicarle</b>
+    <br> que si usted <b><u>no</u></b> es (<span *ngIf="cliente">{{ cliente.nombres }} {{ cliente.apellidos }}</span>),
+    <br> con el <b>número</b> de seguro social (<span *ngIf="cliente">{{ cliente.numero_id }}</span>)
+    <br> debería <b>colgar</b> la llamada en este momento,
+    <br> ya que estaría cometiendo un <b>delito</b> federal
+    <br> de <b>fraude</b>
+    <br> e <b>impersonificación</b>
+    <br> <b>castigable</b> con un mínimo
+    <br> de 3 a 5 años de <b>cárcel</b>,
+    <br>
+    <br> Sin embargo <b><u>si</u></b> usted es (<span *ngIf="cliente">{{ cliente.nombres }} {{ cliente.apellidos }}</span>),
+    <br> dueño del <b>número</b> seguro social (<span *ngIf="cliente">{{ cliente.numero_id }}</span>)
+    <br>
+    <br>
+    <br>
+    <br> Si usted <b>es</b> esta persona,
+    <br> entonces podemos <b>continuar</b>.
+    <br> y si no le aconsejo
+    <br> qe cuelgue el telefono
+    <br> porque estaria cometiendo un crimen
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) ¿Usted desea <b>colgar</b> ?
+    <br> ¿ <b><u>o continuamos</u></b> con la llamada ?
+    <br>
+    <br>
+    <button (click)="cambiarP('bien')"> SI, Continua</button>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="{{ muy_bn }}">
+    <div class="atras">
+      <button class="btn-A" (click)="regresarP('bien')">Atras</button>
+    </div>
+    <br>
+    <br> Muy bien!
+    <br> en ese <b>caso</b> necesito
+    <br> el número de su licencia de conducir
+    <br>
+    <br> Cual es el número
+    <br> de su <b>licencia</b> de conducir?
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) debido a que <b>estamos</b>
+    <br> <b>corriendo</b> contra el tiempo,
+    <br> necesito que le tome <b>una foto</b>
+    <br> <b>ahora mismo</b>, mientras hablamos,
+    <br> con su <b>celular</b> inteligente
+    <br> a su seguro social y su <b>licencia</b> de conducir.
+    <br>
+    <br> Su <b>licencia</b> de conducir (<span *ngIf="cliente">{{ cliente.nombres }}</span>),
+    <br> tiene la <b>misma</b> dirección
+    <br> de donde usted vive <b>actualmente</b> ?
+    <br> <b>Verdad que si?</b>
+    <br>
+    <br> Perfecto!
+    <br>
+    <br>
+    <button (click)="cambiarP('cierre')">CIERRE</button>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="{{ cierre }}">
+    <div class="atras">
+      <button class="btn-A" (click)="regresarP('bien')">Atras</button>
+    </div>
+    <br> <h1><b>Cierre de la venta</b></h1>
+    <br>
+    <br><b>Perfecto</b> (<span *ngIf="cliente">{{ cliente.nombres }} {{ cliente.apellidos }}</span>)
+    <br> Aquí ya <b>recibimos</b> los documentos
+    <br> ya con esto la <b>ley</b> nos da luz <b>verde</b>
+    <br> para <b>comenzar</b> a ayudarle
+    <br> con todos esos <b>problemas</b>
+    <br> que usted tiene en su <b>crédito</b>
+    <br>
+    <br> lo que vamos hacer
+    <br> Es <b>comenzar</b> a trabajar con esas:
+    <br>
+    <br> () cuentas en manos de <b>abogados</b>
+    <br> () cuentas con <b>atrasos</b>
+    <br> () cuentas en agencia de <b>colecciones</b>
+    <br> en las que le <b>pueden</b> lograr
+    <br> un <b>dictamen</b> de corte
+    <br> y <b>embargarle</b>
+    <br> hasta el 25% de su <b>salario</b> o ingreso.
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }} {{ cliente.apellidos }}</span>) ya en este momento
+    <br> tenemos la <b>autorización</b> para poder empezar.
+    <br>
+    <br> Lo <b>primero</b> que vamos a hacer
+    <br> es que <b>vamos</b> a poner
+    <br> unas cuatro o <b>cinco personas</b>
+    <br> en este momento
+    <br> a <b>trabajar</b> en su caso
+    <br> para que todo esté <b>listo</b> con el favor de Dios
+    <br> (Mañana <b>primera</b> hora)
+    <br> y Dios mediante, salgan <b>inmediatamente</b> al correo certificado.
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) <b>nosotros</b> en Creditomejor.com
+    <br> trabajamos acá las <b>24 horas</b>,
+    <br> haciendo las cartas certificadas de nuestros clientes
+    <br> para que usted lo tenga en cuenta,
+    <br> Aunque tomamos el teléfono hasta las <b>9 de la noche</b>.
+    <br>
+    <br> <b>Nosotros</b> en este momento (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+    <br> vamos a entablar una serie de <b>disputas</b> por usted
+    <br> para corregir esos <b>problemas</b> que tiene
+    <br> ya que esto <b><u>no</u></b> puede esperar.
+    <br>
+    <br> Usted esta corriendo contra el tiempo
+    <br> y por eso tenemos que atacar
+    <br> esas cuentas <b>negativas</b>
+    <br> y esas <b>variaciones</b> de identidad
+    <br> para que sean <b>eliminadas</b> de su reporte de crédito
+    <br> con el favor de <b>Dios</b>.
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) usted debe de estar muy <b>pendiente</b> a su correo
+    <br> porque va a recibir <b>directamente</b> a su casa
+    <br> la <b>contestación</b> de los buros de crédito
+    <br> Experian, <b>Equifax</b> y TransUnion
+    <br>
+    <br> Estos pueden ser <b>reportes</b> de 2 a 20 páginas
+    <br> y cada vez que le <b>lleguen</b> esos reportes
+    <br> les saca una <b>fotografía</b>
+    <br> y nos los <b>envía</b>
+    <br> que nosotros nos <b>encargamos</b>
+    <br> de contestar todo
+    <br>
+    <br> Porque como le <b>indiqué</b>
+    <br> si <b><u>no</u></b> los contestamos
+    <br> antes de <b>4 a 5 días</b>
+    <br> podemos <b>perder</b> el caso
+    <br>
+    <h1><b>OKAY?</b></h1>
+    <br>
+    <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br>
+    <br> Recuerde que nos debe de <b>enviar</b> toda la información
+    <br> que tenga que ver con su <b>crédito</b>
+    <br>
+    <h1><b>OKAY?</b></h1>
+    <br>
+    <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) recuerde
+    <br> darnos <b>siempre</b> una llamada
+    <br> <b>cada</b> semana
+    <br> y también <b>siempre</b>
+    <br> debe enviarnos todo sobre su crédito
+    <br> para que el departamento de <b>procesamiento</b>
+    <br> lo procese y poder ganar su caso.
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) busque lápiz y <b>papel</b>
+    <br> para que tome <b>nota</b>
+    <br> del número <b>directo</b> de mi oficina
+    <br> Me dice cuando los tenga a la mano
+    <br>
+    <h1><b>OKAY?</b></h1>
+    <br>
+    <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br>
+    <br> ¡ <b>Perfecto</b> , muy bien!
+    <br> tome nota,
+    <br> el <b>número</b> de teléfono es el <b>(914)-219-0014</b>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) <b>repítamelo</b>
+    <br> para ver si lo tomo <b>bien.</b>
+    <br>
+    <br> <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) Al llamarme, si <b>no</b> le contesto yo
+    <br> le va contestar uno de <b><u>mis</u></b> ayudantes
+    <br> que <b><u>son</u></b> las personas
+    <br> que van a estar <b>asignadas</b> a su caso.
+    <br>
+    <br> Recuerde que puede llamarnos las <b>9 de la noche</b>,
+    <br> los <b>7 días</b> de la semana,
+    <br> si usted quiere hablar <b>directamente</b> conmigo,
+    <br> usted <b>dice</b> que me comuniquen,
+    <br> y si <b>yo</b> en ese <b>momento</b>
+    <br> estoy en un programa de radio
+    <br> o en una reunión,
+    <br> le voy a <b>retornar</b> la llamada
+    <br> máximo <b>24 horas</b> después
+    <br> y si no, me puede volver a llamar <h1><b>OKAY?</b></h1>
+    <br>
+    <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br>
+    <br> y por <b>último</b> si lo llaman
+    <br> a <b>amenazarlo</b>
+    <br> o a <b>intimidarlo</b>
+    <br> recuerde que usted ya <b><u>NO</u></b> está solo
+    <br> usted está con <b>nosotros!</b>
+    <br> y siempre vamos a estar <b>aquí</b> para ayudarle.
+    <br>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+    <br> ¿Tiene alguna pregunta?
+    <br> hagame <b>todas</b> las preguntas que usted tenga
+    <br> yo soy una enciclopedia.
+    <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br>
+    <br> <b>Muy bien</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+    <br> ahora solo queda irnos <b>adelante</b>
+    <br> para que su <b>crédito</b>
+    <br> comience a restablecerse
+    <br> con el favor de Dios
+    <br> por eso vamos a <b>empezar</b>
+    <br> a <b>trabajar</b> ahora mismo
+    <br> ayudándole con todos esos <b>problemas</b>
+    <br> que usted tiene en su <b>crédito</b> esas
+    <br>
+    <br> () cuentas en manos de <b>abogados</b>
+    <br> () cuentas con <b>atrasos</b>
+    <br> () cuentas en agencia de <b>colecciones</b>
+    <br> en las que le pueden <b>lograr</b>
+    <br> un dictamen de <b>corte</b>
+    <br> y <b>embargarle</b> hasta el 25% de su <b>salario o ingreso</b>
+    <br>
+    <br> un posible <b>robo</b> de identidad,
+    <br> Y tenemos que <b>evitar</b>
+    <br> Que alguien coja
+    <br> un <b>automóvil</b>
+    <br> O una <b>casa</b>
+    <br> Y luego la <b>vendan</b>
+    <br> Y quien caiga <b>preso(a)</b>
+    <br> sea usted.
+    <br>
+    <br> Ahora lo <b>único</b> que nos falta
+    <br> es <b>matricularlo</b> a nuestro plan
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) ¿qué banco le queda <b>más cerca</b> ?
+    <br> ¿El <b>CHASE</b>, <b>BANK OF AMERICA</b> o el <b>TD BANK</b> ?
+    <br> <b>T</b> de Tatiana y <b>D</b> de David
+    <br> <b>TD BANK</b>
+    <br> ¿Cuál le queda <b>más cerca</b> ?
+    <br>
+    <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br>
+    <br> <b>Perfecto</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+    <br> Tome lápiz y papel para dictarle el número de cuenta
+    <br> del <b>banco (CHASE/TDBANK/BANK OF AMERICA)</b>
+    <br>
+    <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br> <b>¡Muy bien!</b> el número de cuenta es
+    <br> TD BANK: 434-170-9066 <b>a nombre de</b> Secreto Natural Internacional Inc
+    <br> CHASE: 578-057-850 <b>a nombre de</b> Secreto Natural International inc.
+    <br> BANK OF AMERICA: 898-11571-9236 <b>a nombre de</b> Secreto Natural International inc.
+    <br> que es nuestra cuenta <b>corporativa</b>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) repítamelo para ver si lo tomo <b>bien.</b>
+    <br>
+    <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br>
+    <br> <b>¡Perfecto!</b> Está muy bien (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+    <br> yo voy a dejar una <b>notica</b>
+    <br> al departamento de <b>contabilidad</b>
+    <br> para que nos <b>acrediten</b> la salida de sus cartas.
+    <br> Usted ¿a qué hora va a estar <b>(hoy/mañana)</b> en el banco?
+    <br> ¿En la <b>mañana</b> o en las horas del <b>lunch?</b>
+    <br>
+    <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br>
+    <br> <b>Muy bien (<span *ngIf="cliente">{{ cliente.nombres }}</span>)</b>
+    <br> entonces vamos para <b>adelante</b>
+    <br> en este momento voy a dar la <b>orden</b>
+    <br> para que el <b>trabajo</b> comience
+    <br> ni <b>yo</b> me echo para atrás
+    <br> ni <b>usted</b> se echa para atrás
+    <br> Lo que <b>vamos</b> a hacer (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+    <br> es que le <b>vamos</b> a dar una <b>segunda</b> oportunidad en su <b>crédito</b>
+    <br> ¿usted <b>quiere</b> esa segunda oportunidad (<span *ngIf="cliente">{{ cliente.nombres }}</span>) verdad que <b>si?</b>
+    <br>
+    <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br>
+    <br> <b>Entonces (<span *ngIf="cliente">{{ cliente.nombres }}</span>)</b>
+    <br> si usted me dice a <b>mí</b>
+    <br> que haga el <b>trabajo</b>
+    <br> que el <b>día (...)</b> a las <b>hora(...)</b>
+    <br> llueva truene o <b>relampaguee</b>
+    <br> usted va a estar en el <b>banco</b>
+    <br> y hace su <b>paguito</b>
+    <br>
+    <br> Y usted me dice a <b>mi</b>
+    <br> que le ayude a <b>evitar</b>
+    <br> a que su caso <b>no</b> se complique
+    <br> y luego puedan <b>demandarle y embargarle</b> el 25% de su <b>salario</b>
+    <br> yo comienzo <b>ahora</b> mismo con el trabajo
+    <br>
+    <br> <b>Pero (<span *ngIf="cliente">{{ cliente.nombres }}</span>)</b>
+    <br> si usted <b>no</b> me va a <b>cumplir</b>
+    <br> <b>no</b> me haga hacer el <b>trabajo</b>
+    <br> que me va a hacer <b>mucho</b> daño
+    <br> y yo a usted
+    <br> le voy a hacer <b>mucho mucho muchísimo bien.</b>
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+    <br> ¿Hago el <b>trabajo</b> o <b>no</b> lo hago?
+    <br>
+    <p class="green">
+      ESPERAR Y PROPICIAR REACCIÓN DEL PROSPECTO
+    </p>
+    <br>
+    <br> <b>¡Perfecto! (<span *ngIf="cliente">{{ cliente.nombres }} {{ cliente.apellidos }}</span>)</b>
+    <br> Bienvenido a la <b>gran</b> familia
+    <br> de <b>créditomejor.com</b>
+    <br> donde <b>su</b> crédito es lo <b>más</b> importante.
+    <br>
+    <br> En este momento lo <b>voy</b> a comunicar
+    <br> con el <b>encargado</b>
+    <br> del departamento de <b>verificación</b>
+    <br> él le va a validar que usted va <b>arreglar</b> su credito
+    <br> y <b>termina</b> la llamada con él
+    <br> entonces ya <b>nos</b> vamos para adelante
+    <br> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) no enganche ya lo(a) comunico.
+    <br>
+    <br>
+    <br>
+  </div>
+</div>
+

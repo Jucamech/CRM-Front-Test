@@ -1,0 +1,35 @@
+.popup,
+.cont {
+  position: fixed;
+  width: 400px;
+  text-align: center;
+  padding: 0 0 1rem 0;
+  left: calc(50% - 135px);
+}
+
+.popup {
+  flex-direction: column;
+  display: flex;
+  height: 165px;
+  background-color: #ffffff;
+  overflow: auto;
+}
+
+.popup ul li {
+  margin: 0!important;
+  padding: 5px!important;
+}
+
+.popup ul li :hover {
+  transform: translateY(-2px);
+  box-shadow: 2px 3px 4px 1px #0000008c;
+}
+
+.cancelar {
+  background-color: #0e3a79;
+  color: #fff;
+}
+
+.cancelar:hover {
+  background-color: darkred!important;
+}

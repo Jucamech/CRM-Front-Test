@@ -1,0 +1,49 @@
+.llamada {
+  background-color: #ffffff8c;
+  margin-top: 1rem;
+  box-shadow: -6px 8px 6px 0px #0000008c;
+  padding: 1rem;
+  width: 400px;
+  height: auto;
+  position: fixed;
+  top: 20%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  left: calc(50% - 200px);
+  z-index: 10;
+}
+
+.icon-call {
+  animation: palp 2s linear infinite alternate;
+}
+
+.circle-fill {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+@keyframes palp {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.swal2-icon.swal2-error {
+  background-color: red;
+  color: red;
+}
+.red{
+  color: red;
+}
+.scroll{
+  height: 150px;
+  overflow: auto;
+}

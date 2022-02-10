@@ -1,0 +1,55 @@
+<app-header></app-header>
+
+
+
+<div class="wrapper">
+  <nav id="sidebar">
+    <ul class="list-unstyled components mt-5">
+<!--
+      <li>
+        <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Campañas</a>
+        <ul class="collapse list-unstyled show" id="pageSubmenu1">
+
+          <li [class.selected]="opcionVer == i" *ngFor="let item of campanas; index as i">
+            <a (click)="opcionVer = i">{{item.data.name}}</a>
+          </li>
+
+        </ul>
+      </li> -->
+
+      <li (click)="getCampaV2()">
+        <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Campañas V2</a>
+        <ul class="collapse list-unstyled show" id="pageSubmenu2">
+
+          <li [class.selected]="opcionVer2 == i" *ngFor="let item of campV2; index as i">
+            <a (click)="opcionVer2 = i; getDataCampaV2(item.id, item)">{{ item.name }}</a>
+          </li>
+
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="content" style=" width: 100%; height: 90vh; overflow-y: auto">
+
+    <div class="content" style=" width: 100%">
+      <div class="content">
+
+        <div class="Documentacion" *ngIf="modocampa || dataCampV2">
+          <app-venta-campana-agente
+            [ind]="opcionVer"
+            [campa]="campanas"
+            [selcampV2]="selcampV2"
+            (llamandoEmit)="llamandoC = $event"
+            (llamando)="dataLlamando = $event"
+            [dataCampV2]="dataCampV2">
+          </app-venta-campana-agente>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-alertas></app-alertas>
+

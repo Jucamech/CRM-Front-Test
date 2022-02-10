@@ -1,0 +1,92 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light pt-0">
+  <a class="navbar-brand d-flex"  [routerLink]="['/']" routerLinkActive="active">
+    <img src="../../../assets/images/cm.png" width="auto" height="70" class="d-inline-block align-top"
+      alt="logo credito mejor" loading="lazy" />
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+
+<!--       <li class="nav-item mr-2" routerLinkActive="active">
+
+        <a class="nav-link" [routerLink]="['/ventas']" routerLinkActive="active"
+          *ngIf="departamento == 'Ventas' || nivel >= 3">
+          <b>Ventas</b>
+          <img src="../../../assets/iconos/ventas2.png" alt="icono ventas" />
+        </a>
+      </li> -->
+
+      <li class="nav-item mr-2" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/sac']" routerLinkActive="active"
+        *ngIf="departamento == 'SAC' || departamento == 'Ventas' || departamento == 'Monitoreo' || nivel >= 3">
+          <b>Servicio</b>
+          <img src="../../../assets/iconos/42421359-atención-al-client.jpeg" alt="icono servicio" />
+        </a>
+      </li>
+
+      <li class="nav-item " routerLinkActive="active" *ngIf="nivel >= 3 || departamento == 'Monitoreo' " >
+        <a class="nav-link mt-1" [routerLink]="['/monitorSuperV']" routerLinkActive="active"><b>MonitorSuper</b>
+          <img style="width: 32px; height: auto;"
+            src="../../../assets/iconos/monitor.png" alt="icono supe monitor" />
+        </a>
+      </li>
+
+      <li class="nav-item " routerLinkActive="active" *ngIf="nivel >= 3">
+        <a class="nav-link" [routerLink]="['/supervisor']" routerLinkActive="active"><b class="mr-1">Supervisor</b>
+          <img  src="../../../assets/iconos/45109908-administrador-gerente-supervisor.jpeg" alt="icono super visor" />
+        </a>
+      </li>
+
+      <li class="nav-item wht" routerLinkActive="active" (click)="whatsapp = !whatsapp" *ngIf="nivel >= 2 || isPau || isDal">
+        <img  src="../../../assets/iconos/whatsapp.png" alt="icono super visor" width="40px" />
+      </li>
+
+      <li class="nav-item ml-4" routerLinkActive="active">
+        <a class="nav-link" target="_blank" [routerLink]="['/speechsticket/inicio']" routerLinkActive="active"><b></b>
+          <img src="../../../assets/img_ticket/puertoR.png" alt="copia de ticket" />
+        </a>
+      </li>
+
+
+      <li class="nav-item d-flex align-items-center ml-5" routerLinkActive="active" *ngIf="emitida">
+        <button type="button" class="btn btn-success" style="border: solid 3px darkgreen" (click)="cambiarToggle()">
+          {{ emitida.id | json }}
+        </button>
+      </li>
+    </ul>
+
+    <div class="user btn">
+      <div class="img">
+
+        <img id="icon_user" alt="icon user" (click)="abrir()" />
+        <!--  <h4>Editar Perfil</h4> -->
+      </div>
+      <div class="cont">
+        <h5>{{ nombre }}</h5>
+        <h6>{{ departamento }}</h6>
+        <button class="btn btn-danger" (click)="cerrarSesion()" style="font-size: 60%; padding: 3px 20px">
+          Cerrar sesión
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="min_modal_user" *ngIf="togglePerfil">
+    <app-info-perfil></app-info-perfil>
+  </div>
+</nav>
+
+<div class="modal-citas" *ngIf="toggle">
+  <div class="cont2">
+    <app-citas-cli></app-citas-cli>
+  </div>
+</div>
+
+<div class="whastapp" *ngIf="whatsapp">
+  <app-whatsapp (cerrar)="whatsapp = false"></app-whatsapp>
+</div>

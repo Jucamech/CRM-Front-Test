@@ -1,0 +1,97 @@
+<app-header></app-header>
+<!-- Side navigation -->
+<div class="wrapper">
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="">
+            <h5 class="text-center mt-3">Ingresar Cliente</h5>
+        </div>
+        <hr>
+        <ul class="list-unstyled components">
+
+            <li>
+                <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Datos
+          Personales</a>
+                <ul class="collapse list-unstyled show" id="pageSubmenu1">
+
+                    <li [class.selected]="opcion==0">
+                        <a (click)="opcion=0">Datos basicos</a>
+                    </li>
+                    <li [class.selected]="opcion==1">
+                        <a (click)="opcion=1">Datos adicionales</a>
+                    </li>
+                   <!--  <li [class.selected]="opcion==2">
+                        <a (click)="opcion=2">Datos Tarjeta</a>
+                    </li> -->
+                </ul>
+            </li>
+        </ul>
+        <div class="form-group">
+            <input type="submit" value="Guardar" form="NgForm" class="btn btn-primary btn-lg btn-block" (click)="Autenticar()">
+        </div>
+    </nav>
+
+    <div class="content" style=" padding: 40px;width: 100%;">
+        <div>
+
+            <div class="content">
+
+                <div class="DatosPersonales" *ngIf="opcion==0">
+                    <app-datos-personales [formuPostClient]="formuPostClient" (enviarForm)="formuPostClient=$event"></app-datos-personales>
+                </div>
+
+                <div class="DatosAdicionales" *ngIf="opcion==1">
+                    <app-info-adicional [formuPostClient2]="formuPostClient2" (enviarForm)="formuPostClient2=$event"></app-info-adicional>
+                </div>
+
+                <div class="DatosAdicionales" *ngIf="opcion==2">
+                  <div class="form-row">
+
+<!--
+                    <div class="form-group col-md-3">
+                      <label for="id" class="text-white font-w">SSN - ITIN</label>
+                      <input type="text" name="id" class="form-control" [(ngModel)]="formuPostClient3.numero_id" />
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="id" class="text-white font-w">Licencia</label>
+                      <input type="text" name="id" class="form-control" [(ngModel)]="formuPostClient3.licencia" />
+                    </div> -->
+
+
+                    <div class="form-group col-md-3">
+                      <label for="id" class="text-white font-w">Número Tarjeta</label>
+                      <input type="text" name="id" class="form-control" [(ngModel)]="formuPostClient3.campos_adicionales.id_tarjeta"
+                        />
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="id" class="text-white font-w">CVC</label>
+                      <input type="text" name="id" class="form-control" [(ngModel)]="formuPostClient3.campos_adicionales.cv" />
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="id" class="text-white font-w">Expiración</label>
+                      <input type="text" name="id" class="form-control" [(ngModel)]="formuPostClient3.campos_adicionales.exp" />
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="id" class="text-white font-w">Nombre en Tarjeta</label>
+                      <input type="text" name="id" class="form-control" [(ngModel)]="formuPostClient3.campos_adicionales.nombres_tarjeta" />
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="id" class="text-white font-w">Tipo Tarjeta</label>
+                      <select [(ngModel)]="formuPostClient3.campos_adicionales.tipo_tarjeta" name="tipo_tarjeta">
+                        <option value="1" name="tipo_tarjeta">Debito</option>
+                        <option value="2" name="tipo_tarjeta">Credito</option>
+                      </select>
+                    </div>
+
+
+                  </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-alertas></app-alertas>
+

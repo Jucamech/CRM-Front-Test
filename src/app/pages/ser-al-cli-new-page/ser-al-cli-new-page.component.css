@@ -1,0 +1,57 @@
+.w100{
+  width: 100%;
+}
+.h100{
+  height: 100%;
+}
+.w50{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+.target:hover{
+  transform: translateY(-10px);
+}
+
+.main_sac{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin-top: -88px;
+  padding: 7rem;
+}
+
+.bloque{
+  display: flex;
+}
+
+.target{
+  margin-top: 2rem;
+  border-radius: 30px;
+  background-color: white;
+  box-shadow: -9px 11px 11px 2px;
+}
+
+.icon{
+  display: flex;
+  justify-content: center;
+  margin-left: 2rem;
+}
+
+.texto{
+  background-color: #093c7c;
+  color: white;
+  font-size: x-large;
+  font-weight: 700;
+  padding-left: 1rem;
+  box-shadow: -7px 2px 11px 2px black;
+}
+
+a{
+  color: gray;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+

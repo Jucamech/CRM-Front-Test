@@ -1,0 +1,31 @@
+.form-group select,
+.form-group input[type=text],
+.form-group input[type=tel],
+.form-group input[type=time],
+.form-group input[type=date] {
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.errores {
+  border: 1px solid;
+  font-weight: 600;
+  margin-top: 2px;
+  padding: 0 9px;
+  border-radius: 6px;
+  color: #f12337;
+}
+
+.obli {
+  color: red;
+}
+
+.reasignar_cita {
+  position: absolute;
+  top: 22%;
+  background-color: black;
+  width: 78%;
+  padding: 1rem;
+}

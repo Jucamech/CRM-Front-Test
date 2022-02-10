@@ -1,0 +1,23 @@
+
+.content {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  line-height: 45px;
+  margin: 4rem auto;
+  font-size: 33px;
+  text-align: center;
+}
+
+.green{ color: green;}
+.blue { color: blue;}
+.red { color: red;}
+
+.d-flex{
+  width: 50%;
+  margin: auto;
+  flex-direction: column;
+}
+.opc2{
+  font-weight: bold;
+}

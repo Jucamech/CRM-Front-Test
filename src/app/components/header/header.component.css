@@ -1,0 +1,71 @@
+nav a {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  padding: 6px;
+  padding-right: 20px;
+}
+
+.img {
+  width: 60px;
+  height: 60px;
+}
+.wht{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.user h5,
+h6 {
+  margin-bottom: 0;
+  font-size: 100%;
+}
+
+h6 {
+  font-size: 90%;
+}
+
+.cont {
+  margin: 0 15px;
+}
+
+ul li a img {
+  height: 40px;
+  width: auto;
+}
+
+.modal-citas {
+  position: fixed;
+  top: 88px;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+}
+
+.cont2 {
+  background-color: rgba(0, 0, 0, .9);
+  margin: auto;
+  width: 73%;
+  padding: 2rem;
+}
+
+#icon_user {
+  width: 40px;
+  height: 40%;
+  content: url('../../../assets/images/User-Icon.png');
+}
+
+#icon_user:hover {
+  content: url('../../../assets/images/create-logo.png');
+}

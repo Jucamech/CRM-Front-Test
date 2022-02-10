@@ -1,0 +1,311 @@
+
+<div class="content">
+  <div class="{{intro}}">
+      <br> Hace un <b>tiempo</b> nosotros
+      <br><b>comenzamos</b> a ayudarle
+      <br>a arreglar su <b>crédito</b>
+      <br>
+      <br>El <b>motivo</b> de mi llamada es
+      <br>para <b>brindarle</b>
+      <br>un <b>servicio</b> óptimo
+      <br>para juntos <b>evaluar</b>
+      <br>su <b>caso</b> e indicarle
+      <br> dónde <b>estamos</b>
+      <br> y hacía dónde<b> vamos</b>.
+      <br>
+      <br>Por eso es <b>importante</b>
+      <br>que a <b>partir</b> de este
+      <br>momento en <b>adelante</b>,
+      <br><b>tengamos</b> una muy
+      <br>buena <b>comunicación</b>.
+      <br>
+      <br>Yo soy <b>____</b>,
+      <br>la persona <b>asignada</b> a su caso
+      <br>y ahora en <b>adelante</b>,
+      <br><b>necesito</b> que usted tenga
+      <br>una muy buena <b>comunicación</b>
+      <br>conmigo para <b>seguir</b> adelantando
+      <br>su <b>proceso</b> de reparacion de crédito.
+      <br>
+      <br>(___) Yo <b>veo</b> aquí
+      <br>tal y como le <b>hemos</b> manifestado
+      <br>anteriormente,
+      <br>nosotros <b>hemos</b> realizado
+      <br>una <b>serie</b> de acciones.
+      <br>
+      <br>(___) <b>Primeramente</b>
+      <br>hemos logrado ayudarle
+      <br>a <b>verificar</b> y <b>eliminar</b>
+      <br>las <b>variaciones </b>
+      <br>de su <b>nombre</b> y <b>dirección</b>
+      <br>para poder <b>establecer</b>
+      <br>que <b>usted</b> es <span style="color: blue;">el/la</span> due&ntilde;<span style="color: blue;">o/a</span>
+      <br><b>absolut<span style="color: blue;">o/a</span></b>
+      <br>de su <b>seguro</b> social
+      <br>y por <b>ende</b> de su
+      <br>reporte de <b>crédito</b>
+      <br>eso lo hemos logrado
+      <br>gracias a Dios
+      <br>
+      <br>Ahora <b>bien</b>, herman<span style="color: blue;">o/a</span> (___)
+      <br>nosotros hemos <b>trabajado</b>
+      <br>en una <b>serie</b> de cuentas,
+      <br>importantes
+      <br>
+      <br>Estas <b>cuentas</b> son;
+      <br>la cuenta de <b>_________</b>
+      <br>con el <b>número</b>  _ _ _ _ _
+      <br>que está <b>reportada</b>
+      <br>en el <b>buró</b> de crédito:
+      <br><span style="color: blue;">(Experian, Equifax y TransUnion)</span>
+      <br>y <b>actualmente</b>
+      <br>la tiene en <b>proceso</b> de
+      <br><span style="color: blue;">(Agencia de <b>colección</b>,
+      <br>Abogados, <b>ChargeOff</b>, <br><b>citación</b> de corte )</span>
+      <br>
+      <br>En <b><u>creditomejor.com</u></b>,
+      <br>Dios <b>mediante</b>
+      <br>estamos <b>ayudándole</b>
+      <br>a <b>evitar</b> que le puedan
+      <br><b>demandar</b> en corte.
+      <br>
+      <br><b>Obtener</b> que a usted
+      <br><b><u>NO</u></b> lo demanden
+      <br> en <b>corte</b>
+      <br> eso es un gran <b>logro</b>
+      <br>ya que le puede <b>perjudicar</b>
+      <br><b><u>NO</u></b> solamente en su credito/puntaje
+      <br>sino también en su <b>bolsillo</b>.
+      <br>
+      <br> <b>Gracias</b> a Dios
+      <br> le hemos <b>ayudado</b> a evitar
+      <br> que le <b>demanden</b>
+      <br>
+      <br>Por que a usted <b><u>NO</u></b>
+      <br>lo han <b>demandado</b>
+      <br>¿Verdad que <b><u>NO</u></b>?
+      <br>
+      <br>
+      <span style="color: green;">
+          <label>Esperar reacción del cliente</label><br>
+          <input type="text"  placeholder="Respuesta del cliente">
+      </span>
+      <br>
+      <br>
+      <div>
+        <button type="button" class="btn_g" (click)="cambiarP('objectivo')">
+          Siguiente
+        </button>
+      </div>
+  </div>
+
+  <div class="{{ objectivo }}">
+      <br>
+      <br>Perfecto ese es el <b>objectivo</b>
+      <br>ahora bien, le <b>continuo</b> explicando
+      <br>
+      <br>Nosotros <b>enviamos</b> unas disputas
+      <br>y según la <b>documentación</b>
+      <br>que usted nos <b>envió</b>
+      <br>en la <b> página </b> _____,
+      <br>en el <b> párrafo</b> _____,
+      <br>en la <b> línea</b> _______,
+      <br>usted va ver la <b>siguiente</b> cuenta<br><br><br>
+
+  <button class="btn_g" type="button" (click)="verBtns('dlte')">
+      <span style="color: green;"><b><u>DELETE</u></b></span>
+  </button>
+
+  <button class="btn_g" type="button"  (click)="verBtns('cuentados')">
+      Otra cuenta
+  </button>
+
+  <div style="font-size: 36px;"  *ngIf="veridelet">
+      <span style="color: green;">Mencionar el  <b>número</b> de la cuenta<br>
+      <br>indicarle que si ve la palabra <b><u>DELETE</u></b></span>
+      <br>
+      <br>
+      <br>Eso <b>significa</b> que
+      <br>la cuenta fue <b>borrada</b>,
+      <br>eso <b>quiere</b> decir que son
+      <br><b><u>EXCELENTES NOTICIAS</u></b>
+      <br>
+      <br>porque tal y como le <b>habíamos</b> prometido
+      <br>nosotros ya estamos <b>ayudándole </b>
+      <br>a <b>arreglar</b> su crédito
+      <br>y a mejorar su <b>puntaje</b>
+      <br>o sea eso son <b>noticias</b>
+      <br>muy <b>positivas</b>.
+      <br><br><br>
+
+  </div>
+
+
+  <div style="font-size: 36px;"  *ngIf="segcuenta">
+      <br>Tambien hemos <b>trabajado</b>
+      <br>en la cuenta de <b>__________</b>
+      <br>con el <b>número</b> __________
+      <br>que está <b>reportada</b>
+      <br>en el <b>buró</b> de crédito:
+      <br><span style="color: blue;">(Experian, Equifax y TransUnion)</span>
+      <br>y <b>actualmente</b>
+      <br>la tiene en <b>proceso</b> de
+      <br><span style="color: blue;">(Agencia de <b>colección</b>,
+      <br>Abogados, <b>ChargeOff</b>, <br><b>citación</b> de corte )</span>
+      <br>
+      <br><span style="color: green;">Mencionar el  <b>número</b> de la cuenta
+      <br>indicarle que si ve la palabra <b><u>DELETE</u></b></span>
+      <br>
+      <br>En <b><u>creditomejor.com</u></b>,
+      <br>Dios <b>mediante</b>
+      <br>estamos <b>ayudándole</b>
+      <br>a <b>evitar</b> que le puedan
+      <br><b>demandar</b> en corte.
+      <br>
+      <br>
+  </div>
+
+      <br>
+      <br>Es <b>importante</b> que lo que nosotros
+      <br>hacemos con las <b>manos</b>,
+      <br>usted <u><b>NO</b></u> lo borre
+      <br>con los <b>pies</b>.
+      <br>
+      <br>Hemos <b>tenido</b> la situación
+      <br><b>con</b> algunos pocos clientes
+      <br>que <b>comienzan</b> a usar su
+      <br>tarjeta de <b>crédito </b>
+      <br>y <b>sobrepasan</b> el 30%
+      <br>cada <b>vez</b> que usted,
+      <br>sobrepase el 30% le <b>pueden</b>
+      <br><b>quitar</b> hasta 20, 30 o 50
+      <br>puntos de su <b>puntaje</b>,
+      <br>usted <b>tiene</b> que mantener su balance
+      <br>y su tarjeta de <b>crédito </b>
+      <br>entre un <b>15%</b>
+      <br>y un 30% <b>máximo</b>.
+      <br>
+      <br>Si usted se pasa <b>más</b> del 30%
+      <br><b>aunque</b> sea por un centavo,
+      <br>a usted le <b>pueden</b> restar puntos
+      <br>y los puntos que <b>nosotros</b>
+      <br>hemos <b>logrado</b>
+      <br>con esta cuenta <b>borrada</b>
+      <br>entonces <b>usted</b> los perdería
+      <br>y la <b>acción</b> que nosotros
+      <br>hemos hecho, usted la <b>haría</b> nula.
+      <br>
+      <br>En pocas <b>palabras</b> estaría
+      <br>haciendo acto de <b>terrorismo</b>
+      <br>contra su <b>crédito</b>
+      <br>por eso le <b>adviento</b>
+      <br>y tengo que <b>indicarle</b>
+      <br>que nuestra <b>conversación</b>,
+      <br>como todas las <b>conversaciones</b>
+      <br>son <b>grabadas</b>..
+      <br>
+      <br>Yo voy a <b>poner</b> aquí
+      <br>en su <b>archivo</b> que usted
+      <br>fue advertido de que <u><b>NO</b></u>
+      <br>puede pasar el <b>balance</b>
+      <br>de la tarjeta de <b>crédito</b>
+      <br>en <b>más</b> de un 30%
+      <br>
+      <br>¿Estamos <b>claros</b> (____)?
+      <br>
+      <br>(____) usted esta <b>consciente</b>
+      <br>de que <u><b>NO</b></u> puede pasar del 30%
+      <br>de su tarjeta de <b>crédito...</b>
+      <br><b>¿Cierto?</b>
+      <br>
+      <br>Tengo su <b>promesa</b> de que
+      <br>¿No va pasar <b>más</b> del 30%
+      <br>de su tarjeta de <b>crédito</b>?
+      <br>
+      <br>
+    <span style="color: green;">ESPERAR RESPUESTA</span><br><br>
+    <input type="text" placeholder="Escribir respuesta">
+<br><br>
+    <div>
+      <button type="button" class="btn_g" (click)="cambiarP('momentos')">
+        Siguiente
+      </button>
+    </div>
+  </div>
+
+  <div class="{{ momentos }}">
+    <br>
+    <br>Perfecto <b>habiendo</b> dicho eso,
+    <br>en estos <b>momentos</b>
+    <br>el simple <b>hecho</b> de haber
+    <br><b>borrado</b> esta cuenta
+    <br>l<span style="color: blue;">o/a</span> pone a usted
+    <br>en un camino positivo
+    <br>de la <b>recuperación</b>
+    <br>de su <b>crédito </b>
+    <br>para que con el <b>favor</b> de Dios
+    <br>usted <b>pueda</b> tener
+    <br>tarjeta de <b>crédito</b>,
+    <br><b>automóvil</b> nuevo o
+    <br><b>mejor</b> aún
+    <br>su casa <b>propia</b>
+    <br>con el <b>favor</b> de Dios
+    <br>
+    <br>Tengo que <b>indicarle</b> que esto
+    <br>es una <b>pelea</b> de boxeo
+    <br>en la <b>cual</b> hay
+    <br>12 <b>asaltos</b>,
+    <br>12 <b>rounds </b>
+    <br>y cada asalto <b>aquí</b> cuenta,
+    <br>la ley solo <b>permite</b> que nosotros
+    <br><b>reclamemos</b> 3 a 5 cuantas
+    <br>en cada <b>reclamación</b>
+    <br>hay veces que <b>inclusive</b>
+    <br>en una sola <b>reclamación</b>.
+    <br>
+    <br>Si es el <b>caso</b> que
+    <br><b>reclamamos</b> solo  una
+    <br><u><b>NO</b></u> lo que cuentan
+    <br><u><b>NO</b></u> es la batallas sino la <b></b>guerra
+    <br>nuestro trabajo es ayudarle
+    <br>a <b>ganar</b> la guerra
+    <br><b>contra</b> el mal crédito
+    <br>que <b>usted</b> tiene
+    <br>y que <b>exitosamente</b>
+    <br>podamos <b>ayudarle</b>.
+    <br>
+    <br>Tal y como se le <b>prometió</b>
+    <br>todo lo que le hemos <b>prometido</b>
+    <br>lo hemos <b>cumplido</b>.
+    <br>
+    <br>Ahora <b>bien</b> (____),
+    <br>tengo que <b>indicarle</b>
+    <br>que en <b>estos</b> momentos
+    <br>usted tiene la <b>oportunidad</b>,
+    <br>ya que <b>usted</b> ha visto
+    <br>los <b>resultados</b> positivos
+    <br>usted <b>obtener</b> un descuento
+    <br>en su <b>próximo</b> pago
+    <br>de <b>$100 dólares</b>
+    <br>menos por cada <b>referido</b>
+    <br>que <b>adquiera</b> nuestros servicios,
+    <br>
+    <br>Déjeme <b>explicarle</b>
+    <br>cómo <b>funcionan</b>
+    <br><b>nuestros</b> programas
+    <br>
+    <br>
+    <br>
+
+  <!-- El btn referido redirige a un componente diferente -->
+    <button id="btn">REFERIDO</button>
+
+    <br><br><br><br>
+
+    <h2 style="color: blue;">FIN</h2>
+
+    <br><br><br><br>
+
+  </div>
+
+</div>

@@ -1,0 +1,285 @@
+<div class="row">
+  <div class="col-12">
+    <h5 class="text-center text-light py-3">Documentacion - Pagos</h5>
+    <div class="d-flex btC" *ngIf="idCliente">
+      <button class="btx" (click)="cerrarForm()">x</button>
+    </div>
+  </div>
+</div>
+
+<div class="bt mb-2">
+  <button type="button" class="btn btn-success" (click)="modal = true">Ver Resumen</button>
+</div>
+
+<div class="bt" *ngIf="!toogle && isSupervisor">
+  <button type="button" class="btn btn-warning" (click)="toogle = true">Generar Cobro</button>
+</div>
+
+
+<div class="gen_cobro" *ngIf="toogle && isSupervisor">
+  <h5>Generar Nuevo Cobro</h5>
+  <form #F_P>
+    <div class="form-row">
+
+      <div class="form-group col-md-3">
+        <label for="tipo_pago_im" class="text-white font-w">Tipo Cobro</label>
+        <select id="tipo_pago_im" name="tipo_pago_im" class="form-control" maxlength="1" [(ngModel)]="tipo_pago"
+          #tipo_pago_imI="ngModel">
+          <option value="1" name="tipo_pago_im"> Mensualidad</option>
+          <option value="2" name="tipo_pago_im"> Inscripción</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="valor" class="text-white font-w">Valor</label>
+        <input type="number" name="valor" class="form-control" [(ngModel)]="valor" #valorI="ngModel" />
+      </div>
+
+      <div class="form-group col-md-3"><!-- [min]="Hoy"  -->
+        <label for="pago" class="text-white font-w">Fecha de Pago</label>
+        <input type="date" name="fecha_pago" class="form-control" [(ngModel)]="fecha_pago"
+          #fecha_pagoI="ngModel" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="valor" class="text-white font-w">Descripción</label>
+        <input type="text" name="descripcion" class="form-control" [(ngModel)]="descripcion" #descripcionI="ngModel" />
+      </div>
+
+
+      <div class="form-group col-md-3">
+        <label for="status" class="text-white font-w">Cobro/Pago</label>
+          <select  name="status" class="form-control" maxlength="1" [(ngModel)]="status" #statusI="ngModel">
+            <option value="1" name="status">Pago</option>
+            <option value="0" name="status">Cobro</option>
+          </select>
+      </div>
+
+      <div class="form-group col-md-3" *ngIf="status == '1' ">
+        <label for="color" class="text-white font-w">Color</label>
+          <select  name="color" class="form-control" maxlength="1" [(ngModel)]="color"
+            #colorI="ngModel">
+            <option value="1" name="color">Purpura</option>
+            <option value="2" name="color">Blanco</option>
+            <option value="3" name="color">Rosado</option>
+            <option value="4" name="color">Amarillo</option>
+            <option value="5" name="color">Caqui</option>
+            <option value="6" name="color">Celeste</option>
+            <option value="7" name="color">Verde</option>
+            <option value="8" name="color">Rojo</option>
+          </select>
+      </div>
+
+
+      <div class="form-group col-md-3" *ngIf="status == '1'" >
+        <label for="medio" class="text-white">Medio</label>
+        <select name="medio" class="form-control" [(ngModel)]="medio">
+          <option *ngFor="let m of medios" [value]="m[1]">{{m[0]}}</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="cobro" class="text-white font-w">Nuevo Registro</label>
+        <button class="btn btn-primary btn-small btn-block" (click)="agregarCobro()"> Add... </button>
+
+        <div class="form-group mt-2" style="margin: auto;">
+          <button class="btn btn-danger btn-small btn-block " (click)="toogle = false">
+            CANCELAR
+          </button>
+        </div>
+
+      </div>
+
+      <!-- <div class="form-group col-md-3"></div>
+      <div class="form-group col-md-3"></div> -->
+
+    </div>
+  </form>
+</div>
+
+
+<div class="cobro">
+  <table class="table table-striped t_mod">
+    <thead>
+      <tr style="background-color: #212529;">
+        <th scope="col">Pago de :</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Comentario</th>
+        <th scope="col">Fecha de Cobro</th>
+        <th scope="col">Opc</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of dataCobro;">
+        <td>
+          <span [ngSwitch]="item.tipo_pago">
+            <span class="cero" *ngSwitchCase="1">Mensualidad</span>
+            <span class="cero" *ngSwitchCase="2">Inscripción</span>
+          </span>
+        </td>
+        <td>$ {{ item.valor }}</td>
+        <td>{{ item.descripcion }}</td>
+        <td>{{ item.fecha_pago | slice:0:10 }}</td>
+        <td>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="green" class="bi bi-recycle m-1"
+            viewBox="0 0 16 16" (click)="reciclarCobro(item)" title="Cambiar la Fecha de Cobro">
+            <path d="M9.302 1.256a1.5 1.5 0 0 0-2.604 0l-1.704 2.98a.5.5 0 0 0 .869.497l1.703-2.981a.5.5 0 0 1 .868 0l2.54 4.444-1.256-.337a.5.5 0 1 0-.26.966l2.415.647a.5.5 0 0 0 .613-.353l.647-2.415a.5.5 0 1 0-.966-.259l-.333 1.242-2.532-4.431zM2.973 7.773l-1.255.337a.5.5 0 1 1-.26-.966l2.416-.647a.5.5 0 0 1 .612.353l.647 2.415a.5.5 0 0 1-.966.259l-.333-1.242-2.545 4.454a.5.5 0 0 0 .434.748H5a.5.5 0 0 1 0 1H1.723A1.5 1.5 0 0 1 .421 12.24l2.552-4.467zm10.89 1.463a.5.5 0 1 0-.868.496l1.716 3.004a.5.5 0 0 1-.434.748h-5.57l.647-.646a.5.5 0 1 0-.708-.707l-1.5 1.5a.498.498 0 0 0 0 .707l1.5 1.5a.5.5 0 1 0 .708-.707l-.647-.647h5.57a1.5 1.5 0 0 0 1.302-2.244l-1.716-3.004z"/>
+          </svg>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" title="Confirmar Pago"
+          class="bi bi-check-circle-fill m-1" viewBox="0 0 16 16" (click)="confirmarPago(item)">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+          </svg>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor " *ngIf="is_admin"
+            class="bi bi-trash-fill ml-1" viewBox="0 0 16 16" (click)="delCobro(item)">
+            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+          </svg>
+
+        </td>
+      </tr>
+</tbody>
+</table>
+</div>
+
+<div style="max-height: 41vh; overflow: auto">
+  <table class="table table-hover table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Pago de :</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Comentario</th>
+        <th scope="col">Fecha de Pago</th>
+        <th scope="col">Medio</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of dataPago; index as i">
+        <div [ngSwitch]="item.tipo_pago">
+          <td *ngSwitchCase="1">Mensualidad</td>
+          <td *ngSwitchCase="2">Inscripción</td>
+        </div>
+        <td>$ {{ item.valor }}</td>
+        <td style="width: 45%;">{{ item.descripcion }}</td>
+        <td>{{ item.fecha_pago | slice:0:10 }}</td>
+        <td>
+          <span *ngFor="let m of medios">
+            <span *ngIf="item.medio == m[1]">{{ m[0] }}</span>
+          </span>
+        </td>
+        <td>
+          <button type="button" disabled class="btn btn-success" >Factura</button>
+          <button type="button" class="btn btn-warning" *ngIf="super_adm" (click)="pasarCobros(item)" >Cambiar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="bg" *ngIf="modal">
+  <div class="sue_bg">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h4 class="ml-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="green" class="bi bi-person-circle icon_mod" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg>
+            {{ Cliente.nombres }} {{ Cliente.apellidos }}
+          </h4>
+          <button type="button" class="close" (click)="cerrarModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body" >
+          <div class="row">
+
+
+            <div class="form-group col-md-6">
+              <label for="fecha_envio" class="">Fecha de Inicio : </label>
+              <b></b>
+
+            </div>
+            <div class="form-group col-md-6">
+              <label for="fecha_envio" class="">Mensualidad : </label>
+              <b class="green">{{ Cliente.valor_mensualidad }}</b>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="fecha_envio" class="">Inscripción : </label>
+              <b class="green">{{ totalI }}/{{ Cliente.valor_inscripcion }}</b>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="fecha_envio" class="">Total Mensualidad : </label>
+              <b class="green">{{ totalM }}</b>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="fecha_envio" class="">Plan Meses : </label>
+              <b>{{ Cliente.plan_mes }}</b>
+            </div>
+
+            <div class="form-group col-md-6" *ngIf="Cliente.plan_mes > 0">
+              <label for="fecha_envio" class="">Debe : </label>
+              <b class="red">{{ Cliente.plan_mes * Cliente.valor_mensualidad - totalM  }}</b>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="fecha_envio" class="">Último Pago : </label> <br>
+              <span>$ <b class="green">{{ dataPago[ dataPago.length - 1 ].valor }}</b>
+                / <b> {{ dataPago[ dataPago.length - 1 ].fecha_pago }}</b>
+              </span>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="fecha_envio" class="">Cobros Generados : </label>
+              <b>{{ totalG }}</b>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="fecha_envio" class="">Cobros Pendientes : </label>
+              <b class="red">{{ dataCobro.length }}</b>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="fecha_envio" class="">Total Recaudado : </label>
+              $ <b class="green">{{ totalM + totalI }}</b>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"(click)="cerrarModal()">Close</button>
+          <button type="button" class="btn btn-primary" >Confirmar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item" *ngIf="tooglePop3">
+  <app-pop-up-confirmacion (toogle3Emit)="tooglePop3 = false; refresh() " [dataItem]="item"> </app-pop-up-confirmacion>
+</div>
+
+<div class="recic" *ngIf="modalRecic">
+  <div class="body_r p-2">
+    <h4>Cambiar la Fecha de Cobro </h4>
+    <hr>
+    <div class="b p-2">
+      <input class="form-control" [min]="Hoy" type="date" name="fecha" [(ngModel)]="fecharRecicl">
+      <div class="f d-flex justify-content-around mt-2 ">
+        <button type="button" class="btn btn-secondary" (click)="modalRecic = false; item2 = null">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="cambiarLaFecha()">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+.content {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.padre{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-items: stretch;
+    margin-top: 4rem;
+}
+
+.centro{
+    display: flex;
+    flex-direction: row;
+    border-top: 7px black double;
+    border-bottom: 7px black double;
+    border-left: 7px black double;
+    /* flex-direction: column; este sirve para forzar
+    a que quede como columna */
+}
+.izquierdo,
+.derecho{
+    background: purple;
+    font-size: 17px;
+    font-family: serif;
+    color: white;
+}
+h3{
+    width: 2rem;
+}
+.izquierdo{
+    border-left: 7px black double;
+    border-bottom: 7px black double;
+    border-top: 7px black double;
+}
+.derecho{
+    border-left: 7px black solid;
+    border-right: 7px black double;
+    border-bottom: 7px black double;
+    border-top: 7px black double;
+}
+.rosa,
+.verde,
+.azul,
+.amarillo,
+.negro{
+  margin: auto;
+  width: 100%;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.uno{
+    background: pink;
+}
+.dos{
+    background: #B0E540;
+}
+.tres{
+    background: #00E3FF;
+}
+.cuatro{
+    background: yellow;
+}
+.negro{
+    background: black;
+    color: white;
+}

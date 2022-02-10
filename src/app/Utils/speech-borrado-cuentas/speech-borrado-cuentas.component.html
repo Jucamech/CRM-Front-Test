@@ -1,0 +1,514 @@
+<div class="content">
+  <div class="{{ intro }}">
+    <br />
+    Dios le <b>bendiga</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>)
+    <br />
+    <br />
+    Le <b>habla</b> ____, <br />
+    soy una de las <b>personas</b> <br />
+    que va a estar encargada de su <b>caso</b> <br />
+    y de aquí en <b>adelante</b>, <br />
+    vamos a tener una <b>MUY</b> buena comunicación <br />
+    para que hagamos un <b>BUEN</b> trabajo en equipo, <br />
+    ya que, con el <b>favor</b> de Dios <br />
+    vamos a lograr reparar su <b>crédito</b>.
+    <br />
+    <br />
+    Ahora <b>bien</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), <br />
+    lo <b>MáS</b> importante <br />
+    es que ya estamos <b>hablando</b> <br />
+    y voy a <b>aprovechar</b> en contarle <br />
+    y <b>explicarle</b> cada una de las cuentas <br />
+    que nosotros <b>disputamos</b> <br />
+    y los grandes <b>logros</b> que hemos obtenido.
+    <br />
+    <br />
+    <span style="color: green">(Esperar reacción del cliente)</span>
+    <br />
+    <br />
+    (<span *ngIf="cliente">{{ cliente.nombres }}</span>), <br />
+    <span
+      >¿Quién es la persona que recibe <br />
+      la correspondencia en su hogar?</span
+    >
+
+    <br />
+    <input type="text" placeholder="Escriba aquí la respuesta" />
+    <br />
+    <br />
+    <br />
+    (<span *ngIf="cliente">{{ cliente.nombres }}</span>), En cualquier <b>momento</b> le pueden <br />
+    estar llegando <b>resultados</b> <br />
+    y contestaciones de los <b>burós</b> de crédito <br />
+    que le faltan experian, <b>equifax</b> y transunion, <br />
+    los cuales debemos analizar <b>INMEDIATAMENTE</b>, <br />
+    Tan pronto le lleguen los <b>resultados</b> <br />
+    Es <b>importante</b> que inmediatamente <br />
+    Usted le tome una foto a todas las <b>páginas</b>, <br />
+    ya que le <b>pueden</b> llegar de 2 páginas <br />
+    Hasta <b>40</b> páginas en total <br />
+    Y cada página debe de tomarle una <b>foto</b> <br />
+    Y <b>enviárnosla</b> en el acto, <br />
+    Ya que hay unos <b>códigos</b> <br />
+    Que nos indican que reclamaciones <b>ganamos</b> <br />
+    Y cuales tenemos que seguir <b>peleando</b>.
+    <br />
+    <br />
+    El tiempo <b>apremia</b>, <br />
+    Asi que esto usted lo <b>debe</b> <br />
+    de hacer <b>inmediatamente</b> <br />
+    reciba cualquier documentación <br />
+    que tenga que ver con su <b>crédito</b>.
+    <br />
+    <br />
+    Recuerde que en <b>creditomejor.com</b> <br />
+    <b>trabajamos</b> para usted <br />
+    las <b>24</b> horas del día <br />
+    los <b>7</b> días de la semana <br />
+    con el <b>único</b> objetivo <br />
+    de ayudar a <b>lograr</b>, <br />
+    con el favor de <b>Dios</b> <br />
+    a <b>resolver</b> estos problemas <br />
+    que tiene en el <b>crédito</b> <br />
+    y/o a <b>aumentarle</b> <br />
+    su <b>puntaje</b>.
+    <br />
+    <br />
+    Igual (<span *ngIf="cliente">{{ cliente.nombres }}</span>), <b>tenemos</b> <br />
+    un tiempo <b>estipulado</b> <br />
+    para que ellos <b>respondan</b>, <br />
+    y si por algún <b>motivo</b> <br />
+    se pasan de ese <b>tiempo</b>, <br />
+    pues <b>inmediatamente</b> entraremos <br />
+    a hacer una <b>reclamación</b>, <br />
+    que nos permite la <b>ley</b> <br />
+    la cual le voy a explicar más <b>adelante</b> <br />
+    de ser <b>necesario</b> que la hagamos, <br />
+    ya que tenemos muchas <b>estrategias</b> <br />
+    para cada <b>situación</b>, <br />
+    en cada <b>buró</b> de crédito <br />
+    y no vamos a <b>descansar</b> <br />
+    hasta con el favor de Dios, <b>lograrlo</b>.
+    <br />
+    <br />
+    ¿Tiene alguna otra pregunta?
+    <br />
+    <br />
+
+    <button class="btn_g" type="button" (click)="verBtns('cb')">
+      CUENTA BORRADA
+    </button>
+
+    <button class="btn_g" type="button" (click)="verBtns('sr')">
+      SOLICITAR REFERIDOS
+    </button>
+
+    <div style="font-size: 36px" *ngIf="cuentaborrada">
+      <span style="color: green"
+        >Mencionar el <b>número</b> de la cuenta<br />
+        <br />indicarle que si ve la palabra <b><u>DELETE</u></b></span
+      >
+      <br />
+      <br />
+      <br />Eso <b>significa</b> que <br />la cuenta fue <b>borrada</b>,
+      <br />eso <b>quiere</b> decir que son <br /><b
+        ><u>EXCELENTES NOTICIAS</u></b
+      >
+      <br />
+      <br />porque tal y como le <b>habíamos</b> prometido <br />nosotros ya
+      estamos <b>ayudándole </b> <br />a <b>arreglar</b> su crédito <br />y a
+      mejorar su <b>puntaje</b> <br />o sea eso son <b>noticias</b> <br />muy
+      <b>positivas</b>. <br /><br /><br />
+      <br />
+      En el <b>documento</b> que usted <br />
+      nos <b>envío</b> en la página # ________ <br />
+      demuestra que la <b>cuenta</b> # ________ <br />
+      de <span style="color: blue"><b>Equifax</b>/Transunion/Experian</span>,
+      <br />
+      la cual el <b>departamento</b> de reclamaciones <br />
+      refutó con este <b>buró</b> de crédito <br />
+      para ayudarle a <b>reparar</b> su crédito, <br />
+      <b>logramos</b> que la borraran.
+      <br />
+      <br />
+      Esta es una de las la <b>razones</b> <br />
+      por la cual <b>usted</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>) <br />
+      nos <b>llamó</b> a nosotros, <br />
+      para que <b>pueda</b> tener <br />
+      un <b>mejor</b> crédito, <br />
+      para que pueda <b>Dios</b> mediante <br />
+      tener su <b>casita</b> propia.
+      <br />
+      <br />
+      (<span *ngIf="cliente">{{ cliente.nombres }}</span>), el hecho que hayamos <b>ayudado</b> <br />
+      a borrar esa cuenta es un <b>gran</b> logro <br />
+      que le demuestra a usted un gran <b>avance</b>.
+      <br />
+      <br />
+      ¡(<span *ngIf="cliente">{{ cliente.nombres }}</span>), <br />
+      Pero en este <b>momento</b>, <br />
+      la <b>buena</b> noticia, <br />
+      es que ya ese reporte de <b>crédito</b> <br />
+      que usted tenía <b>negativo</b>, <br />
+      en su caso ese <b>estigma</b>, <br />
+      esa <b>mancha</b> que usted tenía, <br />
+      ya <b><u>NO</u></b> la tiene.
+      <br />
+      <br />
+      obvio que le subió su <b>puntaje</b> <br />
+      tal y como le habíamos <b>prometido</b> <br />
+      por ende su <b>crédito</b> <br />
+      está <b>MUCHO</b> mejor <br />
+      y estamos <b><u>MáS</u></b> cerca <br />
+      con el favor de <b>Dios</b> <br />
+      de <b>obtener</b> esa casita, <br />
+      ya que usted <b>tiene</b> <br />
+      <b>excelentes</b> resultados!
+      <br />
+      <br />
+    </div>
+
+    <div style="font-size: 36px" *ngIf="solicitarreferidos">
+      <br />
+      ¡Le tengo muy <b>buenas</b> noticias!
+      <br />
+      <br />
+      Usted <b>califica</b> para un programa <br />
+      que tenemos en el cual por <b>cada</b> <br />
+      persona hasta tres a la vez que usted <br />
+      nos <b>refiera</b> que compre nuestro servicio <br />
+      nosotros le vamos a descontar <b>$100</b> por cada uno <br />
+      de su <b>próximo</b> pago.
+      <br />
+      <br />
+      O sea que si usted nos refiere <b>una</b> persona <br />
+      en vez de pagarnos el próximo mes <b>$260</b> <br />
+      solamente paga en su próximo pago <b>$160</b> <br />
+      economizándose <b>cien</b> dólares.
+      <br />
+      <br />
+      Si usted nos refiere <b>dos</b> personas <br />
+      en vez de pagarnos el próximo mes <b>$260</b> <br />
+      solamente paga en su próximo pago <b>$60</b> <br />
+      economizándose <b>doscientos</b> dólares.
+      <br />
+      <br />
+      y cuando usted nos refiera <b>tres</b> personas <br />
+      en vez de pagarnos el próximo mes <b>$260</b> <br />
+      No paga <b>nada</b> en su próximo mes <br />
+      y nosotros le tenemos que dar la diferencia <b>$60</b> <br />
+      economizándose su próximo pago <b>completo</b>.
+      <br />
+      <br />
+      Ahora <b>bien</b>... <br />
+      (<span *ngIf="cliente">{{ cliente.nombres }}</span>), debido a que tenemos <b>programas</b> <br />
+      en la radio <b>constantemente</b> <br />
+      e incluso anunciamos nuestra <b>página</b> web <br />
+      es <b>importante</b> que usted inscriba ahora mismo <br />
+      los nombres de sus <b>parientes</b>, amigos, vecinos <br />
+      y <b>compañeros</b> de trabajo.
+      <br />
+      <br />
+      Antes de que ellos nos <b>llamen</b> directamente a nosotros <br />
+      por la publicidad que <b>anunciamos</b> en los medios; <br />
+      Ya que si ellos nos llaman y <b><u>NO</u></b> están inscritos <br />
+      entonces usted <b>pierde</b> de 100 a 300 dólares <br />
+      de <b>descuento</b> para usted.
+      <br />
+      <br />
+      Por eso es <b>importante</b> <br />
+      <b>Inscribirlos</b> ahora mismo...
+      <br />
+      <br />
+      (<span *ngIf="cliente">{{ cliente.nombres }}</span>) <br />
+      <span>¿En quién está pensando?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <br />
+      ¿Esta pensando en algún amigo o amiga, vecinos, <br />
+      compañeros de trabajo o familiar?
+      <br />
+      <br />
+      <br />
+      <span>¿A quién tiene en mente?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <br />
+      <span>¿Cómo se llama?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <br />
+      <b>Perfecto</b>... <br />
+      <span>¿Cuál es su teléfono?</span>
+      <br />
+      <br />
+      <input type="number" placeholder="Escriba el número" />
+      <br />
+      <br />
+      <br />
+      Y nosotros <b><u>NO</u></b> le llamamos <br />
+      hasta que usted <b>hable</b> con _______ <br />
+      Pero vamos a <b>inscribirle</b> <br />
+      con el <b>teléfono</b> porque si llama <br />
+      es por que escuchó la <b>publicidad</b> <br />
+      al estar <b>inscrit<span style="color: blue">o/a</span></b
+      >, <br />
+      nosotros le damos los <b>$100</b> a usted.
+      <br />
+      <br />
+      <span>¿Cuál es el teléfono?</span>
+      <br />
+      <br />
+      <input type="number" placeholder="Escriba el número" />
+      <br />
+      <br />
+      Dígamelo <b>despacito</b>, para anotarle bien
+      <br />
+      <br />
+      <span>¿Cuál es el teléfono?</span>
+      <br />
+      <br />
+      <input type="number" placeholder="Escriba el número" />
+      <br />
+      <br />
+      <br />
+      <span>¿Cuál es el nombre?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <br />
+      Dígamelo <b>despacito</b>, para anotarle bien...
+      <br />
+      <br />
+      <span>¿Cómo se llama?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <br />
+      <span>¿En quién más esta pensando ?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <br />
+      Estoy seguro que usted <b>conoce</b> gente <br />
+      que tienen <b>mal</b> crédito y que <br />
+      nosotros le podemos <b>ayudar</b>.
+      <br />
+      <br />
+      ¿Puede ser un amigo o amiga?
+      <br />
+      <br />
+      <br />
+      <span>¿Quién sería ese amigo o esa amiga?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <br />
+      <span>¿En quién esta pensando?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <br />
+      ¿Puede ser un vecino o vecina?
+      <br />
+      <br />
+      <span>¿Quien sería ese vecino? O ¿Esa vecina?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <br />
+      <span>¿A quién ponemos aquí?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <br />
+      Recuerde que son <b>$100</b> <br />
+      Por cada <b>referido</b> que <br />
+      se <b>inscriba</b> en nuestro programa...
+      <br />
+      <br />
+      <span>¿En quién esta pensando?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <br />
+      Puede ser un <b>familiar</b>
+      <br />
+      <br />
+      <span>¿Quién sería ese familiar?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <br />
+      <span>¿En quién esta pensando?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <br />
+      Puede ser su <b>mamá</b> o su papá... <br />
+      Un <b>hermano</b> o una hermana
+      <br />
+      <br />
+      <span>¿Cómo esta el crédito de ellos?</span>
+      <br />
+      <br />
+      <input
+        type="text"
+        name="credito"
+        id="cre"
+        placeholder="Escriba aquí la respuesta"
+      />
+      <br />
+      <br />
+      <br />
+      Un <b>tio</b> o tia <br />
+      Sobrino o <b>sobrina</b>.
+      <br />
+      <br />
+      <span>¿Qué familiar suyo tiene mal crédito?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <br />
+      <span>¿A cuál familiar ponemos aquí?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <span>¿En quién esta pensando?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+      <br />
+      Muy <b>bien</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), <br />
+      lo que vamos hacer es lo <b>siguiente</b>, <br />
+      es <b>importante</b> que usted llame a _________ <br />
+      y le diga la <b>buena</b> experiencia <br />
+      que <b>usted</b> ha tenido con nosotros <br />
+      en la ayuda de su <b>reparación</b> del crédito, <br />
+      y le <b>indique</b> que nosotros <br />
+      tenemos un <b>sístema</b> en el cual <br />
+      por solo <b>1</b> dólar le ayudamos <br />
+      a sacar el <b>reporte</b> de crédito, <br />
+      y le decimos si <b>posiblemente</b> <br />
+      tiene problemas con <b>abogados</b> <br />
+      o que le puedan <b>demandar</b>... <br />
+      Que es como cuando uno tiene un <b>cáncer</b> <br />
+      Uno quiere <b>saberlo</b>, <br />
+      Bueno pues lo mismo pasa con el <b>crédito</b> <br />
+      Uno quiere saber si es <b>posible</b> <br />
+      Que le <b>demanden</b> en corte.
+      <br />
+      <br />
+      <b>Indíquele</b> a ___________ <br />
+      que <b>usted</b> lleva un tiempo <br />
+      <b>trabajando</b> con nosotros <br />
+      para <b>arreglar</b> su crédito.
+      <br />
+      <br />
+      Indíquele que usted lo <b>refirió</b> <br />
+      y que por eso nosotros le vamos a <b>llamar</b> <br />
+      en un <b>ratito</b>, para así de esta forma <br />
+      poder ayudarle a sacar el <b>reporte</b> de crédito <br />
+      Y esto le va a dar una <b>idea</b> <br />
+      si es que tiene <b>problemas</b> con el crédito <br />
+      o si tiene problema de <b>corte</b> <br />
+      o con abogados o de <b>demanda</b>.
+      <br />
+      <br />
+      (<span *ngIf="cliente">{{ cliente.nombres }}</span>), es <b>importante</b> que le diga a ___________ <br />
+      que a veces Las personas piensan <b>equivocadamente</b> <br />
+      que están bien, pero es <b>posible</b> que <br />
+      tenga <b>problemas</b> de corte o de abogados <br />
+      y la gente no se da <b>cuenta</b>.
+      <br />
+      <br />
+      Entonces por eso es que es bien <b>importante</b> <br />
+      que ella sepa que la vamos a <b>llamar</b> <br />
+      en unos 15 minutos porque lo <b>primero</b> <br />
+      que queremos es <b>ver</b> si puede tener <br />
+      o ya tiene algún tipo de problema <b>legal</b> <br />
+      para <b>inmediatamente</b>, <br />
+      nosotros poder ayudarle <b>OKEY</b>!
+      <br />
+      <br />
+      Entonces (<span *ngIf="cliente">{{ cliente.nombres }}</span>), <b>cuénteme</b>
+      <br />
+      <br />
+      <span>¿Qué le va a decir a ___________?</span>
+      <br />
+      <br />
+      <input type="text" placeholder="Escriba aquí la respuesta" />
+      <br />
+      <br />
+    </div>
+    <br />
+    <br />
+    (<span *ngIf="cliente">{{ cliente.nombres }}</span>), Necesito que sea <b><u>MUY</u></b> responsable <br />
+    Y que tenga mucho <b>juicio</b>, <br />
+    revisando el buzón <b>TODOS</b> los días, <br />
+    y espero que <b>ya</b> lo esté haciendo.
+    <br />
+    <br />
+    <span style="color: green">(Esperar reacción del cliente)</span>
+    <br />
+    <br />
+    <br />
+    <b>Bueno</b> (<span *ngIf="cliente">{{ cliente.nombres }}</span>), <br />
+    DIOS LE <b>BENDIGA</b> <br />
+    <b>Feliz</b> día.
+    <br />
+    <br />
+    <br />
+
+    <div class="btn-uy mt-4">
+      <a  target="_blank" [routerLink]="['/speechsticket/speechLeFaltanDocumentos']" >
+        <button>
+          Le Faltan Documentos
+        </button>
+      </a>
+    </div>
+
+    <div class="btn-uy mt-4">
+      <a  target="_blank" [routerLink]="['/speechsticket/speechArronrent']" >
+        <button>
+          Arron Rentan Center
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
