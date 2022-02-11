@@ -303,3 +303,19 @@
   border-radius: 10px;
 }
 
+textarea::-webkit-outer-spin-button,
+textarea::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+textarea::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+textarea {
+  overflow:hidden
+}

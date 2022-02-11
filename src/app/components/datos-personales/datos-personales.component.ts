@@ -231,9 +231,9 @@ export class DatosPersonalesComponent implements OnInit {
 
   edit(){
     Swal.fire({
-      title: 'Login Form',
+      title: 'Login',
       html: `<input type="password" id="user"  class="swal2-input" placeholder="Usuario">
-      <input type="password" id="password" class="swal2-input" placeholder="Pass">`,
+      <input type="password" id="password" class="swal2-input" placeholder="Contraseña">`,
       confirmButtonText: 'Enviar',
       focusConfirm: false,
       preConfirm: () => {
@@ -419,10 +419,84 @@ export class DatosPersonalesComponent implements OnInit {
     `;
     this.funcSer.showSweetHTML(tittle, html, 'Siguiente').then((r) => {
       if (r) {
-        this.funcSer.PermisoLLamar = true;
-        this.router.navigateByUrl(`llamarcliente/${this.id}`);
+        this.askAuthorization()
+        //this.confirmAdmin()
+        //this.funcSer.PermisoLLamar = true;
+        //this.router.navigateByUrl(`llamarcliente/${this.id}`);
       }
     });
+  }
+  //Un usuario con nivel 4 debe de loguearse para poder continuar con la llamada
+  confirmAdmin(){
+    Swal.fire({
+      title: 'Para continuar debe de iniciar sesión un administrador',
+      icon: 'info',
+      html: `<input type="text" id="user"  class="swal2-input" placeholder="Usuario">
+      <input type="password" id="password" class="swal2-input" placeholder="Contraseña">`,
+      confirmButtonText: 'Iniciar sesión',
+      focusConfirm: false,
+      preConfirm: () => {
+        const login = Swal.getPopup().querySelector('#user')
+        const password = Swal.getPopup().querySelector('#password')
+        if (!login || !password) {
+          Swal.showValidationMessage(`Ingresa el Usuario y la contraseña`)
+        }
+        return { login: login, password: password }
+      }
+    }).then((result) => {
+      let user = result.value.login['value'];
+      let password = this.funcSer.enCrypt( result.value.password['value'] );
+      const E$l = this.httpServ.login({ user, password }).subscribe(res => {
+        if (res['token']) {
+          const Token = this.funcSer.parseJwt(res['token']);
+          this.funcSer.log('token', Token );
+          if (Token.data.nivel > 3 ) {
+            this.no_admin = false;
+            this.funcSer.showSweetSuccess('Ok!', 'Puede realizar la llamada', 1300);
+            this.funcSer.PermisoLLamar = true;
+            this.router.navigateByUrl(`llamarcliente/${this.id}`);
+          } else {
+            this.funcSer.showSweetWarning('Error!','Nivel insuficiente!', 2500);
+          }
+        } else {
+          this.funcSer.showSweetWarning('Error!','Verifica usuario y contraseña', 2500);
+        }
+        E$l.unsubscribe();
+      });
+    });
+  }
+  //Se elige si se va a enviar un mensaje al admin o si el admin va a ir a loguearse personalmente
+  askAuthorization(){
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-primary'
+      },
+      buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+      title: 'Necesitas autorización de un administrador',
+      text: "¿Qué acción deseas realizar?",
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonText: 'Login',
+      cancelButtonText: 'Solicitar autorización',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.confirmAdmin()
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Mensaje enviado!',
+          text:'Espera mientras el administrador confirma tu mensaje. No te salgas de este mensaje, tomate un tinto mientras :)',
+          confirmButtonText: 'Loguearse personalmente',
+          showConfirmButton: true,
+          timer: 300000
+        })
+      }
+    })
   }
 
   crearNota(){
